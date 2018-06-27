@@ -1,7 +1,7 @@
-import socket
+import socket_m3
 
-phone = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
-phone.setsockopt(socket.SOL_SOCKET,socket.SO_REUSEADDR,1)
+phone = socket_m3.socket(socket_m3.AF_INET, socket_m3.SOCK_STREAM)
+phone.setsockopt(socket_m3.SOL_SOCKET, socket_m3.SO_REUSEADDR, 1)
 
 phone.bind(('127.0.0.1',8080))
 
