@@ -7,7 +7,6 @@
 import socket
 
 phone = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-#服务停止，系统回收占用的端口，再次启动服务提示地址被占用，所以此选项是重新使用占用的端口地址
 phone.setsockopt(socket.SOL_SOCKET,socket.SO_REUSEADDR,1)
 
 phone.bind(('127.0.0.1',8081))
@@ -68,7 +67,7 @@ conn,caddr = phone.accept()
 
 while True:
     data = conn.recv(1024)
-    #在linux系统中，当客户端断开连接时，会一直打印'接收客户端的数据'，是因为服务端一直在等待接收数据,所以添加如下代码，表示如果没有数据，就会执行break结束循环
+    #在linux系统中，当客户端断开连接时，服务端会一直打印'接收客户端的数据'，是因为服务端一直在等待接收数据,所以添加如下代码，表示如果没有数据，就会执行break结束循环
     if not data:
         break
     print('接收客户端的数据',data)
