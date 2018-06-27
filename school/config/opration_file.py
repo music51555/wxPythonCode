@@ -1,3 +1,5 @@
+import pickle
+
 class Opration_file:
     def read_file(self,filename,mode):
         if mode == 'r':
@@ -5,7 +7,8 @@ class Opration_file:
             return f
         elif mode == 'rb':
             f = open(filename,'rb')
-            return f
+            resource_info = pickle.load(f)
+            return resource_info
 
     def write_file(self,filename,mode):
         if mode == 'w':
