@@ -23,20 +23,37 @@
 # b1 = bar()
 # b1.f1()
 # print(foo.__bases__)
+# import
+# class A:
+#     def func1(self):
+#         print('from A')
+#         print(super())
+#         super().func1()
+#
+# class B:
+#     def func1(self):
+#         print('from B')
+#
+# class C(A,B):
+#     pass
+#
+# c = C()
+# c.func1()
+# print(C.mro())
 
-class A:
-    def func1(self):
-        print('from A')
-        print(super())
-        super().func1()
+class Foo:
+    __school = 'LuffySchool'
 
-class B:
-    def func1(self):
-        print('from B')
+    def __study(self):
+        print('Foo is studying')
 
-class C(A,B):
-    pass
+    def eat(self):      #Bar类中没有eat方法，于是在父类中查看，当遇到self.__study()时，由于__study是在类定义阶段就已经变为_Foo_study，所以访问的是Foo类中的__study函数，所以只能访问本类中的__变量属性
+        print('Foo is eating')
+        self.__study()
 
-c = C()
-c.func1()
-print(C.mro())
+class Bar(Foo):
+    def __eat(self):
+        print('Bar is studying')
+
+b = Bar()
+b.eat()

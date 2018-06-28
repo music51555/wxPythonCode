@@ -1,19 +1,36 @@
-import socket_m3
+import socket
+import subprocess
 
-phone = socket_m3.socket(socket_m3.AF_INET, socket_m3.SOCK_STREAM)
-phone.setsockopt(socket_m3.SOL_SOCKET, socket_m3.SO_REUSEADDR, 1)
+phone = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+phone.setsockopt(socket.SOL_SOCKET,socket.SO_REUSEADDR,1)
 
-phone.bind(('127.0.0.1',8080))
+phone.bind(('127.0.0.1',8083))
 
-phone.listen(5)
-
-print('准备接收客户端连接')
-conn,caddr = phone.accept()
+phone.listen(1)
 
 while True:
-    try:
-        data = conn.recv(1024)
-        conn.send(data.upper())
-    except ConnectionResetError as e:
-        print(e)
-        break
+    print('starting...')
+    conn,caddr = phone.accept()
+    print(caddr)
+    print('获取连接客户端的IP地址和端口',conn.getpeername())
+
+
+    while True:
+        try:
+            cmd = conn.recv(1024)
+            obj = subprocess.Popen(cmd.decode('GBK'),shell = True,
+                             stdout = subprocess.PIPE,
+                             stderr = subprocess.PIPE)
+
+            stdout = obj.stdout.read()
+            stderr = obj.stderr.read()
+            print(len(stdout + stderr))
+
+            conn.send(stdout + stderr)
+        except ConnectionResetError as e:
+            print(e)
+            break
+    conn.close()
+
+phone.close()
+
