@@ -62,3 +62,160 @@ while True:
 phone.close()
 ```
 
+send方法是把应用程序产生您的数据发送给操作系统的内存，拷贝给操作系统后就算完成了send操作，只有一步操作copy data
+
+recv方法时等待接收数据，服务器操作系统通过网卡接口接收到数据，应用程序通过操作系统的内存拷贝数据到应用程序
+
+**粘包的产生：**
+1、时间间隔小，2、数据量小的包合并在一起发送，减少网络IO，此时产生了粘包
+
+客户端：
+
+```python
+import socket
+import time
+
+phone = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+phone.connect(('127.0.0.1',8081))
+#1、客户端发送数据量小，时间间隔短时会产生粘包，是Nagle优化算法
+phone.send('hello'.encode('utf-8'))
+phone.send('world'.encode('utf-8'))
+
+#2、如果间隔5秒发送第二次消息，在服务端的第二次消息就会接收到world
+phone.send('hello'.encode('utf-8'))
+time.sleep(5)
+phone.send('world'.encode('utf-8'))
+
+phone.close()
+```
+
+
+
+服务端：
+
+```python
+import socket
+
+phone = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+phone.bind(('127.0.0.1',8081))
+
+phone.listen(5)
+
+print('starting')
+conn,caddr = phone.accept()
+
+#1、打印helloworld，产生了粘包
+cmd1 = conn.recv(1024)
+print(cmd1)
+
+#2、服务端接收一次数据后，完整的接收了客户端发送的数据，此时管道中没有残留数据，并在第二次接收数据时接收到了world，没有产生粘包，那么就意味着完整接收数据后就不会产生粘包
+cmd1 = conn.recv(1024)
+#打印hello
+print(cmd1)
+
+cmd2 = conn.recv(1024)
+#打印world
+print(cmd2)
+
+#1-3、如果第一次只接收一个bytes，那么在第二次接收时，就会接收到第一次的残留数据ello+world
+cmd1 = conn.recv(1)
+print(cmd1)
+
+cmd2 = conn.recv(1024)
+print(cmd2)
+
+conn.close()
+
+phone.close()
+```
+
+
+
+解决粘包问题：
+
+服务端：
+
+1、制定固定长度的报头
+
+2、把报头固定长度发给客户端
+
+3、发送数据
+
+客户端：
+
+1、客户端接收报头，接收stuct对象
+
+2、从报头中解析对真实数据的描述信息
+
+3、打印数据
+
+```python
+import socket
+import subprocess
+import struct
+
+server = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+
+server.bind(('127.0.0.1',8081))
+
+server.listen(5)
+
+while True:
+    conn,addr = server.accept()
+
+    while True:
+        cmd = conn.recv(1024)
+        if not cmd:
+            break
+        obj = subprocess.Popen(cmd.decode('utf-8'),
+                         shell = True,
+                         stdout = subprocess.PIPE,
+                         stderr = subprocess.PIPE)
+        stdout = obj.stdout.read()
+        stderr = obj.stderr.read()
+
+        total_size = len(stdout)+len(stderr)
+        #header本身就是bytes类型，可以直接发送
+        header = struct.pack('i',total_size)
+        conn.send(header)
+
+        conn.send(stdout)
+        conn.send(stderr)
+    conn.close()
+
+server.close()
+```
+
+
+
+```python
+import socket
+import struct
+
+client = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+
+client.connect(('127.0.0.1',8080))
+
+while True:
+    cmd = input('>>>:')
+    if not cmd:
+        continue
+    client.send(cmd.encode('utf-8'))
+    #1、接收到struct对象
+    header = client.recv(4)
+    #2、解析报头
+    total_size = struct.unpack('i',header)[0]
+
+    recv_size = 0
+    recv_data = b''
+    while recv_size < total_size:
+        data = client.recv(1024)
+        recv_data += data
+        recv_size += len(data)
+    print(recv_data.decode('utf-8'))
+
+client.close()
+```
+
