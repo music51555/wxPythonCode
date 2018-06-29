@@ -1,36 +1,33 @@
 import socket
 import subprocess
+import struct
 
-phone = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
-phone.setsockopt(socket.SOL_SOCKET,socket.SO_REUSEADDR,1)
+ip_port = ('127.0.0.1',8090)
 
-phone.bind(('127.0.0.1',8083))
+server = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 
-phone.listen(1)
+server.bind(ip_port)
+
+server.listen(5)
 
 while True:
-    print('starting...')
-    conn,caddr = phone.accept()
-    print(caddr)
-    print('获取连接客户端的IP地址和端口',conn.getpeername())
-
-
+    conn,caddr = server.accept()
     while True:
         try:
             cmd = conn.recv(1024)
-            obj = subprocess.Popen(cmd.decode('GBK'),shell = True,
+            obj = subprocess.Popen(cmd.decode('GBK'),
+                             shell = True,
                              stdout = subprocess.PIPE,
                              stderr = subprocess.PIPE)
-
             stdout = obj.stdout.read()
             stderr = obj.stderr.read()
-            print(len(stdout + stderr))
+            total_size = len(stdout) + len(stderr)
 
-            conn.send(stdout + stderr)
+            header = struct.pack('i',total_size)
+            conn.send(header)
+            conn.send(stdout)
+            conn.send(stderr)
         except ConnectionResetError as e:
             print(e)
             break
-    conn.close()
-
-phone.close()
 

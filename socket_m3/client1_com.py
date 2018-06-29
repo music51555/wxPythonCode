@@ -1,16 +1,28 @@
 import socket
+import struct
 
-phone = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+ip_port = ('127.0.0.1',8090)
 
-phone.connect(('127.0.0.1',8083))
-print(phone.getsockname())
+client = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+
+client.connect(ip_port)
 
 while True:
     cmd = input('>>>:')
     if not cmd:
         continue
-    phone.send(cmd.encode('GBK'))
-    data = phone.recv(1024)
-    print(data.decode('GBK'))
 
-phone.close()
+    client.send(cmd.encode('GBK'))
+
+    header = client.recv(4)
+    total_size = struct.unpack('i',header)[0]
+
+    recv_data = b''
+    recv_size = 0
+    while recv_size < total_size:
+        print('come in')
+        data = client.recv(1024)
+        recv_data += data
+        recv_size += len(recv_data)
+        print(recv_size)
+    print(recv_data.decode('GBK'))

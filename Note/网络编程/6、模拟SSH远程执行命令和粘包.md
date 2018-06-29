@@ -37,8 +37,6 @@ while True:
 phone.close()
 ```
 
-
-
 客户端
 
 ```python
@@ -49,7 +47,7 @@ phone = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 phone.connect(('127.0.0.1',8081))
 
 while True:
-    #粘包：两次结果粘到了一起。当发送的命令是ls /时，返回的结果就会很少，在接收设置的1024个字节范围之内，但是当输入ifconfig后，接收的内容达到2826个，完全超出了1024个字节，所以第一次接收时只会输出1024个字节，导致在服务端到客户端发送信息的管道中积压的发送的数据，在IO缓冲区中积压了剩下的1082个字节，再次执行ls /命令时，命令的执行结果继续积压在了管道中，此时接收的是1082个字节中的1024个字节内容，仍是执行ifconfig命令残留的结果，这种现象被称为粘包现象，接收的是上一次残留的结果
+    #粘包：就是在客户端没有接收完上次的结果，导致两次结果粘到了一起。当发送的命令是ls /时，返回的结果就会很少，在接收设置的1024个字节范围之内，但是当输入ifconfig后，接收的内容达到2826个，完全超出了1024个字节，所以第一次接收时只会输出1024个字节，导致在服务端到客户端发送信息的管道中积压的发送的数据，在IO缓冲区中积压了剩下的1082个字节，再次执行ls /命令时，命令的执行结果继续积压在了管道中，此时接收的是1082个字节中的1024个字节内容，仍是执行ifconfig命令残留的结果，这种现象被称为粘包现象，接收的是上一次残留的结果
     cmd = input('>>>:')
     if not cmd:
         continue
@@ -90,8 +88,6 @@ phone.send('world'.encode('utf-8'))
 phone.close()
 ```
 
-
-
 服务端：
 
 ```python
@@ -114,15 +110,15 @@ print(cmd1)
 cmd1 = conn.recv(1024)
 #打印hello
 print(cmd1)
-
 cmd2 = conn.recv(1024)
 #打印world
 print(cmd2)
 
 #1-3、如果第一次只接收一个bytes，那么在第二次接收时，就会接收到第一次的残留数据ello+world
+#接收到h
 cmd1 = conn.recv(1)
 print(cmd1)
-
+#接收到elloworld
 cmd2 = conn.recv(1024)
 print(cmd2)
 
@@ -133,25 +129,10 @@ phone.close()
 
 
 
-解决粘包问题：
-
-服务端：
-
-1、制定固定长度的报头
-
-2、把报头固定长度发给客户端
-
-3、发送数据
-
-客户端：
-
-1、客户端接收报头，接收stuct对象
-
-2、从报头中解析对真实数据的描述信息
-
-3、打印数据
+**解决粘包：简单版**
 
 ```python
+#服务端
 import socket
 import subprocess
 import struct
@@ -177,8 +158,9 @@ while True:
         stderr = obj.stderr.read()
 
         total_size = len(stdout)+len(stderr)
-        #header本身就是bytes类型，可以直接发送
+        #1、制定固定长度的报头，通过struct模块的pack方法，将i（integer）参数的数据长度进行封装为bytes类型的报头
         header = struct.pack('i',total_size)
+        #2、把报头固定长度发给客户端，header本身就是bytes类型，所以可以直接发送
         conn.send(header)
 
         conn.send(stdout)
@@ -191,31 +173,36 @@ server.close()
 
 
 ```python
+#客户端
 import socket
 import struct
 
+ip_port = ('127.0.0.1',8090)
+
 client = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 
-client.connect(('127.0.0.1',8080))
+client.connect(ip_port)
 
 while True:
     cmd = input('>>>:')
     if not cmd:
         continue
-    client.send(cmd.encode('utf-8'))
-    #1、接收到struct对象
-    header = client.recv(4)
-    #2、解析报头
-    total_size = struct.unpack('i',header)[0]
 
-    recv_size = 0
+    client.send(cmd.encode('GBK'))
+	#1、客户端接收报头，接收stuct对象，struct包存放的是服务端传送数据的报头，包中封装着命令结果的数据长度，是bytes类型，长度是4，所以在客户端先接收4个字节长度的包，并通过struct模块的unpack解析数据包，得到数据长度
+    header = client.recv(4)
+    #2、从报头中解析对真实数据的描述信息
+    total_size = struct.unpack('i',header)[0]
+	#接收的bytes类型的数据结果，所以需要和提供的bytes类型空字符串相结合
     recv_data = b''
+    recv_size = 0
+    #针对数据结果的实际长度，循环接收结果内容
     while recv_size < total_size:
         data = client.recv(1024)
         recv_data += data
-        recv_size += len(data)
-    print(recv_data.decode('utf-8'))
-
-client.close()
+        recv_size += len(recv_data)
+        print(recv_size)
+    #3、打印数据结果
+    print(recv_data.decode('GBK'))
 ```
 
