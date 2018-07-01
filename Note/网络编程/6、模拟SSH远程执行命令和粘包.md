@@ -1,6 +1,6 @@
-借助于subprocess模块，来模拟SSH远程执行命令
+**借助于subprocess模块，来模拟SSH远程执行命令**
 
-服务端
+**服务端**
 
 ```python
 import socket
@@ -37,7 +37,7 @@ while True:
 phone.close()
 ```
 
-客户端
+**客户端**
 
 ```python
 import socket
@@ -67,7 +67,7 @@ recv方法时等待接收数据，服务器操作系统通过网卡接口接收�
 **粘包的产生：**
 1、时间间隔小，2、数据量小的包合并在一起发送，减少网络IO，此时产生了粘包
 
-客户端：
+**客户端**：
 
 ```python
 import socket
@@ -88,7 +88,7 @@ phone.send('world'.encode('utf-8'))
 phone.close()
 ```
 
-服务端：
+**服务端**：
 
 ```python
 import socket
@@ -150,6 +150,7 @@ while True:
         cmd = conn.recv(1024)
         if not cmd:
             break
+        #obj是subprocess.Popen对象
         obj = subprocess.Popen(cmd.decode('utf-8'),
                          shell = True,
                          stdout = subprocess.PIPE,
@@ -170,8 +171,6 @@ while True:
 server.close()
 ```
 
-
-
 ```python
 #客户端
 import socket
@@ -189,9 +188,9 @@ while True:
         continue
 
     client.send(cmd.encode('GBK'))
-	#1、客户端接收报头，接收stuct对象，struct包存放的是服务端传送数据的报头，包中封装着命令结果的数据长度，是bytes类型，长度是4，所以在客户端先接收4个字节长度的包，并通过struct模块的unpack解析数据包，得到数据长度
+	#1、客户端接收报头，接收的是stuct对象的打包数据，struct包存放的是服务端传送数据的报头，包中封装着命令结果的数据长度，是bytes类型，长度是4，所以在客户端先接收4个字节长度的包，并通过struct模块的unpack解析数据包，得到数据长度
     header = client.recv(4)
-    #2、从报头中解析对真实数据的描述信息
+    #2、从报头中解析封装的传递数据长度，是一个元祖(12344，)
     total_size = struct.unpack('i',header)[0]
 	#接收的bytes类型的数据结果，所以需要和提供的bytes类型空字符串相结合
     recv_data = b''
@@ -204,5 +203,97 @@ while True:
         print(recv_size)
     #3、打印数据结果
     print(recv_data.decode('GBK'))
+```
+
+
+
+**解决粘包：终极版**
+
+之前是封装发送数据的长度，然后解析struct包，获取长度，接收数据，但是struct指定i或l参数的长度是有限的，所以把报头可以制作成字典的形式，里面存储报头的各类信息，如文件名、文件的MD5，文件的长度等，然后把字典通过json序列化为字符串类型，通过编码为bytes类型，然后通过struct封包后发送，在客户端解析struct包，获取了报头的长度，就可以完整的接收报头数据
+
+```python
+#服务端
+import socket
+import subprocess
+import struct
+import json
+
+server = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+server.setsockopt(socket.SOL_SOCKET,socket.SO_REUSEADDR,1)
+
+server.bind(('127.0.0.1',8080))
+
+server.listen(5)
+
+while True:
+    conn,caddr = server.accept()
+
+    while True:
+        cmd = conn.recv(1024)
+        subobj = subprocess.Popen(cmd.decode('utf-8'),
+                         shell = True,
+                         stdout = subprocess.PIPE,
+                         stderr = subprocess.PIPE)
+
+        stdout = subobj.stdout.read()
+        stderr = subobj.stderr.read()
+
+        total_size = len(stdout + stderr)
+		#在之前传递的报头中封装了传递数据的长度，可能会由于参数i和参数l的大小限制，无法满足传递数据的大小，所以将header改写为一个字典，在字典中存储传输数据的大小，就不会受到大小限制
+        header_dict = {
+            'filename':'a.txt',
+            'md5':'123daksdhiu',
+            'total_size':total_size
+        }
+		#如果要传输字典，就需要先将报头通过json序列化为字符串，再序列化为bytes类型
+        header_json = json.dumps(header_dict)
+        header_bytes = header_json.encode('utf-8')
+        #将准备传输的报头大小，封装在struct的pack包中先行进行传递，并在客户端解析header的长度，进行接收
+        conn.send(struct.pack('i',len(header_json)))
+		#客户端解析header数据大小后，将header字典的bytes类型信息发送
+        conn.send(header_bytes)
+        conn.send(stdout)
+        conn.send(stderr)
+    conn.close()
+server.close()
+```
+
+```python
+#客户端
+import socket
+import struct
+import json
+
+ip_port = ('127.0.0.1',8080)
+
+client = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+
+client.connect(ip_port)
+
+while True:
+    cmd = input('>>>:')
+    if not cmd:
+        continue
+    client.send(cmd.encode('utf-8'))
+	#因为服务端先发送的是固定4字节长度的struct包，存储的是报头的长度，解析得到报头数据长度
+    header = client.recv(4)
+    header_size = struct.unpack('i',header)[0]
+	
+ 	#得到报头的数据长度后，就可以完整的接收到报头的bytes类型的字典数据，之所以不用循环接收报头数据，因为定义的报头字典的长度在1024范围之内，
+    header_bytes = client.recv(header_size)
+    #将报头的bytes类型反序列化为字典类型，header_data
+    header_dict = json.loads(header_bytes.decode('utf-8'))
+    #通过报头字典就得到了准备传输数据的长度
+    total_size = header_dict['total_size']
+
+    recv_size = 0
+    recv_data = b''
+    while recv_size < total_size:
+        data = client.recv(1024)
+        recv_data += data
+        recv_size += len(data)
+    print(recv_data.decode('utf-8'))
+
+client.close()
 ```
 
