@@ -1,3 +1,8 @@
 [alex]
 password = 123456
+name = alex
+
+[peiqi]
+password = 123456
+name = peiqi
 

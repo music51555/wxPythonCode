@@ -1,10 +1,10 @@
 import socket
 import sys
 import os
-import struct
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 from core import login
+from setting import set_struct
 
 class FTPServer:
     reuse_addr = True
@@ -26,15 +26,20 @@ class FTPServer:
 
     def server_accept(self):
         self.conn, self.caddr = self.server.accept()
-        self.verify_account()
+        while True:
+            login_info = set_struct.struct_unpack(self.conn)
+            if login_info == None:
+                break
 
-    def verify_account(self):
-        login_header = self.conn.recv(4)
-        login_size = struct.unpack('i', login_header)[0]
-        login_dict = self.conn.recv(login_size)
-        username = login_dict['username']
-        password = login_dict['password']
-        login.UserBehavior.login(username, password)
+            issuccess = login_obj.login(login_info)
+
+            set_struct.struct_pack(self.conn, issuccess)
+            if issuccess == True:
+                print('账户验证成功，服务端准备就绪...')
+                return
+            else:
+                print('账户验证失败，服务端重置连接...')
+                continue
 
     def get(self):
         pass
@@ -45,22 +50,28 @@ class FTPServer:
     def run(self):
         self.server_bind()
         self.server_listen()
-        self.server_accept()
         while True:
-            print('服务端准备就绪，等待连接...')
-
+            self.server_accept()
             while True:
-                cmd = self.conn.recv(self.max_recv_size)
-                if not cmd:
-                    print('客户端关闭，重置连接')
+                try:
+                    cmd = self.conn.recv(self.max_recv_size)
+                    # if not cmd:
+                    #     print('客户端关闭，服务端重置连接')
+                    #     break
+                    request_method = cmd.decode('utf-8')[0]
+                    if hasattr(request_method):
+                        func = getattr(self, request_method)
+                        func()
+                    self.conn.close()
+                except ConnectionResetError as e:
+                    print(e)
                     break
-                request_method = cmd.decode('utf-8')[0]
-                if hasattr(request_method):
-                    func = getattr(self,request_method)
-                    func()
+
 
 if __name__ == '__main__':
     f = FTPServer('127.0.0.1',8080)
+    print('请先登录...')
+    login_obj = login.UserBehavior()
     f.run()
 
 
