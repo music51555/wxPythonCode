@@ -1,12 +1,15 @@
 import hashlib
-import os
+import sys
 
 def set_md5(msg):
-    if os.name == 'nt':
-        msg_bytes = msg.encode('GBK')
-    else:
-        msg_bytes = msg.encode('utf-8')
+    msg_bytes = msg.encode(sys.getdefaultencoding())
     m = hashlib.md5(msg_bytes)
-    print(m.hexdigest())
+    return m.hexdigest()
 
-set_md5('hello')
+def set_file_md5(file):
+    f = open(file,'rb')
+    m = hashlib.md5()
+    for line in f:
+        m.update(line)
+    f.close()
+    return m.hexdigest()

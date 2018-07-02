@@ -1,6 +1,8 @@
 import os
 import configparser
 
+from setting import set_md5
+
 class UserBehavior:
     base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -65,17 +67,19 @@ class UserBehavior:
         username = login_info['username']
         password = login_info['password']
 
+        password_md5 = set_md5.set_md5(password)
+
         self.conf.read(self.account_file)
 
         if mode == 'set':
             self.conf.add_section(username)
-            self.conf.set(username,'password',password)
+            self.conf.set(username,'password',password_md5)
             self.conf.set(username,'name',login_info['name'])
             self.conf.write(open(self.account_file,'w'))
 
         if mode == 'read':
-            if self.conf.has_section(username) and password == self.conf[username]['password']:
-                return True
+            if self.conf.has_section(username) and password_md5 == self.conf[username]['password']:
+                return True,username
             else:
                 return False
 
