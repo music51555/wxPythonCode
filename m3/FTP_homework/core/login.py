@@ -1,7 +1,7 @@
 import os
 import configparser
 
-from setting import set_md5
+from setting import set_init
 
 class UserBehavior:
     base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -9,6 +9,10 @@ class UserBehavior:
     account_file = '%s/%s/account.init' % (base_dir, 'db')
 
     conf = configparser.ConfigParser()
+    init = set_init.set_Init()
+
+    put_size_1mb = 1000000
+    put_size_total_mb = put_size_1mb * 100
 
     def register(self):
         while True:
@@ -49,11 +53,12 @@ class UserBehavior:
                     user_info = {
                         'username': username,
                         'password': password,
-                        'name': name
+                        'name': name,
+                        'disk_size':self.put_size_total_mb
                     }
 
-                    self.set_account(user_info,'set')
-                    print('注册成功')
+                    self.init.set_conf(user_info,'set')
+                    print('恭喜您，注册成功，您获得100MB云空间')
                     self.set_home_dir(username)
                     return
                 if account_confirm in ['n', 'N']:
@@ -61,27 +66,7 @@ class UserBehavior:
 
     def login(self,login_info):
         if os.path.exists('%s/%s/%s' % (self.base_dir, 'db', 'account.init')):
-            return self.set_account(login_info,'read')
-
-    def set_account(self,login_info,mode):
-        username = login_info['username']
-        password = login_info['password']
-
-        password_md5 = set_md5.set_md5(password)
-
-        self.conf.read(self.account_file)
-
-        if mode == 'set':
-            self.conf.add_section(username)
-            self.conf.set(username,'password',password_md5)
-            self.conf.set(username,'name',login_info['name'])
-            self.conf.write(open(self.account_file,'w'))
-
-        if mode == 'read':
-            if self.conf.has_section(username) and password_md5 == self.conf[username]['password']:
-                return True,username
-            else:
-                return False
+            return self.init.set_conf(login_info,'read')
 
     def set_home_dir(self,username):
         os.mkdir('%s/%s/%s'%(self.base_dir,'share',username))

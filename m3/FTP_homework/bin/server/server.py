@@ -9,9 +9,9 @@ from core import login
 from setting import set_struct
 from setting import set_file
 from setting import set_md5
+from setting import set_init
 
 class FTPServer:
-    reuse_addr = True
     max_queue_size = 5
     max_recv_size = 8192
     base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -24,8 +24,7 @@ class FTPServer:
 
     def server_bind(self):
         self.server.bind((self.host,self.port))
-        if self.reuse_addr:
-            self.server.setsockopt(socket.SOL_SOCKET,socket.SO_REUSEADDR,1)
+        self.server.setsockopt(socket.SOL_SOCKET,socket.SO_REUSEADDR,1)
 
     def server_listen(self):
         self.server.listen(self.max_queue_size)
@@ -49,11 +48,24 @@ class FTPServer:
     def get(self):
         pass
 
+    @property
+    def get_files_size(self):
+        disk_size = init.get_size(self.username)
+        share_file_list = os.listdir('%s/%s/%s' % (self.base_dir, 'share', self.username))
+        total_size = 0
+        for file in share_file_list[1:]:
+            total_size += os.path.getsize('%s/%s/%s/%s' % (self.base_dir, 'share', self.username, file))
+        free_size = int(disk_size) - total_size
+        print(free_size)
+        return free_size
+
     def put(self,filename):
         put_file_dict = set_struct.struct_unpack(self.conn)
         puted_file = '%s/%s/%s/%s'%(self.base_dir,'share',self.username,filename)
         recv_size = 0
         recv_rate = 0
+
+        print(put_file_dict)
 
         if os.path.exists(puted_file):
             puted_file_md5 = set_md5.set_file_md5(puted_file)
@@ -61,20 +73,44 @@ class FTPServer:
             print(put_file_dict['file_md5'])
             if puted_file_md5 == put_file_dict['file_md5']:
                 put_dict = {
-                    'put_status':False,
-                    'put_message':'您的云空间中已存在该文件'
+                    'put_status': False,
+                    'put_message': '您的云空间中已存在该文件'
                 }
-                set_struct.struct_pack(self.conn,put_dict)
+                set_struct.struct_pack(self.conn, put_dict)
                 return
-        else:
-            f = set_file.write_file(puted_file,'wb')
+            else:
+                print('云盘系统发现同名文件，但文件内容不一致，是否继续上传？确认上传将覆盖已有文件')
+                while True:
+                    file_diff = input('覆盖已有云盘文件请按y，建立新的同名文件请按n>>>')
+                    if file_diff in ['y', 'Y', 'n', 'N']:
+                        if file_diff in ['y', 'Y']:
+                            os.remove(puted_file)
+                            break
+                        if file_diff in ['n', 'N']:
+                            puted_file = '%s/%s/%s/%s.diff' % (self.base_dir, 'share', self.username, filename)
+                            break
+                    else:
+                        print('您的输入有误，请重新输入')
+                        continue
+        print('执行了')
+        if put_file_dict['file_size'] < self.get_files_size:
+            put_dict = {
+                'put_status': True,
+                'put_message': '请稍等,文件上传中...'
+            }
+            set_struct.struct_pack(self.conn, put_dict)
+
+            f = set_file.write_file(puted_file, 'wb')
             while recv_size < put_file_dict['file_size']:
                 data = self.conn.recv(self.max_recv_size)
                 f.write(data)
+                print('写入了')
                 recv_size += len(data)
-                print(recv_size,put_file_dict['file_size'])
-                recv_rate = round(recv_size / put_file_dict['file_size'],2)*100
-                print('上传进度%s'%recv_rate+'%')
+                print(recv_size, put_file_dict['file_size'])
+                recv_rate = round(recv_size / put_file_dict['file_size'], 2) * 100
+                print('上传进度%s' % recv_rate + '%')
+        else:
+            print('很抱歉，您的云盘空间不足，剩余空间为%s' % self.get_files_siz)
         return
 
     def run(self):
@@ -102,9 +138,10 @@ class FTPServer:
 
 
 if __name__ == '__main__':
-    f = FTPServer('127.0.0.1',8081)
+    f = FTPServer('127.0.0.1',8082)
     print('请先登录...')
     login_obj = login.UserBehavior()
+    init = set_init.set_Init()
     f.run()
 
 

@@ -74,14 +74,14 @@ class FTPClient:
 
             set_struct.struct_pack(self.client,put_file_dict)
             put_dict = set_struct.struct_unpack(self.client)
+            print(put_dict['put_message'])
 
             if put_dict['put_status'] == False:
-                print(put_dict['put_message'])
                 return
-
-            f = set_file.read_file(put_file,'rb')
-            for line in f:
-                self.client.send(line)
+            else:
+                f = set_file.read_file(put_file,'rb')
+                for line in f:
+                    self.client.send(line)
         else:
             print('您的个人文件夹中没有该文件，请上传已有的文件')
             return
@@ -105,6 +105,6 @@ class FTPClient:
                 continue
 
 if __name__ == '__main__':
-    f = FTPClient('127.0.0.1',8081)
+    f = FTPClient('127.0.0.1',8082)
     login_obj = login.UserBehavior()
     f.run()
