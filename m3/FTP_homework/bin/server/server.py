@@ -56,7 +56,7 @@ class FTPServer:
         for file in share_file_list[1:]:
             total_size += os.path.getsize('%s/%s/%s/%s' % (self.base_dir, 'share', self.username, file))
         free_size = int(disk_size) - total_size
-        print(free_size)
+        print('free_size',free_size)
         return free_size
 
     def put(self,filename):
@@ -65,7 +65,7 @@ class FTPServer:
         recv_size = 0
         recv_rate = 0
 
-        print(put_file_dict)
+        print('put_file_dict',put_file_dict)
 
         if os.path.exists(puted_file):
             puted_file_md5 = set_md5.set_file_md5(puted_file)
@@ -119,7 +119,15 @@ class FTPServer:
                 print('服务端：文件上传完成')
             return
         else:
-            print('很抱歉，您的云盘空间不足，剩余空间为%s' % self.get_files_siz)
+            put_dict = {
+                'put_status': False,
+                'put_message': '很抱歉，您的云盘空间不足，剩余空间为%s' % self.get_free_size,
+                'put_again': 'no'
+            }
+            header_json = json.dumps(put_dict)
+            header_bytes = header_json.encode('utf-8')
+            self.conn.send(struct.pack('i',len(header_bytes)))
+            self.conn.send(header_bytes)
         return
 
     def run(self):
@@ -147,7 +155,7 @@ class FTPServer:
 
 
 if __name__ == '__main__':
-    f = FTPServer('127.0.0.1',8083)
+    f = FTPServer('127.0.0.1',8081)
     print('请先登录...')
     login_obj = login.UserBehavior()
     init = set_init.set_Init()

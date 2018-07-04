@@ -1,13 +1,16 @@
 import struct
 import json
 import os
+import sys
+
+# encoding = sys.getdefaultencoding()
+
 
 def struct_pack(socket_obj,header_info):
+    print(header_info)
+
     header_json = json.dumps(header_info)
-    if os.name == 'nt':
-        header_bytes = header_json.encode('GBK')
-    else:
-        header_bytes = header_json.encode('utf-8')
+    header_bytes = header_json.encode('utf-8')
     socket_obj.send(struct.pack('i', len(header_bytes)))
     socket_obj.send(header_bytes)
     return
@@ -19,10 +22,7 @@ def struct_unpack(socket_obj):
         return
     header_size = struct.unpack('i', header)[0]
     header_bytes = socket_obj.recv(header_size)
-    if os.name == 'nt':
-        header_dict = json.loads(header_bytes.decode('GBK'))
-    else:
-        header_dict = json.loads(header_bytes.decode('utf-8'))
+    header_dict = json.loads(header_bytes.decode('utf-8'))
     return header_dict
     # except ConnectionResetError as e:
     #     print(e)

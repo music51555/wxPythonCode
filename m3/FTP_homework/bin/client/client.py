@@ -60,9 +60,11 @@ class FTPClient:
     def client_bind(self):
         self.client.connect((self.host,self.port))
 
-    def put(self,filename):
+    def put(self,cmd,filename):
         put_file = '%s/%s/%s' % (self.base_dir, 'download', filename)
         if os.path.exists(put_file):
+            self.client.send(cmd.encode(self.encoding))
+
             file_size = os.path.getsize(put_file)
             file_md5 = set_md5.set_file_md5(put_file)
 
@@ -112,18 +114,17 @@ class FTPClient:
             cmd = input('请输入命令>>>:')
             if not cmd:
                 continue
-            self.client.send(cmd.encode(self.encoding))
             if hasattr(self,cmd.split()[0]):
                 request_method = cmd.split()[0]
                 request_content = cmd.split()[1]
 
                 func = getattr(self,request_method)
-                func(request_content)
+                func(cmd,request_content)
             else:
                 print('您输入的命令有误，请重新输入>>>:')
                 continue
 
 if __name__ == '__main__':
-    f = FTPClient('127.0.0.1',8083)
+    f = FTPClient('127.0.0.1',8081)
     login_obj = login.UserBehavior()
     f.run()
