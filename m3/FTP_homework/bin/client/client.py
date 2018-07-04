@@ -73,15 +73,34 @@ class FTPClient:
             }
 
             set_struct.struct_pack(self.client,put_file_dict)
-            put_dict = set_struct.struct_unpack(self.client)
-            print(put_dict['put_message'])
+            while True:
+                put_dict = set_struct.struct_unpack(self.client)
+                print(put_dict['put_message'])
 
-            if put_dict['put_status'] == False:
-                return
-            else:
-                f = set_file.read_file(put_file,'rb')
-                for line in f:
-                    self.client.send(line)
+                if put_dict['put_status'] == False:
+                    if put_dict['put_again'] == 'yes':
+                        while True:
+                            set_diff = input('确认上传将覆盖已有文件,覆盖已有云盘文件请按y，建立新的同名文件请按n>>>')
+                            if set_diff in ['y', 'Y', 'n', 'N']:
+                                file_diff = {
+                                    'set_diff': set_diff
+                                }
+                                diff_json = json.dumps(file_diff)
+                                diff_bytes = diff_json.encode(self.encoding)
+                                self.client.send(struct.pack('i',len(diff_bytes)))
+                                self.client.send(diff_bytes)
+                                break
+                            else:
+                                print('您的输入有误，请重新输入')
+                                continue
+                    else:
+                        return
+                else:
+                    f = set_file.read_file(put_file,'rb')
+                    for line in f:
+                        self.client.send(line)
+                    print('文件上传成功')
+                    return
         else:
             print('您的个人文件夹中没有该文件，请上传已有的文件')
             return
@@ -105,6 +124,6 @@ class FTPClient:
                 continue
 
 if __name__ == '__main__':
-    f = FTPClient('127.0.0.1',8082)
+    f = FTPClient('127.0.0.1',8083)
     login_obj = login.UserBehavior()
     f.run()
