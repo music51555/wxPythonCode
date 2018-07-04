@@ -45,9 +45,10 @@ class FTPClient:
                        }
 
                        set_struct.struct_pack(self.client,login_info)
-                       issuccess = set_struct.struct_unpack(self.client)
+                       is_success_dict = set_struct.struct_unpack(self.client)
 
-                       if issuccess == True:
+                       if is_success_dict['is_success'] == True:
+                           self.username = is_success_dict['username']
                            print('登录成功')
                            return
                        else:
@@ -60,8 +61,22 @@ class FTPClient:
     def client_bind(self):
         self.client.connect((self.host,self.port))
 
+    def file_diff(self):
+        while True:
+            set_diff = input('确认上传将覆盖已有文件,覆盖已有云盘文件请按y，建立新的同名文件请按n>>>')
+            if set_diff in ['y', 'Y', 'n', 'N']:
+                file_diff = {
+                    'set_diff': set_diff
+                }
+                set_struct.struct_pack(file_diff)
+                break
+            else:
+                print('您的输入有误，请重新输入')
+                continue
+
     def put(self,cmd,filename):
         put_file = '%s/%s/%s' % (self.base_dir, 'download', filename)
+
         if os.path.exists(put_file):
             self.client.send(cmd.encode(self.encoding))
 
@@ -73,28 +88,15 @@ class FTPClient:
                 'file_size': file_size,
                 'file_md5':file_md5
             }
-
             set_struct.struct_pack(self.client,put_file_dict)
+
             while True:
                 put_dict = set_struct.struct_unpack(self.client)
                 print(put_dict['put_message'])
 
                 if put_dict['put_status'] == False:
                     if put_dict['put_again'] == 'yes':
-                        while True:
-                            set_diff = input('确认上传将覆盖已有文件,覆盖已有云盘文件请按y，建立新的同名文件请按n>>>')
-                            if set_diff in ['y', 'Y', 'n', 'N']:
-                                file_diff = {
-                                    'set_diff': set_diff
-                                }
-                                diff_json = json.dumps(file_diff)
-                                diff_bytes = diff_json.encode(self.encoding)
-                                self.client.send(struct.pack('i',len(diff_bytes)))
-                                self.client.send(diff_bytes)
-                                break
-                            else:
-                                print('您的输入有误，请重新输入')
-                                continue
+                        self.file_diff()
                     else:
                         return
                 else:
@@ -107,11 +109,22 @@ class FTPClient:
             print('您的个人文件夹中没有该文件，请上传已有的文件')
             return
 
+    def view(self,cmd,username):
+        if username != self.username:
+            print('您只能查看自己文件夹下的文件')
+            return
+        self.client.send(cmd.encode(self.encoding))
+        share_file_list = set_struct.struct_unpack(self.client)
+        print('您的云盘文件如下：')
+        for file in share_file_list:
+            print(file)
+
+
     def run(self):
         self.client_bind()
         self.login()
         while True:
-            cmd = input('请输入命令>>>:')
+            cmd = input('请输入命令[ get | put | view ]>>>:').strip()
             if not cmd:
                 continue
             if hasattr(self,cmd.split()[0]):

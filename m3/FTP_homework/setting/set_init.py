@@ -26,10 +26,11 @@ class set_Init():
             self.conf.write(open(self.account_file, 'w'))
 
         if set_type == 'read':
+            print('第一次读')
             if self.conf.has_section(username) and password_md5 == self.conf[username]['password']:
                 return True, username
             else:
-                return False
+                return False,username
 
     def get_size(self,username):
         self.conf.read(self.account_file)

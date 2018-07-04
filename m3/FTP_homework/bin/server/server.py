@@ -3,6 +3,7 @@ import sys
 import os
 import json
 import struct
+import time
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 from core import login
@@ -10,6 +11,7 @@ from setting import set_struct
 from setting import set_file
 from setting import set_md5
 from setting import set_init
+from setting import set_bytes
 
 class FTPServer:
     max_queue_size = 5
@@ -36,9 +38,14 @@ class FTPServer:
             if login_info == None:
                 break
 
-            issuccess,self.username = login_obj.login(login_info)
-            set_struct.struct_pack(self.conn, issuccess)
-            if issuccess == True:
+            is_success,self.username = login_obj.login(login_info)
+            is_success_dict = {
+                'is_success':is_success,
+                'username':self.username
+            }
+
+            set_struct.struct_pack(self.conn, is_success_dict)
+            if is_success_dict['is_success'] == True:
                 print('账户验证成功，服务端准备就绪...')
                 return
             else:
@@ -59,14 +66,7 @@ class FTPServer:
         print('free_size',free_size)
         return free_size
 
-    def put(self,filename):
-        put_file_dict = set_struct.struct_unpack(self.conn)
-        puted_file = '%s/%s/%s/%s'%(self.base_dir,'share',self.username,filename)
-        recv_size = 0
-        recv_rate = 0
-
-        print('put_file_dict',put_file_dict)
-
+    def file_diff(self,put_file_dict,puted_file):
         if os.path.exists(puted_file):
             puted_file_md5 = set_md5.set_file_md5(puted_file)
             print(puted_file_md5)
@@ -82,23 +82,45 @@ class FTPServer:
             else:
                 put_dict  = {
                     'put_status':False,
-                    'put_message':'云盘系统发现同名文件，但文件内容不一致，是否继续上传？1',
+                    'put_message':'云盘系统发现同名文件，但文件内容不一致，是否继续上传？',
                     'put_again':'yes'
                 }
                 set_struct.struct_pack(self.conn, put_dict)
-                diff_header = self.conn.recv(4)
-                diff_size = struct.unpack('i',diff_header)[0]
-                diff_bytes = self.conn.recv(diff_size)
-                diff_dict = json.loads(diff_bytes.decode(self.encoding))
+                diff_dict = set_struct.struct_unpack(self.conn)
                 print(diff_dict)
                 while True:
                     if diff_dict['set_diff'] in ['y', 'Y']:
                         os.remove(puted_file)
-                        break
+                        return
                     if diff_dict['set_diff'] in ['n', 'N']:
                         puted_file = '%s/%s/%s/%s.diff' % (self.base_dir, 'share', self.username, filename)
-                        break
-        print('执行了')
+                        return puted_file
+
+    def size_not_enough(self,put_file_dict):
+        put_dict = {
+            'put_status': False,
+            'put_message': '很抱歉，您的云盘空间不足，剩余空间为%sMB,您上传附件的大小是%sMB'
+                           % (set_bytes.set_bytes(self.get_free_size),
+                              set_bytes.set_bytes(put_file_dict['file_size'])),
+            'put_again': 'no'
+        }
+        header_json = json.dumps(put_dict)
+        header_bytes = header_json.encode('utf-8')
+        self.conn.send(struct.pack('i', len(header_bytes)))
+        self.conn.send(header_bytes)
+
+
+    def put(self,filename):
+        put_file_dict = set_struct.struct_unpack(self.conn)
+        puted_file = '%s/%s/%s/%s'%(self.base_dir,'share',self.username,filename)
+        recv_size = 0
+        recv_rate = 0
+
+        print('put_file_dict',put_file_dict)
+
+        if self.file_diff(put_file_dict,puted_file):
+            puted_file = self.file_diff(put_file_dict,puted_file)
+
         if put_file_dict['file_size'] < self.get_free_size:
             put_dict = {
                 'put_status': True,
@@ -112,23 +134,17 @@ class FTPServer:
                 data = self.conn.recv(self.max_recv_size)
                 f.write(data)
                 recv_size += len(data)
-                print(recv_size, put_file_dict['file_size'])
-                recv_rate = round(recv_size / put_file_dict['file_size'], 2) * 100
-                print('上传进度%s' % recv_rate + '%')
+                print('接收文件大小%s，文件总大小%s'%(recv_size,put_file_dict['file_size']))
             else:
-                print('服务端：文件上传完成')
+                print('服务端：文件上传完毕')
             return
         else:
-            put_dict = {
-                'put_status': False,
-                'put_message': '很抱歉，您的云盘空间不足，剩余空间为%s' % self.get_free_size,
-                'put_again': 'no'
-            }
-            header_json = json.dumps(put_dict)
-            header_bytes = header_json.encode('utf-8')
-            self.conn.send(struct.pack('i',len(header_bytes)))
-            self.conn.send(header_bytes)
+            self.size_not_enough(put_file_dict)
         return
+
+    def view(self,username):
+        share_file_list = os.listdir('%s/%s/%s'%(self.base_dir,'share',username))[1:]
+        set_struct.struct_pack(self.conn,share_file_list)
 
     def run(self):
         self.server_bind()
@@ -152,7 +168,6 @@ class FTPServer:
                 # except ConnectionResetError as e:
                 #     print(e)
                 #     break
-
 
 if __name__ == '__main__':
     f = FTPServer('127.0.0.1',8081)
