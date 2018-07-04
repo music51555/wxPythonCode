@@ -82,7 +82,7 @@ class FTPServer:
             else:
                 put_dict  = {
                     'put_status':False,
-                    'put_message':'云盘系统发现同名文件，但文件内容不一致，是否继续上传？',
+                    'put_message':'云盘系统发现同名文件，但文件内容不一致，是否继续上传？1',
                     'put_again':'yes'
                 }
                 set_struct.struct_pack(self.conn, put_dict)
