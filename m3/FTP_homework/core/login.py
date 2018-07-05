@@ -11,7 +11,7 @@ class UserBehavior:
     conf = configparser.ConfigParser()
     init = set_init.set_Init()
 
-    put_size_1mb = 1000000
+    put_size_1mb = 1024000
     put_size_total_mb = put_size_1mb * 100
 
     def register(self):

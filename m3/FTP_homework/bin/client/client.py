@@ -10,6 +10,7 @@ from core import login
 from setting import set_struct
 from setting import set_file
 from setting import set_md5
+from setting import set_time
 
 class FTPClient:
     max_recv_size = 8192
@@ -86,16 +87,17 @@ class FTPClient:
             put_file_dict = {
                 'file_name': filename,
                 'file_size': file_size,
-                'file_md5':file_md5
+                'file_md5':file_md5,
+                'put_time':str(set_time.set_time())
             }
             set_struct.struct_pack(self.client,put_file_dict)
 
             while True:
-                put_dict = set_struct.struct_unpack(self.client)
-                print(put_dict['put_message'])
+                put_status_dict = set_struct.struct_unpack(self.client)
+                print(put_status_dict['put_message'])
 
-                if put_dict['put_status'] == False:
-                    if put_dict['put_again'] == 'yes':
+                if put_status_dict['put_status'] == False:
+                    if put_status_dict['put_again'] == 'yes':
                         self.file_diff()
                     else:
                         return
@@ -110,14 +112,29 @@ class FTPClient:
             return
 
     def view(self,cmd,username):
+        count = 1
         if username != self.username:
             print('您只能查看自己文件夹下的文件')
             return
         self.client.send(cmd.encode(self.encoding))
-        share_file_list = set_struct.struct_unpack(self.client)
-        print('您的云盘文件如下：')
-        for file in share_file_list:
-            print(file)
+        view_info = set_struct.struct_unpack(self.client)
+        if isinstance(view_info,list):
+            print('您的云盘是空的，快去上传文件吧')
+        if isinstance(view_info,dict):
+            s = '''您的云盘文件如下\n
+序号  文件名称   文件大小  文件格式  上传日期\n
+%s   %s        %s      %s       %s\n
+'''
+            for file in view_info:
+                count = str(count)
+                file_name = view_info[file]['file_name']
+                file_size = round(view_info[file]['file_size']/ 1000000,2)
+                file_type = view_info[file]['file_name'].rsplit('.')[1]
+                put_date = view_info[file]['put_date']
+                print(s%(count,file_name,file_size,file_type,put_date))
+
+
+
 
 
     def run(self):

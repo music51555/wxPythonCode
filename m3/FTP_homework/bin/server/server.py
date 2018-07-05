@@ -12,6 +12,7 @@ from setting import set_file
 from setting import set_md5
 from setting import set_init
 from setting import set_bytes
+from setting import set_time
 
 class FTPServer:
     max_queue_size = 5
@@ -58,53 +59,60 @@ class FTPServer:
     @property
     def get_free_size(self):
         disk_size = init.get_size(self.username)
-        share_file_list = os.listdir('%s/%s/%s' % (self.base_dir, 'share', self.username))
+        share_file_list = os.listdir('%s/%s/%s' % (self.base_dir,
+                                                   'share',
+                                                   self.username))
         total_size = 0
         for file in share_file_list[1:]:
-            total_size += os.path.getsize('%s/%s/%s/%s' % (self.base_dir, 'share', self.username, file))
+            total_size += os.path.getsize('%s/%s/%s/%s' % (self.base_dir,
+                                                           'share',
+                                                           self.username,
+                                                           file))
         free_size = int(disk_size) - total_size
         print('free_size',free_size)
         return free_size
 
     def file_diff(self,put_file_dict,puted_file):
-        if os.path.exists(puted_file):
-            puted_file_md5 = set_md5.set_file_md5(puted_file)
-            print(puted_file_md5)
-            print(put_file_dict['file_md5'])
-            if puted_file_md5 == put_file_dict['file_md5']:
-                put_dict = {
-                    'put_status': False,
-                    'put_message': '您的云空间中已存在该文件',
-                    'put_again':'no'
-                }
-                set_struct.struct_pack(self.conn, put_dict)
-                return
-            else:
-                put_dict  = {
-                    'put_status':False,
-                    'put_message':'云盘系统发现同名文件，但文件内容不一致，是否继续上传？',
-                    'put_again':'yes'
-                }
-                set_struct.struct_pack(self.conn, put_dict)
-                diff_dict = set_struct.struct_unpack(self.conn)
-                print(diff_dict)
-                while True:
-                    if diff_dict['set_diff'] in ['y', 'Y']:
-                        os.remove(puted_file)
-                        return
-                    if diff_dict['set_diff'] in ['n', 'N']:
-                        puted_file = '%s/%s/%s/%s.diff' % (self.base_dir, 'share', self.username, filename)
-                        return puted_file
+        puted_file_md5 = set_md5.set_file_md5(puted_file)
+        print(puted_file_md5)
+        print(put_file_dict['file_md5'])
+        if puted_file_md5 == put_file_dict['file_md5']:
+            put_status_dict = {
+                'put_status': False,
+                'put_message': '您的云空间中已存在该文件',
+                'put_again':'no'
+            }
+            set_struct.struct_pack(self.conn, put_status_dict)
+            return
+        else:
+            put_status_dict  = {
+                'put_status':False,
+                'put_message':'云盘系统发现同名文件，但文件内容较旧，是否继续上传？',
+                'put_again':'yes'
+            }
+            set_struct.struct_pack(self.conn, put_status_dict)
+            diff_dict = set_struct.struct_unpack(self.conn)
+            print(diff_dict)
+            while True:
+                if diff_dict['set_diff'] in ['y', 'Y']:
+                    os.remove(puted_file)
+                    return
+                if diff_dict['set_diff'] in ['n', 'N']:
+                    puted_file = '%s/%s/%s/%s.diff' % (self.base_dir,
+                                                       'share',
+                                                       self.username,
+                                                       put_file_dict['file_name'])
+                    return puted_file
 
     def size_not_enough(self,put_file_dict):
-        put_dict = {
+        put_status_dict = {
             'put_status': False,
             'put_message': '很抱歉，您的云盘空间不足，剩余空间为%sMB,您上传附件的大小是%sMB'
                            % (set_bytes.set_bytes(self.get_free_size),
                               set_bytes.set_bytes(put_file_dict['file_size'])),
             'put_again': 'no'
         }
-        header_json = json.dumps(put_dict)
+        header_json = json.dumps(put_status_dict)
         header_bytes = header_json.encode('utf-8')
         self.conn.send(struct.pack('i', len(header_bytes)))
         self.conn.send(header_bytes)
@@ -118,16 +126,16 @@ class FTPServer:
 
         print('put_file_dict',put_file_dict)
 
-        if self.file_diff(put_file_dict,puted_file):
+        if os.path.exists(puted_file):
             puted_file = self.file_diff(put_file_dict,puted_file)
 
         if put_file_dict['file_size'] < self.get_free_size:
-            put_dict = {
+            put_status_dict = {
                 'put_status': True,
                 'put_message': '请稍等,文件上传中...',
                 'put_again':'no'
             }
-            set_struct.struct_pack(self.conn, put_dict)
+            set_struct.struct_pack(self.conn, put_status_dict)
 
             f = set_file.write_file(puted_file, 'wb')
             while recv_size < put_file_dict['file_size']:
@@ -136,6 +144,7 @@ class FTPServer:
                 recv_size += len(data)
                 print('接收文件大小%s，文件总大小%s'%(recv_size,put_file_dict['file_size']))
             else:
+                self.put_file_dict = put_file_dict
                 print('服务端：文件上传完毕')
             return
         else:
@@ -143,8 +152,22 @@ class FTPServer:
         return
 
     def view(self,username):
-        share_file_list = os.listdir('%s/%s/%s'%(self.base_dir,'share',username))[1:]
-        set_struct.struct_pack(self.conn,share_file_list)
+        view_dict = {}
+        share_file_list = os.listdir('%s/%s/%s'%(self.base_dir,
+                                                 'share',
+                                                 username))[:]
+        print('hare_file_list'+repr(share_file_list))
+        if len(share_file_list) == 0:
+            set_struct.struct_pack(self.conn, share_file_list)
+        else:
+            for file in share_file_list:
+                view_dict[file] = {
+                    'file_name':file,
+                    'file_size':os.path.getsize('%s/%s/%s/%s'%(self.base_dir,'share',username,file)),
+                    'put_date':set_time.set_time(os.path.getctime('%s/%s/%s/%s'%(self.base_dir,'share',username,file)))
+                }
+            print(view_dict)
+            set_struct.struct_pack(self.conn,view_dict)
 
     def run(self):
         self.server_bind()
