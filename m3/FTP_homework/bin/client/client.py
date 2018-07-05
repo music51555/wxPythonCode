@@ -3,6 +3,7 @@ import sys
 import os
 import json
 import struct
+import re
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 
@@ -71,11 +72,58 @@ class FTPClient:
                 file_diff = {
                     'set_diff': set_diff
                 }
-                set_struct.struct_pack(file_diff)
+                set_struct.struct_pack(self.client,file_diff)
                 break
             else:
                 print('您的输入有误，请重新输入')
                 continue
+
+    def get(self,cmd,filename):
+        print('进来了啊')
+        get_file = '%s/%s/%s' % (self.base_dir, 'download', filename)
+
+
+        if not os.path.exists(get_file):
+            self.client.send(cmd.encode(self.encoding))
+
+            get_dict = set_struct.struct_unpack(self.client)
+            if get_dict['get_status'] == False:
+                print('抱歉，您要下载的文件不存在')
+                return
+            confirm_get_dict = {
+                'confirm_get':True
+            }
+
+            f = set_file.write_file(get_file,'wb')
+
+            set_struct.struct_pack(self.client,confirm_get_dict)
+
+            recv_size = 0
+            set_bar.set_bar()
+            print('正在下载文件...')
+            while recv_size < get_dict['file_size']:
+                data = self.client.recv(self.max_recv_size)
+                f.write(data)
+                recv_size += len(data)
+                print('已接收%s，文件总大小%s'%(recv_size,get_dict['file_size']))
+            f.close()
+            get_file_md5 = set_md5.set_file_md5(get_file)
+            print(get_file_md5)
+            if get_file_md5 == get_dict['file_md5']:
+                print('文件下载完成，校验MD5一致')
+        else:
+            get_dict = set_struct.struct_unpack(self.client)
+
+            confirm_get_dict = {
+                'confirm_get': False
+            }
+
+            set_struct.struct_pack(self.client, confirm_get_dict)
+
+            get_file_md5 = set_md5.set_file_md5(get_file)
+            if get_file_md5 == get_dict['file_md5']:
+                print('文件已存在，无需重复下载')
+                return
 
     def put(self,cmd,filename):
         put_file = '%s/%s/%s' % (self.base_dir, 'download', filename)
@@ -106,11 +154,11 @@ class FTPClient:
                 else:
                     put_file_dict['file_size'] / 1024 / 60
                     f = set_file.read_file(put_file,'rb')
-                    while True:
 
+                    while True:
+                        set_bar.set_bar()
                         for line in f:
                             self.client.send(line)
-                            set_bar.set_bar()
                         break
                     print('文件上传成功')
                     return
@@ -154,17 +202,38 @@ class FTPClient:
             cmd = input('请输入命令[ get | put | view ]>>>:').strip()
             if not cmd:
                 continue
-            if hasattr(self,cmd.split()[0]):
-                request_method = cmd.split()[0]
-                request_content = cmd.split()[1]
-
-                func = getattr(self,request_method)
-                func(cmd,request_content)
-            else:
-                print('您输入的命令有误，请重新输入>>>:')
+            r_file = re.search('[get|put] .*\..*', cmd)
+            r_view = re.search('view .*', cmd)
+            r_help = re.search('[get|put|view] --help',cmd)
+            if r_help:
+                if cmd.startswith('get') or cmd.startswith('put'):
+                    print('上传、下载文件，您可以使用[get|put 文件名.文件类型]来执行')
+                if cmd.startswith('view'):
+                    print('您可以使用[view 您的登录用户名]来访问您的云盘空间')
                 continue
 
+            elif r_file:
+                request_method = cmd.split()[0]
+                filename = cmd.split()[1]
+                if hasattr(self, cmd.split()[0]):
+                    func = getattr(self, request_method)
+                    func(cmd, filename)
+                    continue
+
+            elif r_view:
+                request_method = cmd.split()[0]
+                filename = cmd.split()[1]
+                if hasattr(self, cmd.split()[0]):
+                    func = getattr(self, request_method)
+                    func(cmd, filename)
+                    continue
+
+            else:
+                print('命令格式错误,您可以使用[命令 --help]方式查看使用说明 ')
+                continue
+
+
 if __name__ == '__main__':
-    f = FTPClient('127.0.0.1',8082)
+    f = FTPClient('127.0.0.1',8081)
     login_obj = login.UserBehavior()
     f.run()

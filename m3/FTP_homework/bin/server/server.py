@@ -3,7 +3,6 @@ import sys
 import os
 import json
 import struct
-import time
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 from core import login
@@ -53,8 +52,8 @@ class FTPServer:
                 print('账户验证失败，服务端重置连接...')
                 continue
 
-    def get(self):
-        pass
+
+
 
     @property
     def get_free_size(self):
@@ -83,7 +82,7 @@ class FTPServer:
                 'put_again':'no'
             }
             set_struct.struct_pack(self.conn, put_status_dict)
-            return
+            return None
         else:
             put_status_dict  = {
                 'put_status':False,
@@ -96,7 +95,7 @@ class FTPServer:
             while True:
                 if diff_dict['set_diff'] in ['y', 'Y']:
                     os.remove(puted_file)
-                    return
+                    return None
                 if diff_dict['set_diff'] in ['n', 'N']:
                     puted_file = '%s/%s/%s/%s.diff' % (self.base_dir,
                                                        'share',
@@ -117,6 +116,43 @@ class FTPServer:
         self.conn.send(struct.pack('i', len(header_bytes)))
         self.conn.send(header_bytes)
 
+    def get(self, filename):
+        get_file = '%s/%s/%s/%s'%(self.base_dir,'share',self.username,filename)
+        print(get_file)
+
+        if os.path.exists(get_file):
+
+            file_size = os.path.getsize(get_file)
+            file_md5 = set_md5.set_file_md5(get_file)
+
+            get_dict = {
+                'file_name':filename,
+                'file_size':file_size,
+                'file_md5':file_md5,
+                'get_status':True
+            }
+
+            set_struct.struct_pack(self.conn,get_dict)
+
+            confirm_dict = set_struct.struct_unpack(self.conn)
+
+            if confirm_dict['confirm_get'] == True:
+                f = set_file.read_file(get_file,'rb')
+                for line in f:
+                    self.conn.send(line)
+            else:
+                return
+        else:
+            get_dict = {
+                'get_status':False
+            }
+            set_struct.struct_pack(self.conn,get_dict)
+
+
+
+
+
+
 
     def put(self,filename):
         put_file_dict = set_struct.struct_unpack(self.conn)
@@ -128,6 +164,8 @@ class FTPServer:
 
         if os.path.exists(puted_file):
             puted_file = self.file_diff(put_file_dict,puted_file)
+            if not puted_file:
+                return
 
         if put_file_dict['file_size'] < self.get_free_size:
             put_status_dict = {
@@ -187,13 +225,14 @@ class FTPServer:
                     func = getattr(self, request_method)
                     func(request_content)
                     continue
+
                 self.conn.close()
                 # except ConnectionResetError as e:
                 #     print(e)
                 #     break
 
 if __name__ == '__main__':
-    f = FTPServer('127.0.0.1',8082)
+    f = FTPServer('127.0.0.1',8081)
     print('请先登录...')
     login_obj = login.UserBehavior()
     init = set_init.set_Init()

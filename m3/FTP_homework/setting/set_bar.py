@@ -3,13 +3,8 @@ import time
 
 def set_bar():
     count = 0
-    while count < 6:
+    while count < 20:
         sys.stdout.write('=>')
         sys.stdout.flush()
-        time.sleep(0.2)
+        time.sleep(0.1)
         count += 1
-        if count == 5:
-            sys.stdout.write('\r')
-            sys.stdout.write('          ')
-            sys.stdout.write('\r')
-            count = 0
