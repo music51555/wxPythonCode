@@ -193,7 +193,7 @@ class FTPServer:
                 #     break
 
 if __name__ == '__main__':
-    f = FTPServer('127.0.0.1',8081)
+    f = FTPServer('127.0.0.1',8082)
     print('请先登录...')
     login_obj = login.UserBehavior()
     init = set_init.set_Init()

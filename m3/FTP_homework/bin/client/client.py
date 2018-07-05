@@ -11,6 +11,7 @@ from setting import set_struct
 from setting import set_file
 from setting import set_md5
 from setting import set_time
+from setting import set_table
 
 class FTPClient:
     max_recv_size = 8192
@@ -120,22 +121,25 @@ class FTPClient:
         view_info = set_struct.struct_unpack(self.client)
         if isinstance(view_info,list):
             print('您的云盘是空的，快去上传文件吧')
+
         if isinstance(view_info,dict):
-            s = '''您的云盘文件如下\n
-序号  文件名称   文件大小  文件格式  上传日期\n
-%s   %s        %s      %s       %s\n
-'''
+            print('您的云盘文件如下：')
+            total_list = []
             for file in view_info:
+                row_list = []
                 count = str(count)
+                row_list.append(count)
                 file_name = view_info[file]['file_name']
+                row_list.append(file_name)
                 file_size = round(view_info[file]['file_size']/ 1000000,2)
+                row_list.append(str(file_size)+'MB')
                 file_type = view_info[file]['file_name'].rsplit('.')[1]
+                row_list.append(file_type)
                 put_date = view_info[file]['put_date']
-                print(s%(count,file_name,file_size,file_type,put_date))
-
-
-
-
+                row_list.append(put_date)
+                total_list.append(row_list)
+                count = int(count) + 1
+            set_table.set_table(total_list)
 
     def run(self):
         self.client_bind()
@@ -155,6 +159,6 @@ class FTPClient:
                 continue
 
 if __name__ == '__main__':
-    f = FTPClient('127.0.0.1',8081)
+    f = FTPClient('127.0.0.1',8082)
     login_obj = login.UserBehavior()
     f.run()
