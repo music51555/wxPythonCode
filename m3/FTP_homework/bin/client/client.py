@@ -12,6 +12,7 @@ from setting import set_file
 from setting import set_md5
 from setting import set_time
 from setting import set_table
+from setting import set_bar
 
 class FTPClient:
     max_recv_size = 8192
@@ -103,9 +104,14 @@ class FTPClient:
                     else:
                         return
                 else:
+                    put_file_dict['file_size'] / 1024 / 60
                     f = set_file.read_file(put_file,'rb')
-                    for line in f:
-                        self.client.send(line)
+                    while True:
+
+                        for line in f:
+                            self.client.send(line)
+                            set_bar.set_bar()
+                        break
                     print('文件上传成功')
                     return
         else:
