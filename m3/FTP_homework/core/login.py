@@ -57,7 +57,7 @@ class UserBehavior:
                         'disk_size':self.put_size_total_mb
                     }
 
-                    self.init.set_conf(user_info,'set')
+                    self.init.set_conf(user_info,'set_account',self.account_file)
                     print('恭喜您，注册成功，您获得100MB云空间')
                     self.set_home_dir(username)
                     return
@@ -66,7 +66,7 @@ class UserBehavior:
 
     def login(self,login_info):
         if os.path.exists('%s/%s/%s' % (self.base_dir, 'db', 'account.init')):
-            return self.init.set_conf(login_info,'read')
+            return self.init.set_conf(login_info,'read_account',self.account_file)
 
     def set_home_dir(self,username):
         os.mkdir('%s/%s/%s'%(self.base_dir,'share',username))

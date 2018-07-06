@@ -10,27 +10,47 @@ class set_Init():
 
     conf = configparser.ConfigParser()
 
-    def set_conf(self,set_info,set_type):
-        self.conf.read(self.account_file)
-        username = set_info['username']
-        password = set_info['password']
+    def set_conf(self,set_info,set_type,set_file):
+        if 'username' in set_info.keys():
+            username = set_info['username']
+        if 'password' in set_info.keys():
+            password = set_info['password']
+            password_md5 = set_md5.set_md5(password)
+        if 'file_name' in set_info.keys():
+            file_name = set_info['file_name']
 
-        password_md5 = set_md5.set_md5(password)
-        print(password_md5)
 
-        if set_type == 'set':
+        if set_type == 'set_account':
+            self.conf.read(set_file)
             self.conf.add_section(username)
             self.conf.set(username, 'password', password_md5)
             self.conf.set(username, 'name', set_info['name'])
             self.conf.set(username, 'disk_size', str(set_info['disk_size']))
-            self.conf.write(open(self.account_file, 'w'))
+            self.conf.write(open(set_file, 'w'))
 
-        if set_type == 'read':
-            print('第一次读')
+        if set_type == 'read_account':
+            self.conf.read(set_file)
             if self.conf.has_section(username) and password_md5 == self.conf[username]['password']:
                 return True, username
             else:
-                return False,username
+                return False, username
+
+        if set_type == 'set_pause':
+            self.conf.read(set_file)
+            if not self.conf.has_section(file_name):
+                self.conf.add_section(file_name)
+                self.conf.set(file_name,'recv_size',str(set_info['recv_size']))
+                self.conf.write(open(set_file,'w'))
+            else:
+                self.conf.set(file_name, 'recv_size', str(set_info['recv_size']))
+                self.conf.write(open(set_file, 'w'))
+
+        if set_type == 'read_pause':
+            self.conf.read(set_file)
+            if self.conf.has_section(file_name):
+                return self.conf[file_name]['recv_size']
+            else:
+                return
 
     def get_size(self,username):
         self.conf.read(self.account_file)

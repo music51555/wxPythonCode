@@ -7,7 +7,6 @@ def set_md5(msg):
     return m.hexdigest()
 
 def set_file_md5(file):
-    print(file)
     f = open(file,'rb')
     m = hashlib.md5()
     for line in f:

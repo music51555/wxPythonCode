@@ -23,3 +23,18 @@ password = e10adc3949ba59abbe56e057f20f883e
 name = wangcong
 disk_size = 100000000
 
+[adong]
+password = e10adc3949ba59abbe56e057f20f883e
+name = adong
+disk_size = 102400000
+
+[xiaoyue]
+password = e10adc3949ba59abbe56e057f20f883e
+name = 小岳
+disk_size = 102400000
+
+[xiaoliu]
+password = e10adc3949ba59abbe56e057f20f883e
+name = xiaoliu
+disk_size = 102400000
+

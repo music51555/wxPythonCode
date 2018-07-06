@@ -3,6 +3,7 @@ import sys
 import os
 import json
 import struct
+import time
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 from core import login
@@ -52,12 +53,9 @@ class FTPServer:
                 print('账户验证失败，服务端重置连接...')
                 continue
 
-
-
-
     @property
     def get_free_size(self):
-        disk_size = init.get_size(self.username)
+        disk_size = conf_obj.get_size(self.username)
         share_file_list = os.listdir('%s/%s/%s' % (self.base_dir,
                                                    'share',
                                                    self.username))
@@ -118,12 +116,24 @@ class FTPServer:
 
     def get(self, filename):
         get_file = '%s/%s/%s/%s'%(self.base_dir,'share',self.username,filename)
-        print(get_file)
+        pause_init = '%s/%s/%s' % (self.base_dir, 'db', 'pause.init')
 
         if os.path.exists(get_file):
 
             file_size = os.path.getsize(get_file)
             file_md5 = set_md5.set_file_md5(get_file)
+            f = set_file.read_file(get_file, 'rb')
+
+            if os.path.exists(pause_init):
+                pause_dict = {
+                    'file_name': get_file
+                }
+                recv_size = conf_obj.set_conf(pause_dict,'read_pause',pause_init)
+                if recv_size:
+                    file_size = file_size - recv_size
+                    f.seek(file_size)
+                else:
+                    file_size = os.path.getsize(get_file)
 
             get_dict = {
                 'file_name':filename,
@@ -133,13 +143,16 @@ class FTPServer:
             }
 
             set_struct.struct_pack(self.conn,get_dict)
+            print('准备发了')
 
             confirm_dict = set_struct.struct_unpack(self.conn)
+            print('准备发了1')
+
 
             if confirm_dict['confirm_get'] == True:
-                f = set_file.read_file(get_file,'rb')
                 for line in f:
                     self.conn.send(line)
+                    # time.sleep(0.01)
             else:
                 return
         else:
@@ -147,12 +160,6 @@ class FTPServer:
                 'get_status':False
             }
             set_struct.struct_pack(self.conn,get_dict)
-
-
-
-
-
-
 
     def put(self,filename):
         put_file_dict = set_struct.struct_unpack(self.conn)
@@ -235,7 +242,7 @@ if __name__ == '__main__':
     f = FTPServer('127.0.0.1',8081)
     print('请先登录...')
     login_obj = login.UserBehavior()
-    init = set_init.set_Init()
+    conf_obj = set_init.set_Init()
     f.run()
 
 
