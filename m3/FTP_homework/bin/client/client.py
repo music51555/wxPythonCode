@@ -63,12 +63,13 @@ class FTPClient:
                 continue
 
     def client_bind(self):
-        self.client.connect((self.host,self.port))
+        try:
+            self.client.connect((self.host,self.port))
+        except OSError:
+            print('服务端关闭，再您重启服务后，请重新启动客户端连接服务器')
+            exit()
 
     def downloading(self,f,recv_size,get_file,get_dict,recv_data = b''):
-        print(recv_size)
-        print(get_dict['file_size'])
-        input('调试')
         while recv_size < get_dict['file_size']:
             data = self.client.recv(self.max_recv_size)
             if not data:
@@ -119,7 +120,7 @@ class FTPClient:
                 set_struct.struct_pack(self.client, confirm_get_dict)
                 return
             else:
-                f, file_name, recv_size = self.check_pause(get_file,pause_init)
+                f, file_name, recv_size = self.check_get_pause(get_file,pause_init)
                 confirm_dict = {
                     'confirm_get': True,
                     'is_pause_go': self.is_pause_go
@@ -127,7 +128,7 @@ class FTPClient:
                 set_struct.struct_pack(self.client, confirm_dict)
                 self.downloading(f, int(recv_size), file_name, get_dict)
 
-    def check_pause(self,get_file,pause_init):
+    def check_get_pause(self,get_file,pause_init):
         if os.path.exists(pause_init):
             recv_size = conf_obj.set_conf({'file_name': get_file}, 'read_recv_size', pause_init)
             if recv_size:
@@ -165,35 +166,49 @@ class FTPClient:
             }
             set_struct.struct_pack(self.client,put_file_dict)
 
-            while True:
-                put_status_dict = set_struct.struct_unpack(self.client)
-                print(put_status_dict['put_message'])
-
-                if put_status_dict['put_status'] == False:
-                    if put_status_dict['put_again'] == 'yes':
-                        f,file_name,recv_size = pause_obj.read_pause(conf_obj,put_file,'put')
-                        file_diff = {
-                            'file': f,
-                            'file_name':file_name,
-                            'recv_size': recv_size,
-                        }
-                        set_struct.struct_pack(self.client, file_diff)
-                    else:
-                        return
-                else:
-                    f = set_file.read_file(put_file,'rb')
-
-                    while True:
-                        set_bar.set_bar()
-                        for line in f:
-                            self.client.send(line)
-                            print('发送数据包大小：%4s, 文件总大小：%s'%(len(line),file_size))
-                        break
-                    print('文件上传成功')
-                    return
+            self.put_diff(put_file,file_size)
         else:
             print('您的个人文件夹中没有该文件，请上传已有的文件')
             return
+
+    def put_diff(self,put_file,file_size):
+        while True:
+            put_status_dict = set_struct.struct_unpack(self.client)
+            while True:
+                print(put_status_dict['put_message'])
+                if put_status_dict['is_choice'] == 'yes':
+                    is_pause_go = input('>>>')
+
+                if put_status_dict['put_status'] == False:
+                    if put_status_dict['put_again'] == 'yes':
+                        if is_pause_go in ['n', 'N', 'y', 'Y']:
+                            file_diff = {
+                                'is_pause_go': is_pause_go
+                            }
+                            set_struct.struct_pack(self.client, file_diff)
+                            break
+                        else:
+                            print('您的输入有误，请重新输入')
+                            continue
+                    else:
+                        return
+                else:
+                    f = set_file.read_file(put_file, 'rb')
+                    set_bar.set_bar()
+
+                    while True:
+                        try:
+                            for line in f:
+                                self.client.send(line)
+                                print('发送数据包大小：%4s, 文件总大小：%s' % (len(line), file_size))
+                        except BrokenPipeError:
+                            print('服务端接收数据连接中断，客户端重置连接')
+                            self.client.close()
+                            self.client_bind()
+                            return
+                        break
+                    print('文件上传成功')
+                    return
 
     def view(self,cmd,username):
         count = 1
@@ -202,6 +217,7 @@ class FTPClient:
             return
         self.client.send(cmd.encode(self.encoding))
         view_info = set_struct.struct_unpack(self.client)
+
         if isinstance(view_info,list):
             print('您的云盘是空的，快去上传文件吧')
 

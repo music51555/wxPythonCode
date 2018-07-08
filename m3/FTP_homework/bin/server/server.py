@@ -73,29 +73,40 @@ class FTPServer:
         free_size = int(disk_size) - total_size
         return free_size
 
-    def file_diff(self,put_file_dict,puted_file):
+    def check_put_pause(self,put_file_dict,puted_file,pause_init):
         puted_file_md5 = set_md5.set_file_md5(puted_file)
         if puted_file_md5 == put_file_dict['file_md5']:
             put_status_dict = {
                 'put_status': False,
                 'put_message': '您的云空间中已存在该文件',
-                'put_again':'no'
+                'put_again':'no',
+                'is_choice': 'no'
             }
             set_struct.struct_pack(self.conn, put_status_dict)
             return None
         else:
-            put_status_dict  = {
-                'put_status':False,
-                'put_message':'云盘系统发现同名文件',
-                'put_again':'yes'
-            }
-            set_struct.struct_pack(self.conn, put_status_dict)
+            if os.path.exists(pause_init):
+                recv_size = conf_obj.set_conf({'file_name': puted_file}, 'read_recv_size', pause_init)
+                print('recv_size',recv_size)
+                put_status_dict = {
+                    'put_status': False,
+                    'put_message': '该文件在上传过程中意外中断连接，是否继续上传，执行断点续传?[ y | n]>>>',
+                    'put_again': 'yes',
+                    'is_choice': 'yes'
+                }
+                set_struct.struct_pack(self.conn, put_status_dict)
+                diff_dict = set_struct.struct_unpack(self.conn)
 
-            diff_dict = set_struct.struct_unpack(self.conn)
-            f = diff_dict['file']
-            file_name = diff_dict['file_name']
-            recv_size = diff_dict['recv_size']
-            return f,file_name,recv_size
+                # file_name = diff_dict['file_name']
+
+                if diff_dict['is_pause_go'] in ['y','Y']:
+                    f = set_file.write_file(puted_file,'ab')
+
+                if diff_dict['is_pause_go'] in ['n','N']:
+                    f = set_file.write_file(puted_file,'wb')
+                    recv_size = 0
+
+                return f,int(recv_size)
 
     def size_not_enough(self,put_file_dict):
         put_status_dict = {
@@ -103,17 +114,19 @@ class FTPServer:
             'put_message': '很抱歉，您的云盘空间不足，剩余空间为%sMB,您上传附件的大小是%sMB'
                            % (set_bytes.set_bytes(self.get_free_size),
                               set_bytes.set_bytes(put_file_dict['file_size'])),
-            'put_again': 'no'
+            'put_again': 'no',
+            'is_choice': 'no'
         }
         set_struct.struct_pack(put_status_dict)
 
     def get(self, filename):
-        get_file = '%s/%s/%s/%s'%(self.base_dir,'share',self.username,filename)
+        geted_file = '%s/%s/%s/%s'%(self.base_dir,'share',self.username,filename)
         pause_init = '%s/%s/%s' % (self.base_dir, 'db', 'pause.init')
+        get_file = '%s/%s/%s' % (self.base_dir, 'download', filename)
 
-        if os.path.exists(get_file):
-            file_size = os.path.getsize(get_file)
-            file_md5 = set_md5.set_file_md5(get_file)
+        if os.path.exists(geted_file):
+            file_size = os.path.getsize(geted_file)
+            file_md5 = set_md5.set_file_md5(geted_file)
 
             get_dict = {
                 'file_name':filename,
@@ -124,13 +137,12 @@ class FTPServer:
             set_struct.struct_pack(self.conn,get_dict)
             confirm_dict = set_struct.struct_unpack(self.conn)
 
-            f = set_file.read_file(get_file, 'rb')
+            f = set_file.read_file(geted_file, 'rb')
             if os.path.exists(pause_init):
                 recv_size = conf_obj.set_conf({'file_name': get_file}, 'read_recv_size', pause_init)
                 if 'is_pause_go' in confirm_dict.keys():
                     if confirm_dict['is_pause_go'] in ['y','Y']:
                         f.seek(int(recv_size))
-
             if confirm_dict['confirm_get'] == True:
                 try:
                     for line in f:
@@ -149,41 +161,43 @@ class FTPServer:
             }
             set_struct.struct_pack(self.conn,get_dict)
 
+    def puting(self,f,recv_size,put_file_dict,puted_file):
+        while recv_size < put_file_dict['file_size']:
+            data = self.conn.recv(self.max_recv_size)
+            if not data:
+                pause_obj.set_pause(puted_file, recv_size, conf_obj, warnmsg=True)
+                self.conn.close()
+                self.server_accept()
+                return
+            recv_size += len(data)
+            pause_obj.set_pause(puted_file, recv_size, conf_obj, warnmsg=False)
+            f.write(data)
+        f.close()
+        get_file_md5 = set_md5.set_file_md5(puted_file)
+        if get_file_md5 == put_file_dict['file_md5']:
+            print('文件上传完成，校验MD5一致')
+
     def put(self,filename):
         put_file_dict = set_struct.struct_unpack(self.conn)
         puted_file = '%s/%s/%s/%s'%(self.base_dir,'share',self.username,filename)
         pause_init = '%s/%s/%s' % (self.base_dir, 'db', 'pause.init')
 
-        recv_size = 0
-        recv_rate = 0
-
         if os.path.exists(puted_file):
-            f,file_name,recv_size = self.file_diff(put_file_dict,puted_file)
-            if not puted_file:
-                return
+            f,recv_size = self.check_put_pause(put_file_dict,puted_file,pause_init)
+            print(recv_size,type(recv_size))
         else:
             f = set_file.write_file(puted_file, 'wb')
+            recv_size = 0
 
         if put_file_dict['file_size'] < self.get_free_size:
             put_status_dict = {
                 'put_status': True,
                 'put_message': '请稍等,文件上传中...',
-                'put_again':'no'
+                'put_again':'no',
+                'is_choice': 'no'
             }
             set_struct.struct_pack(self.conn, put_status_dict)
-
-            while recv_size < put_file_dict['file_size']:
-                data = self.conn.recv(self.max_recv_size)
-                if not data:
-                    pause_obj.set_pause(puted_file,recv_size,conf_obj,warnmsg = True)
-                f.write(data)
-                recv_size += len(data)
-
-            get_file_md5 = set_md5.set_file_md5(puted_file)
-            if get_file_md5 == put_file_dict['file_md5']:
-                print('文件下载完成，校验MD5一致')
-            print('服务端：文件上传完毕')
-            return
+            self.puting(f,recv_size,put_file_dict,puted_file)
         else:
             self.size_not_enough(put_file_dict)
         return
@@ -222,7 +236,7 @@ class FTPServer:
                 if hasattr(self,request_method):
                     func = getattr(self, request_method)
                     func(request_content)
-                    continue
+                    break
 
                 self.conn.close()
                 # except ConnectionResetError as e:

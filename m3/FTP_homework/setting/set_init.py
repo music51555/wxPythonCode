@@ -30,8 +30,10 @@ class set_Init():
         if set_type == 'read_account':
             self.conf.read(set_file,encoding = 'utf-8')
             if self.conf.has_section(username) and password_md5 == self.conf[username]['password']:
+                self.conf.remove_section(username)
                 return True, username
             else:
+                self.conf.remove_section(username)
                 return False, username
 
         if set_type == 'set_recv_size':
@@ -47,8 +49,10 @@ class set_Init():
         if set_type == 'read_recv_size':
             print('读取配置文件',set_file)
             self.conf.read(set_file,encoding = 'utf-8')
-            file_name = file_name.replace('share/alex','download')
-            print(file_name)
+            # print(file_name)
+            # # file_name = file_name.replace('share/alex','download')
+            # print(file_name)
+            # input()
             if self.conf.has_section(file_name):
                 print(file_name)
                 print(self.conf[file_name]['recv_size'])
