@@ -1,14 +1,13 @@
 import socket
 import sys
 import os
-import json
-import struct
 import re
 import time
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 
 from core import login
+from core import pause
 from setting import set_struct
 from setting import set_file
 from setting import set_md5
@@ -31,7 +30,6 @@ class FTPClient:
         while True:
             login_choice = input('还没有账号？按r注册账号，已有账号请按g>>>：')
             if login_choice in ['r', 'R', 'g', 'G']:
-
                 if login_choice in ['r', 'R']:
                     login_obj.register()
                     continue
@@ -67,60 +65,24 @@ class FTPClient:
     def client_bind(self):
         self.client.connect((self.host,self.port))
 
-    def file_diff(self):
-        while True:
-            set_diff = input('确认上传将覆盖已有文件,覆盖已有云盘文件请按y，建立新的同名文件请按n>>>')
-            if set_diff in ['y', 'Y', 'n', 'N']:
-                file_diff = {
-                    'set_diff': set_diff
-                }
-                set_struct.struct_pack(self.client,file_diff)
-                break
-            else:
-                print('您的输入有误，请重新输入')
-                continue
-
-    def pause_go(self,pause_init,get_file,get_dict):
-        if os.path.exists(pause_init):
-            pause_dict = {
-                'file_name': get_file
-            }
-            recv_size = conf_obj.set_conf(pause_dict, 'read_pause', pause_init)
-            if recv_size:
-                print('您之前下载过此文件，将执行断点续传')
-                f = set_file.write_file(get_file, 'ab')
-                recv_data = f.seek(int(recv_size))
-            else:
-                while True:
-                    over_write = input('发现同名文件，但文件内容不同，是否覆盖[y | n]？')
-                    if over_write in ['n','N','y','Y']:
-                        if over_write in ['y','Y']:
-                            f = set_file.write_file(get_file, 'wb')
-                            recv_size = 0
-                        else:
-                            return
-                    else:
-                        print('您的输入有误，请重新输入')
-                        continue
-        self.downloading(f,int(recv_size),pause_init,get_file,get_dict,recv_data)
-
-    def downloading(self,f,recv_size,pause_init,get_file,get_dict,recv_data = ''):
+    def downloading(self,f,recv_size,get_file,get_dict,recv_data = b''):
+        print(recv_size)
+        print(get_dict['file_size'])
+        input('调试')
         while recv_size < get_dict['file_size']:
             data = self.client.recv(self.max_recv_size)
             if not data:
-                pause_dict = {
-                    'file_name': get_file,
-                    'recv_size': recv_size,
-                }
-                conf_obj.set_conf(pause_dict, 'set_pause', pause_init)
-                print('服务端失去连接')
+                pause_obj.set_pause(get_file,recv_size,conf_obj,warnmsg = True)
                 return
-            # time.sleep(0.01)
+            recv_size += len(data)
+            pause_obj.set_pause(get_file, recv_size, conf_obj,warnmsg = False)
             f.write(data)
             recv_data += data
-            recv_size += len(data)
             print('已接收%s，文件总大小%s' % (recv_size, get_dict['file_size']))
         f.close()
+        get_file_md5 = set_md5.set_file_md5(get_file)
+        if get_file_md5 == get_dict['file_md5']:
+            print('文件下载完成，校验MD5一致')
 
     def get(self,cmd,filename):
         pause_init = '%s/%s/%s' % (self.base_dir, 'db', 'pause.init')
@@ -143,11 +105,7 @@ class FTPClient:
             set_bar.set_bar()
             f = set_file.write_file(get_file, 'wb')
             recv_size = 0
-            self.downloading(f,recv_size,pause_init,get_file,get_dict)
-
-            get_file_md5 = set_md5.set_file_md5(get_file)
-            if get_file_md5 == get_dict['file_md5']:
-                print('文件下载完成，校验MD5一致')
+            self.downloading(f,recv_size,get_file,get_dict)
         else:
             self.client.send(cmd.encode(self.encoding))
             get_dict = set_struct.struct_unpack(self.client)
@@ -158,15 +116,37 @@ class FTPClient:
                 confirm_get_dict = {
                     'confirm_get': False
                 }
-
                 set_struct.struct_pack(self.client, confirm_get_dict)
                 return
             else:
+                f, file_name, recv_size = self.check_pause(get_file,pause_init)
                 confirm_dict = {
-                    'confirm_get': True
+                    'confirm_get': True,
+                    'is_pause_go': self.is_pause_go
                 }
                 set_struct.struct_pack(self.client, confirm_dict)
-                self.pause_go(pause_init,get_file,get_dict)
+                self.downloading(f, int(recv_size), file_name, get_dict)
+
+    def check_pause(self,get_file,pause_init):
+        if os.path.exists(pause_init):
+            recv_size = conf_obj.set_conf({'file_name': get_file}, 'read_recv_size', pause_init)
+            if recv_size:
+                while True:
+                    self.is_pause_go = input('该文件在下载过程中意外中断连接，是否继续下载，执行断点续传?[ y | n]>>>')
+                    if self.is_pause_go in ['n', 'N', 'y', 'Y']:
+                        if self.is_pause_go in ['y', 'Y']:
+                            f, file_name = pause_obj.read_pause(get_file, self.is_pause_go, 'client')
+                        if self.is_pause_go in ['n', 'N']:
+                            f, file_name = pause_obj.read_pause(get_file, self.is_pause_go, 'client')
+                            recv_size = 0
+                        break
+                    else:
+                        print('您的输入有误，请重新输入')
+                        continue
+            else:
+                f = set_file.write_file(get_file, 'wb')
+                recv_size = 0
+            return f,file_name,recv_size
 
     def put(self,cmd,filename):
         put_file = '%s/%s/%s' % (self.base_dir, 'download', filename)
@@ -191,17 +171,23 @@ class FTPClient:
 
                 if put_status_dict['put_status'] == False:
                     if put_status_dict['put_again'] == 'yes':
-                        self.file_diff()
+                        f,file_name,recv_size = pause_obj.read_pause(conf_obj,put_file,'put')
+                        file_diff = {
+                            'file': f,
+                            'file_name':file_name,
+                            'recv_size': recv_size,
+                        }
+                        set_struct.struct_pack(self.client, file_diff)
                     else:
                         return
                 else:
-                    put_file_dict['file_size'] / 1024 / 60
                     f = set_file.read_file(put_file,'rb')
 
                     while True:
                         set_bar.set_bar()
                         for line in f:
                             self.client.send(line)
+                            print('发送数据包大小：%4s, 文件总大小：%s'%(len(line),file_size))
                         break
                     print('文件上传成功')
                     return
@@ -224,30 +210,43 @@ class FTPClient:
             total_list = []
             for file in view_info:
                 row_list = []
+
                 count = str(count)
                 row_list.append(count)
+
                 file_name = view_info[file]['file_name']
                 row_list.append(file_name)
+
                 file_size = round(view_info[file]['file_size']/ 1000000,2)
                 row_list.append(str(file_size)+'MB')
+
                 file_type = view_info[file]['file_name'].rsplit('.')[1]
                 row_list.append(file_type)
+
                 put_date = view_info[file]['put_date']
                 row_list.append(put_date)
+
                 total_list.append(row_list)
                 count = int(count) + 1
+
             set_table.set_table(total_list)
 
     def run(self):
         self.client_bind()
-        self.login()
+        try:
+            self.login()
+        except KeyboardInterrupt as e:
+            print('客户端中断连接')
+            exit()
         while True:
             cmd = input('请输入命令[ get | put | view ]>>>:').strip()
             if not cmd:
                 continue
+
             r_file = re.search('[get|put] .*\..*', cmd)
             r_view = re.search('view .*', cmd)
             r_help = re.search('[get|put|view] --help',cmd)
+
             if r_help:
                 if cmd.startswith('get') or cmd.startswith('put'):
                     print('上传、下载文件，您可以使用[get|put 文件名.文件类型]来执行')
@@ -275,9 +274,9 @@ class FTPClient:
                 print('命令格式错误,您可以使用[命令 --help]方式查看使用说明 ')
                 continue
 
-
 if __name__ == '__main__':
-    f = FTPClient('127.0.0.1',8081)
+    f = FTPClient('127.0.0.1',8082)
     login_obj = login.UserBehavior()
+    pause_obj = pause.Pause()
     conf_obj = set_init.set_Init()
     f.run()

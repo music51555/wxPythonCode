@@ -63,6 +63,9 @@ class UserBehavior:
                     return
                 if account_confirm in ['n', 'N']:
                     continue
+            else:
+                print('您的输入有误，请重新输入')
+                continue
 
     def login(self,login_info):
         if os.path.exists('%s/%s/%s' % (self.base_dir, 'db', 'account.init')):

@@ -3,10 +3,11 @@ import sys
 import os
 import json
 import struct
-import time
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
+
 from core import login
+from core import pause
 from setting import set_struct
 from setting import set_file
 from setting import set_md5
@@ -26,8 +27,12 @@ class FTPServer:
         self.encoding = sys.getdefaultencoding()
 
     def server_bind(self):
-        self.server.bind((self.host,self.port))
         self.server.setsockopt(socket.SOL_SOCKET,socket.SO_REUSEADDR,1)
+        try:
+            self.server.bind((self.host,self.port))
+        except OSError:
+            print('客户端关闭，服务端重置连接')
+            return
 
     def server_listen(self):
         self.server.listen(self.max_queue_size)
@@ -66,13 +71,10 @@ class FTPServer:
                                                            self.username,
                                                            file))
         free_size = int(disk_size) - total_size
-        print('free_size',free_size)
         return free_size
 
     def file_diff(self,put_file_dict,puted_file):
         puted_file_md5 = set_md5.set_file_md5(puted_file)
-        print(puted_file_md5)
-        print(put_file_dict['file_md5'])
         if puted_file_md5 == put_file_dict['file_md5']:
             put_status_dict = {
                 'put_status': False,
@@ -84,22 +86,16 @@ class FTPServer:
         else:
             put_status_dict  = {
                 'put_status':False,
-                'put_message':'云盘系统发现同名文件，但文件内容较旧，是否继续上传？',
+                'put_message':'云盘系统发现同名文件',
                 'put_again':'yes'
             }
             set_struct.struct_pack(self.conn, put_status_dict)
+
             diff_dict = set_struct.struct_unpack(self.conn)
-            print(diff_dict)
-            while True:
-                if diff_dict['set_diff'] in ['y', 'Y']:
-                    os.remove(puted_file)
-                    return None
-                if diff_dict['set_diff'] in ['n', 'N']:
-                    puted_file = '%s/%s/%s/%s.diff' % (self.base_dir,
-                                                       'share',
-                                                       self.username,
-                                                       put_file_dict['file_name'])
-                    return puted_file
+            f = diff_dict['file']
+            file_name = diff_dict['file_name']
+            recv_size = diff_dict['recv_size']
+            return f,file_name,recv_size
 
     def size_not_enough(self,put_file_dict):
         put_status_dict = {
@@ -109,31 +105,15 @@ class FTPServer:
                               set_bytes.set_bytes(put_file_dict['file_size'])),
             'put_again': 'no'
         }
-        header_json = json.dumps(put_status_dict)
-        header_bytes = header_json.encode('utf-8')
-        self.conn.send(struct.pack('i', len(header_bytes)))
-        self.conn.send(header_bytes)
+        set_struct.struct_pack(put_status_dict)
 
     def get(self, filename):
         get_file = '%s/%s/%s/%s'%(self.base_dir,'share',self.username,filename)
         pause_init = '%s/%s/%s' % (self.base_dir, 'db', 'pause.init')
 
         if os.path.exists(get_file):
-
             file_size = os.path.getsize(get_file)
             file_md5 = set_md5.set_file_md5(get_file)
-            f = set_file.read_file(get_file, 'rb')
-
-            if os.path.exists(pause_init):
-                pause_dict = {
-                    'file_name': get_file
-                }
-                recv_size = conf_obj.set_conf(pause_dict,'read_pause',pause_init)
-                if recv_size:
-                    file_size = file_size - recv_size
-                    f.seek(file_size)
-                else:
-                    file_size = os.path.getsize(get_file)
 
             get_dict = {
                 'file_name':filename,
@@ -141,18 +121,26 @@ class FTPServer:
                 'file_md5':file_md5,
                 'get_status':True
             }
-
             set_struct.struct_pack(self.conn,get_dict)
-            print('准备发了')
-
             confirm_dict = set_struct.struct_unpack(self.conn)
-            print('准备发了1')
 
+            f = set_file.read_file(get_file, 'rb')
+            if os.path.exists(pause_init):
+                recv_size = conf_obj.set_conf({'file_name': get_file}, 'read_recv_size', pause_init)
+                if 'is_pause_go' in confirm_dict.keys():
+                    if confirm_dict['is_pause_go'] in ['y','Y']:
+                        f.seek(int(recv_size))
 
             if confirm_dict['confirm_get'] == True:
-                for line in f:
-                    self.conn.send(line)
-                    # time.sleep(0.01)
+                try:
+                    for line in f:
+                        self.conn.send(line)
+                    print('下载任务完成')
+                except BrokenPipeError as e:
+                    print('客户端接收数据连接中断，服务端重置连接')
+                    self.conn.close()
+                    self.server_accept()
+                    return
             else:
                 return
         else:
@@ -164,15 +152,17 @@ class FTPServer:
     def put(self,filename):
         put_file_dict = set_struct.struct_unpack(self.conn)
         puted_file = '%s/%s/%s/%s'%(self.base_dir,'share',self.username,filename)
+        pause_init = '%s/%s/%s' % (self.base_dir, 'db', 'pause.init')
+
         recv_size = 0
         recv_rate = 0
 
-        print('put_file_dict',put_file_dict)
-
         if os.path.exists(puted_file):
-            puted_file = self.file_diff(put_file_dict,puted_file)
+            f,file_name,recv_size = self.file_diff(put_file_dict,puted_file)
             if not puted_file:
                 return
+        else:
+            f = set_file.write_file(puted_file, 'wb')
 
         if put_file_dict['file_size'] < self.get_free_size:
             put_status_dict = {
@@ -182,15 +172,17 @@ class FTPServer:
             }
             set_struct.struct_pack(self.conn, put_status_dict)
 
-            f = set_file.write_file(puted_file, 'wb')
             while recv_size < put_file_dict['file_size']:
                 data = self.conn.recv(self.max_recv_size)
+                if not data:
+                    pause_obj.set_pause(puted_file,recv_size,conf_obj,warnmsg = True)
                 f.write(data)
                 recv_size += len(data)
-                print('接收文件大小%s，文件总大小%s'%(recv_size,put_file_dict['file_size']))
-            else:
-                self.put_file_dict = put_file_dict
-                print('服务端：文件上传完毕')
+
+            get_file_md5 = set_md5.set_file_md5(puted_file)
+            if get_file_md5 == put_file_dict['file_md5']:
+                print('文件下载完成，校验MD5一致')
+            print('服务端：文件上传完毕')
             return
         else:
             self.size_not_enough(put_file_dict)
@@ -201,7 +193,7 @@ class FTPServer:
         share_file_list = os.listdir('%s/%s/%s'%(self.base_dir,
                                                  'share',
                                                  username))[:]
-        print('hare_file_list'+repr(share_file_list))
+
         if len(share_file_list) == 0:
             set_struct.struct_pack(self.conn, share_file_list)
         else:
@@ -211,13 +203,12 @@ class FTPServer:
                     'file_size':os.path.getsize('%s/%s/%s/%s'%(self.base_dir,'share',username,file)),
                     'put_date':set_time.set_time(os.path.getctime('%s/%s/%s/%s'%(self.base_dir,'share',username,file)))
                 }
-            print(view_dict)
             set_struct.struct_pack(self.conn,view_dict)
 
     def run(self):
-        self.server_bind()
-        self.server_listen()
         while True:
+            self.server_bind()
+            self.server_listen()
             self.server_accept()
             while True:
                 # try:
@@ -239,9 +230,10 @@ class FTPServer:
                 #     break
 
 if __name__ == '__main__':
-    f = FTPServer('127.0.0.1',8081)
+    f = FTPServer('127.0.0.1',8082)
     print('请先登录...')
     login_obj = login.UserBehavior()
+    pause_obj = pause.Pause()
     conf_obj = set_init.set_Init()
     f.run()
 

@@ -19,35 +19,39 @@ class set_Init():
         if 'file_name' in set_info.keys():
             file_name = set_info['file_name']
 
-
         if set_type == 'set_account':
-            self.conf.read(set_file)
+            self.conf.read(set_file, encoding = 'utf-8')
             self.conf.add_section(username)
             self.conf.set(username, 'password', password_md5)
             self.conf.set(username, 'name', set_info['name'])
             self.conf.set(username, 'disk_size', str(set_info['disk_size']))
-            self.conf.write(open(set_file, 'w'))
+            self.conf.write(open(set_file, 'w',encoding = 'utf-8'))
 
         if set_type == 'read_account':
-            self.conf.read(set_file)
+            self.conf.read(set_file,encoding = 'utf-8')
             if self.conf.has_section(username) and password_md5 == self.conf[username]['password']:
                 return True, username
             else:
                 return False, username
 
-        if set_type == 'set_pause':
-            self.conf.read(set_file)
+        if set_type == 'set_recv_size':
+            self.conf.read(set_file,encoding = 'utf-8')
             if not self.conf.has_section(file_name):
                 self.conf.add_section(file_name)
                 self.conf.set(file_name,'recv_size',str(set_info['recv_size']))
-                self.conf.write(open(set_file,'w'))
+                self.conf.write(open(set_file,'w',encoding = 'utf-8'))
             else:
                 self.conf.set(file_name, 'recv_size', str(set_info['recv_size']))
-                self.conf.write(open(set_file, 'w'))
+                self.conf.write(open(set_file, 'w',encoding = 'utf-8'))
 
-        if set_type == 'read_pause':
-            self.conf.read(set_file)
+        if set_type == 'read_recv_size':
+            print('读取配置文件',set_file)
+            self.conf.read(set_file,encoding = 'utf-8')
+            file_name = file_name.replace('share/alex','download')
+            print(file_name)
             if self.conf.has_section(file_name):
+                print(file_name)
+                print(self.conf[file_name]['recv_size'])
                 return self.conf[file_name]['recv_size']
             else:
                 return

@@ -23,3 +23,9 @@
 password = 123456
 
 home_dir = xxxxx
+
+
+
+问题记录：
+
+1、启动服务端和客户端后，中断客户端，提示KeyboardInterrupt错误，服务端提示OSERROR，如果要重现问题，请注释服务端server_bind方法中的捕获异常方法，并注释客户端run方法中的捕获的KeyboardInterrupt异常代码
