@@ -8,6 +8,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(
 
 from core import login
 from core import pause
+from core import verify_file_md5
 from setting import set_struct
 from setting import set_file
 from setting import set_md5
@@ -86,7 +87,7 @@ class FTPServer:
                 'is_choice': 'no'
             }
             set_struct.struct_pack(self.conn, put_status_dict)
-            return None
+            return None,None
         else:
             if os.path.exists(pause_init):
                 recv_size = conf_obj.set_conf({'file_name': puted_file},
@@ -192,10 +193,7 @@ class FTPServer:
                                 warnmsg=False)
             f.write(data)
         f.close()
-
-        get_file_md5 = set_md5.set_file_md5(puted_file)
-        if get_file_md5 == put_file_dict['file_md5']:
-            print('文件上传完成，校验MD5一致')
+        # verify_file_md5.verify_file_md5(put_file_dict, puted_file)
 
     def put(self,filename):
         put_file_dict = set_struct.struct_unpack(self.conn)
@@ -205,6 +203,8 @@ class FTPServer:
 
         if os.path.exists(puted_file):
             f,recv_size = self.check_put_pause(put_file_dict,puted_file,pause_init)
+            if f == None:
+                return
             print(recv_size,type(recv_size))
         else:
             f = set_file.write_file(puted_file, 'wb')
@@ -215,7 +215,8 @@ class FTPServer:
                 'put_status': True,
                 'put_message': '请稍等,文件上传中...',
                 'put_again':'no',
-                'is_choice': 'no'
+                'is_choice': 'no',
+                'recv_size':recv_size
             }
             set_struct.struct_pack(self.conn, put_status_dict)
             self.puting(f,recv_size,put_file_dict,puted_file)

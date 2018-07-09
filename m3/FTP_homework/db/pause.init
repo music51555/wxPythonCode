@@ -3,24 +3,6 @@ password = e10adc3949ba59abbe56e057f20f883e
 name = alex
 disk_size = 102400000
 
-[/work/wxPythonCode/wxPythonCode/m3/FTP_homework/download/三只小猪上.mp4]
-recv_size = 28395905
-
-[/work/wxPythonCode/wxPythonCode/m3/FTP_homework/download/小猫钓鱼.mp4]
+[/Users/wangxin/Documents/wxPythonCode/wxPythonCode/m3/FTP_homework/share/alex/小猫钓鱼.mp4]
 recv_size = 27614060
-
-[/work/wxPythonCode/wxPythonCode/m3/FTP_homework/download/小蝌蚪找妈妈.mp4]
-recv_size = 35812829
-
-[/work/wxPythonCode/wxPythonCode/m3/FTP_homework/download/龟兔赛跑.mp4]
-recv_size = 32370408
-
-[/work/wxPythonCode/wxPythonCode/m3/FTP_homework/share/alex/小猫钓鱼.mp4]
-recv_size = 27614060
-
-[/work/wxPythonCode/wxPythonCode/m3/FTP_homework/share/alex/三只小猪上.mp4]
-recv_size = 28395905
-
-[/work/wxPythonCode/wxPythonCode/m3/FTP_homework/share/alex/小蝌蚪找妈妈.mp4]
-recv_size = 35812829
 
