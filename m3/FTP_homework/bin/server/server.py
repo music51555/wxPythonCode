@@ -44,7 +44,7 @@ class FTPServer:
             if login_info == None:
                 break
 
-            is_success,self.username = login_obj.login(login_info)
+            is_success,self.username = login_obj.verify_account(login_info)
             is_success_dict = {
                 'is_success':is_success,
                 'username':self.username
@@ -64,17 +64,20 @@ class FTPServer:
         share_file_list = os.listdir('%s/%s/%s' % (self.base_dir,
                                                    'share',
                                                    self.username))
+
         total_size = 0
         for file in share_file_list[1:]:
             total_size += os.path.getsize('%s/%s/%s/%s' % (self.base_dir,
                                                            'share',
                                                            self.username,
                                                            file))
+
         free_size = int(disk_size) - total_size
         return free_size
 
     def check_put_pause(self,put_file_dict,puted_file,pause_init):
         puted_file_md5 = set_md5.set_file_md5(puted_file)
+
         if puted_file_md5 == put_file_dict['file_md5']:
             put_status_dict = {
                 'put_status': False,
@@ -86,8 +89,10 @@ class FTPServer:
             return None
         else:
             if os.path.exists(pause_init):
-                recv_size = conf_obj.set_conf({'file_name': puted_file}, 'read_recv_size', pause_init)
-                print('recv_size',recv_size)
+                recv_size = conf_obj.set_conf({'file_name': puted_file},
+                                              'read_recv_size',
+                                              pause_init)
+
                 put_status_dict = {
                     'put_status': False,
                     'put_message': '该文件在上传过程中意外中断连接，是否继续上传，执行断点续传?[ y | n]>>>',
@@ -96,8 +101,6 @@ class FTPServer:
                 }
                 set_struct.struct_pack(self.conn, put_status_dict)
                 diff_dict = set_struct.struct_unpack(self.conn)
-
-                # file_name = diff_dict['file_name']
 
                 if diff_dict['is_pause_go'] in ['y','Y']:
                     f = set_file.write_file(puted_file,'ab')
@@ -143,6 +146,7 @@ class FTPServer:
                 if 'is_pause_go' in confirm_dict.keys():
                     if confirm_dict['is_pause_go'] in ['y','Y']:
                         f.seek(int(recv_size))
+
             if confirm_dict['confirm_get'] == True:
                 try:
                     for line in f:
@@ -173,6 +177,7 @@ class FTPServer:
             pause_obj.set_pause(puted_file, recv_size, conf_obj, warnmsg=False)
             f.write(data)
         f.close()
+
         get_file_md5 = set_md5.set_file_md5(puted_file)
         if get_file_md5 == put_file_dict['file_md5']:
             print('文件上传完成，校验MD5一致')

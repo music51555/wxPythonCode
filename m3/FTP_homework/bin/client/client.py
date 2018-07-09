@@ -26,42 +26,6 @@ class FTPClient:
         self.client = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
         self.encoding = sys.getdefaultencoding()
 
-    def login(self):
-        while True:
-            login_choice = input('还没有账号？按r注册账号，已有账号请按g>>>：')
-            if login_choice in ['r', 'R', 'g', 'G']:
-                if login_choice in ['r', 'R']:
-                    login_obj.register()
-                    continue
-
-                if login_choice in ['g', 'G']:
-                    if not os.path.exists('%s/%s/%s' % (self.base_dir, 'db', 'account.init')):
-                        print('当前系统内还没有任何账号，请先注册')
-                        continue
-
-                    while True:
-                       username = input('请输入用户名：')
-                       password = input('请输入密码：')
-
-                       login_info = {
-                           'username': username,
-                           'password': password
-                       }
-
-                       set_struct.struct_pack(self.client,login_info)
-                       is_success_dict = set_struct.struct_unpack(self.client)
-
-                       if is_success_dict['is_success'] == True:
-                           self.username = is_success_dict['username']
-                           print('登录成功')
-                           return
-                       else:
-                           print('用户名或密码错误，请重新输入')
-                           continue
-            else:
-                print('您的输入有误，请重新输入')
-                continue
-
     def client_bind(self):
         try:
             self.client.connect((self.host,self.port))
@@ -81,6 +45,7 @@ class FTPClient:
             recv_data += data
             print('已接收%s，文件总大小%s' % (recv_size, get_dict['file_size']))
         f.close()
+
         get_file_md5 = set_md5.set_file_md5(get_file)
         if get_file_md5 == get_dict['file_md5']:
             print('文件下载完成，校验MD5一致')
@@ -215,6 +180,7 @@ class FTPClient:
         if username != self.username:
             print('您只能查看自己文件夹下的文件')
             return
+
         self.client.send(cmd.encode(self.encoding))
         view_info = set_struct.struct_unpack(self.client)
 
@@ -248,47 +214,50 @@ class FTPClient:
             set_table.set_table(total_list)
 
     def run(self):
-        self.client_bind()
-        try:
-            self.login()
-        except KeyboardInterrupt as e:
-            print('客户端中断连接')
-            exit()
         while True:
-            cmd = input('请输入命令[ get | put | view ]>>>:').strip()
-            if not cmd:
-                continue
+            self.client_bind()
 
-            r_file = re.search('[get|put] .*\..*', cmd)
-            r_view = re.search('view .*', cmd)
-            r_help = re.search('[get|put|view] --help',cmd)
+            try:
+                login_obj.login(self.client)
+            except KeyboardInterrupt:
+                print('客户端中断连接')
+                exit()
 
-            if r_help:
-                if cmd.startswith('get') or cmd.startswith('put'):
-                    print('上传、下载文件，您可以使用[get|put 文件名.文件类型]来执行')
-                if cmd.startswith('view'):
-                    print('您可以使用[view 您的登录用户名]来访问您的云盘空间')
-                continue
-
-            elif r_file:
-                request_method = cmd.split()[0]
-                filename = cmd.split()[1]
-                if hasattr(self, cmd.split()[0]):
-                    func = getattr(self, request_method)
-                    func(cmd, filename)
+            while True:
+                cmd = input('请输入命令[ get | put | view ]>>>:').strip()
+                if not cmd:
                     continue
 
-            elif r_view:
-                request_method = cmd.split()[0]
-                filename = cmd.split()[1]
-                if hasattr(self, cmd.split()[0]):
-                    func = getattr(self, request_method)
-                    func(cmd, filename)
+                r_file = re.search('[get|put] .*\..*', cmd)
+                r_view = re.search('view .*', cmd)
+                r_help = re.search('[get|put|view] --help',cmd)
+
+                if r_help:
+                    if cmd.startswith('get') or cmd.startswith('put'):
+                        print('上传、下载文件，您可以使用[get|put 文件名.文件类型]来执行')
+                    if cmd.startswith('view'):
+                        print('您可以使用[view 您的登录用户名]来访问您的云盘空间')
                     continue
 
-            else:
-                print('命令格式错误,您可以使用[命令 --help]方式查看使用说明 ')
-                continue
+                elif r_file:
+                    request_method = cmd.split()[0]
+                    filename = cmd.split()[1]
+                    if hasattr(self, cmd.split()[0]):
+                        func = getattr(self, request_method)
+                        func(cmd, filename)
+                        break
+
+                elif r_view:
+                    request_method = cmd.split()[0]
+                    filename = cmd.split()[1]
+                    if hasattr(self, cmd.split()[0]):
+                        func = getattr(self, request_method)
+                        func(cmd, filename)
+                        break
+
+                else:
+                    print('命令格式错误,您可以使用[命令 --help]方式查看使用说明 ')
+                    continue
 
 if __name__ == '__main__':
     f = FTPClient('127.0.0.1',8082)

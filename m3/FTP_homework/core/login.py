@@ -2,6 +2,7 @@ import os
 import configparser
 
 from setting import set_init
+from setting import set_struct
 
 class UserBehavior:
     base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -67,7 +68,43 @@ class UserBehavior:
                 print('您的输入有误，请重新输入')
                 continue
 
-    def login(self,login_info):
+    def login(self,client):
+        while True:
+            login_choice = input('还没有账号？按r注册账号，已有账号请按g>>>：')
+            if login_choice in ['r', 'R', 'g', 'G']:
+                if login_choice in ['r', 'R']:
+                    self.register()
+                    continue
+
+                if login_choice in ['g', 'G']:
+                    if not os.path.exists('%s/%s/%s' % (self.base_dir, 'db', 'account.init')):
+                        print('当前系统内还没有任何账号，请先注册')
+                        continue
+
+                    while True:
+                       username = input('请输入用户名：')
+                       password = input('请输入密码：')
+
+                       login_info = {
+                           'username': username,
+                           'password': password
+                       }
+
+                       set_struct.struct_pack(client,login_info)
+                       is_success_dict = set_struct.struct_unpack(client)
+
+                       if is_success_dict['is_success'] == True:
+                           self.username = is_success_dict['username']
+                           print('登录成功')
+                           return
+                       else:
+                           print('用户名或密码错误，请重新输入')
+                           continue
+            else:
+                print('您的输入有误，请重新输入')
+                continue
+
+    def verify_account(self,login_info):
         if os.path.exists('%s/%s/%s' % (self.base_dir, 'db', 'account.init')):
             return self.init.set_conf(login_info,'read_account',self.account_file)
 
