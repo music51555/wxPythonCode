@@ -171,11 +171,13 @@ class FTPClient:
                     f = set_file.read_file(put_file, 'rb')
                     set_bar.set_bar()
 
+                    send_data = 0
                     while True:
                         try:
                             for line in f:
                                 self.client.send(line)
-                                print('发送数据包大小：%4s, 文件总大小：%s' % (len(line), file_size))
+                                send_data += len(line)
+                                print('发送数据包大小：%s, 文件总大小：%s' % (send_data, file_size))
                         except BrokenPipeError:
                             print('服务端接收数据连接中断，客户端重置连接')
                             self.client.close()
@@ -228,7 +230,7 @@ class FTPClient:
             self.client_bind()
 
             try:
-                login_obj.login(self.client)
+                self.username = login_obj.login(self.client)
             except KeyboardInterrupt:
                 print('客户端中断连接')
                 exit()

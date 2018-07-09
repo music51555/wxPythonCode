@@ -96,7 +96,7 @@ class UserBehavior:
                        if is_success_dict['is_success'] == True:
                            self.username = is_success_dict['username']
                            print('登录成功')
-                           return
+                           return username
                        else:
                            print('用户名或密码错误，请重新输入')
                            continue

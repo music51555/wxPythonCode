@@ -121,7 +121,7 @@ class FTPServer:
             'put_again': 'no',
             'is_choice': 'no'
         }
-        set_struct.struct_pack(put_status_dict)
+        set_struct.struct_pack(self.conn,put_status_dict)
 
     def get(self, filename):
         geted_file = '%s/%s/%s/%s'%(self.base_dir,'share',

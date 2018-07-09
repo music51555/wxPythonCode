@@ -43,7 +43,8 @@ class set_Init():
                 self.conf.set(file_name,'recv_size',str(set_info['recv_size']))
                 self.conf.write(open(set_file,'w',encoding = 'utf-8'))
             else:
-                self.conf.set(file_name, 'recv_size', str(set_info['recv_size']))
+                # self.conf.set(file_name, 'recv_size', str(set_info['recv_size']))
+                self.conf[file_name]['recv_size'] = str(set_info['recv_size'])
                 self.conf.write(open(set_file, 'w',encoding = 'utf-8'))
 
         if set_type == 'read_recv_size':
