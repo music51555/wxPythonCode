@@ -27,11 +27,11 @@ class FTPClient:
         self.encoding = sys.getdefaultencoding()
 
     def client_bind(self):
-        try:
-            self.client.connect((self.host,self.port))
-        except OSError:
-            print('服务端关闭，再您重启服务后，请重新启动客户端连接服务器')
-            exit()
+        # try:
+        self.client.connect((self.host,self.port))
+        # except OSError:
+        #     print('服务端关闭，再您重启服务后，请重新启动客户端连接服务器')
+        #     exit()
 
     def downloading(self,f,recv_size,get_file,get_dict,recv_data = b''):
         while recv_size < get_dict['file_size']:
@@ -39,11 +39,12 @@ class FTPClient:
             if not data:
                 pause_obj.set_pause(get_file,recv_size,conf_obj,warnmsg = True)
                 return
+
             recv_size += len(data)
-            pause_obj.set_pause(get_file, recv_size, conf_obj,warnmsg = False)
+            pause_obj.set_pause(get_file,recv_size,conf_obj,warnmsg = False)
             f.write(data)
             recv_data += data
-            print('已接收%s，文件总大小%s' % (recv_size, get_dict['file_size']))
+            print('已接收%s，文件总大小%s' % (recv_size,get_dict['file_size']))
         f.close()
 
         get_file_md5 = set_md5.set_file_md5(get_file)
@@ -51,8 +52,9 @@ class FTPClient:
             print('文件下载完成，校验MD5一致')
 
     def get(self,cmd,filename):
-        pause_init = '%s/%s/%s' % (self.base_dir, 'db', 'pause.init')
-        get_file = '%s/%s/%s' % (self.base_dir, 'download', filename)
+        pause_init = '%s/%s/%s' % (self.base_dir,'db','pause.init')
+
+        get_file = '%s/%s/%s' % (self.base_dir,'download',filename)
 
         if not os.path.exists(get_file):
             self.client.send(cmd.encode(self.encoding))
@@ -71,6 +73,7 @@ class FTPClient:
             set_bar.set_bar()
             f = set_file.write_file(get_file, 'wb')
             recv_size = 0
+
             self.downloading(f,recv_size,get_file,get_dict)
         else:
             self.client.send(cmd.encode(self.encoding))
@@ -82,7 +85,7 @@ class FTPClient:
                 confirm_get_dict = {
                     'confirm_get': False
                 }
-                set_struct.struct_pack(self.client, confirm_get_dict)
+                set_struct.struct_pack(self.client,confirm_get_dict)
                 return
             else:
                 f, file_name, recv_size = self.check_get_pause(get_file,pause_init)
@@ -90,20 +93,26 @@ class FTPClient:
                     'confirm_get': True,
                     'is_pause_go': self.is_pause_go
                 }
-                set_struct.struct_pack(self.client, confirm_dict)
-                self.downloading(f, int(recv_size), file_name, get_dict)
+                set_struct.struct_pack(self.client,confirm_dict)
+                self.downloading(f,int(recv_size),file_name,get_dict)
 
     def check_get_pause(self,get_file,pause_init):
         if os.path.exists(pause_init):
-            recv_size = conf_obj.set_conf({'file_name': get_file}, 'read_recv_size', pause_init)
+            recv_size = conf_obj.set_conf({'file_name': get_file},'read_recv_size',
+                                          pause_init)
             if recv_size:
                 while True:
-                    self.is_pause_go = input('该文件在下载过程中意外中断连接，是否继续下载，执行断点续传?[ y | n]>>>')
+                    self.is_pause_go = input('该文件在下载过程中意外中断连接，'
+                                             '是否继续下载，执行断点续传?[ y | n]>>>')
                     if self.is_pause_go in ['n', 'N', 'y', 'Y']:
                         if self.is_pause_go in ['y', 'Y']:
-                            f, file_name = pause_obj.read_pause(get_file, self.is_pause_go, 'client')
+                            f, file_name = pause_obj.read_pause(get_file,
+                                                                self.is_pause_go,
+                                                                'client')
                         if self.is_pause_go in ['n', 'N']:
-                            f, file_name = pause_obj.read_pause(get_file, self.is_pause_go, 'client')
+                            f, file_name = pause_obj.read_pause(get_file,
+                                                                self.is_pause_go,
+                                                                'client')
                             recv_size = 0
                         break
                     else:
@@ -115,7 +124,7 @@ class FTPClient:
             return f,file_name,recv_size
 
     def put(self,cmd,filename):
-        put_file = '%s/%s/%s' % (self.base_dir, 'download', filename)
+        put_file = '%s/%s/%s' % (self.base_dir,'download',filename)
 
         if os.path.exists(put_file):
             self.client.send(cmd.encode(self.encoding))
@@ -245,7 +254,7 @@ class FTPClient:
                     if hasattr(self, cmd.split()[0]):
                         func = getattr(self, request_method)
                         func(cmd, filename)
-                        break
+                        continue
 
                 elif r_view:
                     request_method = cmd.split()[0]
@@ -253,7 +262,7 @@ class FTPClient:
                     if hasattr(self, cmd.split()[0]):
                         func = getattr(self, request_method)
                         func(cmd, filename)
-                        break
+                        continue
 
                 else:
                     print('命令格式错误,您可以使用[命令 --help]方式查看使用说明 ')

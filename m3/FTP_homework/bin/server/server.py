@@ -39,6 +39,7 @@ class FTPServer:
 
     def server_accept(self):
         self.conn, self.caddr = self.server.accept()
+
         while True:
             login_info = set_struct.struct_unpack(self.conn)
             if login_info == None:
@@ -61,14 +62,13 @@ class FTPServer:
     @property
     def get_free_size(self):
         disk_size = conf_obj.get_size(self.username)
-        share_file_list = os.listdir('%s/%s/%s' % (self.base_dir,
-                                                   'share',
+
+        share_file_list = os.listdir('%s/%s/%s' % (self.base_dir,'share',
                                                    self.username))
 
         total_size = 0
         for file in share_file_list[1:]:
-            total_size += os.path.getsize('%s/%s/%s/%s' % (self.base_dir,
-                                                           'share',
+            total_size += os.path.getsize('%s/%s/%s/%s' % (self.base_dir,'share',
                                                            self.username,
                                                            file))
 
@@ -95,7 +95,8 @@ class FTPServer:
 
                 put_status_dict = {
                     'put_status': False,
-                    'put_message': '该文件在上传过程中意外中断连接，是否继续上传，执行断点续传?[ y | n]>>>',
+                    'put_message': '该文件在上传过程中意外中断连接，'
+                                   '是否继续上传，执行断点续传?[ y | n]>>>',
                     'put_again': 'yes',
                     'is_choice': 'yes'
                 }
@@ -123,9 +124,13 @@ class FTPServer:
         set_struct.struct_pack(put_status_dict)
 
     def get(self, filename):
-        geted_file = '%s/%s/%s/%s'%(self.base_dir,'share',self.username,filename)
-        pause_init = '%s/%s/%s' % (self.base_dir, 'db', 'pause.init')
-        get_file = '%s/%s/%s' % (self.base_dir, 'download', filename)
+        geted_file = '%s/%s/%s/%s'%(self.base_dir,'share',
+                                    self.username,
+                                    filename)
+
+        pause_init = '%s/%s/%s' % (self.base_dir,'db','pause.init')
+
+        get_file = '%s/%s/%s' % (self.base_dir,'download',filename)
 
         if os.path.exists(geted_file):
             file_size = os.path.getsize(geted_file)
@@ -142,7 +147,10 @@ class FTPServer:
 
             f = set_file.read_file(geted_file, 'rb')
             if os.path.exists(pause_init):
-                recv_size = conf_obj.set_conf({'file_name': get_file}, 'read_recv_size', pause_init)
+                recv_size = conf_obj.set_conf({'file_name': get_file},
+                                              'read_recv_size',
+                                              pause_init)
+
                 if 'is_pause_go' in confirm_dict.keys():
                     if confirm_dict['is_pause_go'] in ['y','Y']:
                         f.seek(int(recv_size))
@@ -152,8 +160,13 @@ class FTPServer:
                     for line in f:
                         self.conn.send(line)
                     print('下载任务完成')
-                except BrokenPipeError as e:
-                    print('客户端接收数据连接中断，服务端重置连接')
+                except BrokenPipeError:
+                    print('客户端接收数据中断，服务端重置连接')
+                    self.conn.close()
+                    self.server_accept()
+                    return
+                except ConnectionResetError:
+                    print('客户端接收数据中断，服务端重置连接')
                     self.conn.close()
                     self.server_accept()
                     return
@@ -169,12 +182,14 @@ class FTPServer:
         while recv_size < put_file_dict['file_size']:
             data = self.conn.recv(self.max_recv_size)
             if not data:
-                pause_obj.set_pause(puted_file, recv_size, conf_obj, warnmsg=True)
+                pause_obj.set_pause(puted_file, recv_size, conf_obj,
+                                    warnmsg=True)
                 self.conn.close()
                 self.server_accept()
                 return
             recv_size += len(data)
-            pause_obj.set_pause(puted_file, recv_size, conf_obj, warnmsg=False)
+            pause_obj.set_pause(puted_file, recv_size, conf_obj,
+                                warnmsg=False)
             f.write(data)
         f.close()
 
@@ -184,6 +199,7 @@ class FTPServer:
 
     def put(self,filename):
         put_file_dict = set_struct.struct_unpack(self.conn)
+
         puted_file = '%s/%s/%s/%s'%(self.base_dir,'share',self.username,filename)
         pause_init = '%s/%s/%s' % (self.base_dir, 'db', 'pause.init')
 
@@ -219,15 +235,17 @@ class FTPServer:
             for file in share_file_list:
                 view_dict[file] = {
                     'file_name':file,
-                    'file_size':os.path.getsize('%s/%s/%s/%s'%(self.base_dir,'share',username,file)),
-                    'put_date':set_time.set_time(os.path.getctime('%s/%s/%s/%s'%(self.base_dir,'share',username,file)))
+                    'file_size':os.path.getsize('%s/%s/%s/%s'%(self.base_dir,
+                                                               'share',username,file)),
+                    'put_date':set_time.set_time(os.path.getctime('%s/%s/%s/%s'
+                                                                  %(self.base_dir,'share',username,file)))
                 }
             set_struct.struct_pack(self.conn,view_dict)
 
     def run(self):
+        self.server_bind()
+        self.server_listen()
         while True:
-            self.server_bind()
-            self.server_listen()
             self.server_accept()
             while True:
                 # try:
@@ -235,13 +253,14 @@ class FTPServer:
                 if not cmd:
                     print('客户端关闭，服务端重置连接')
                     break
+
                 request_method = cmd.decode(self.encoding).split()[0]
                 request_content = cmd.decode(self.encoding).split()[1]
 
                 if hasattr(self,request_method):
                     func = getattr(self, request_method)
                     func(request_content)
-                    break
+                    continue
 
                 self.conn.close()
                 # except ConnectionResetError as e:
