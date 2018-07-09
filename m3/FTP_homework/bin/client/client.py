@@ -82,10 +82,10 @@ class FTPClient:
             get_file_md5 = set_md5.set_file_md5(get_file)
             if get_file_md5 == get_dict['file_md5']:
                 print('文件已存在，无需重复下载')
-                confirm_get_dict = {
+                confirm_dict = {
                     'confirm_get': False
                 }
-                set_struct.struct_pack(self.client,confirm_get_dict)
+                set_struct.struct_pack(self.client,confirm_dict)
                 return
             else:
                 f, file_name, recv_size = self.check_get_pause(get_file,pause_init)
@@ -118,8 +118,9 @@ class FTPClient:
                     else:
                         print('您的输入有误，请重新输入')
                         continue
-            else:
+            if recv_size == None:
                 f = set_file.write_file(get_file, 'wb')
+                file_name = get_file
                 recv_size = 0
             return f,file_name,recv_size
 

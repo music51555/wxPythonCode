@@ -144,6 +144,8 @@ class FTPServer:
             }
             set_struct.struct_pack(self.conn,get_dict)
             confirm_dict = set_struct.struct_unpack(self.conn)
+            if confirm_dict['confirm_get'] == False:
+                return
 
             f = set_file.read_file(geted_file, 'rb')
             if os.path.exists(pause_init):
@@ -170,8 +172,6 @@ class FTPServer:
                     self.conn.close()
                     self.server_accept()
                     return
-            else:
-                return
         else:
             get_dict = {
                 'get_status':False

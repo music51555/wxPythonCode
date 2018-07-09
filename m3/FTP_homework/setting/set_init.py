@@ -38,7 +38,7 @@ class set_Init():
 
         if set_type == 'set_recv_size':
             self.conf.read(set_file,encoding = 'utf-8')
-            if not self.conf.has_section(file_name):
+            if self.conf.has_section(file_name) == False:
                 self.conf.add_section(file_name)
                 self.conf.set(file_name,'recv_size',str(set_info['recv_size']))
                 self.conf.write(open(set_file,'w',encoding = 'utf-8'))
@@ -58,7 +58,7 @@ class set_Init():
                 print(self.conf[file_name]['recv_size'])
                 return self.conf[file_name]['recv_size']
             else:
-                return
+                return None
 
     def get_size(self,username):
         self.conf.read(self.account_file)
