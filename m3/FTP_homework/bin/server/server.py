@@ -20,6 +20,8 @@ class FTPServer:
     max_queue_size = 5
     max_recv_size = 8192
     base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+    root_directory = '%s/%s' % (base_dir, 'share')
+    currect_directory = root_directory
 
     def __init__(self,host,port):
         self.host = host
@@ -143,6 +145,8 @@ class FTPServer:
                 'file_md5':file_md5,
                 'get_status':True
             }
+            print(get_dict)
+            print('发了发了')
             set_struct.struct_pack(self.conn,get_dict)
             confirm_dict = set_struct.struct_unpack(self.conn)
             if confirm_dict['confirm_get'] == False:
@@ -193,7 +197,7 @@ class FTPServer:
                                 warnmsg=False)
             f.write(data)
         f.close()
-        # verify_file_md5.verify_file_md5(put_file_dict, puted_file)
+        verify_file_md5.verify_file_md5(put_file_dict, puted_file)
 
     def put(self,filename):
         put_file_dict = set_struct.struct_unpack(self.conn)
@@ -243,6 +247,31 @@ class FTPServer:
                 }
             set_struct.struct_pack(self.conn,view_dict)
 
+    def ll(self):
+        files_list = os.listdir(self.currect_directory)
+        for file in files_list:
+            print(os.stat(os.path.join(self.currect_directory,file)))
+        set_struct.struct_pack(self.conn, files_list)
+
+    def pwd(self):
+        set_struct.struct_pack(self.conn, self.currect_directory)
+
+    def cd(self,username):
+        if username not in ['/','..']:
+            self.user_directory = '%s/%s/%s' % (self.base_dir,'share',username)
+
+        if username == '/':
+            self.currect_directory = self.root_directory
+        elif username == '..':
+            if self.currect_directory == self.root_directory:
+                self.currect_directory = self.root_directory
+                return
+            if self.currect_directory == self.user_directory:
+                self.currect_directory = self.root_directory
+
+        elif username in os.listdir(self.currect_directory):
+            self.currect_directory = self.user_directory
+
     def run(self):
         self.server_bind()
         self.server_listen()
@@ -256,12 +285,17 @@ class FTPServer:
                     break
 
                 request_method = cmd.decode(self.encoding).split()[0]
-                request_content = cmd.decode(self.encoding).split()[1]
 
                 if hasattr(self,request_method):
-                    func = getattr(self, request_method)
-                    func(request_content)
-                    continue
+                    if len(cmd.decode(self.encoding).split()) == 2:
+                        request_content = cmd.decode(self.encoding).split()[1]
+                        func = getattr(self, request_method)
+                        func(request_content)
+                        continue
+                    else:
+                        func = getattr(self, request_method)
+                        func()
+                        continue
 
                 self.conn.close()
                 # except ConnectionResetError as e:

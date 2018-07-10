@@ -34,8 +34,6 @@ class FTPClient:
             print('服务端关闭，再您重启服务后，请重新启动客户端连接服务器')
             exit()
 
-
-
     def get(self,cmd,filename):
         pause_init = '%s/%s/%s' % (self.base_dir,'db','pause.init')
 
@@ -58,11 +56,13 @@ class FTPClient:
             set_bar.set_bar()
             f = set_file.write_file(get_file, 'wb')
             recv_size = 0
-
             self.downloading(f,recv_size,get_file,get_dict)
         else:
             self.client.send(cmd.encode(self.encoding))
             get_dict = set_struct.struct_unpack(self.client)
+            if get_dict['get_status'] == False:
+                print('抱歉，您的云盘中没有这个文件')
+                return
 
             get_file_md5 = set_md5.set_file_md5(get_file)
             if get_file_md5 == get_dict['file_md5']:
@@ -142,13 +142,13 @@ class FTPClient:
             }
             set_struct.struct_pack(self.client,put_file_dict)
 
-            self.put_diff(put_file,file_size)
-            verify_file_md5.verify_file_md5(put_file_dict,puted_file)
+            self.put_diff(put_file,file_size,put_file_dict)
+            # verify_file_md5.verify_file_md5(put_file_dict,puted_file)
         else:
             print('您的个人文件夹中没有该文件，请上传已有的文件')
             return
 
-    def put_diff(self,put_file,file_size):
+    def put_diff(self,put_file,file_size,put_file_dict):
         while True:
             put_status_dict = set_struct.struct_unpack(self.client)
             while True:
@@ -170,10 +170,12 @@ class FTPClient:
                     else:
                         return
                 else:
-                    self.puting(put_file,put_status_dict,file_size)
+                    self.puting(put_file,put_status_dict,file_size,put_file_dict)
                     return
 
-    def puting(self,put_file,put_status_dict,file_size):
+    def puting(self,put_file,put_status_dict,file_size,put_file_dict):
+        puted_file = '%s/%s/%s/%s'%(self.base_dir,'share',self.username,put_file_dict['file_name'])
+
         f = set_file.read_file(put_file, 'rb')
         f.seek(put_status_dict['recv_size'])
         set_bar.set_bar()
@@ -185,6 +187,7 @@ class FTPClient:
                     self.client.send(line)
                     send_data += len(line)
                     print('发送数据包大小：%s, 文件总大小：%s' % (send_data, file_size))
+                f.close()
                 break
             except BrokenPipeError:
                 print('服务端接收数据连接中断，客户端重置连接')
@@ -193,6 +196,7 @@ class FTPClient:
                 self.client_bind()
                 return
         f.close()
+        verify_file_md5.verify_file_md5(put_file_dict, puted_file)
 
     def view(self,cmd,username):
         count = 1
@@ -232,6 +236,42 @@ class FTPClient:
 
             set_table.set_table(total_list)
 
+    def ll(self,cmd):
+        self.client.send(cmd.encode(self.encoding))
+        file_list = set_struct.struct_unpack(self.client)
+        if len(file_list) == 0:
+            print('文件夹是空的')
+            return
+        else:
+            print('文件列表如下：')
+            for file in file_list:
+                print(file)
+
+    def cd(self,cmd,directory):
+        root_directory = '%s/%s'%(self.base_dir,'share')
+        root_directory_list = os.listdir(root_directory)
+        if directory in root_directory_list or directory in ['/','..']:
+            self.client.send(cmd.encode(self.encoding))
+        else:
+            print('没有找到%s'%directory)
+
+    def pwd(self,cmd):
+        self.client.send(cmd.encode(self.encoding))
+        currect_directory= set_struct.struct_unpack(self.client)
+        print(currect_directory)
+
+    def cmd_search(self,cmd):
+        if cmd.startswith('get') or cmd.startswith('put'):
+            return '上传、下载文件，您可以使用[ get | put 文件名.文件类型]来执行'
+        if cmd.startswith('view'):
+            return '您可以使用[ view 您的登录用户名 ]来访问您的云盘空间'
+        if cmd.startswith('cd'):
+            return '您可以使用[ cd / ]前往云盘根目录，或使用[ cd alex ]的方式前往根目录下的个人云盘文件夹'
+        if cmd.startswith('pwd'):
+            return '使用[ pwd ]命令来查看您当前所在的文件夹路径'
+        if cmd.startswith('pwd'):
+            return '使用[ ll ]命令来查看当前文件夹下的所有文件'
+
     def run(self):
         while True:
             self.client_bind()
@@ -243,36 +283,59 @@ class FTPClient:
                 exit()
 
             while True:
-                cmd = input('请输入命令[ get | put | view ]>>>:').strip()
+                cmd = input('请输入命令[ get | put | view | cd | pwd | ll ]>>>:').strip()
                 if not cmd:
                     continue
 
                 r_file = re.search('[get|put] .*\..*', cmd)
                 r_view = re.search('view .*', cmd)
-                r_help = re.search('[get|put|view] --help',cmd)
+                r_help = re.search('[get|put|view|cd|pwd|ll] --help',cmd)
+                r_cd = re.search('cd .*', cmd)
+                r_ll = re.search('ll', cmd)
+                r_pwd = re.search('pwd', cmd)
 
                 if r_help:
-                    if cmd.startswith('get') or cmd.startswith('put'):
-                        print('上传、下载文件，您可以使用[get|put 文件名.文件类型]来执行')
-                    if cmd.startswith('view'):
-                        print('您可以使用[view 您的登录用户名]来访问您的云盘空间')
+                    re_msg = self.cmd_search(cmd)
+                    print(re_msg)
                     continue
 
-                elif r_file:
+                elif r_file or r_view or r_cd:
                     request_method = cmd.split()[0]
-                    filename = cmd.split()[1]
-                    if hasattr(self, cmd.split()[0]):
+                    request_content = cmd.split()[1]
+                    if hasattr(self, request_method):
                         func = getattr(self, request_method)
-                        func(cmd, filename)
+                        func(cmd, request_content)
+                        continue
+                #
+                # elif r_view:
+                #     request_method = cmd.split()[0]
+                #     request_content = cmd.split()[1]
+                #     if hasattr(self, request_method):
+                #         func = getattr(self, request_method)
+                #         func(cmd, request_content)
+                #         continue
+                #
+                # elif r_cd:
+                #     request_method = cmd.split()[0]
+                #     request_content = cmd.split()[1]
+                #     if hasattr(self, request_method):
+                #         func = getattr(self, request_method)
+                #         func(cmd, request_content)
+                #         continue
+
+                elif r_ll or r_pwd:
+                    request_method = cmd.split()[0]
+                    if hasattr(self, request_method):
+                        func = getattr(self, request_method)
+                        func(cmd)
                         continue
 
-                elif r_view:
-                    request_method = cmd.split()[0]
-                    filename = cmd.split()[1]
-                    if hasattr(self, cmd.split()[0]):
-                        func = getattr(self, request_method)
-                        func(cmd, filename)
-                        continue
+                # elif r_pwd:
+                #     request_method = cmd.split()[0]
+                #     if hasattr(self, request_method):
+                #         func = getattr(self, request_method)
+                #         func(cmd)
+                #         continue
 
                 else:
                     print('命令格式错误,您可以使用[命令 --help]方式查看使用说明 ')
