@@ -1,8 +1,6 @@
 import socket
 import sys
 import os
-import json
-import struct
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 
@@ -21,7 +19,7 @@ class FTPServer:
     max_recv_size = 8192
     base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
     root_directory = '%s/%s' % (base_dir, 'share')
-    currect_directory = root_directory
+    current_directory = root_directory
 
     def __init__(self,host,port):
         self.host = host
@@ -53,8 +51,8 @@ class FTPServer:
                 'is_success':is_success,
                 'username':self.username
             }
-
             set_struct.struct_pack(self.conn, is_success_dict)
+
             if is_success_dict['is_success'] == True:
                 print('账户验证成功，服务端准备就绪...')
                 return
@@ -65,18 +63,113 @@ class FTPServer:
     @property
     def get_free_size(self):
         disk_size = conf_obj.get_size(self.username)
+        share_file_list = os.listdir('%s/%s/%s'
+                                     % (self.base_dir,'share',self.username))
 
-        share_file_list = os.listdir('%s/%s/%s' % (self.base_dir,'share',
-                                                   self.username))
-
-        total_size = 0
-        for file in share_file_list[1:]:
-            total_size += os.path.getsize('%s/%s/%s/%s' % (self.base_dir,'share',
-                                                           self.username,
-                                                           file))
-
-        free_size = int(disk_size) - total_size
+        if len(share_file_list) == 0:
+            free_size = 104857600
+        else:
+            total_size = 0
+            for file in share_file_list[1:]:
+                total_size += os.path.getsize('%s/%s/%s/%s'
+                                              % (self.base_dir,'share',self.username,file))
+            free_size = int(disk_size) - total_size
         return free_size
+
+    def size_not_enough(self,put_file_dict):
+        put_status_dict = {
+            'put_status': False,
+            'put_message': '很抱歉，您的云盘空间不足，剩余空间为%sMB,您上传附件的大小是%sMB'
+                           % (set_bytes.set_bytes(self.get_free_size),
+                              set_bytes.set_bytes(put_file_dict['file_size'])),
+            'put_again': 'no',
+            'is_choice': 'no'
+        }
+        set_struct.struct_pack(self.conn,put_status_dict)
+        return
+
+    def get(self, filename):
+        geted_file = '%s/%s/%s/%s'\
+                     %(self.base_dir,'share',self.username,filename)
+
+        pause_init = '%s/%s/%s' % (self.base_dir,'db','pause.init')
+
+        get_file = '%s/%s/%s' % (self.base_dir,'download',filename)
+
+        if os.path.exists(geted_file):
+            file_size = os.path.getsize(geted_file)
+            file_md5 = set_md5.set_file_md5(geted_file)
+
+            get_dict = {
+                'file_name':filename,
+                'file_size':file_size,
+                'file_md5':file_md5,
+                'get_status':True
+            }
+            set_struct.struct_pack(self.conn,get_dict)
+            confirm_dict = set_struct.struct_unpack(self.conn)
+            if confirm_dict['confirm_get'] == False:
+                return
+            self.downloading(geted_file,pause_init,get_file,confirm_dict)
+        else:
+            get_dict = {
+                'get_status':False
+            }
+            set_struct.struct_pack(self.conn,get_dict)
+
+    def downloading(self,geted_file,pause_init,get_file,confirm_dict):
+        f = set_file.read_file(geted_file, 'rb')
+        if os.path.exists(pause_init):
+            recv_size = conf_obj.set_conf(
+                {'file_name': get_file}, 'read_recv_size', pause_init)
+
+            if 'is_pause_go' in confirm_dict.keys():
+                if confirm_dict['is_pause_go'] in ['y', 'Y']:
+                    f.seek(int(recv_size))
+
+        if confirm_dict['confirm_get'] == True:
+            try:
+                for line in f:
+                    self.conn.send(line)
+                print('下载任务完成')
+            except BrokenPipeError:
+                print('客户端接收数据中断，服务端重置连接')
+                self.conn.close()
+                self.server_accept()
+                return
+            except ConnectionResetError:
+                print('客户端接收数据中断，服务端重置连接')
+                self.conn.close()
+                self.server_accept()
+                return
+
+    def put(self,filename):
+        put_file_dict = set_struct.struct_unpack(self.conn)
+
+        puted_file = '%s/%s/%s/%s'%(self.base_dir,'share',self.username,filename)
+        pause_init = '%s/%s/%s' % (self.base_dir, 'db', 'pause.init')
+
+        if os.path.exists(puted_file):
+            f,recv_size = self.check_put_pause(put_file_dict,puted_file,pause_init)
+            if f == None:
+                return
+        else:
+            f = None
+            recv_size = 0
+
+        if put_file_dict['file_size'] < self.get_free_size:
+            put_status_dict = {
+                'put_status': True,
+                'put_message': '请稍等,文件上传中...',
+                'put_again':'no',
+                'is_choice': 'no',
+                'recv_size':recv_size
+            }
+            set_struct.struct_pack(self.conn, put_status_dict)
+            self.puting(f,recv_size,put_file_dict,puted_file)
+        else:
+            self.size_not_enough(put_file_dict)
+        return
 
     def check_put_pause(self,put_file_dict,puted_file,pause_init):
         puted_file_md5 = set_md5.set_file_md5(puted_file)
@@ -115,75 +208,9 @@ class FTPServer:
 
                 return f,int(recv_size)
 
-    def size_not_enough(self,put_file_dict):
-        put_status_dict = {
-            'put_status': False,
-            'put_message': '很抱歉，您的云盘空间不足，剩余空间为%sMB,您上传附件的大小是%sMB'
-                           % (set_bytes.set_bytes(self.get_free_size),
-                              set_bytes.set_bytes(put_file_dict['file_size'])),
-            'put_again': 'no',
-            'is_choice': 'no'
-        }
-        set_struct.struct_pack(self.conn,put_status_dict)
-
-    def get(self, filename):
-        geted_file = '%s/%s/%s/%s'%(self.base_dir,'share',
-                                    self.username,
-                                    filename)
-
-        pause_init = '%s/%s/%s' % (self.base_dir,'db','pause.init')
-
-        get_file = '%s/%s/%s' % (self.base_dir,'download',filename)
-
-        if os.path.exists(geted_file):
-            file_size = os.path.getsize(geted_file)
-            file_md5 = set_md5.set_file_md5(geted_file)
-
-            get_dict = {
-                'file_name':filename,
-                'file_size':file_size,
-                'file_md5':file_md5,
-                'get_status':True
-            }
-            print(get_dict)
-            print('发了发了')
-            set_struct.struct_pack(self.conn,get_dict)
-            confirm_dict = set_struct.struct_unpack(self.conn)
-            if confirm_dict['confirm_get'] == False:
-                return
-
-            f = set_file.read_file(geted_file, 'rb')
-            if os.path.exists(pause_init):
-                recv_size = conf_obj.set_conf({'file_name': get_file},
-                                              'read_recv_size',
-                                              pause_init)
-
-                if 'is_pause_go' in confirm_dict.keys():
-                    if confirm_dict['is_pause_go'] in ['y','Y']:
-                        f.seek(int(recv_size))
-
-            if confirm_dict['confirm_get'] == True:
-                try:
-                    for line in f:
-                        self.conn.send(line)
-                    print('下载任务完成')
-                except BrokenPipeError:
-                    print('客户端接收数据中断，服务端重置连接')
-                    self.conn.close()
-                    self.server_accept()
-                    return
-                except ConnectionResetError:
-                    print('客户端接收数据中断，服务端重置连接')
-                    self.conn.close()
-                    self.server_accept()
-                    return
-        else:
-            get_dict = {
-                'get_status':False
-            }
-            set_struct.struct_pack(self.conn,get_dict)
-
     def puting(self,f,recv_size,put_file_dict,puted_file):
+        if f == None:
+            f = set_file.write_file(puted_file, 'wb')
         while recv_size < put_file_dict['file_size']:
             data = self.conn.recv(self.max_recv_size)
             if not data:
@@ -199,40 +226,10 @@ class FTPServer:
         f.close()
         verify_file_md5.verify_file_md5(put_file_dict, puted_file)
 
-    def put(self,filename):
-        put_file_dict = set_struct.struct_unpack(self.conn)
-
-        puted_file = '%s/%s/%s/%s'%(self.base_dir,'share',self.username,filename)
-        pause_init = '%s/%s/%s' % (self.base_dir, 'db', 'pause.init')
-
-        if os.path.exists(puted_file):
-            f,recv_size = self.check_put_pause(put_file_dict,puted_file,pause_init)
-            if f == None:
-                return
-            print(recv_size,type(recv_size))
-        else:
-            f = set_file.write_file(puted_file, 'wb')
-            recv_size = 0
-
-        if put_file_dict['file_size'] < self.get_free_size:
-            put_status_dict = {
-                'put_status': True,
-                'put_message': '请稍等,文件上传中...',
-                'put_again':'no',
-                'is_choice': 'no',
-                'recv_size':recv_size
-            }
-            set_struct.struct_pack(self.conn, put_status_dict)
-            self.puting(f,recv_size,put_file_dict,puted_file)
-        else:
-            self.size_not_enough(put_file_dict)
-        return
-
     def view(self,username):
         view_dict = {}
-        share_file_list = os.listdir('%s/%s/%s'%(self.base_dir,
-                                                 'share',
-                                                 username))[:]
+        share_file_list = os.listdir('%s/%s/%s'
+                                     %(self.base_dir,'share',username))[:]
 
         if len(share_file_list) == 0:
             set_struct.struct_pack(self.conn, share_file_list)
@@ -240,37 +237,39 @@ class FTPServer:
             for file in share_file_list:
                 view_dict[file] = {
                     'file_name':file,
-                    'file_size':os.path.getsize('%s/%s/%s/%s'%(self.base_dir,
-                                                               'share',username,file)),
-                    'put_date':set_time.set_time(os.path.getctime('%s/%s/%s/%s'
-                                                                  %(self.base_dir,'share',username,file)))
+                    'file_size':
+                        os.path.getsize('%s/%s/%s/%s'%(self.base_dir,'share',username,file)),
+                    'put_date':
+                        set_time.set_time(os.path.getctime('%s/%s/%s/%s'
+                                                           %(self.base_dir,'share',username,file)))
                 }
             set_struct.struct_pack(self.conn,view_dict)
 
     def ll(self):
-        files_list = os.listdir(self.currect_directory)
+        files_list = os.listdir(self.current_directory)
         for file in files_list:
-            print(os.stat(os.path.join(self.currect_directory,file)))
+            print(os.stat(os.path.join(self.current_directory,file)))
         set_struct.struct_pack(self.conn, files_list)
 
     def pwd(self):
-        set_struct.struct_pack(self.conn, self.currect_directory)
+        set_struct.struct_pack(self.conn, self.current_directory)
 
     def cd(self,username):
         if username not in ['/','..']:
             self.user_directory = '%s/%s/%s' % (self.base_dir,'share',username)
 
         if username == '/':
-            self.currect_directory = self.root_directory
+            self.current_directory = self.root_directory
         elif username == '..':
-            if self.currect_directory == self.root_directory:
-                self.currect_directory = self.root_directory
+            if self.current_directory == self.root_directory:
+                self.current_directory = self.root_directory
                 return
-            if self.currect_directory == self.user_directory:
-                self.currect_directory = self.root_directory
 
-        elif username in os.listdir(self.currect_directory):
-            self.currect_directory = self.user_directory
+            if self.current_directory == self.user_directory:
+                self.current_directory = self.root_directory
+
+        elif username in os.listdir(self.current_directory):
+            self.current_directory = self.user_directory
 
     def run(self):
         self.server_bind()

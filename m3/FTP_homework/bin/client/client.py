@@ -83,21 +83,20 @@ class FTPClient:
 
     def check_get_pause(self,get_file,pause_init):
         if os.path.exists(pause_init):
-            recv_size = conf_obj.set_conf({'file_name': get_file},'read_recv_size',
-                                          pause_init)
+            recv_size = conf_obj.set_conf(
+                {'file_name': get_file},'read_recv_size',pause_init)
             if recv_size:
                 while True:
                     self.is_pause_go = input('该文件在下载过程中意外中断连接，'
                                              '是否继续下载，执行断点续传?[ y | n]>>>')
                     if self.is_pause_go in ['n', 'N', 'y', 'Y']:
                         if self.is_pause_go in ['y', 'Y']:
-                            f, file_name = pause_obj.read_pause(get_file,
-                                                                self.is_pause_go,
-                                                                'client')
+                            f, file_name = pause_obj.read_pause(
+                                get_file,self.is_pause_go,'client')
+
                         if self.is_pause_go in ['n', 'N']:
-                            f, file_name = pause_obj.read_pause(get_file,
-                                                                self.is_pause_go,
-                                                                'client')
+                            f, file_name = pause_obj.read_pause(
+                                get_file,self.is_pause_go,'client')
                             recv_size = 0
                         break
                     else:
@@ -143,7 +142,6 @@ class FTPClient:
             set_struct.struct_pack(self.client,put_file_dict)
 
             self.put_diff(put_file,file_size,put_file_dict)
-            # verify_file_md5.verify_file_md5(put_file_dict,puted_file)
         else:
             print('您的个人文件夹中没有该文件，请上传已有的文件')
             return
@@ -191,7 +189,6 @@ class FTPClient:
                 break
             except BrokenPipeError:
                 print('服务端接收数据连接中断，客户端重置连接')
-                f.close()
                 self.client.close()
                 self.client_bind()
                 return
@@ -257,8 +254,8 @@ class FTPClient:
 
     def pwd(self,cmd):
         self.client.send(cmd.encode(self.encoding))
-        currect_directory= set_struct.struct_unpack(self.client)
-        print(currect_directory)
+        current_directory= set_struct.struct_unpack(self.client)
+        print(current_directory)
 
     def cmd_search(self,cmd):
         if cmd.startswith('get') or cmd.startswith('put'):
@@ -306,22 +303,6 @@ class FTPClient:
                         func = getattr(self, request_method)
                         func(cmd, request_content)
                         continue
-                #
-                # elif r_view:
-                #     request_method = cmd.split()[0]
-                #     request_content = cmd.split()[1]
-                #     if hasattr(self, request_method):
-                #         func = getattr(self, request_method)
-                #         func(cmd, request_content)
-                #         continue
-                #
-                # elif r_cd:
-                #     request_method = cmd.split()[0]
-                #     request_content = cmd.split()[1]
-                #     if hasattr(self, request_method):
-                #         func = getattr(self, request_method)
-                #         func(cmd, request_content)
-                #         continue
 
                 elif r_ll or r_pwd:
                     request_method = cmd.split()[0]
@@ -329,13 +310,6 @@ class FTPClient:
                         func = getattr(self, request_method)
                         func(cmd)
                         continue
-
-                # elif r_pwd:
-                #     request_method = cmd.split()[0]
-                #     if hasattr(self, request_method):
-                #         func = getattr(self, request_method)
-                #         func(cmd)
-                #         continue
 
                 else:
                     print('命令格式错误,您可以使用[命令 --help]方式查看使用说明 ')

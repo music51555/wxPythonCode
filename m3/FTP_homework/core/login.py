@@ -57,11 +57,12 @@ class UserBehavior:
                         'name': name,
                         'disk_size':self.put_size_total_mb
                     }
-
                     self.init.set_conf(user_info,'set_account',self.account_file)
                     print('恭喜您，注册成功，您获得100MB云空间')
+
                     self.set_home_dir(username)
                     return
+
                 if account_confirm in ['n', 'N']:
                     continue
             else:

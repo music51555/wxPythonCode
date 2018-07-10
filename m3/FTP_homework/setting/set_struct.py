@@ -1,14 +1,7 @@
 import struct
 import json
-import os
-import sys
-
-# encoding = sys.getdefaultencoding()
-
 
 def struct_pack(socket_obj,header_info):
-    print(header_info)
-
     header_json = json.dumps(header_info)
     header_bytes = header_json.encode('utf-8')
     socket_obj.send(struct.pack('i', len(header_bytes)))

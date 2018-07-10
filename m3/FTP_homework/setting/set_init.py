@@ -5,9 +5,7 @@ from setting import set_md5
 
 class set_Init():
     base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
     account_file = '%s/%s/account.init' % (base_dir, 'db')
-
     conf = configparser.ConfigParser()
 
     def set_conf(self,set_info,set_type,set_file):
@@ -43,20 +41,12 @@ class set_Init():
                 self.conf.set(file_name,'recv_size',str(set_info['recv_size']))
                 self.conf.write(open(set_file,'w',encoding = 'utf-8'))
             else:
-                # self.conf.set(file_name, 'recv_size', str(set_info['recv_size']))
                 self.conf[file_name]['recv_size'] = str(set_info['recv_size'])
                 self.conf.write(open(set_file, 'w',encoding = 'utf-8'))
 
         if set_type == 'read_recv_size':
-            print('读取配置文件',set_file)
             self.conf.read(set_file,encoding = 'utf-8')
-            # print(file_name)
-            # # file_name = file_name.replace('share/alex','download')
-            # print(file_name)
-            # input()
             if self.conf.has_section(file_name):
-                print(file_name)
-                print(self.conf[file_name]['recv_size'])
                 return self.conf[file_name]['recv_size']
             else:
                 return None

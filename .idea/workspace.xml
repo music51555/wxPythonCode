@@ -3,11 +3,18 @@
   <component name="ChangeListManager">
     <list default="true" id="1ea37365-5fb4-41df-b585-73d5b8f9f7e0" name="Default" comment="0704noon">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Note/网络编程/9、测试用例.md" beforeDir="false" afterPath="$PROJECT_DIR$/Note/网络编程/9、测试用例.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/m3/FTP_homework/bin/client/client.py" beforeDir="false" afterPath="$PROJECT_DIR$/m3/FTP_homework/bin/client/client.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/m3/FTP_homework/bin/server/server.py" beforeDir="false" afterPath="$PROJECT_DIR$/m3/FTP_homework/bin/server/server.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/m3/FTP_homework/core/login.py" beforeDir="false" afterPath="$PROJECT_DIR$/m3/FTP_homework/core/login.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/m3/FTP_homework/core/pause.py" beforeDir="false" afterPath="$PROJECT_DIR$/m3/FTP_homework/core/pause.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/m3/FTP_homework/core/verify_file_md5.py" beforeDir="false" afterPath="$PROJECT_DIR$/m3/FTP_homework/core/verify_file_md5.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/m3/FTP_homework/db/account.init" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/m3/FTP_homework/db/pause.init" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/m3/FTP_homework/setting/set_init.py" beforeDir="false" afterPath="$PROJECT_DIR$/m3/FTP_homework/setting/set_init.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/m3/FTP_homework/setting/set_md5.py" beforeDir="false" afterPath="$PROJECT_DIR$/m3/FTP_homework/setting/set_md5.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/m3/FTP_homework/setting/set_struct.py" beforeDir="false" afterPath="$PROJECT_DIR$/m3/FTP_homework/setting/set_struct.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/m3/FTP_homework/setting/set_time.py" beforeDir="false" afterPath="$PROJECT_DIR$/m3/FTP_homework/setting/set_time.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -18,105 +25,14 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/wxPythonCode$set_init.coverage" NAME="set_init Coverage Results" MODIFIED="1531047138547" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/m3/FTP_homework/setting" />
-    <SUITE FILE_PATH="coverage/wxPythonCode$server.coverage" NAME="server Coverage Results" MODIFIED="1531147111179" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/m3/FTP_homework/bin/server" />
-    <SUITE FILE_PATH="coverage/wxPythonCode$client.coverage" NAME="client Coverage Results" MODIFIED="1531147113299" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/m3/FTP_homework/bin/client" />
+    <SUITE FILE_PATH="coverage/wxPythonCode$server.coverage" NAME="server Coverage Results" MODIFIED="1531234521387" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/m3/FTP_homework/bin/server" />
+    <SUITE FILE_PATH="coverage/wxPythonCode$client.coverage" NAME="client Coverage Results" MODIFIED="1531234523471" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/m3/FTP_homework/bin/client" />
   </component>
   <component name="FavoritesManager">
     <favorites_list name="wxPythonCode" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="server.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/m3/FTP_homework/bin/server/server.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="309">
-              <caret line="215" selection-start-line="215" selection-end-line="215" />
-              <folding>
-                <element signature="e#0#13#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="client.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/m3/FTP_homework/bin/client/client.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="141">
-              <caret line="189" column="25" lean-forward="true" selection-start-line="189" selection-start-column="25" selection-end-line="189" selection-end-column="25" />
-              <folding>
-                <element signature="e#0#13#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="set_md5.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/m3/FTP_homework/setting/set_md5.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
-              <caret line="9" column="25" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="set_table.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/m3/FTP_homework/setting/set_table.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="10" column="25" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="set_struct.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/m3/FTP_homework/setting/set_struct.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="13" selection-start-line="13" selection-end-line="13" />
-              <folding>
-                <element signature="e#0#13#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pause.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/m3/FTP_homework/core/pause.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
-              <caret line="8" column="8" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="8" />
-              <folding>
-                <element signature="e#0#9#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="set_init.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/m3/FTP_homework/setting/set_init.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1008">
-              <caret line="45" column="81" selection-start-line="45" selection-start-column="81" selection-end-line="45" selection-end-column="81" />
-              <folding>
-                <element signature="e#0#19#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="login.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/m3/FTP_homework/core/login.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2736">
-              <caret line="118" selection-start-line="118" selection-end-line="118" />
-              <folding>
-                <element signature="e#0#9#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -127,11 +43,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>conf_obj</find>
-      <find>get_size</find>
-      <find>接受</find>
-      <find>seek</find>
-      <find>read_pause</find>
       <find>set_conf</find>
       <find>disk_size</find>
       <find>conf.set</find>
@@ -149,7 +60,6 @@
       <find>.diff</find>
       <find>发送数据包大小</find>
       <find>服务端接收数据连接中断，客户端重置连接</find>
-      <find>put_status_dict</find>
       <find>文件上传成功</find>
       <find>verify_file_md5</find>
       <find>is_pause_go</find>
@@ -157,6 +67,12 @@
       <find>diff_dict</find>
       <find>put_file_dict</find>
       <find>get_status</find>
+      <find>currect_directory</find>
+      <find>currect</find>
+      <find>put_status_dict</find>
+      <find>很抱歉，您的云盘空间不足，剩余空间为</find>
+      <find>put_size_total_mb</find>
+      <find>print</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/m3/FTP_homework</dir>
@@ -173,22 +89,22 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/m3/FTP_homework/setting/set_time.py" />
         <option value="$PROJECT_DIR$/m3/FTP_homework/setting/set_table.py" />
         <option value="$PROJECT_DIR$/m3/FTP_homework/setting/set_bar.py" />
         <option value="$PROJECT_DIR$/m3/FTP_homework/bin/client/aaa.py" />
-        <option value="$PROJECT_DIR$/m3/FTP_homework/setting/set_struct.py" />
         <option value="$PROJECT_DIR$/m3/FTP_homework/db/account.init" />
         <option value="$PROJECT_DIR$/m3/FTP_homework/bin/server/pause.py" />
-        <option value="$PROJECT_DIR$/m3/FTP_homework/core/pause.py" />
         <option value="$PROJECT_DIR$/m3/FTP_homework/db/pause.init" />
-        <option value="$PROJECT_DIR$/m3/FTP_homework/setting/set_init.py" />
-        <option value="$PROJECT_DIR$/m3/FTP_homework/core/login.py" />
         <option value="$PROJECT_DIR$/m3/FTP_homework/core/get_file.py" />
-        <option value="$PROJECT_DIR$/m3/FTP_homework/core/verify_file_md5.py" />
         <option value="$PROJECT_DIR$/m3/FTP_homework/setting/set_md5.py" />
-        <option value="$PROJECT_DIR$/m3/FTP_homework/bin/server/server.py" />
+        <option value="$PROJECT_DIR$/m3/FTP_homework/core/verify_file_md5.py" />
+        <option value="$PROJECT_DIR$/m3/FTP_homework/setting/set_struct.py" />
+        <option value="$PROJECT_DIR$/m3/FTP_homework/core/pause.py" />
+        <option value="$PROJECT_DIR$/m3/FTP_homework/core/login.py" />
         <option value="$PROJECT_DIR$/m3/FTP_homework/bin/client/client.py" />
+        <option value="$PROJECT_DIR$/m3/FTP_homework/bin/server/server.py" />
+        <option value="$PROJECT_DIR$/m3/FTP_homework/setting/set_init.py" />
+        <option value="$PROJECT_DIR$/m3/FTP_homework/setting/set_time.py" />
       </list>
     </option>
   </component>
@@ -201,7 +117,7 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" fullScreen="true">
     <option name="x" value="211" />
     <option name="y" value="101" />
     <option name="width" value="1148" />
@@ -215,7 +131,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -269,20 +184,6 @@
               <item name="wxPythonCode" type="462c0819:PsiDirectoryNode" />
               <item name="m3" type="462c0819:PsiDirectoryNode" />
               <item name="FTP_homework" type="462c0819:PsiDirectoryNode" />
-              <item name="db" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="wxPythonCode" type="b2602c69:ProjectViewProjectNode" />
-              <item name="wxPythonCode" type="462c0819:PsiDirectoryNode" />
-              <item name="m3" type="462c0819:PsiDirectoryNode" />
-              <item name="FTP_homework" type="462c0819:PsiDirectoryNode" />
-              <item name="download" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="wxPythonCode" type="b2602c69:ProjectViewProjectNode" />
-              <item name="wxPythonCode" type="462c0819:PsiDirectoryNode" />
-              <item name="m3" type="462c0819:PsiDirectoryNode" />
-              <item name="FTP_homework" type="462c0819:PsiDirectoryNode" />
               <item name="setting" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -292,18 +193,11 @@
               <item name="FTP_homework" type="462c0819:PsiDirectoryNode" />
               <item name="share" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="wxPythonCode" type="b2602c69:ProjectViewProjectNode" />
-              <item name="wxPythonCode" type="462c0819:PsiDirectoryNode" />
-              <item name="m3" type="462c0819:PsiDirectoryNode" />
-              <item name="FTP_homework" type="462c0819:PsiDirectoryNode" />
-              <item name="share" type="462c0819:PsiDirectoryNode" />
-              <item name="alex" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -336,7 +230,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.set_md5">
+  <component name="RunManager" selected="Python.client">
     <configuration name="client" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="wxPythonCode" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -444,6 +338,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/m3/FTP_homework/setting/set_md5.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -499,30 +394,30 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1680" height="1005" extended-state="6" />
+    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49817517" visible="true" weight="0.1694813" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32990867" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32876712" />
+      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.28099173" />
       <window_info anchor="bottom" id="Python Console" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.293379" />
-      <window_info id="Structure" order="1" sideWeight="0.5018248" side_tool="true" weight="0.18085106" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.26309228" />
       <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49817517" visible="true" weight="0.17167382" />
+      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
+      <window_info anchor="right" id="Database" order="3" />
+      <window_info anchor="right" id="SciView" order="3" />
+      <window_info id="Structure" order="1" sideWeight="0.5018248" side_tool="true" weight="0.18085106" />
       <window_info id="Favorites" order="2" sideWeight="0.5019157" side_tool="true" weight="0.18085106" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3990025" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Messages" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="right" id="SciView" order="3" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32876712" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -568,13 +463,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/m3/FTP_homework/setting/set_table.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/m3/FTP_homework/bin/server/server.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2967">
@@ -772,20 +660,6 @@
     <entry file="file://$USER_HOME$/.local/lib/python3.6/site-packages/prettytable.py" />
     <entry file="file://$USER_HOME$/.PyCharmCE2018.1/system/python_stubs/-1247971763/time.py" />
     <entry file="file://$PROJECT_DIR$/m3/FTP_homework/bin/client/aaa.py" />
-    <entry file="file://$PROJECT_DIR$/m3/FTP_homework/setting/set_bar.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="10" column="26" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/m3/FTP_homework/setting/set_time.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="6" column="27" selection-start-line="6" selection-start-column="27" selection-end-line="6" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/configparser.py" />
     <entry file="file://$PROJECT_DIR$/m3/FTP_homework/core/pause.init" />
     <entry file="file://$PROJECT_DIR$/m3/FTP_homework/share/set_init.py" />
@@ -800,16 +674,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/atm/set_init.py" />
     <entry file="file:///usr/lib/python3.6/codecs.py" />
-    <entry file="file://$PROJECT_DIR$/m3/FTP_homework/setting/set_init.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1008">
-          <caret line="45" column="81" selection-start-line="45" selection-start-column="81" selection-end-line="45" selection-end-column="81" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/school/src/login.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
@@ -817,81 +681,108 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/m3/FTP_homework/core/login.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2736">
-          <caret line="118" selection-start-line="118" selection-end-line="118" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/m3/FTP_homework/core/get_file.py" />
+    <entry file="file://$PROJECT_DIR$/m3/FTP_homework/db/pause.init">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/m3/FTP_homework/setting/set_struct.py">
+    <entry file="file://$PROJECT_DIR$/m3/FTP_homework/bin/server/server.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="13" selection-start-line="13" selection-end-line="13" />
+        <state relative-caret-position="198">
+          <caret line="300" column="27" selection-start-line="300" selection-start-column="22" selection-end-line="300" selection-end-column="27" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/m3/FTP_homework/core/get_file.py" />
-    <entry file="file://$PROJECT_DIR$/m3/FTP_homework/db/pause.init">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/m3/FTP_homework/setting/set_table.py">
+    <entry file="file://$PROJECT_DIR$/m3/FTP_homework/bin/client/client.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="10" column="25" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
+        <state relative-caret-position="196">
+          <caret line="314" column="25" selection-start-line="314" selection-start-column="20" selection-end-line="314" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/m3/FTP_homework/setting/set_file.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/m3/FTP_homework/setting/set_md5.py">
+    <entry file="file://$PROJECT_DIR$/m3/FTP_homework/core/login.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="9" column="25" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
+        <state relative-caret-position="172">
+          <caret line="45" column="17" selection-start-line="45" selection-start-column="12" selection-end-line="45" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/m3/FTP_homework/core/pause.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="8" column="8" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="8" />
+        <state relative-caret-position="172">
+          <caret line="17" column="21" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="21" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/m3/FTP_homework/bin/server/server.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="215" selection-start-line="215" selection-end-line="215" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/m3/FTP_homework/core/verify_file_md5.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="4" column="24" lean-forward="true" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
+        <state relative-caret-position="46">
+          <caret line="2" column="46" lean-forward="true" selection-start-line="2" selection-start-column="46" selection-end-line="2" selection-end-column="46" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/m3/FTP_homework/bin/client/client.py">
+    <entry file="file://$PROJECT_DIR$/m3/FTP_homework/setting/set_bar.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="189" column="25" lean-forward="true" selection-start-line="189" selection-start-column="25" selection-end-line="189" selection-end-column="25" />
+        <state relative-caret-position="207">
+          <caret line="10" column="26" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/m3/FTP_homework/setting/set_bytes.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/m3/FTP_homework/setting/set_file.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/m3/FTP_homework/setting/set_init.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="49" selection-start-line="49" selection-end-line="49" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/m3/FTP_homework/setting/set_md5.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/m3/FTP_homework/setting/set_struct.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/m3/FTP_homework/setting/set_table.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="10" column="25" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/m3/FTP_homework/setting/set_time.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
         </state>
       </provider>
     </entry>
