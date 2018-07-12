@@ -1,15 +1,14 @@
 import struct
 import json
 
-def struct_pack(socket_obj,header_info):
+def send_message(socket_obj,header_info):
     header_json = json.dumps(header_info)
     header_bytes = header_json.encode('utf-8')
     socket_obj.send(struct.pack('i', len(header_bytes)))
     socket_obj.send(header_bytes)
     return
 
-def struct_unpack(socket_obj):
-    # try:
+def recv_message(socket_obj):
     header = socket_obj.recv(4)
     if not header:
         return
@@ -17,6 +16,3 @@ def struct_unpack(socket_obj):
     header_bytes = socket_obj.recv(header_size)
     header_dict = json.loads(header_bytes.decode('utf-8'))
     return header_dict
-    # except ConnectionResetError as e:
-    #     print(e)
-    #     return

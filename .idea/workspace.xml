@@ -2,7 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1ea37365-5fb4-41df-b585-73d5b8f9f7e0" name="Default" comment="0704noon">
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/Note/网络编程/10、作业批改.md" beforeDir="false" afterPath="$PROJECT_DIR$/Note/网络编程/10、作业批改.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Note/网络编程/9、测试用例.md" beforeDir="false" afterPath="$PROJECT_DIR$/Note/网络编程/9、测试用例.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/m3/FTP_homework.zip" beforeDir="false" afterPath="$PROJECT_DIR$/m3/FTP_homework.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/m3/FTP_homework/bin/client/client.py" beforeDir="false" afterPath="$PROJECT_DIR$/m3/FTP_homework/bin/client/client.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/m3/FTP_homework/bin/server/server.py" beforeDir="false" afterPath="$PROJECT_DIR$/m3/FTP_homework/bin/server/server.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/m3/FTP_homework/core/login.py" beforeDir="false" afterPath="$PROJECT_DIR$/m3/FTP_homework/core/login.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/m3/FTP_homework/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/m3/FTP_homework/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/m3/FTP_homework/setting/set_struct.py" beforeDir="false" afterPath="$PROJECT_DIR$/m3/FTP_homework/setting/set_struct.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/m3/FTP_homework/测试用例.md" beforeDir="false" afterPath="$PROJECT_DIR$/m3/FTP_homework/测试用例.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/m3/obj/client.py" beforeDir="false" afterPath="$PROJECT_DIR$/m3/obj/client.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/m3/obj/review_msg.py" beforeDir="false" afterPath="$PROJECT_DIR$/m3/obj/review_msg.py" afterDir="false" />
+>>>>>>> c1d5490517f747c39ec00effe07e637e257b0a91
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -24,6 +38,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+<<<<<<< HEAD
       <file leaf-file-name="review_msg.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/m3/obj/review_msg.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -50,15 +65,49 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="196">
               <caret line="98" selection-start-line="98" selection-end-line="98" />
+=======
+      <file leaf-file-name="server.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/m3/FTP_homework/bin/server/server.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="262">
+              <caret line="307" column="67" lean-forward="true" selection-start-line="306" selection-start-column="21" selection-end-line="307" selection-end-column="67" />
+>>>>>>> c1d5490517f747c39ec00effe07e637e257b0a91
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="client.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/m3/obj/client.py">
+        <entry file="file://$PROJECT_DIR$/m3/FTP_homework/bin/client/client.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="92">
-              <caret line="4" column="32" selection-start-line="4" selection-start-column="32" selection-end-line="4" selection-end-column="32" />
+            <state relative-caret-position="-6624">
+              <caret line="49" column="40" lean-forward="true" selection-start-line="49" selection-start-column="40" selection-end-line="49" selection-end-column="40" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="login.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/m3/FTP_homework/core/login.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="148">
+              <caret line="93" column="45" selection-start-line="93" selection-start-column="45" selection-end-line="93" selection-end-column="45" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="set_struct.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/m3/FTP_homework/setting/set_struct.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="192">
+              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="set_init.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/m3/FTP_homework/setting/set_init.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="172">
+              <caret line="25" selection-start-line="25" selection-end-line="25" />
             </state>
           </provider>
         </entry>
@@ -74,15 +123,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>set_conf</find>
-      <find>disk_size</find>
-      <find>conf.set</find>
-      <find>conf</find>
-      <find>客户端关闭，服务端重置连接</find>
-      <find>客户端失去连接，重新启动服务端后，请重启客户端</find>
-      <find>BrokenPipeError</find>
-      <find>OSError</find>
-      <find>该文件在下载</find>
       <find>diff</find>
       <find>read_recv_size</find>
       <find>confirm_dict</find>
@@ -95,7 +135,6 @@
       <find>verify_file_md5</find>
       <find>is_pause_go</find>
       <find>file_diff</find>
-      <find>diff_dict</find>
       <find>put_file_dict</find>
       <find>get_status</find>
       <find>currect_directory</find>
@@ -104,7 +143,21 @@
       <find>很抱歉，您的云盘空间不足，剩余空间为</find>
       <find>put_size_total_mb</find>
       <find>print</find>
+      <find>get_free_size</find>
+      <find>diff_dict</find>
+      <find>put_request_code</find>
+      <find>203</find>
+      <find>客户端关闭，服务端重置连接</find>
+      <find>201</find>
+      <find>struct_unpack</find>
+      <find>struct</find>
+      <find>struct_pack</find>
+      <find>base_dir</find>
     </findStrings>
+    <replaceStrings>
+      <replace>recv_message</replace>
+      <replace>send_message</replace>
+    </replaceStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/m3/FTP_homework</dir>
     </dirStrings>
@@ -129,16 +182,19 @@
         <option value="$PROJECT_DIR$/m3/FTP_homework/core/get_file.py" />
         <option value="$PROJECT_DIR$/m3/FTP_homework/setting/set_md5.py" />
         <option value="$PROJECT_DIR$/m3/FTP_homework/core/verify_file_md5.py" />
-        <option value="$PROJECT_DIR$/m3/FTP_homework/setting/set_struct.py" />
         <option value="$PROJECT_DIR$/m3/FTP_homework/core/pause.py" />
-        <option value="$PROJECT_DIR$/m3/FTP_homework/core/login.py" />
-        <option value="$PROJECT_DIR$/m3/FTP_homework/bin/client/client.py" />
-        <option value="$PROJECT_DIR$/m3/FTP_homework/bin/server/server.py" />
         <option value="$PROJECT_DIR$/m3/FTP_homework/setting/set_init.py" />
         <option value="$PROJECT_DIR$/m3/FTP_homework/setting/set_time.py" />
         <option value="$PROJECT_DIR$/m3/obj/client.py" />
         <option value="$PROJECT_DIR$/m3/obj/review_msg.py" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/m4/process_test.py" />
+=======
+        <option value="$PROJECT_DIR$/m3/FTP_homework/core/login.py" />
+        <option value="$PROJECT_DIR$/m3/FTP_homework/setting/set_struct.py" />
+        <option value="$PROJECT_DIR$/m3/FTP_homework/bin/client/client.py" />
+        <option value="$PROJECT_DIR$/m3/FTP_homework/bin/server/server.py" />
+>>>>>>> c1d5490517f747c39ec00effe07e637e257b0a91
       </list>
     </option>
   </component>
@@ -151,9 +207,11 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="width" value="1440" />
-    <option name="height" value="900" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="202" />
+    <option name="y" value="78" />
+    <option name="width" value="1271" />
+    <option name="height" value="892" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
@@ -173,7 +231,61 @@
             <path>
               <item name="wxPythonCode" type="b2602c69:ProjectViewProjectNode" />
               <item name="wxPythonCode" type="462c0819:PsiDirectoryNode" />
+<<<<<<< HEAD
               <item name="m4" type="462c0819:PsiDirectoryNode" />
+=======
+              <item name="m3" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="wxPythonCode" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wxPythonCode" type="462c0819:PsiDirectoryNode" />
+              <item name="m3" type="462c0819:PsiDirectoryNode" />
+              <item name="FTP_homework" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="wxPythonCode" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wxPythonCode" type="462c0819:PsiDirectoryNode" />
+              <item name="m3" type="462c0819:PsiDirectoryNode" />
+              <item name="FTP_homework" type="462c0819:PsiDirectoryNode" />
+              <item name="bin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="wxPythonCode" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wxPythonCode" type="462c0819:PsiDirectoryNode" />
+              <item name="m3" type="462c0819:PsiDirectoryNode" />
+              <item name="FTP_homework" type="462c0819:PsiDirectoryNode" />
+              <item name="bin" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="wxPythonCode" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wxPythonCode" type="462c0819:PsiDirectoryNode" />
+              <item name="m3" type="462c0819:PsiDirectoryNode" />
+              <item name="FTP_homework" type="462c0819:PsiDirectoryNode" />
+              <item name="bin" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="wxPythonCode" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wxPythonCode" type="462c0819:PsiDirectoryNode" />
+              <item name="m3" type="462c0819:PsiDirectoryNode" />
+              <item name="FTP_homework" type="462c0819:PsiDirectoryNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="wxPythonCode" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wxPythonCode" type="462c0819:PsiDirectoryNode" />
+              <item name="m3" type="462c0819:PsiDirectoryNode" />
+              <item name="FTP_homework" type="462c0819:PsiDirectoryNode" />
+              <item name="setting" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="wxPythonCode" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wxPythonCode" type="462c0819:PsiDirectoryNode" />
+              <item name="m3" type="462c0819:PsiDirectoryNode" />
+              <item name="FTP_homework" type="462c0819:PsiDirectoryNode" />
+              <item name="share" type="462c0819:PsiDirectoryNode" />
+>>>>>>> c1d5490517f747c39ec00effe07e637e257b0a91
             </path>
           </expand>
           <select />
@@ -212,7 +324,11 @@
       </list>
     </option>
   </component>
+<<<<<<< HEAD
   <component name="RunManager" selected="Python.process_test">
+=======
+  <component name="RunManager" selected="Python.client">
+>>>>>>> c1d5490517f747c39ec00effe07e637e257b0a91
     <configuration name="client (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="wxPythonCode" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -337,11 +453,19 @@
     </list>
     <recent_temporary>
       <list>
+<<<<<<< HEAD
         <item itemvalue="Python.process_test" />
         <item itemvalue="Python.review_msg" />
         <item itemvalue="Python.client (1)" />
         <item itemvalue="Python.client" />
         <item itemvalue="Python.server" />
+=======
+        <item itemvalue="Python.client" />
+        <item itemvalue="Python.server" />
+        <item itemvalue="Python.review_msg" />
+        <item itemvalue="Python.client (1)" />
+        <item itemvalue="Python.set_md5" />
+>>>>>>> c1d5490517f747c39ec00effe07e637e257b0a91
       </list>
     </recent_temporary>
   </component>
@@ -376,31 +500,39 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
+    <frame x="202" y="78" width="1271" height="892" extended-state="0" />
     <layout>
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49817517" visible="true" weight="0.11048839" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32990867" />
       <window_info anchor="bottom" id="Event Log" order="13" side_tool="true" />
-      <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.327654" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.28099173" />
       <window_info anchor="bottom" id="Python Console" order="8" />
+<<<<<<< HEAD
       <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.25575757" />
       <window_info anchor="bottom" id="Terminal" order="9" />
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49817517" visible="true" weight="0.17739628" />
       <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="4" />
       <window_info anchor="right" id="SciView" order="3" />
+=======
+      <window_info anchor="bottom" id="Run" order="2" weight="0.2555701" />
+>>>>>>> c1d5490517f747c39ec00effe07e637e257b0a91
       <window_info id="Structure" order="1" sideWeight="0.5018248" side_tool="true" weight="0.18085106" />
+      <window_info anchor="bottom" id="Terminal" order="9" />
       <window_info id="Favorites" order="2" sideWeight="0.5019157" side_tool="true" weight="0.18085106" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3990025" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" id="Database" order="4" />
       <window_info anchor="bottom" id="Messages" order="10" />
       <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32876712" />
+      <window_info anchor="right" id="SciView" order="3" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -589,27 +721,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/m3/FTP_homework/core/get_file.py" />
     <entry file="file://$PROJECT_DIR$/m3/FTP_homework/db/pause.init" />
-    <entry file="file://$PROJECT_DIR$/m3/FTP_homework/bin/server/server.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="300" column="27" selection-start-line="300" selection-start-column="22" selection-end-line="300" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/m3/FTP_homework/bin/client/client.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="314" column="25" selection-start-line="314" selection-start-column="20" selection-end-line="314" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/m3/FTP_homework/core/login.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="45" column="17" selection-start-line="45" selection-start-column="12" selection-end-line="45" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/m3/FTP_homework/core/pause.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="172">
@@ -637,24 +748,10 @@
     <entry file="file://$PROJECT_DIR$/m3/FTP_homework/setting/set_file.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/m3/FTP_homework/setting/set_init.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="49" selection-start-line="49" selection-end-line="49" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/m3/FTP_homework/setting/set_md5.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="138">
           <caret line="7" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/m3/FTP_homework/setting/set_struct.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
         </state>
       </provider>
     </entry>
@@ -672,22 +769,64 @@
         </state>
       </provider>
     </entry>
-    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/socket.py">
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/socket.py" />
+    <entry file="file://$PROJECT_DIR$/m3/obj/review_msg.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="204" selection-start-line="204" selection-end-line="204" />
+        <state relative-caret-position="384">
+          <caret line="16" column="22" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/m3/obj/client.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
+        <state relative-caret-position="96">
           <caret line="4" column="32" selection-start-line="4" selection-start-column="32" selection-end-line="4" selection-end-column="32" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/m3/obj/review_msg.py">
+    <entry file="file://$PROJECT_DIR$/m3/FTP_homework/readme.md">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-216" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/m3/FTP_homework/setting/set_init.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="172">
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/m3/FTP_homework/core/login.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="148">
+          <caret line="93" column="45" selection-start-line="93" selection-start-column="45" selection-end-line="93" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/m3/m3_socket/client1_com.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="17" column="17" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/m3/FTP_homework/setting/set_struct.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/m3/FTP_homework/bin/client/client.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-6624">
+          <caret line="49" column="40" lean-forward="true" selection-start-line="49" selection-start-column="40" selection-end-line="49" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/m3/FTP_homework/bin/server/server.py">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="299">
           <caret line="13" selection-start-line="13" selection-end-line="13" />
         </state>
@@ -707,6 +846,10 @@
           <folding>
             <element signature="e#320#331#0" expanded="true" />
           </folding>
+=======
+        <state relative-caret-position="262">
+          <caret line="307" column="67" lean-forward="true" selection-start-line="306" selection-start-column="21" selection-end-line="307" selection-end-column="67" />
+>>>>>>> c1d5490517f747c39ec00effe07e637e257b0a91
         </state>
       </provider>
     </entry>
