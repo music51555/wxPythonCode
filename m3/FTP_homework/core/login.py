@@ -91,8 +91,8 @@ class UserBehavior:
                            'password': password
                        }
 
-                       set_struct.struct_pack(client,login_info)
-                       is_success_dict = set_struct.struct_unpack(client)
+                       set_struct.send_message(client,login_info)
+                       is_success_dict = set_struct.recv_message(client)
 
                        if is_success_dict['is_success'] == True:
                            self.username = is_success_dict['username']
