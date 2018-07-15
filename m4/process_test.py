@@ -1,13 +1,23 @@
-import re
+from multiprocessing import Process
+import time
+import random
 
-pattern = 'this'
-text = 'Does this text match the pattern?'
+def task(n):
+    time.sleep(random.randint(1,3))
+    print('-------->%s' %n)
 
-match = re.search(pattern,text)
+if __name__ == '__main__':
+    p1=Process(target=task,args=(1,))
+    p2=Process(target=task,args=(2,))
+    p3=Process(target=task,args=(3,))
 
-s = match.start()
-e = match.end()
+    p1.start()
+    p1.join()
 
-print( f'in "{match.string}"\n'
-       f'Found {match.re.pattern}\n'
-       f'from {s} to {e} ("{text[s:e]}")')
+    p2.start()
+    p2.join()
+
+    p3.start()
+    p3.join()
+
+    print('-------->4')
