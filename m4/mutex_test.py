@@ -1,20 +1,19 @@
 import time
-import os
+
 from multiprocessing import Process,Lock
 
 def task(name,mutex):
     mutex.acquire()
-    print('子进程的id是%s,子进程的父进程的id是%s'%(os.getpid(),os.getppid()))
-    print('%s is running'%name)
-    time.sleep(2)
-    print('%s is done'%name)
+    for i in range(3):
+        time.sleep(1)
+        print('%s is running to %s'%(name,i))
     mutex.release()
 
 if __name__ == '__main__':
     mutex = Lock()
-    for i in range(3):
-        p = Process(target = task,args = ('子进程%s'%i,mutex))
-        p.start()
-
-    print('主')
-    print('主进程的id是%s,主进程的父进程id是%s'%(os.getpid(),os.getppid()))
+    p1 = Process(target = task,args = ('子进程1',mutex))
+    p2 = Process(target = task,args = ('子进程2',mutex))
+    p3 = Process(target = task,args = ('子进程3',mutex))
+    p1.start()
+    p2.start()
+    p3.start()
