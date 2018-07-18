@@ -9,6 +9,7 @@ from threading import Thread,current_thread
 def task(name):
     print('%s is running'%(name))
     time.sleep(2)
+    #未通过name参数设置线程名称时，默认为Thread-1
     print('it is name %s'%current_thread().getName())
 
 if __name__ == '__main__':

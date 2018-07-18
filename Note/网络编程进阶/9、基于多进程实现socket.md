@@ -1,8 +1,8 @@
 ```python
 #2、进程之间的内存空间是共享的还是隔离的？下述代码的执行结果是什么？
-from multiprocessing import Process
 
-n=100 #在windows系统中应该把全局变量定义在if name == 'main'之上就可以了
+from multiprocessing import Process
+n=100
 
 def work():
     global n

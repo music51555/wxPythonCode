@@ -17,9 +17,10 @@ class MyProcess(Process):
 if __name__ == '__main__':
     p = MyProcess('子进程1')
     p.start()
+    
+    #添加join方法后主进程需要等待子进程执行完毕后，再执行，join方法是针对主进程的
     p.join()
     print('主进程')
-#添加join方法后主进程需要等待子进程执行完毕后，再执行，join方法是针对主进程的
 '''
 子进程1 is running
 子进程1 is done
@@ -181,7 +182,7 @@ if __name__ == '__main__':
     p1 = MyProcess('子进程1')
 
     p1.start()
-    #当通过terminate方法回收了子进程，所以输出的子进程状态都是False，所以子进程的函数内容也没有打印
+    #只有在发起开进程的信号后，才可以使用terminate方法回收了子进程，所以输出的子进程状态都是False，也有可能在刚回收时，进程的状态还是True，子进程的函数内容也没有打印
     p1.terminate()
     time.sleep(2)
     print(p1.is_alive())
