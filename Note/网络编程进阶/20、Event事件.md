@@ -1,6 +1,44 @@
 Event事件
 
+简单的实现Event事件
+
+```python
+#Event事件本质是通过wait方法设置等待状态，其他线程通过set方法发送给wait通知，让wait方法不必继续等待了，可以执行后面的代码了
+#其中is_set表示当前的状态，默认为Flase，表示让wait等待，set完成后，变为True，告诉wait不必等待
+from threading import Thread,Event
+import time
+
+def task(e):
+    print('客户端：可以连接了吗？，当前连接状态是%s'%e.is_set())
+    e.wait()
+    print('客户端：好啦，我连接成功')
+
+def check(e):
+    print('服务端：还不行，服务器设置了3秒等待时间')
+    time.sleep(3)
+    e.set()
+    print('服务端：可以连接了,设置连接状态为%s'%e.is_set())
+
+if __name__ == '__main__':
+    e = Event()
+    t1 = Thread(target = task,args = (e,))
+    t2 = Thread(target = check,args = (e,))
+
+    t1.start()
+    t2.start()
+'''
+客户端：可以连接了吗？，当前连接状态是False
+服务端：还不行，服务器设置了3秒等待时间
+服务端：可以连接了,设置连接状态为True
+客户端：好啦，我连接成功
+'''
+```
+
+
+
 在执行线程的过程中，如果其中某一线程需要根据其中一个线程的状态去执行代码，那么就会用到Event事件
+
+**实际的socket套接字连接实例**
 
 ```python
 import time
@@ -18,7 +56,7 @@ def conn():
         time.sleep(1)
         n += 1
         continue
-    #在线程执行的过程中，将线程的信号标识t.wait()状态设置为False，导致不能向下执行，当其他线程执行了t.set()方法后，才将该状态设置为True，可以向下执行
+    #在线程执行的过程中，将线程的信号标识t.wait()状态设置为False，导致不能向下执行，当其他线程执行了t.set()方法后，才将该状态设置为True，可以向下执行，在此可以设置超时等待时间，如果过了等待时间，函数还没有set的话，就会向下执行
     t.wait()
     print('%s 连接成功'%current_thread().getName())
 

@@ -17,7 +17,7 @@ def customer(name,q):
         q.task_done()
 
 if __name__ == '__main__':
-    q = JoinableQueue()
+    q = JoinableQueue(2)
     p1 = Process(target = pruducer,args = ('生产者1',q))
     p2 = Process(target = pruducer,args = ('生产者2',q))
     p3 = Process(target = pruducer,args = ('生产者3',q))
