@@ -1,10 +1,9 @@
 Event事件
 
-简单的实现Event事件
+简单的实现Event事件，设计的方法set()和wait()
 
 ```python
-#Event事件本质是通过wait方法设置等待状态，其他线程通过set方法发送给wait通知，让wait方法不必继续等待了，可以执行后面的代码了
-#其中is_set表示当前的状态，默认为Flase，表示让wait等待，set完成后，变为True，告诉wait不必等待
+#Event事件本质是通过wait方法设置等待状态，其他线程通过set方法发送给wait通知，让wait方法不必继续等待，可以执行后面的代码了
 from threading import Thread,Event
 import time
 
@@ -40,6 +39,8 @@ if __name__ == '__main__':
 
 **实际的socket套接字连接实例**
 
+多了一个is_set()方法，判断是否执行了set()方法，True和False
+
 ```python
 import time
 from threading import Thread,current_thread,Event
@@ -48,6 +49,7 @@ t = Event()
 
 def conn():
     n = 0
+    #其中is_set表示当前的状态，默认为Flase，表示让wait等待，set完成后，变为True，告诉wait不必等待
     while not t.is_set():
         if n == 3:
             print('连接服务端失败')

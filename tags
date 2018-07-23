@@ -1,0 +1,674 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+BuyTicket	m4/company_review/buy_ticket.py	/^class BuyTicket(Process):$/;"	c
+Course	school/src/course.py	/^class Course(resource.Resource):$/;"	c
+Course_System	school/bin/main.py	/^class Course_System:$/;"	c
+Event	m4/Tread_Test/event_test.py	/^from threading import Thread,current_thread,Event$/;"	i
+Event	m4/company_review/event_test.py	/^from threading import Thread,Event$/;"	i
+Event	m4/company_review/event_test1.py	/^from threading import Thread,Event$/;"	i
+FTPClient	m3/FTP_homework/bin/client/client.py	/^class FTPClient:$/;"	c
+FTPServer	m3/FTP_homework/bin/server/server.py	/^class FTPServer:$/;"	c
+FTPServer	m4/company_review/FTP_socket/process_socket_server.py	/^class FTPServer():$/;"	c
+Foo	m3/obj/attr_test.py	/^class Foo:$/;"	c
+Foo	m3/obj/item_test.py	/^class Foo:$/;"	c
+Foo	m3/obj/iter_test.py	/^class Foo(object):$/;"	c
+Foo	m3/obj/mymeta.py	/^class Foo(object,metaclass = Mymeta):$/;"	c
+Foo	m3/obj/mymeta1.py	/^class Foo(metaclass = Mymeta):$/;"	c
+Foo	m3/obj/singleton.py	/^class Foo(metaclass = Mymeta):$/;"	c
+Group	school/src/group.py	/^class Group(resource.Resource):$/;"	c
+Hello	school/config/hello.py	/^class Hello:$/;"	c
+In_Code	m4/Tread_Test/timer_test.py	/^class In_Code:$/;"	c
+In_Code	m4/company_review/timeer_test_1.py	/^class In_Code():$/;"	c
+In_code	m4/company_review/timer_test.py	/^class In_code(Thread):$/;"	c
+JoinableQueue	m4/Process_Test/queue_test.py	/^from multiprocessing import Process,JoinableQueue$/;"	i
+JoinableQueue	m4/company_review/FTP_socket/Queue_test.py	/^from multiprocessing import Process,JoinableQueue$/;"	i
+Lock	m4/Process_Test/mutex_test.py	/^from multiprocessing import Process,Lock$/;"	i
+Lock	m4/Tread_Test/thread_mutex.py	/^from threading import Thread,Lock$/;"	i
+Lock	m4/company_review/buy_ticket.py	/^from multiprocessing import Process,Lock$/;"	i
+Lock	m4/company_review/creat_process.py	/^from multiprocessing import Process,current_process,Lock$/;"	i
+Lock	m4/ticket/ticket_test.py	/^from multiprocessing import Process,Lock$/;"	i
+Login	school/src/login.py	/^class Login:$/;"	c
+MyTCPClient	m3/m3_socket/obj/socket_client_class/client.py	/^class MyTCPClient:$/;"	c
+MyTCPServer	m3/m3_socket/obj/socket_server_class/server.py	/^class MyTCPServer:$/;"	c
+MyThread	m4/Tread_Test/creat_thread.py	/^class MyThread(Thread):$/;"	c
+MyThread	m4/Tread_Test/dead_lock.py	/^class MyThread(Thread):$/;"	c
+MyThread	m4/company_review/creat_thread.py	/^class MyThread(Thread):$/;"	c
+MyThread	m4/company_review/lock_test.py	/^class MyThread(Thread):$/;"	c
+Mymeta	m3/obj/mymeta.py	/^class Mymeta(type):$/;"	c
+Mymeta	m3/obj/mymeta1.py	/^class Mymeta(type):$/;"	c
+Mymeta	m3/obj/singleton.py	/^class Mymeta(type):$/;"	c
+Opration_file	school/config/opration_file.py	/^class Opration_file:$/;"	c
+Pause	m3/FTP_homework/core/pause.py	/^class Pause():$/;"	c
+PrettyTable	m3/FTP_homework/setting/set_table.py	/^from prettytable import PrettyTable$/;"	i
+Process	m4/Process_Test/deamon_process.py	/^from multiprocessing import Process$/;"	i
+Process	m4/Process_Test/mutex_test.py	/^from multiprocessing import Process,Lock$/;"	i
+Process	m4/Process_Test/process_test.py	/^from multiprocessing import Process$/;"	i
+Process	m4/Process_Test/queue_test.py	/^from multiprocessing import Process,JoinableQueue$/;"	i
+Process	m4/Process_Test/socket/server.py	/^from multiprocessing import Process$/;"	i
+Process	m4/Tread_Test/process_or_thread.py	/^from multiprocessing import Process$/;"	i
+Process	m4/company_review/FTP_socket/Queue_test.py	/^from multiprocessing import Process,JoinableQueue$/;"	i
+Process	m4/company_review/FTP_socket/process_socket_server.py	/^from multiprocessing import Process$/;"	i
+Process	m4/company_review/buy_ticket.py	/^from multiprocessing import Process,Lock$/;"	i
+Process	m4/company_review/creat_process.py	/^from multiprocessing import Process,current_process,Lock$/;"	i
+Process	m4/company_review/process_and_thread.py	/^from multiprocessing import Process$/;"	i
+Process	m4/company_review/process_queue_test.py	/^from multiprocessing import Process,Queue$/;"	i
+Process	m4/ticket/ticket_test.py	/^from multiprocessing import Process,Lock$/;"	i
+ProcessPoolExecutor	m4/Process_Test/process_pool.py	/^from concurrent.futures import ProcessPoolExecutor,ThreadPoolExecutor$/;"	i
+Queue	m4/company_review/process_queue_test.py	/^from multiprocessing import Process,Queue$/;"	i
+RLock	m4/Tread_Test/dead_lock.py	/^from threading import Thread,RLock$/;"	i
+RLock	m4/company_review/lock_test.py	/^from threading import Thread,RLock$/;"	i
+Register	school/src/register.py	/^class Register(resource.Resource):$/;"	c
+Resource	school/src/resource.py	/^class Resource:$/;"	c
+School	school/src/school.py	/^class School(resource.Resource):$/;"	c
+Score	school/src/score.py	/^class Score:$/;"	c
+Semaphore	m4/Tread_Test/semaphore_test.py	/^from threading import Thread,Semaphore$/;"	i
+Semaphore	m4/company_review/seamphor_test.py	/^from threading import Thread,Semaphore$/;"	i
+Student	m3/obj/attr_test.py	/^class Student:$/;"	c
+Student	m3/obj/review_msg.py	/^class Student():$/;"	c
+Student	school/src/student.py	/^class Student(resource.Resource):$/;"	c
+Teacher	m3/obj/review_msg.py	/^class Teacher:$/;"	c
+Teacher	school/src/teacher.py	/^class Teacher(resource.Resource):$/;"	c
+Thread	m4/Tread_Test/creat_thread.py	/^from threading import Thread$/;"	i
+Thread	m4/Tread_Test/daemon_thread.py	/^from threading import Thread$/;"	i
+Thread	m4/Tread_Test/dead_lock.py	/^from threading import Thread,RLock$/;"	i
+Thread	m4/Tread_Test/event_test.py	/^from threading import Thread,current_thread,Event$/;"	i
+Thread	m4/Tread_Test/process_or_thread.py	/^from threading import Thread$/;"	i
+Thread	m4/Tread_Test/semaphore_test.py	/^from threading import Thread,Semaphore$/;"	i
+Thread	m4/Tread_Test/thread_mutex.py	/^from threading import Thread,Lock$/;"	i
+Thread	m4/Tread_Test/thread_pid.py	/^from threading import Thread$/;"	i
+Thread	m4/Tread_Test/thread_property.py	/^from threading import Thread,current_thread,active_count,enumerate$/;"	i
+Thread	m4/Tread_Test/timer_test.py	/^from threading import Thread,Timer$/;"	i
+Thread	m4/Tread_Test/tread_test.py	/^from threading import Thread,current_thread,enumerate$/;"	i
+Thread	m4/company_review/creat_thread.py	/^from threading import Thread,current_thread$/;"	i
+Thread	m4/company_review/daemon_test.py	/^from threading import Thread$/;"	i
+Thread	m4/company_review/event_test.py	/^from threading import Thread,Event$/;"	i
+Thread	m4/company_review/event_test1.py	/^from threading import Thread,Event$/;"	i
+Thread	m4/company_review/lock_test.py	/^from threading import Thread,RLock$/;"	i
+Thread	m4/company_review/seamphor_test.py	/^from threading import Thread,Semaphore$/;"	i
+Thread	m4/company_review/thread_queue.py	/^from threading import Thread$/;"	i
+Thread	m4/company_review/timer_test.py	/^from threading import Thread,Timer$/;"	i
+ThreadPoolExecutor	m4/Process_Test/process_pool.py	/^from concurrent.futures import ProcessPoolExecutor,ThreadPoolExecutor$/;"	i
+ThreadPoolExecutor	m4/Tread_Test/request_submit.py	/^from concurrent.futures import ThreadPoolExecutor$/;"	i
+ThreadPoolExecutor	m4/Tread_Test/thread_submit.py	/^from concurrent.futures import ThreadPoolExecutor$/;"	i
+ThreadPoolExecutor	m4/company_review/process_wait.py	/^from concurrent.futures import ThreadPoolExecutor$/;"	i
+ThreadPoolExecutor	m4/company_review/submit_socket/server.py	/^from concurrent.futures import ThreadPoolExecutor$/;"	i
+ThreadPoolExecutor	m4/company_review/submit_test.py	/^from concurrent.futures import ThreadPoolExecutor$/;"	i
+ThreadPoolExecutor	m4/company_review/thread_socket/server.py	/^from concurrent.futures import ThreadPoolExecutor$/;"	i
+Timer	m4/Tread_Test/timer_test.py	/^from threading import Thread,Timer$/;"	i
+Timer	m4/company_review/timeer_test_1.py	/^from threading import Timer,current_thread$/;"	i
+Timer	m4/company_review/timeer_test_2.py	/^from threading import Timer,current_thread$/;"	i
+Timer	m4/company_review/timer_test.py	/^from threading import Thread,Timer$/;"	i
+UserBehavior	m3/FTP_homework/core/login.py	/^class UserBehavior:$/;"	c
+__call__	m3/obj/mymeta.py	/^    def __call__(self, *args, **kwargs):$/;"	m	class:Mymeta	file:
+__call__	m3/obj/singleton.py	/^    def __call__(self, *args, **kwargs):$/;"	m	class:Mymeta	file:
+__delitem__	m3/obj/item_test.py	/^    def __delitem__(self, key):$/;"	m	class:Foo	file:
+__getitem__	m3/obj/item_test.py	/^    def __getitem__(self, item):$/;"	m	class:Foo	file:
+__init__	m3/FTP_homework/bin/client/client.py	/^    def __init__(self,host,port):$/;"	m	class:FTPClient
+__init__	m3/FTP_homework/bin/server/server.py	/^    def __init__(self,host,port):$/;"	m	class:FTPServer
+__init__	m3/m3_socket/obj/socket_client_class/client.py	/^    def __init__(self,host,port):$/;"	m	class:MyTCPClient
+__init__	m3/m3_socket/obj/socket_server_class/server.py	/^    def __init__(self,host,port):$/;"	m	class:MyTCPServer
+__init__	m3/obj/attr_test.py	/^    def __init__(self,name,age):$/;"	m	class:Foo
+__init__	m3/obj/attr_test.py	/^    def __init__(self,name,age):$/;"	m	class:Student
+__init__	m3/obj/item_test.py	/^    def __init__(self,school):$/;"	m	class:Foo
+__init__	m3/obj/iter_test.py	/^    def __init__(self, list):$/;"	m	class:Foo
+__init__	m3/obj/mymeta.py	/^    def __init__(self,class_name,class_bases,class_dict):$/;"	m	class:Mymeta
+__init__	m3/obj/mymeta.py	/^    def __init__(self,name,age):$/;"	m	class:Foo
+__init__	m3/obj/mymeta1.py	/^    def __init__(self,class_name,class_bases,class_dict):$/;"	m	class:Mymeta
+__init__	m3/obj/property_test.py	/^    def __init__(self,name):$/;"	m	class:calc
+__init__	m3/obj/review_msg.py	/^    def __init__(self,name,age):$/;"	m	class:Student
+__init__	m3/obj/review_msg.py	/^    def __init__(self,name,age):$/;"	m	class:Teacher
+__init__	m3/obj/singleton.py	/^    def __init__(self,name,age):$/;"	m	class:Foo
+__init__	m4/Tread_Test/creat_thread.py	/^    def __init__(self,name):$/;"	m	class:MyThread
+__init__	m4/Tread_Test/dead_lock.py	/^    def __init__(self,name):$/;"	m	class:MyThread
+__init__	m4/Tread_Test/timer_test.py	/^    def __init__(self):$/;"	m	class:In_Code
+__init__	m4/company_review/buy_ticket.py	/^    def __init__(self,name,mutex):$/;"	m	class:BuyTicket
+__init__	m4/company_review/lock_test.py	/^    def __init__(self,name):$/;"	m	class:MyThread
+__init__	school/bin/main.py	/^    def __init__(self):$/;"	m	class:Course_System
+__init__	school/src/school.py	/^    def __init__(self):$/;"	m	class:School
+__instance	m3/obj/singleton.py	/^    __instance = None$/;"	v	class:Mymeta
+__iter__	m3/obj/iter_test.py	/^    def __iter__(self):$/;"	m	class:Foo	file:
+__new__	m3/obj/mymeta1.py	/^    def __new__(cls, class_name,class_bases,class_dict):$/;"	m	class:Mymeta	file:
+__setitem__	m3/obj/item_test.py	/^    def __setitem__(self, key, value):$/;"	m	class:Foo	file:
+account_file	m3/FTP_homework/core/login.py	/^    account_file = '%s\/%s\/account.init' % (base_dir, 'db')$/;"	v	class:UserBehavior
+account_file	m3/FTP_homework/setting/set_init.py	/^    account_file = '%s\/%s\/account.init' % (base_dir, 'db')$/;"	v	class:set_Init
+active_count	m4/Tread_Test/thread_property.py	/^from threading import Thread,current_thread,active_count,enumerate$/;"	i
+add_course	school/src/school.py	/^    def add_course(self,course_school,course_name):$/;"	m	class:School
+add_group	school/src/school.py	/^    def add_group(self,group_name,group_school):$/;"	m	class:School
+add_resource	school/src/resource.py	/^    def add_resource(self,resource_key,resource_name,resource,filename):$/;"	m	class:Resource
+add_score	school/bin/main.py	/^    def add_score(self,name):$/;"	m	class:Course_System
+add_score	school/src/score.py	/^    def add_score(self,group_list):$/;"	m	class:Score
+add_student	school/src/school.py	/^    def add_student(self,student_name,school_address):$/;"	m	class:School
+address_family	m3/m3_socket/obj/socket_server_class/server.py	/^    address_family = socket.AF_INET$/;"	v	class:MyTCPServer
+base_dir	m3/FTP_homework/bin/client/client.py	/^    base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))$/;"	v	class:FTPClient
+base_dir	m3/FTP_homework/bin/server/server.py	/^    base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))$/;"	v	class:FTPServer
+base_dir	m3/FTP_homework/core/login.py	/^    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))$/;"	v	class:UserBehavior
+base_dir	m3/FTP_homework/core/pause.py	/^    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))$/;"	v	class:Pause
+base_dir	m3/FTP_homework/setting/set_init.py	/^    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))$/;"	v	class:set_Init
+buy_ticket	m4/company_review/buy_ticket.py	/^    def buy_ticket(self):$/;"	m	class:BuyTicket
+buy_ticket	m4/ticket/ticket_test.py	/^def buy_ticket(name):$/;"	f
+c	m3/m3_socket/obj/socket_client_class/client.py	/^    c = MyTCPClient('127.0.0.1',8081)$/;"	v	class:MyTCPClient
+c	m3/obj/property_test.py	/^c = calc('alex')$/;"	v
+c1	m4/Process_Test/queue_test.py	/^    c1 = Process(target = customer,args = ('消费者1',q))$/;"	v
+c1	m4/company_review/FTP_socket/Queue_test.py	/^    c1 = Process(target = customer,args = ('小明',q))$/;"	v
+c2	m4/Process_Test/queue_test.py	/^    c2 = Process(target = customer,args = ('消费者2',q))$/;"	v
+c2	m4/company_review/FTP_socket/Queue_test.py	/^    c2 = Process(target = customer,args = ('小红',q))$/;"	v
+calc	m3/obj/property_test.py	/^class calc:$/;"	c
+cd	m3/FTP_homework/bin/client/client.py	/^    def cd(self,cmd,directory):$/;"	m	class:FTPClient
+cd	m3/FTP_homework/bin/server/server.py	/^    def cd(self,user_home):$/;"	m	class:FTPServer
+check	m4/Tread_Test/event_test.py	/^def check():$/;"	f
+check	m4/Tread_Test/timer_test.py	/^    def check(self):$/;"	m	class:In_Code
+check	m4/company_review/event_test.py	/^def check(e):$/;"	f
+check	m4/company_review/event_test1.py	/^def check(e):$/;"	f
+check	m4/company_review/timer_test.py	/^    def check(self):$/;"	m	class:In_code
+check_code	m4/Tread_Test/thread_submit.py	/^def check_code(code_obj):$/;"	f
+check_code	m4/company_review/timeer_test_1.py	/^    def check_code(self):$/;"	m	class:In_Code
+check_get_pause	m3/FTP_homework/bin/client/client.py	/^    def check_get_pause(self,get_file,pause_init):$/;"	m	class:FTPClient
+check_put_pause	m3/FTP_homework/bin/server/server.py	/^    def check_put_pause(self,put_file_dict,puted_file,pause_init):$/;"	m	class:FTPServer
+check_ticket	m4/company_review/buy_ticket.py	/^    def check_ticket(self):$/;"	m	class:BuyTicket
+client	m3/m3_socket/client1_com.py	/^client = socket.socket(socket.AF_INET,socket.SOCK_STREAM)$/;"	v
+client	m3/m3_udp/client.py	/^client = socket(AF_INET,SOCK_DGRAM)$/;"	v
+client	m3/obj/client.py	/^client = socket.socket(socket.AF_INET,socket.SOCK_STREAM)$/;"	v
+client	m4/Process_Test/socket/client.py	/^client = socket.socket(socket.AF_INET,socket.SOCK_STREAM)$/;"	v
+client	m4/company_review/FTP_socket/proce_socket_client.py	/^client = socket.socket(socket.AF_INET,socket.SOCK_STREAM)$/;"	v
+client	m4/company_review/thread_socket/client.py	/^client = socket.socket(socket.AF_INET,socket.SOCK_STREAM)$/;"	v
+client_bind	m3/FTP_homework/bin/client/client.py	/^    def client_bind(self):$/;"	m	class:FTPClient
+cmd	m3/m3_socket/client1_com.py	/^    cmd = input('>>>:')$/;"	v
+cmd	m3/m3_socket/client2_com.py	/^    cmd = input('>>>:')$/;"	v
+cmd	m3/m3_socket/client3_com.py	/^    cmd = input('>>>:')$/;"	v
+cmd	m3/m3_socket/server_com.py	/^            cmd = conn.recv(1024)$/;"	v
+cmd	m3/m3_udp/client.py	/^    cmd = input('>>>:')$/;"	v
+cmd_search	m3/FTP_homework/bin/client/client.py	/^    def cmd_search(self,cmd):$/;"	m	class:FTPClient
+conf	m3/FTP_homework/core/login.py	/^    conf = configparser.ConfigParser()$/;"	v	class:UserBehavior
+conf	m3/FTP_homework/setting/set_init.py	/^    conf = configparser.ConfigParser()$/;"	v	class:set_Init
+conf_obj	m3/FTP_homework/bin/client/client.py	/^    conf_obj = set_init.set_Init()$/;"	v	class:FTPClient
+conf_obj	m3/FTP_homework/bin/server/server.py	/^    conf_obj = set_init.set_Init()$/;"	v	class:FTPServer
+configparser	m3/FTP_homework/core/login.py	/^import configparser$/;"	i
+configparser	m3/FTP_homework/setting/set_init.py	/^import configparser$/;"	i
+conn	m4/Tread_Test/event_test.py	/^def conn():$/;"	f
+conn	m4/company_review/event_test.py	/^def conn(name,e):$/;"	f
+conn_data	m4/company_review/thread_socket/server.py	/^def conn_data(conn):$/;"	f
+course	m3/obj/review_msg.py	/^    def course(self):$/;"	m	class:Student
+course	m3/obj/review_msg.py	/^    def course(self):$/;"	m	class:Teacher
+course	school/bin/main.py	/^from src import teacher,group,course,school,student,login,register,score$/;"	i
+course_system	school/bin/main.py	/^    course_system = Course_System()/;"	v	class:Course_System
+creat_course	school/bin/main.py	/^    def creat_course(self):$/;"	m	class:Course_System
+creat_group	school/bin/main.py	/^    def creat_group(self):$/;"	m	class:Course_System
+creat_school	school/bin/main.py	/^    def creat_school(self):$/;"	m	class:Course_System
+current_directory	m3/FTP_homework/bin/client/client.py	/^    current_directory = '\/'$/;"	v	class:FTPClient
+current_directory	m3/FTP_homework/bin/server/server.py	/^    current_directory = root_directory$/;"	v	class:FTPServer
+current_process	m4/company_review/creat_process.py	/^from multiprocessing import Process,current_process,Lock$/;"	i
+current_thread	m4/Tread_Test/event_test.py	/^from threading import Thread,current_thread,Event$/;"	i
+current_thread	m4/Tread_Test/thread_property.py	/^from threading import Thread,current_thread,active_count,enumerate$/;"	i
+current_thread	m4/Tread_Test/tread_test.py	/^from threading import Thread,current_thread,enumerate$/;"	i
+current_thread	m4/company_review/creat_thread.py	/^from threading import Thread,current_thread$/;"	i
+current_thread	m4/company_review/timeer_test_1.py	/^from threading import Timer,current_thread$/;"	i
+current_thread	m4/company_review/timeer_test_2.py	/^from threading import Timer,current_thread$/;"	i
+customer	m4/Process_Test/queue_test.py	/^def customer(name,q):$/;"	f
+customer	m4/company_review/FTP_socket/Queue_test.py	/^def customer(name,q):$/;"	f
+data	m3/m3_socket/client1_com.py	/^        data = client.recv(1024)$/;"	v
+data	m3/m3_socket/client2_com.py	/^    data = phone.recv(1024)$/;"	v
+data	m3/m3_socket/client3_com.py	/^    data = phone.recv(1024)$/;"	v
+data	m4/Process_Test/socket/client.py	/^    data = client.recv(1024)$/;"	v
+data	m4/company_review/FTP_socket/proce_socket_client.py	/^    data= client.recv(1024)$/;"	v
+data	m4/company_review/thread_socket/client.py	/^    data = client.recv(1024)$/;"	v
+download_dir	m3/m3_socket/obj/socket_client_class/client.py	/^    download_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)),'download')$/;"	v	class:MyTCPClient
+downloading	m3/FTP_homework/bin/client/client.py	/^    def downloading(self,f,recv_size,get_file,get_dict,recv_data = b''):$/;"	m	class:FTPClient
+downloading	m3/FTP_homework/bin/server/server.py	/^    def downloading(self,geted_file,pause_init,get_file,confirm_dict):$/;"	m	class:FTPServer
+edit_score	school/bin/main.py	/^    def edit_score(self,name):$/;"	m	class:Course_System
+edit_score	school/src/score.py	/^    def edit_score(self,group_list):$/;"	m	class:Score
+enumerate	m4/Tread_Test/thread_property.py	/^from threading import Thread,current_thread,active_count,enumerate$/;"	i
+enumerate	m4/Tread_Test/tread_test.py	/^from threading import Thread,current_thread,enumerate$/;"	i
+executor	m4/Tread_Test/request_submit.py	/^    executor = ThreadPoolExecutor(2)$/;"	v
+executor	m4/company_review/thread_socket/server.py	/^    executor = ThreadPoolExecutor(2)$/;"	v
+f	m3/FTP_homework/bin/client/client.py	/^    f = FTPClient('127.0.0.1',8082)$/;"	v	class:FTPClient
+f	m3/FTP_homework/bin/server/server.py	/^    f = FTPServer('127.0.0.1',8082)$/;"	v	class:FTPServer
+f	m3/obj/attr_test.py	/^f = Foo('alex',15)$/;"	v
+f	m3/obj/item_test.py	/^f = Foo('北大青鸟')$/;"	v
+f	m3/obj/mymeta.py	/^f = Foo('alex',12)$/;"	v
+f	school/bin/main.py	/^f = opration_file.Opration_file()$/;"	v
+f	school/src/course.py	/^f = opration_file.Opration_file()$/;"	v
+f	school/src/group.py	/^f = opration_file.Opration_file()$/;"	v
+f	school/src/login.py	/^f = opration_file.Opration_file()$/;"	v
+f	school/src/register.py	/^f = opration_file.Opration_file()$/;"	v
+f	school/src/resource.py	/^f = opration_file.Opration_file()$/;"	v
+f	school/src/school.py	/^f = opration_file.Opration_file()$/;"	v
+f	school/src/score.py	/^f = opration_file.Opration_file()$/;"	v
+f	school/src/student.py	/^f = opration_file.Opration_file()$/;"	v
+f	school/src/teacher.py	/^f = opration_file.Opration_file()$/;"	v
+f1	m3/obj/singleton.py	/^f1 = Foo('alex',12)$/;"	v
+f1	m4/Tread_Test/dead_lock.py	/^    def f1(self):$/;"	m	class:MyThread
+f1	m4/company_review/lock_test.py	/^    def f1(self):$/;"	m	class:MyThread
+f2	m3/obj/singleton.py	/^f2 = Foo('peiqi',12)$/;"	v
+f2	m4/Tread_Test/dead_lock.py	/^    def f2(self):$/;"	m	class:MyThread
+f2	m4/company_review/lock_test.py	/^    def f2(self):$/;"	m	class:MyThread
+filename	school/src/course.py	/^    filename = '..\/db\/course.pkl'$/;"	v	class:Course
+filename	school/src/group.py	/^    filename = '..\/db\/group.pkl'$/;"	v	class:Group
+filename	school/src/school.py	/^    filename = '..\/db\/school.pkl'$/;"	v	class:School
+filename	school/src/student.py	/^    filename = '..\/db\/student.pkl'$/;"	v	class:Student
+filename	school/src/teacher.py	/^    filename = '..\/db\/teacher.pkl'$/;"	v	class:Teacher
+foo	m4/Tread_Test/daemon_thread.py	/^def foo(name):$/;"	f
+foo	m4/company_review/daemon_test.py	/^def foo(name):$/;"	f
+foo	m4/company_review/process_queue_test.py	/^def foo(q):$/;"	f
+foo	m4/company_review/thread_queue.py	/^def foo(q):$/;"	f
+free_size	m3/FTP_homework/bin/server/server.py	/^    def free_size(self):$/;"	m	class:FTPServer
+get	m3/FTP_homework/bin/client/client.py	/^    def get(self,cmd,filename):$/;"	m	class:FTPClient
+get	m3/FTP_homework/bin/server/server.py	/^    def get(self, filename):$/;"	m	class:FTPServer
+get	m3/m3_socket/obj/socket_client_class/client.py	/^    def get(self,cmd,file_name):$/;"	m	class:MyTCPClient
+get	m3/m3_socket/obj/socket_server_class/server.py	/^    def get(self,conn,file_name):$/;"	m	class:MyTCPServer
+get_file_existed	m3/FTP_homework/bin/client/client.py	/^    def get_file_existed(self):$/;"	m	class:FTPClient
+get_file_size	m3/m3_socket/obj/socket_client_class/client.py	/^    def get_file_size(self,filename):$/;"	m	class:MyTCPClient
+get_file_size	m3/m3_socket/obj/socket_server_class/server.py	/^    def get_file_size(self,file_name):$/;"	m	class:MyTCPServer
+get_group	school/src/group.py	/^    def get_group(self,name):$/;"	m	class:Group
+get_group	school/src/teacher.py	/^    def get_group(self,teacher_name):$/;"	m	class:Teacher
+get_size	m3/FTP_homework/setting/set_init.py	/^    def get_size(self,username):$/;"	m	class:set_Init
+get_student	school/src/group.py	/^    def get_student(self,group_list):$/;"	m	class:Group
+get_url	m4/Tread_Test/request_submit.py	/^def get_url(url):$/;"	f
+group	school/bin/main.py	/^from src import teacher,group,course,school,student,login,register,score$/;"	i
+group_info	school/bin/main.py	/^    def group_info(self,name):$/;"	m	class:Course_System
+h	school/src/login.py	/^h = hello.Hello()$/;"	v
+hashlib	m3/FTP_homework/setting/set_md5.py	/^import hashlib$/;"	i
+header	m3/m3_socket/client1_com.py	/^    header = client.recv(4)$/;"	v
+header	m3/m3_socket/server_com.py	/^            header = struct.pack('i',total_size)$/;"	v
+hello	school/config/hello.py	/^    def hello(self,name):$/;"	m	class:Hello
+hello	school/src/login.py	/^from config import opration_file,hello$/;"	i
+i	m4/Tread_Test/timer_test.py	/^    i = In_Code()$/;"	v	class:In_Code
+i	m4/company_review/timeer_test_1.py	/^    i = In_Code()$/;"	v	class:In_Code
+i	m4/company_review/timer_test.py	/^    i = In_code()$/;"	v	class:In_code
+init	m3/FTP_homework/core/login.py	/^    init = set_init.set_Init()$/;"	v	class:UserBehavior
+inner	m3/obj/exam_test.py	/^def inner():$/;"	f
+inner	school/src/login.py	/^        def inner(func):$/;"	f	function:Login.login
+ip_port	m3/m3_socket/client1_com.py	/^ip_port = ('127.0.0.1',8090)$/;"	v
+ip_port	m3/m3_socket/server_com.py	/^ip_port = ('127.0.0.1',8090)$/;"	v
+json	m3/FTP_homework/setting/set_struct.py	/^import json$/;"	i
+json	m3/m3_socket/obj/socket_client_class/client.py	/^import json$/;"	i
+json	m3/m3_socket/obj/socket_server_class/server.py	/^import json$/;"	i
+json	m4/company_review/buy_ticket.py	/^import json,time$/;"	i
+json	m4/ticket/ticket_test.py	/^import json$/;"	i
+ll	m3/FTP_homework/bin/client/client.py	/^    def ll(self,cmd):$/;"	m	class:FTPClient
+ll	m3/FTP_homework/bin/server/server.py	/^    def ll(self):$/;"	m	class:FTPServer
+login	m3/FTP_homework/bin/client/client.py	/^from core import login$/;"	i
+login	m3/FTP_homework/bin/server/server.py	/^from core import login$/;"	i
+login	m3/FTP_homework/core/login.py	/^    def login(self,client):$/;"	m	class:UserBehavior
+login	school/bin/main.py	/^from src import teacher,group,course,school,student,login,register,score$/;"	i
+login	school/src/login.py	/^    def login(self):$/;"	m	class:Login
+login_obj	m3/FTP_homework/bin/client/client.py	/^    login_obj = login.UserBehavior()$/;"	v	class:FTPClient
+login_obj	m3/FTP_homework/bin/server/server.py	/^    login_obj = login.UserBehavior()$/;"	v	class:FTPServer
+login_status	school/src/login.py	/^    login_status = False$/;"	v	class:Login
+m	m4/Tread_Test/creat_thread.py	/^    m = MyThread('子线程1')$/;"	v
+m	m4/company_review/FTP_socket/process_socket_server.py	/^    m = FTPServer()$/;"	v	class:FTPServer
+m	m4/company_review/creat_thread.py	/^    m = MyThread()$/;"	v
+make_code	m4/Tread_Test/timer_test.py	/^    def make_code(self):$/;"	m	class:In_Code
+make_code	m4/company_review/timeer_test_1.py	/^    def make_code(self):$/;"	m	class:In_Code
+make_code	m4/company_review/timer_test.py	/^    def make_code(self):$/;"	m	class:In_code
+max_queue_size	m3/FTP_homework/bin/server/server.py	/^    max_queue_size = 5$/;"	v	class:FTPServer
+max_queue_size	m3/m3_socket/obj/socket_server_class/server.py	/^    max_queue_size = 5$/;"	v	class:MyTCPServer
+max_recv_size	m3/FTP_homework/bin/client/client.py	/^    max_recv_size = 8192$/;"	v	class:FTPClient
+max_recv_size	m3/FTP_homework/bin/server/server.py	/^    max_recv_size = 8192$/;"	v	class:FTPServer
+max_recv_size	m3/m3_socket/obj/socket_client_class/client.py	/^    max_recv_size = 8192$/;"	v	class:MyTCPClient
+max_recv_size	m3/m3_socket/obj/socket_server_class/server.py	/^    max_recv_size = 8192$/;"	v	class:MyTCPServer
+menu	school/bin/main.py	/^    menu = {$/;"	v	class:Course_System
+msg	m3/obj/attr_test.py	/^msg = input('>>>:')$/;"	v
+msg	m3/obj/client.py	/^msg = input('>>>:')$/;"	v
+msg	m4/Process_Test/socket/client.py	/^    msg = input('>>>:')$/;"	v
+msg	m4/company_review/FTP_socket/proce_socket_client.py	/^    msg = input('>>>:')$/;"	v
+msg	m4/company_review/thread_socket/client.py	/^    msg = input('>>>:')$/;"	v
+mutex	m4/Tread_Test/thread_mutex.py	/^    mutex = Lock()$/;"	v
+mutex	m4/company_review/buy_ticket.py	/^    mutex = Lock()$/;"	v	class:BuyTicket
+mutex	m4/company_review/creat_process.py	/^    mutex = Lock()$/;"	v
+n	m4/Tread_Test/thread_mutex.py	/^n = 100$/;"	v
+n	m4/company_review/creat_process.py	/^n = 100$/;"	v
+name	m3/obj/property_test.py	/^    def name(self):$/;"	m	class:calc
+name	m3/obj/property_test.py	/^    def name(self,val):$/;"	m	class:calc
+num	m3/obj/exam_test.py	/^num = input('>>>:')$/;"	v
+obj	m3/m3_socket/server_com.py	/^            obj = subprocess.Popen(cmd.decode('GBK'),$/;"	v
+obj	m3/m3_socket/struct_test.py	/^obj = struct.unpack('i',res)$/;"	v
+obj	m3/obj/iter_test.py	/^obj = Foo([11,22,33,44])$/;"	v
+opration_file	school/bin/main.py	/^from config import opration_file$/;"	i
+opration_file	school/src/course.py	/^from config import opration_file$/;"	i
+opration_file	school/src/group.py	/^from config import opration_file$/;"	i
+opration_file	school/src/login.py	/^from config import opration_file,hello$/;"	i
+opration_file	school/src/register.py	/^from config import opration_file$/;"	i
+opration_file	school/src/resource.py	/^from config import opration_file$/;"	i
+opration_file	school/src/school.py	/^from config import opration_file$/;"	i
+opration_file	school/src/score.py	/^from config import opration_file$/;"	i
+opration_file	school/src/student.py	/^from config import opration_file$/;"	i
+opration_file	school/src/teacher.py	/^from config import opration_file$/;"	i
+os	m3/FTP_homework/bin/client/client.py	/^import os$/;"	i
+os	m3/FTP_homework/bin/server/server.py	/^import os$/;"	i
+os	m3/FTP_homework/core/login.py	/^import os$/;"	i
+os	m3/FTP_homework/core/pause.py	/^import os$/;"	i
+os	m3/FTP_homework/setting/set_init.py	/^import os$/;"	i
+os	m3/m3_socket/obj/socket_client_class/client.py	/^import os$/;"	i
+os	m3/m3_socket/obj/socket_server_class/server.py	/^import os$/;"	i
+os	m4/Process_Test/process_pool.py	/^import time,random,os$/;"	i
+os	m4/Tread_Test/process_or_thread.py	/^import os,time$/;"	i
+os	m4/Tread_Test/thread_pid.py	/^import os$/;"	i
+os	m4/company_review/creat_process.py	/^import time,os,random$/;"	i
+os	m4/company_review/creat_thread.py	/^import time,os$/;"	i
+os	m4/company_review/process_and_thread.py	/^import time,os$/;"	i
+os	m4/company_review/process_wait.py	/^import time,random,os$/;"	i
+os	m4/company_review/submit_test.py	/^import time,random,requests,os$/;"	i
+os	school/bin/main.py	/^import os,sys,pickle$/;"	i
+os	school/src/course.py	/^import os,pickle$/;"	i
+os	school/src/group.py	/^import os,pickle$/;"	i
+os	school/src/login.py	/^import pickle,os,time,re$/;"	i
+os	school/src/register.py	/^import os,pickle$/;"	i
+os	school/src/school.py	/^import os,pickle$/;"	i
+os	school/src/score.py	/^import os,pickle$/;"	i
+os	school/src/student.py	/^import os,pickle$/;"	i
+os	school/src/teacher.py	/^import os,pickle$/;"	i
+p	m4/company_review/creat_process.py	/^        p = Process(target = task,args = ('子进程%s'%i,mutex))$/;"	v
+p1	m4/Process_Test/queue_test.py	/^    p1 = Process(target = pruducer,args = ('生产者1',q))$/;"	v
+p1	m4/company_review/FTP_socket/Queue_test.py	/^    p1 = Process(target = producter,args = ('alex',q))$/;"	v
+p2	m4/Process_Test/queue_test.py	/^    p2 = Process(target = pruducer,args = ('生产者2',q))$/;"	v
+p2	m4/company_review/FTP_socket/Queue_test.py	/^    p2 = Process(target = producter,args = ('peiqi',q))$/;"	v
+p3	m4/Process_Test/queue_test.py	/^    p3 = Process(target = pruducer,args = ('生产者3',q))$/;"	v
+p3	m4/company_review/FTP_socket/Queue_test.py	/^    p3 = Process(target = producter,args = ('egon',q))$/;"	v
+p_l	m4/company_review/creat_process.py	/^    p_l = []$/;"	v
+parser	m4/Tread_Test/request_submit.py	/^def parser(url_obj):$/;"	f
+pause	m3/FTP_homework/bin/client/client.py	/^from core import pause$/;"	i
+pause	m3/FTP_homework/bin/server/server.py	/^from core import pause$/;"	i
+pause_init	m3/FTP_homework/core/pause.py	/^    pause_init = '%s\/%s\/%s' % (base_dir, 'db', 'pause.init')$/;"	v	class:Pause
+pause_obj	m3/FTP_homework/bin/client/client.py	/^    pause_obj = pause.Pause()$/;"	v	class:FTPClient
+pause_obj	m3/FTP_homework/bin/server/server.py	/^    pause_obj = pause.Pause()$/;"	v	class:FTPServer
+pay_tuition	school/src/student.py	/^    def pay_tuition(self,name):$/;"	m	class:Student
+phone	m3/m3_socket/client2_com.py	/^phone = socket.socket(socket.AF_INET,socket.SOCK_STREAM)$/;"	v
+phone	m3/m3_socket/client3_com.py	/^phone = socket.socket(socket.AF_INET,socket.SOCK_STREAM)$/;"	v
+pickle	school/bin/main.py	/^import os,sys,pickle$/;"	i
+pickle	school/config/opration_file.py	/^import pickle$/;"	i
+pickle	school/src/course.py	/^import os,pickle$/;"	i
+pickle	school/src/group.py	/^import os,pickle$/;"	i
+pickle	school/src/login.py	/^import pickle,os,time,re$/;"	i
+pickle	school/src/register.py	/^import os,pickle$/;"	i
+pickle	school/src/resource.py	/^import pickle$/;"	i
+pickle	school/src/school.py	/^import os,pickle$/;"	i
+pickle	school/src/score.py	/^import os,pickle$/;"	i
+pickle	school/src/student.py	/^import os,pickle$/;"	i
+pickle	school/src/teacher.py	/^import os,pickle$/;"	i
+pickle_file	school/src/resource.py	/^    def pickle_file(self,resource_info,filename):$/;"	m	class:Resource
+pool	m4/company_review/submit_socket/server.py	/^    pool = ThreadPoolExecutor(2)$/;"	v
+pool	m4/company_review/submit_test.py	/^    pool = ThreadPoolExecutor(2)$/;"	v
+producter	m4/company_review/FTP_socket/Queue_test.py	/^def producter(name,q):$/;"	f
+pruducer	m4/Process_Test/queue_test.py	/^def pruducer(name,q):$/;"	f
+put	m3/FTP_homework/bin/client/client.py	/^    def put(self,cmd,filename):$/;"	m	class:FTPClient
+put	m3/FTP_homework/bin/server/server.py	/^    def put(self,filename):$/;"	m	class:FTPServer
+put	m3/m3_socket/obj/socket_client_class/client.py	/^    def put(self,cmd,file_name):$/;"	m	class:MyTCPClient
+put	m3/m3_socket/obj/socket_server_class/server.py	/^    def put(self,conn,file_name):$/;"	m	class:MyTCPServer
+put_diff	m3/FTP_homework/bin/client/client.py	/^    def put_diff(self,put_file,file_size,put_file_dict):$/;"	m	class:FTPClient
+put_file_existed	m3/FTP_homework/bin/server/server.py	/^    def put_file_existed(self):$/;"	m	class:FTPServer
+put_request_code	m3/FTP_homework/bin/client/client.py	/^    put_request_code = {$/;"	v	class:FTPClient
+put_response_code	m3/FTP_homework/bin/server/server.py	/^    put_response_code = {$/;"	v	class:FTPServer
+put_size_1mb	m3/FTP_homework/core/login.py	/^    put_size_1mb = 1024000$/;"	v	class:UserBehavior
+put_size_total_mb	m3/FTP_homework/core/login.py	/^    put_size_total_mb = put_size_1mb * 100$/;"	v	class:UserBehavior
+puting	m3/FTP_homework/bin/client/client.py	/^    def puting(self,put_file,put_status_dict,file_size,put_file_dict):$/;"	m	class:FTPClient
+puting	m3/FTP_homework/bin/server/server.py	/^    def puting(self,f,recv_size,put_file_dict,puted_file):$/;"	m	class:FTPServer
+pwd	m3/FTP_homework/bin/client/client.py	/^    def pwd(self,cmd):$/;"	m	class:FTPClient
+pwd	m3/FTP_homework/bin/server/server.py	/^    def pwd(self):$/;"	m	class:FTPServer
+q	m4/Process_Test/queue_test.py	/^    q = JoinableQueue(2)$/;"	v
+q	m4/Tread_Test/thread_Queue.py	/^q = queue.PriorityQueue(3)$/;"	v
+q	m4/company_review/FTP_socket/Queue_test.py	/^    q = JoinableQueue()$/;"	v
+queue	m4/Tread_Test/thread_Queue.py	/^import queue$/;"	i
+queue	m4/company_review/thread_queue.py	/^import queue,time$/;"	i
+random	m4/Process_Test/process_pool.py	/^import time,random,os$/;"	i
+random	m4/Process_Test/process_test.py	/^import random$/;"	i
+random	m4/Tread_Test/semaphore_test.py	/^import time,random$/;"	i
+random	m4/Tread_Test/thread_submit.py	/^import time,random$/;"	i
+random	m4/Tread_Test/timer_test.py	/^import string,random$/;"	i
+random	m4/company_review/creat_process.py	/^import time,os,random$/;"	i
+random	m4/company_review/process_wait.py	/^import time,random,os$/;"	i
+random	m4/company_review/submit_test.py	/^import time,random,requests,os$/;"	i
+random	m4/company_review/timeer_test_1.py	/^import string,random$/;"	i
+random	m4/company_review/timer_test.py	/^import random,string$/;"	i
+re	m3/FTP_homework/bin/client/client.py	/^import re$/;"	i
+re	school/src/login.py	/^import pickle,os,time,re$/;"	i
+read_file	m3/FTP_homework/setting/set_file.py	/^def read_file(filename,mode):$/;"	f
+read_file	school/config/opration_file.py	/^    def read_file(self,filename,mode):$/;"	m	class:Opration_file
+read_pause	m3/FTP_homework/core/pause.py	/^    def read_pause(self,file_name,is_pause_go,terminal):$/;"	m	class:Pause
+recv_data	m3/m3_socket/client1_com.py	/^    recv_data = b''$/;"	v
+recv_message	m3/FTP_homework/setting/set_struct.py	/^def recv_message(socket_obj):$/;"	f
+recv_size	m3/m3_socket/client1_com.py	/^    recv_size = 0$/;"	v
+register	m3/FTP_homework/core/login.py	/^    def register(self):$/;"	m	class:UserBehavior
+register	school/bin/main.py	/^from src import teacher,group,course,school,student,login,register,score$/;"	i
+register	school/src/login.py	/^from src import register$/;"	i
+register	school/src/register.py	/^    def register(self):$/;"	m	class:Register
+register	school/src/resource.py	/^    def register(self,account_type,user_info,username,password,name):$/;"	m	class:Resource
+requests	m4/Tread_Test/request_submit.py	/^import requests$/;"	i
+requests	m4/company_review/submit_test.py	/^import time,random,requests,os$/;"	i
+res	m3/m3_socket/struct_test.py	/^res = struct.pack('i',123411)$/;"	v
+res	m3/obj/client.py	/^res = client.recv(1024)$/;"	v
+res	m3/obj/exam_test.py	/^res = inner()$/;"	v
+resource	school/src/course.py	/^from src import resource$/;"	i
+resource	school/src/group.py	/^from src import resource$/;"	i
+resource	school/src/register.py	/^from src import resource$/;"	i
+resource	school/src/school.py	/^from src import resource$/;"	i
+resource	school/src/student.py	/^from src import resource$/;"	i
+resource	school/src/teacher.py	/^from src import resource$/;"	i
+reuser_address	m3/m3_socket/obj/socket_server_class/server.py	/^    reuser_address = False$/;"	v	class:MyTCPServer
+root_directory	m3/FTP_homework/bin/server/server.py	/^    root_directory = os.path.join(base_dir, 'share')$/;"	v	class:FTPServer
+run	m3/FTP_homework/bin/client/client.py	/^    def run(self):$/;"	m	class:FTPClient
+run	m3/FTP_homework/bin/server/server.py	/^    def run(self):$/;"	m	class:FTPServer
+run	m3/m3_socket/obj/socket_client_class/client.py	/^    def run(self):$/;"	m	class:MyTCPClient
+run	m3/m3_socket/obj/socket_server_class/server.py	/^    def run(self):$/;"	m	class:MyTCPServer
+run	m4/Tread_Test/creat_thread.py	/^    def run(self):$/;"	m	class:MyThread
+run	m4/Tread_Test/dead_lock.py	/^    def run(self):$/;"	m	class:MyThread
+run	m4/company_review/buy_ticket.py	/^    def run(self):$/;"	m	class:BuyTicket
+run	m4/company_review/creat_thread.py	/^    def run(self):$/;"	m	class:MyThread
+run	m4/company_review/lock_test.py	/^    def run(self):$/;"	m	class:MyThread
+s	m3/m3_socket/obj/socket_server_class/server.py	/^    s = MyTCPServer('127.0.0.1',8081)$/;"	v	class:MyTCPServer
+s	m3/obj/attr_test.py	/^s = Student('alex',15)$/;"	v
+s	m3/obj/review_msg.py	/^s = Student('peiqi',15)$/;"	v
+salary	m3/obj/review_msg.py	/^    salary = 1000$/;"	v	class:Student
+salary	m3/obj/review_msg.py	/^    salary = 1000$/;"	v	class:Teacher
+sch	school/bin/main.py	/^    sch = school.School()$/;"	v	class:Course_System
+school	m3/obj/attr_test.py	/^    school = '北大青鸟'$/;"	v	class:Foo
+school	m3/obj/attr_test.py	/^    school = '北大青鸟'$/;"	v	class:Student
+school	m3/obj/mymeta.py	/^    school = '北大青鸟'$/;"	v	class:Foo
+school	m3/obj/mymeta1.py	/^    school = '北大青鸟'$/;"	v	class:Foo
+school	school/bin/main.py	/^from src import teacher,group,course,school,student,login,register,score$/;"	i
+sco	school/bin/main.py	/^    sco = score.Score()$/;"	v	class:Course_System
+score	school/bin/main.py	/^from src import teacher,group,course,school,student,login,register,score$/;"	i
+search	m4/ticket/ticket_test.py	/^def search(name):$/;"	f
+select_group	school/bin/main.py	/^    def select_group(self):$/;"	m	class:Course_System
+select_group	school/src/student.py	/^    def select_group(self,sch):$/;"	m	class:Student
+send_message	m3/FTP_homework/setting/set_struct.py	/^def send_message(socket_obj,header_info):$/;"	f
+server	m3/m3_socket/server_com.py	/^server = socket.socket(socket.AF_INET,socket.SOCK_STREAM)$/;"	v
+server	m3/m3_udp/server.py	/^server = socket(AF_INET,SOCK_DGRAM)$/;"	v
+server	m4/Process_Test/socket/server.py	/^server = socket.socket(socket.AF_INET,socket.SOCK_STREAM)$/;"	v
+server	m4/company_review/FTP_socket/process_socket_server.py	/^    server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)$/;"	v	class:FTPServer
+server	m4/company_review/submit_socket/server.py	/^def server():$/;"	f
+server	m4/company_review/thread_socket/server.py	/^def server():$/;"	f
+server_accept	m3/FTP_homework/bin/server/server.py	/^    def server_accept(self):$/;"	m	class:FTPServer
+server_accept	m3/m3_socket/obj/socket_server_class/server.py	/^    def server_accept(self):$/;"	m	class:MyTCPServer
+server_bind	m3/FTP_homework/bin/server/server.py	/^    def server_bind(self):$/;"	m	class:FTPServer
+server_bind	m3/m3_socket/obj/socket_server_class/server.py	/^    def server_bind(self):$/;"	m	class:MyTCPServer
+server_connect	m3/m3_socket/obj/socket_client_class/client.py	/^    def server_connect(self):$/;"	m	class:MyTCPClient
+server_listen	m3/m3_socket/obj/socket_server_class/server.py	/^    def server_listen(self):$/;"	m	class:MyTCPServer
+server_recv	m4/company_review/FTP_socket/process_socket_server.py	/^    def server_recv(self,conn):$/;"	m	class:FTPServer
+set_Init	m3/FTP_homework/setting/set_init.py	/^class set_Init():$/;"	c
+set_bar	m3/FTP_homework/bin/client/client.py	/^from setting import set_bar$/;"	i
+set_bar	m3/FTP_homework/setting/set_bar.py	/^def set_bar():$/;"	f
+set_bytes	m3/FTP_homework/bin/server/server.py	/^from setting import set_bytes$/;"	i
+set_bytes	m3/FTP_homework/setting/set_bytes.py	/^def set_bytes(file_size):$/;"	f
+set_conf	m3/FTP_homework/setting/set_init.py	/^    def set_conf(self,set_info,set_type,set_file):$/;"	m	class:set_Init
+set_course	school/src/course.py	/^    def set_course(self,sch,course_school,course_name,course_period,course_price):$/;"	m	class:Course
+set_course	school/src/resource.py	/^    def set_course(self,course_info,sch,course_name,course_school,course_period,course_price,filename):$/;"	m	class:Resource
+set_file	m3/FTP_homework/bin/client/client.py	/^from setting import set_file$/;"	i
+set_file	m3/FTP_homework/bin/server/server.py	/^from setting import set_file$/;"	i
+set_file	m3/FTP_homework/core/pause.py	/^from setting import set_file$/;"	i
+set_file_md5	m3/FTP_homework/setting/set_md5.py	/^def set_file_md5(file):$/;"	f
+set_group	school/src/course.py	/^    def set_group(self,group_course,group_name):$/;"	m	class:Course
+set_group	school/src/group.py	/^    def set_group(self,sch,group_school,group_name,group_teacher,group_course,tea):$/;"	m	class:Group
+set_group	school/src/resource.py	/^    def set_group(self,group_info,sch,group_school,group_name,group_teacher,group_course,tea,filename):$/;"	m	class:Resource
+set_group	school/src/teacher.py	/^    def set_group(self,teacher_name,group_name):$/;"	m	class:Teacher
+set_home_dir	m3/FTP_homework/core/login.py	/^    def set_home_dir(self,username):$/;"	m	class:UserBehavior
+set_init	m3/FTP_homework/bin/client/client.py	/^from setting import set_init$/;"	i
+set_init	m3/FTP_homework/bin/server/server.py	/^from setting import set_init$/;"	i
+set_init	m3/FTP_homework/core/login.py	/^from setting import set_init$/;"	i
+set_md5	m3/FTP_homework/bin/client/client.py	/^from setting import set_md5$/;"	i
+set_md5	m3/FTP_homework/bin/server/server.py	/^from setting import set_md5$/;"	i
+set_md5	m3/FTP_homework/core/verify_file_md5.py	/^from setting import set_md5$/;"	i
+set_md5	m3/FTP_homework/setting/set_init.py	/^from setting import set_md5$/;"	i
+set_md5	m3/FTP_homework/setting/set_md5.py	/^def set_md5(msg):$/;"	f
+set_pause	m3/FTP_homework/core/pause.py	/^    def set_pause(self,file_name,recv_size,conf_obj,warnmsg):$/;"	m	class:Pause
+set_school	school/src/resource.py	/^    def set_school(self,school_info,school_name,school_address,filename):$/;"	m	class:Resource
+set_school	school/src/school.py	/^    def set_school(self,school_name,school_address):$/;"	m	class:School
+set_server	m4/Process_Test/socket/server.py	/^def set_server():$/;"	f
+set_server	m4/company_review/FTP_socket/process_socket_server.py	/^    def set_server(self):$/;"	m	class:FTPServer
+set_struct	m3/FTP_homework/bin/client/client.py	/^from setting import set_struct$/;"	i
+set_struct	m3/FTP_homework/bin/server/server.py	/^from setting import set_struct$/;"	i
+set_struct	m3/FTP_homework/core/login.py	/^from setting import set_struct$/;"	i
+set_stu_group	school/src/student.py	/^    def set_stu_group(self,student_name,student_group):$/;"	m	class:Student
+set_student	school/src/resource.py	/^    def set_student(self,student_info,student_name, student_age, student_sex,student_school,sch,filename):$/;"	m	class:Resource
+set_student	school/src/student.py	/^    def set_student(self,student_name, student_age, student_sex,student_school,sch):$/;"	m	class:Student
+set_table	m3/FTP_homework/bin/client/client.py	/^from setting import set_table$/;"	i
+set_table	m3/FTP_homework/setting/set_table.py	/^def set_table(total_list):$/;"	f
+set_teacher	school/src/resource.py	/^    def set_teacher(self,teacher_info,teacher_name,teacher_age,teacher_sex,teacher_school,filename):$/;"	m	class:Resource
+set_teacher	school/src/teacher.py	/^    def set_teacher(self,teacher_name,teacher_age,teacher_sex,teacher_school):$/;"	m	class:Teacher
+set_time	m3/FTP_homework/bin/client/client.py	/^from setting import set_time$/;"	i
+set_time	m3/FTP_homework/bin/server/server.py	/^from setting import set_time$/;"	i
+set_time	m3/FTP_homework/setting/set_time.py	/^def set_time(*args):$/;"	f
+share_dir	m3/m3_socket/obj/socket_server_class/server.py	/^    share_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)),'share')$/;"	v	class:MyTCPServer
+shell	m3/m3_socket/server_com.py	/^                             shell = True,$/;"	v
+show_view_file	m3/FTP_homework/bin/client/client.py	/^    def show_view_file(self,view_info):$/;"	m	class:FTPClient
+size_not_enough	m3/FTP_homework/bin/server/server.py	/^    def size_not_enough(self,put_file_dict):$/;"	m	class:FTPServer
+socket	m3/FTP_homework/bin/client/client.py	/^import socket$/;"	i
+socket	m3/FTP_homework/bin/server/server.py	/^import socket$/;"	i
+socket	m3/m3_socket/client1_com.py	/^import socket$/;"	i
+socket	m3/m3_socket/client2_com.py	/^import socket$/;"	i
+socket	m3/m3_socket/client3_com.py	/^import socket$/;"	i
+socket	m3/m3_socket/obj/socket_client_class/client.py	/^import socket$/;"	i
+socket	m3/m3_socket/obj/socket_server_class/server.py	/^import socket$/;"	i
+socket	m3/m3_socket/server_com.py	/^import socket$/;"	i
+socket	m3/obj/client.py	/^import socket$/;"	i
+socket	m4/Process_Test/socket/client.py	/^import socket$/;"	i
+socket	m4/Process_Test/socket/server.py	/^import socket$/;"	i
+socket	m4/company_review/FTP_socket/proce_socket_client.py	/^import socket$/;"	i
+socket	m4/company_review/FTP_socket/process_socket_server.py	/^import socket$/;"	i
+socket	m4/company_review/submit_socket/client.py	/^import socket$/;"	i
+socket	m4/company_review/submit_socket/server.py	/^import socket$/;"	i
+socket	m4/company_review/thread_socket/client.py	/^import socket$/;"	i
+socket	m4/company_review/thread_socket/server.py	/^import socket$/;"	i
+socket_family	m3/m3_socket/obj/socket_client_class/client.py	/^    socket_family = socket.AF_INET$/;"	v	class:MyTCPClient
+socket_type	m3/m3_socket/obj/socket_client_class/client.py	/^    socket_type = socket.SOCK_STREAM$/;"	v	class:MyTCPClient
+socket_type	m3/m3_socket/obj/socket_server_class/server.py	/^    socket_type = socket.SOCK_STREAM$/;"	v	class:MyTCPServer
+statistics	m4/company_review/submit_test.py	/^def statistics(url_obj):$/;"	f
+stderr	m3/m3_socket/server_com.py	/^                             stderr = subprocess.PIPE)$/;"	v
+stderr	m3/m3_socket/server_com.py	/^            stderr = obj.stderr.read()$/;"	v
+stdout	m3/m3_socket/server_com.py	/^                             stdout = subprocess.PIPE,$/;"	v
+stdout	m3/m3_socket/server_com.py	/^            stdout = obj.stdout.read()$/;"	v
+string	m4/Tread_Test/timer_test.py	/^import string,random$/;"	i
+string	m4/company_review/timeer_test_1.py	/^import string,random$/;"	i
+string	m4/company_review/timer_test.py	/^import random,string$/;"	i
+struct	m3/FTP_homework/setting/set_struct.py	/^import struct$/;"	i
+struct	m3/m3_socket/client1_com.py	/^import struct$/;"	i
+struct	m3/m3_socket/obj/socket_client_class/client.py	/^import struct$/;"	i
+struct	m3/m3_socket/obj/socket_server_class/server.py	/^import struct$/;"	i
+struct	m3/m3_socket/server_com.py	/^import struct$/;"	i
+struct	m3/m3_socket/struct_test.py	/^import struct$/;"	i
+stu	school/bin/main.py	/^    stu = student.Student()$/;"	v	class:Course_System
+student	school/bin/main.py	/^from src import teacher,group,course,school,student,login,register,score$/;"	i
+student_auth	school/bin/main.py	/^    def student_auth(self,name):$/;"	m	class:Course_System
+student_auth	school/src/student.py	/^    def student_auth(self,name,sch):$/;"	m	class:Student
+student_info	school/bin/main.py	/^    def student_info(self,name):$/;"	m	class:Course_System
+student_pay_tuition	school/bin/main.py	/^    def student_pay_tuition(self,name):$/;"	m	class:Course_System
+study	m3/obj/attr_test.py	/^    def study(self):$/;"	m	class:Student
+study	m3/obj/item_test.py	/^    def study(self):$/;"	m	class:Foo
+subprocess	m3/m3_socket/server_com.py	/^import subprocess$/;"	i
+sys	m3/FTP_homework/bin/client/client.py	/^import sys$/;"	i
+sys	m3/FTP_homework/bin/server/server.py	/^import sys$/;"	i
+sys	m3/FTP_homework/setting/set_bar.py	/^import sys$/;"	i
+sys	m3/FTP_homework/setting/set_md5.py	/^import sys$/;"	i
+sys	school/bin/main.py	/^import os,sys,pickle$/;"	i
+t	m3/obj/review_msg.py	/^t = Teacher('alex',12)$/;"	v
+t	m4/Tread_Test/event_test.py	/^t = Event()$/;"	v
+t	m4/Tread_Test/thread_mutex.py	/^        t = Thread(target = task,args = (mutex,))$/;"	v
+t	m4/Tread_Test/thread_submit.py	/^    t = ThreadPoolExecutor(7)$/;"	v
+t_l	m4/Tread_Test/thread_mutex.py	/^    t_l= []$/;"	v
+talk	m3/obj/attr_test.py	/^    def talk(self):$/;"	m	class:Foo
+talk	m3/obj/attr_test.py	/^    def talk(self):$/;"	m	class:Student
+talk	m3/obj/item_test.py	/^    def talk(self):$/;"	m	class:Foo
+talk	m3/obj/mymeta1.py	/^    def talk(self):$/;"	m	class:Foo
+task	m4/Process_Test/deamon_process.py	/^def task(name):$/;"	f
+task	m4/Process_Test/mutex_test.py	/^def task(name,mutex):$/;"	f
+task	m4/Process_Test/process_pool.py	/^def task(name):$/;"	f
+task	m4/Process_Test/process_test.py	/^def task(n):$/;"	f
+task	m4/Process_Test/socket/server.py	/^def task(conn):$/;"	f
+task	m4/Tread_Test/daemon_thread.py	/^def task(name):$/;"	f
+task	m4/Tread_Test/semaphore_test.py	/^def task(name,sm):$/;"	f
+task	m4/Tread_Test/thread_mutex.py	/^def task(mutex):$/;"	f
+task	m4/Tread_Test/thread_pid.py	/^def task(name):$/;"	f
+task	m4/Tread_Test/thread_property.py	/^def task():$/;"	f
+task	m4/Tread_Test/tread_test.py	/^def task():$/;"	f
+task	m4/company_review/creat_process.py	/^def task(name,mutex):$/;"	f
+task	m4/company_review/daemon_test.py	/^def task(name):$/;"	f
+task	m4/company_review/event_test1.py	/^def task(e):$/;"	f
+task	m4/company_review/process_and_thread.py	/^def task():$/;"	f
+task	m4/company_review/process_queue_test.py	/^def task(q):$/;"	f
+task	m4/company_review/process_wait.py	/^def task(name):$/;"	f
+task	m4/company_review/seamphor_test.py	/^def task(name,sm):$/;"	f
+task	m4/company_review/submit_socket/client.py	/^def task():$/;"	f
+task	m4/company_review/submit_socket/server.py	/^def task(conn):$/;"	f
+task	m4/company_review/submit_test.py	/^def task(url):$/;"	f
+task	m4/company_review/thread_queue.py	/^def task(q):$/;"	f
+task	m4/company_review/timeer_test_2.py	/^def task():$/;"	f
+task	m4/ticket/ticket_test.py	/^def task(name,mutex):$/;"	f
+tea	school/bin/main.py	/^    tea = teacher.Teacher()$/;"	v	class:Course_System
+teacher	school/bin/main.py	/^from src import teacher,group,course,school,student,login,register,score$/;"	i
+teacher_auth	school/bin/main.py	/^    def teacher_auth(self,name):$/;"	m	class:Course_System
+teacher_auth	school/src/teacher.py	/^    def teacher_auth(self,name):$/;"	m	class:Teacher
+threading	m4/Tread_Test/process_or_thread.py	/^import threading$/;"	i
+time	m3/FTP_homework/bin/client/client.py	/^import time$/;"	i
+time	m3/FTP_homework/setting/set_bar.py	/^import time$/;"	i
+time	m3/FTP_homework/setting/set_time.py	/^import time$/;"	i
+time	m4/Process_Test/deamon_process.py	/^import time$/;"	i
+time	m4/Process_Test/mutex_test.py	/^import time$/;"	i
+time	m4/Process_Test/process_pool.py	/^import time,random,os$/;"	i
+time	m4/Process_Test/process_test.py	/^import time$/;"	i
+time	m4/Process_Test/queue_test.py	/^import time$/;"	i
+time	m4/Tread_Test/creat_thread.py	/^import time$/;"	i
+time	m4/Tread_Test/daemon_thread.py	/^import time$/;"	i
+time	m4/Tread_Test/dead_lock.py	/^import time$/;"	i
+time	m4/Tread_Test/event_test.py	/^import time$/;"	i
+time	m4/Tread_Test/process_or_thread.py	/^import os,time$/;"	i
+time	m4/Tread_Test/semaphore_test.py	/^import time,random$/;"	i
+time	m4/Tread_Test/thread_mutex.py	/^import time$/;"	i
+time	m4/Tread_Test/thread_submit.py	/^import time,random$/;"	i
+time	m4/Tread_Test/tread_test.py	/^import time$/;"	i
+time	m4/company_review/FTP_socket/Queue_test.py	/^import time$/;"	i
+time	m4/company_review/buy_ticket.py	/^import json,time$/;"	i
+time	m4/company_review/creat_process.py	/^import time,os,random$/;"	i
+time	m4/company_review/creat_thread.py	/^import time,os$/;"	i
+time	m4/company_review/daemon_test.py	/^import time$/;"	i
+time	m4/company_review/event_test.py	/^import time$/;"	i
+time	m4/company_review/event_test1.py	/^import time$/;"	i
+time	m4/company_review/lock_test.py	/^import time$/;"	i
+time	m4/company_review/process_and_thread.py	/^import time,os$/;"	i
+time	m4/company_review/process_queue_test.py	/^import time$/;"	i
+time	m4/company_review/process_wait.py	/^import time,random,os$/;"	i
+time	m4/company_review/seamphor_test.py	/^import time$/;"	i
+time	m4/company_review/submit_test.py	/^import time,random,requests,os$/;"	i
+time	m4/company_review/thread_queue.py	/^import queue,time$/;"	i
+time	m4/ticket/ticket_test.py	/^import time$/;"	i
+time	school/config/hello.py	/^import time$/;"	i
+time	school/src/login.py	/^import pickle,os,time,re$/;"	i
+total_size	m3/m3_socket/client1_com.py	/^    total_size = struct.unpack('i',header)[0]$/;"	v
+total_size	m3/m3_socket/server_com.py	/^            total_size = len(stdout) + len(stderr)$/;"	v
+url	m4/Tread_Test/request_submit.py	/^    url = ['https:\/\/www.baidu.com',$/;"	v
+url_list	m4/company_review/submit_test.py	/^    url_list = ['https:\/\/www.baidu.com',$/;"	v
+verify_account	m3/FTP_homework/core/login.py	/^    def verify_account(self,login_info):$/;"	m	class:UserBehavior
+verify_code	m4/Tread_Test/timer_test.py	/^    def verify_code(self):$/;"	m	class:In_Code
+verify_code	m4/company_review/timer_test.py	/^    def verify_code(self):$/;"	m	class:In_code
+verify_file_md5	m3/FTP_homework/bin/client/client.py	/^from core import verify_file_md5$/;"	i
+verify_file_md5	m3/FTP_homework/bin/server/server.py	/^from core import verify_file_md5$/;"	i
+verify_file_md5	m3/FTP_homework/core/verify_file_md5.py	/^def verify_file_md5(put_file_dict,puted_file):$/;"	f
+view	m3/FTP_homework/bin/client/client.py	/^    def view(self,cmd,username):$/;"	m	class:FTPClient
+view	m3/FTP_homework/bin/server/server.py	/^    def view(self,username):$/;"	m	class:FTPServer
+welcome	school/bin/main.py	/^    def welcome(self,role,name):$/;"	m	class:Course_System
+work	m4/Tread_Test/process_or_thread.py	/^def work():$/;"	f
+write_code	m4/Tread_Test/thread_submit.py	/^def write_code(name):$/;"	f
+write_file	m3/FTP_homework/setting/set_file.py	/^def write_file(filename,mode):$/;"	f
+write_file	school/config/opration_file.py	/^    def write_file(self,filename,mode):$/;"	m	class:Opration_file

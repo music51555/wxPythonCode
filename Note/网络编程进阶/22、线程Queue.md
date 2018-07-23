@@ -25,7 +25,9 @@ third
 
 **1、block 阻塞状态**
 
-block = True表示阻塞，block = False表示不阻塞
+block = True表示开启阻塞，随便放数据，但是满了再放程序就会卡住，变为等待状态，只有被取出后才能放入
+
+block = False表示关闭阻塞，随便放数据，但是满了再放程序就会报错full
 
 ```python
 from threading import Thread
@@ -59,6 +61,8 @@ if __name__ == '__main__':
     t2.start()
 ```
 
+
+
 只有当默认情况下block = True的情况下，才使用timeout参数，如果添加了block = False，那么timeout参数没有用，因为源代码显示只有在block为True的时候才去判断timeout参数的状态
 
 ```python
@@ -90,6 +94,7 @@ import queue
 
 #如果队列没有满员，会直接放入数据
 #如果队列满员后，等待3秒后放入数据，如果队列依然满员，则会报错full
+#timeout参数是只有在block = True时才起作用
 q = queue.Queue(3)
 q.put('first')
 q.put('twice')
@@ -151,11 +156,14 @@ first
 ```python
 import queue
 
-#按优先级get数据，数字越小，优先级越高
+#按优先级get数据
+#1、数字越小，优先级越高
+#2、优先级写在数据的前面
+#3、写在括号的括号里面
 q = queue.PriorityQueue(3)
-q.put((10,'first'))
-q.put((30,'twice'))
-q.put((20,'third'))
+q.put((1,'first'))
+q.put((3,'twice'))
+q.put((2,'third'))
 
 print(q.get())
 print(q.get())

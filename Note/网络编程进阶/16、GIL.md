@@ -9,7 +9,7 @@ GIL只是CPython的特性，并不是python的特性
 1、GIL互斥锁是添加在python解释器中的，保护的是python解释器中与垃圾回收机制相关的数据，也就是垃圾回收机制的线程与内存中的其他线程一同去申请GIL锁，执行各自的工作代码
 2、实例化Lock的mutex互斥锁，是添加在自己开发的代码中的，保护自己代码中的数据
 
-![GIL工作流程](/Users/wangxin/Documents/wxPythonCode/wxPythonCode/Note/网络编程进阶/GIL工作流程.png)
+![GIL工作流程](/Users/wangxin/Documents/wxPythonCode/Note/网络编程进阶/GIL工作流程.png)
 
 
 
