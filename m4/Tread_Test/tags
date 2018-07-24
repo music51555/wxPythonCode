@@ -1,0 +1,87 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+Event	.\event_test.py	/^from threading import Thread,current_thread,Event$/;"	i
+In_Code	.\timer_test.py	/^class In_Code:$/;"	c
+Lock	.\thread_mutex.py	/^from threading import Thread,Lock$/;"	i
+MyThread	.\creat_thread.py	/^class MyThread(Thread):$/;"	c
+MyThread	.\dead_lock.py	/^class MyThread(Thread):$/;"	c
+Process	.\process_or_thread.py	/^from multiprocessing import Process$/;"	i
+RLock	.\dead_lock.py	/^from threading import Thread,RLock$/;"	i
+Semaphore	.\semaphore_test.py	/^from threading import Thread,Semaphore$/;"	i
+Thread	.\creat_thread.py	/^from threading import Thread$/;"	i
+Thread	.\daemon_thread.py	/^from threading import Thread$/;"	i
+Thread	.\dead_lock.py	/^from threading import Thread,RLock$/;"	i
+Thread	.\event_test.py	/^from threading import Thread,current_thread,Event$/;"	i
+Thread	.\process_or_thread.py	/^from threading import Thread$/;"	i
+Thread	.\semaphore_test.py	/^from threading import Thread,Semaphore$/;"	i
+Thread	.\thread_mutex.py	/^from threading import Thread,Lock$/;"	i
+Thread	.\thread_pid.py	/^from threading import Thread$/;"	i
+Thread	.\thread_property.py	/^from threading import Thread,current_thread,active_count,enumerate$/;"	i
+Thread	.\timer_test.py	/^from threading import Thread,Timer$/;"	i
+Thread	.\tread_test.py	/^from threading import Thread,current_thread,enumerate$/;"	i
+ThreadPoolExecutor	.\request_submit.py	/^from concurrent.futures import ThreadPoolExecutor$/;"	i
+ThreadPoolExecutor	.\thread_submit.py	/^from concurrent.futures import ThreadPoolExecutor$/;"	i
+Timer	.\timer_test.py	/^from threading import Thread,Timer$/;"	i
+__init__	.\creat_thread.py	/^    def __init__(self,name):$/;"	m	class:MyThread
+__init__	.\dead_lock.py	/^    def __init__(self,name):$/;"	m	class:MyThread
+__init__	.\timer_test.py	/^    def __init__(self):$/;"	m	class:In_Code
+active_count	.\thread_property.py	/^from threading import Thread,current_thread,active_count,enumerate$/;"	i
+check	.\event_test.py	/^def check():$/;"	f
+check	.\timer_test.py	/^    def check(self):$/;"	m	class:In_Code
+check_code	.\thread_submit.py	/^def check_code(code_obj):$/;"	f
+conn	.\event_test.py	/^def conn():$/;"	f
+current_thread	.\event_test.py	/^from threading import Thread,current_thread,Event$/;"	i
+current_thread	.\thread_property.py	/^from threading import Thread,current_thread,active_count,enumerate$/;"	i
+current_thread	.\tread_test.py	/^from threading import Thread,current_thread,enumerate$/;"	i
+enumerate	.\thread_property.py	/^from threading import Thread,current_thread,active_count,enumerate$/;"	i
+enumerate	.\tread_test.py	/^from threading import Thread,current_thread,enumerate$/;"	i
+executor	.\request_submit.py	/^    executor = ThreadPoolExecutor(2)$/;"	v
+f1	.\dead_lock.py	/^    def f1(self):$/;"	m	class:MyThread
+f2	.\dead_lock.py	/^    def f2(self):$/;"	m	class:MyThread
+foo	.\daemon_thread.py	/^def foo(name):$/;"	f
+get_url	.\request_submit.py	/^def get_url(url):$/;"	f
+i	.\timer_test.py	/^    i = In_Code()$/;"	v	class:In_Code
+m	.\creat_thread.py	/^    m = MyThread('子线程1')$/;"	v
+make_code	.\timer_test.py	/^    def make_code(self):$/;"	m	class:In_Code
+mutex	.\thread_mutex.py	/^    mutex = Lock()$/;"	v
+n	.\thread_mutex.py	/^n = 100$/;"	v
+os	.\process_or_thread.py	/^import os,time$/;"	i
+os	.\thread_pid.py	/^import os$/;"	i
+parser	.\request_submit.py	/^def parser(url_obj):$/;"	f
+q	.\thread_Queue.py	/^q = queue.PriorityQueue(3)$/;"	v
+queue	.\thread_Queue.py	/^import queue$/;"	i
+random	.\semaphore_test.py	/^import time,random$/;"	i
+random	.\thread_submit.py	/^import time,random$/;"	i
+random	.\timer_test.py	/^import string,random$/;"	i
+requests	.\request_submit.py	/^import requests$/;"	i
+run	.\creat_thread.py	/^    def run(self):$/;"	m	class:MyThread
+run	.\dead_lock.py	/^    def run(self):$/;"	m	class:MyThread
+string	.\timer_test.py	/^import string,random$/;"	i
+t	.\event_test.py	/^t = Event()$/;"	v
+t	.\thread_mutex.py	/^        t = Thread(target = task,args = (mutex,))$/;"	v
+t	.\thread_submit.py	/^    t = ThreadPoolExecutor(7)$/;"	v
+t_l	.\thread_mutex.py	/^    t_l= []$/;"	v
+task	.\daemon_thread.py	/^def task(name):$/;"	f
+task	.\semaphore_test.py	/^def task(name,sm):$/;"	f
+task	.\thread_mutex.py	/^def task(mutex):$/;"	f
+task	.\thread_pid.py	/^def task(name):$/;"	f
+task	.\thread_property.py	/^def task():$/;"	f
+task	.\tread_test.py	/^def task():$/;"	f
+threading	.\process_or_thread.py	/^import threading$/;"	i
+time	.\creat_thread.py	/^import time$/;"	i
+time	.\daemon_thread.py	/^import time$/;"	i
+time	.\dead_lock.py	/^import time$/;"	i
+time	.\event_test.py	/^import time$/;"	i
+time	.\process_or_thread.py	/^import os,time$/;"	i
+time	.\semaphore_test.py	/^import time,random$/;"	i
+time	.\thread_mutex.py	/^import time$/;"	i
+time	.\thread_submit.py	/^import time,random$/;"	i
+time	.\tread_test.py	/^import time$/;"	i
+url	.\request_submit.py	/^    url = ['https:\/\/www.baidu.com',$/;"	v
+verify_code	.\timer_test.py	/^    def verify_code(self):$/;"	m	class:In_Code
+work	.\process_or_thread.py	/^def work():$/;"	f
+write_code	.\thread_submit.py	/^def write_code(name):$/;"	f
