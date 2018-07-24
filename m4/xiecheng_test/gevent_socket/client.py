@@ -1,4 +1,4 @@
-import socket
+import socket,time
 from threading import Thread,current_thread
 
 def set_client():
@@ -7,12 +7,17 @@ def set_client():
 
     count = 0
     while True:
-        msg = input('%s is say hello,count %s'%(current_thread().getName(),count))
+        msg = input('%s is say hello,count %s\n'%(current_thread().getName(),count))
         client.send(msg.encode('utf-8'))
         data = client.recv(1024)
-        print(data.decode('utf-8')+'\n')
+        print(data.decode('utf-8'))
+        count += 1
 
 if __name__ == '__main__':
+    start_time = time.time()
     for i in range(500):
         t = Thread(target=set_client)
         t.start()
+    t.join()
+    end_time = time.time()
+    print(end_time - start_time)
