@@ -5,13 +5,11 @@ def set_client():
     client = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
     client.connect(('127.0.0.1',8080))
 
-    count = 0
     while True:
-        msg = input('%s is say hello,count %s\n'%(current_thread().getName(),count))
+        msg = input('%s is say hello\n'%(current_thread().getName()))
         client.send(msg.encode('utf-8'))
         data = client.recv(1024)
         print(data.decode('utf-8'))
-        count += 1
 
 if __name__ == '__main__':
     start_time = time.time()
