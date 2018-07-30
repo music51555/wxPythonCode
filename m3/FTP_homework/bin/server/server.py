@@ -1,6 +1,7 @@
 import socket
 import sys
 import os
+import select
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 
@@ -13,6 +14,7 @@ from setting import set_md5
 from setting import set_init
 from setting import set_bytes
 from setting import set_time
+from threading import Thread
 
 class FTPServer:
     max_queue_size = 5
@@ -35,27 +37,29 @@ class FTPServer:
         self.host = host
         self.port = port
         self.server = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+        self.server.setsockopt(socket.SOL_SOCKET,socket.SO_REUSEADDR,1)
         self.encoding = sys.getdefaultencoding()
 
     def server_bind(self):
-        self.server.setsockopt(socket.SOL_SOCKET,socket.SO_REUSEADDR,1)
         self.server.bind((self.host,self.port))
         self.server.listen(self.max_queue_size)
+        self.server.setblocking(False)
 
-    def server_accept(self):
-        self.conn, self.caddr = self.server.accept()
-
+    def login(self,sock):
         while True:
-            login_info = set_struct.recv_message(self.conn)
-            if login_info == None:
-                break
+            try:
+                login_info = set_struct.recv_message(sock)
+                if login_info == None:
+                    break
+            except BlockingIOError:
+                continue
             #验证帐号是否正确，将返回的结果True和False返回给客户端，客户端以此凭据来展示登录成功或失败
             is_success,self.username = login_obj.verify_account(login_info)
             is_success_dict = {
                 'is_success':is_success,
                 'username':self.username
             }
-            set_struct.send_message(self.conn, is_success_dict)
+            set_struct.send_message(sock, is_success_dict)
 
             if is_success_dict['is_success'] == True:
                 print(self.put_response_code['204'])
@@ -63,6 +67,7 @@ class FTPServer:
             else:
                 print(self.put_response_code['205'])
                 continue
+
 
     @property
     def free_size(self):
@@ -241,12 +246,12 @@ class FTPServer:
         f.close()
         verify_file_md5.verify_file_md5(put_file_dict, puted_file)
 
-    def view(self,username):
+    def view(self,username,sock):
         view_dict = {}
         share_file_list = os.listdir(os.path.join(self.base_dir,'share',username))[:]
         #通过view命令浏览云盘文件，返回文件的名称、大小、上传日期等属性
         if len(share_file_list) == 0:
-            set_struct.send_message(self.conn, share_file_list)
+            set_struct.send_message(sock, share_file_list)
         else:
             for file in share_file_list:
                 view_dict[file] = {
@@ -258,67 +263,90 @@ class FTPServer:
                         set_time.set_time(os.path.getctime(
                             os.path.join(self.base_dir,'share',username,file)))
                 }
-            set_struct.send_message(self.conn,view_dict)
+            set_struct.send_message(sock,view_dict)
 
-    def ll(self):
+    def ll(self,sock):
         files_list = os.listdir(self.current_directory)
         for file in files_list:
             print(os.stat(os.path.join(self.current_directory,file)))
-        set_struct.send_message(self.conn, files_list)
+        set_struct.send_message(sock, files_list)
 
-    def pwd(self):
-        set_struct.send_message(self.conn, self.current_directory)
+    def pwd(self,sock):
+        set_struct.send_message(sock, self.current_directory)
 
-    def cd(self,user_home):
+    def cd(self,user_home,sock):
         #通过cd命令切换目录
         if user_home not in ['/','..']:
             self.user_directory = os.path.join(self.base_dir,'share',user_home)
 
         if user_home == '/':
             self.current_directory = self.root_directory
-            set_struct.send_message(self.conn,self.current_directory)
+            set_struct.send_message(sock,self.current_directory)
         elif user_home == '..':
             if self.current_directory == self.root_directory:
                 self.current_directory = self.root_directory
-                set_struct.send_message(self.conn, self.current_directory)
+                set_struct.send_message(sock, self.current_directory)
                 return
 
             if self.current_directory == self.user_directory:
                 self.current_directory = self.root_directory
-                set_struct.send_message(self.conn, self.current_directory)
+                set_struct.send_message(sock, self.current_directory)
 
         elif user_home in os.listdir(self.current_directory):
             self.current_directory = self.user_directory
-            set_struct.send_message(self.conn,self.current_directory)
+            set_struct.send_message(sock,self.current_directory)
 
     def run(self):
         self.server_bind()
+        rlist = [self.server,]
+        wlist = []
+        wdata = {}
         while True:
-            self.server_accept()
-            while True:
-                cmd = self.conn.recv(self.max_recv_size)
-                if not cmd:
-                    print(self.put_response_code['203'])
-                    break
+            rl,wl,xl = select.select(rlist,wlist,[],0.5)
+            for sock in rl:
+                if sock == self.server:
+                    conn, caddr = self.server.accept()
+                    t = Thread(target = self.login,args = (conn,))
+                    t.start()
+                    # self.login(conn)
+                    rlist.append(conn)
+                else:
+                    while True:
+                        try:
+                            cmd = sock.recv(self.max_recv_size)
+                            if not cmd:
+                                print(self.put_response_code['203'])
+                                rlist.remove(sock)
+                                break
+                            wlist.append(sock)
+                            wdata[sock] = cmd
+                            break
+                        except BlockingIOError:
+                            break
 
-                request_method = cmd.decode(self.encoding).split()[0]
+            for sock in wl:
+                request_method = wdata[sock].decode(self.encoding).split()[0]
 
                 if hasattr(self,request_method):
                     #不同长度的命令分别处理，需要该判断，因为调用函数时传递的参数不同
-                    if len(cmd.decode(self.encoding).split()) == 2:
-                        request_content = cmd.decode(self.encoding).split()[1]
+                    if len(wdata[sock].decode(self.encoding).split()) == 2:
+                        request_content = wdata[sock].decode(self.encoding).split()[1]
                         func = getattr(self, request_method)
-                        func(request_content)
+                        t = Thread(target = func,args = (request_content,sock))
+                        t.start()
+                        # func(request_content)
                         continue
                     else:
                         func = getattr(self, request_method)
-                        func()
+                        t = Thread(target = func,args = (sock,))
+                        t.start()
+                        # func()
                         continue
-
-                self.conn.close()
+                wlist.remove(sock)
+                wdata.pop(sock)
 
 if __name__ == '__main__':
-    f = FTPServer('127.0.0.1',8082)
+    f = FTPServer('127.0.0.1',8085)
     print('请先登录...')
     login_obj = login.UserBehavior()
     pause_obj = pause.Pause()
