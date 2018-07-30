@@ -10,6 +10,7 @@ GIL只是CPython的特性，并不是python的特性
 2、实例化Lock的mutex互斥锁，是添加在自己开发的代码中的，保护自己代码中的数据
 
 ![GIL工作流程](/Users/wangxin/Documents/wxPythonCode/Note/网络编程进阶/GIL工作流程.png)
+![GIL工作流程](D:\wx_work_space\git\wxPythonCode\wxPythonCode\Note\网络编程进阶\GIL工作流程.png)
 
 
 

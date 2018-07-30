@@ -1,4 +1,6 @@
-join方法：主进程必须等待子进程执行完毕后，再运行
+**join方法：**
+
+主进程必须等待子进程执行完毕后，再运行主进程
 
 ```python
 import time
@@ -128,7 +130,9 @@ if __name__ == '__main__':
 
 
 
-通过is_alive可以验证进程是死的还是活的
+**is_alive**
+
+可以验证进程是死的还是活的
 
 ```python
 from multiprocessing import Process
@@ -162,7 +166,9 @@ False
 
 
 
-通过terminal可以让系统回收进程资源
+**terminal**
+
+可以让系统回收进程资源，进程被回收后不会被执行
 
 ```python
 import time
