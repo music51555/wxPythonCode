@@ -28,4 +28,5 @@ def recv_message(socket_obj):
             print('循环了2')
             continue
     header_dict = json.loads(header_bytes.decode(sys.getdefaultencoding()))
+    print(header_dict)
     return header_dict

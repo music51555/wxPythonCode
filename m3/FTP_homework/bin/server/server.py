@@ -116,24 +116,19 @@ class FTPServer:
                 'file_md5':file_md5,
                 'get_status':True
             }
-            # t = Thread(target = set_struct.send_message,args = (sock, get_dict))
-            # t.start()
-            # t.join()
             set_struct.send_message(sock, get_dict)
-            # while True:
-            #     try:
 
             confirm_dict = set_struct.recv_message(sock)
             print(confirm_dict)
-                #     break
-                # except BlockingIOError:
-                #     continue
             if confirm_dict['confirm_get'] == False:
                 return
             t = Thread(target = self.downloading,args = (geted_file,pause_init,get_file,confirm_dict,sock,rlist,wdata))
-            # self.downloading(geted_file,pause_init,get_file,confirm_dict,sock)
             t.start()
-            t.join()
+            #如果不添加join，那么在传输过程中，如果客户端中断，那么也会导致服务端中断
+            #如果添加了join，那么在传输过程中，如果客户端中断，那么服务端会在downloading方法中捕获异常
+            #不添加join的目的是，实现客户端下载并发，加了join就需要在原地等待这个下载任务完成
+            # t.join()
+
         else:
             get_dict = {
                 'get_status':False
@@ -161,6 +156,15 @@ class FTPServer:
                             break
                         except BlockingIOError:
                             continue
+                        except BrokenPipeError:
+                            print(self.put_response_code['206'])
+                            sock.close()
+                            try:
+                                rlist.remove(sock)
+                                wdata.pop(sock)
+                            except ValueError:
+                                return
+                            return
                 print(self.put_response_code['207'])
                 f.close()
             except BrokenPipeError:
@@ -168,14 +172,12 @@ class FTPServer:
                 sock.close()
                 rlist.remove(sock)
                 wdata.pop(sock)
-                # self.server_accept()
                 return
             except ConnectionResetError:
                 print(self.put_response_code['206'])
                 sock.close()
                 rlist.remove(sock)
                 wdata.pop(sock)
-                # self.server_accept()
                 return
 
     def put(self,filename,sock,wdata):
@@ -356,7 +358,10 @@ class FTPServer:
                                 rlist.remove(sock)
                                 wdata.pop(sock)
                                 break
-                            wlist.append(sock)
+                            try:
+                                wlist.append(sock)
+                            except ValueError:
+                                continue
                             wdata[sock].append(cmd)
                             break
                         except BlockingIOError:
@@ -364,9 +369,12 @@ class FTPServer:
                         except ConnectionResetError:
                             print(self.put_response_code['203'])
                             sock.close()
-                            rlist.remove(sock)
-                            wdata.pop(sock)
-                            break
+                            try:
+                                rlist.remove(sock)
+                                wdata.pop(sock)
+                                break
+                            except ValueError:
+                                break
                         except OSError:
                             print(self.put_response_code['203'])
                             sock.close()
@@ -400,13 +408,12 @@ class FTPServer:
                         # continue
 
 if __name__ == '__main__':
-    f = FTPServer('127.0.0.1',8083)
+    f = FTPServer('127.0.0.1',8080)
     print('请先登录...')
     login_obj = login.UserBehavior()
     pause_obj = pause.Pause()
     conf_obj = set_init.set_Init()
     f.run()
-
 
 
 
