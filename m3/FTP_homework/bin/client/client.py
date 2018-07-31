@@ -61,7 +61,7 @@ class FTPClient:
         3、如果文件不存在，则会调用downloading方法执行下载方法
         '''
         pause_init = os.path.join(self.base_dir,'db','pause.init')
-        get_file = os.path.join(self.base_dir,'download',filename)
+        get_file = os.path.join(self.base_dir,'download',self.username,filename)
 
         if not os.path.exists(get_file):
             self.client.send(cmd.encode(self.encoding))
@@ -150,7 +150,7 @@ class FTPClient:
         1、如果文件不存在，则会告知用户，准备上传的文件不存在
         2、如果文件存在，则会调用put_diff方法检查断点续传配置文件中，是否有该文件的断点记录
         '''
-        put_file = os.path.join(self.base_dir,'download',filename)
+        put_file = os.path.join(self.base_dir,'download',self.username,filename)
 
         if os.path.exists(put_file):
             self.client.send(cmd.encode(self.encoding))
@@ -362,7 +362,7 @@ class FTPClient:
                     continue
 
 if __name__ == '__main__':
-    f = FTPClient('127.0.0.1',8085)
+    f = FTPClient('127.0.0.1',8083)
     login_obj = login.UserBehavior()
     pause_obj = pause.Pause()
     conf_obj = set_init.set_Init()

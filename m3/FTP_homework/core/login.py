@@ -111,6 +111,7 @@ class UserBehavior:
 
     def set_home_dir(self,username):
         os.mkdir('%s/%s/%s'%(self.base_dir,'share',username))
+        os.mkdir('%s/%s/%s'%(self.base_dir,'download',username))
 
 
 

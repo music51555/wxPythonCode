@@ -3,3 +3,33 @@ password = e10adc3949ba59abbe56e057f20f883e
 name = alex
 disk_size = 102400000
 
+[peiqi]
+password = e10adc3949ba59abbe56e057f20f883e
+name = peiqi
+disk_size = 102400000
+
+[egon]
+password = e10adc3949ba59abbe56e057f20f883e
+name = egon
+disk_size = 102400000
+
+[wangxin]
+password = e10adc3949ba59abbe56e057f20f883e
+name = wangxin
+disk_size = 102400000
+
+[wangcong]
+password = e10adc3949ba59abbe56e057f20f883e
+name = wangcong
+disk_size = 102400000
+
+[dagou]
+password = e10adc3949ba59abbe56e057f20f883e
+name = dagou
+disk_size = 102400000
+
+[xiaoyue]
+password = e10adc3949ba59abbe56e057f20f883e
+name = xiaoyue
+disk_size = 102400000
+

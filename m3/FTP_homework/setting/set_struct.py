@@ -1,5 +1,6 @@
 import struct
 import json
+import sys
 
 def send_message(socket_obj,header_info):
     header_json = json.dumps(header_info)
@@ -9,10 +10,22 @@ def send_message(socket_obj,header_info):
     return
 
 def recv_message(socket_obj):
-    header = socket_obj.recv(4)
+    while True:
+        try:
+            header = socket_obj.recv(4)
+            break
+        except BlockingIOError:
+            print('循环了1')
+            continue
     if not header:
         return
     header_size = struct.unpack('i', header)[0]
-    header_bytes = socket_obj.recv(header_size)
-    header_dict = json.loads(header_bytes.decode('utf-8'))
+    while True:
+        try:
+            header_bytes = socket_obj.recv(header_size)
+            break
+        except BlockingIOError:
+            print('循环了2')
+            continue
+    header_dict = json.loads(header_bytes.decode(sys.getdefaultencoding()))
     return header_dict
