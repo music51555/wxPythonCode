@@ -13,12 +13,12 @@ def recv_message(socket_obj):
     while True:
         try:
             header = socket_obj.recv(4)
+            if not header:
+                return
             break
         except BlockingIOError:
             print('循环了1')
             continue
-    if not header:
-        return
     header_size = struct.unpack('i', header)[0]
     while True:
         try:

@@ -139,6 +139,7 @@ class FTPClient:
 
             recv_size += len(data)
             pause_obj.set_pause(get_file,recv_size,conf_obj,warnmsg = False)
+            print(recv_size)
             f.write(data)
             recv_data += data
             print('已接收%s，文件总大小%s' % (recv_size,get_dict['file_size']))

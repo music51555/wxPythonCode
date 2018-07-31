@@ -15,6 +15,7 @@ from setting import set_init
 from setting import set_bytes
 from setting import set_time
 from threading import Thread
+from concurrent.futures import ThreadPoolExecutor
 
 class FTPServer:
     max_queue_size = 5
@@ -97,7 +98,7 @@ class FTPServer:
         set_struct.send_message(sock,put_status_dict)
         return
 
-    def get(self, filename,sock,wdata):
+    def get(self, filename,sock,wdata,rlist):
         #服务端接收get请求的方法，判断下载的文件是否存在
         #1、如果文件存在，会将文件信息以字典的形式发送给客户端
         #2、如果文件不存在，则会get_status设置为False
@@ -115,9 +116,13 @@ class FTPServer:
                 'file_md5':file_md5,
                 'get_status':True
             }
+            # t = Thread(target = set_struct.send_message,args = (sock, get_dict))
+            # t.start()
+            # t.join()
             set_struct.send_message(sock, get_dict)
             # while True:
             #     try:
+
             confirm_dict = set_struct.recv_message(sock)
             print(confirm_dict)
                 #     break
@@ -125,16 +130,17 @@ class FTPServer:
                 #     continue
             if confirm_dict['confirm_get'] == False:
                 return
-            t = Thread(target = self.downloading,args = (geted_file,pause_init,get_file,confirm_dict,sock))
+            t = Thread(target = self.downloading,args = (geted_file,pause_init,get_file,confirm_dict,sock,rlist,wdata))
             # self.downloading(geted_file,pause_init,get_file,confirm_dict,sock)
             t.start()
+            t.join()
         else:
             get_dict = {
                 'get_status':False
             }
             set_struct.send_message(sock,get_dict)
 
-    def downloading(self,geted_file,pause_init,get_file,confirm_dict,sock):
+    def downloading(self,geted_file,pause_init,get_file,confirm_dict,sock,rlist,wdata):
         #开始下载文件的函数方法
         f = set_file.read_file(geted_file, 'rb')
         if os.path.exists(pause_init):
@@ -144,6 +150,7 @@ class FTPServer:
             if 'is_pause_go' in confirm_dict.keys():
                 if confirm_dict['is_pause_go'] == 'y':
                     f.seek(int(recv_size))
+                    print(recv_size)
 
         if confirm_dict['confirm_get'] == True:
             try:
@@ -155,14 +162,19 @@ class FTPServer:
                         except BlockingIOError:
                             continue
                 print(self.put_response_code['207'])
+                f.close()
             except BrokenPipeError:
                 print(self.put_response_code['206'])
                 sock.close()
+                rlist.remove(sock)
+                wdata.pop(sock)
                 # self.server_accept()
                 return
             except ConnectionResetError:
                 print(self.put_response_code['206'])
                 sock.close()
+                rlist.remove(sock)
+                wdata.pop(sock)
                 # self.server_accept()
                 return
 
@@ -319,12 +331,12 @@ class FTPServer:
         wdata = {}
         while True:
             rl,wl,xl = select.select(rlist,wlist,[],0.5)
-            print('rl',rl)
+            # print('rl',rl)
+            # print('wl',wl)
+            # print('wdata',wdata)
             for sock in rl:
                 if sock == self.server:
                     conn, caddr = self.server.accept()
-
-                    # self.login(conn)
                     rlist.append(conn)
                     conn_not_login.append(conn)
                 else:
@@ -342,6 +354,7 @@ class FTPServer:
                                 print(self.put_response_code['203'])
                                 sock.close()
                                 rlist.remove(sock)
+                                wdata.pop(sock)
                                 break
                             wlist.append(sock)
                             wdata[sock].append(cmd)
@@ -352,7 +365,15 @@ class FTPServer:
                             print(self.put_response_code['203'])
                             sock.close()
                             rlist.remove(sock)
+                            wdata.pop(sock)
                             break
+                        except OSError:
+                            print(self.put_response_code['203'])
+                            sock.close()
+                            rlist.remove(sock)
+                            wdata.pop(sock)
+                            break
+
 
             for sock in wl:
                 request_method = wdata[sock][1].decode(self.encoding).split()[0]
@@ -363,20 +384,20 @@ class FTPServer:
                         request_content = wdata[sock][1].decode(self.encoding).split()[1]
                         func = getattr(self, request_method)
                         #从之前的通过反射判断如果方法存在，那么就执行func()变为发起一个线程去执行这个方法
-                        t = Thread(target = func,args = (request_content,sock,wdata))
+                        t = Thread(target = func,args = (request_content,sock,wdata,rlist))
                         t.start()
+                        t.join()
                         # func(request_content,sock,wdata)
                         wlist.remove(sock)
-                        wdata.pop(sock)
-                        continue
+                        # wdata.pop(sock)
+                        # continue
                     else:
                         func = getattr(self, request_method)
                         t = Thread(target = func,args = (sock,wdata))
                         t.start()
                         wlist.remove(sock)
-                        wdata.pop(sock)
-                        continue
-
+                        # wdata.pop(sock)
+                        # continue
 
 if __name__ == '__main__':
     f = FTPServer('127.0.0.1',8083)
