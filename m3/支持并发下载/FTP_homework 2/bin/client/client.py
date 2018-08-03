@@ -3,6 +3,8 @@ import sys
 import os
 import re
 import time
+import json
+import struct
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 
@@ -64,7 +66,8 @@ class FTPClient:
         get_file = os.path.join(self.base_dir,'download',self.username,filename)
 
         if not os.path.exists(get_file):
-            self.client.send(cmd.encode(self.encoding))
+            set_struct.send_message(self.client, {'cmd': cmd})
+            # self.client.send(cmd.encode(self.encoding))
             get_dict = set_struct.recv_message(self.client)
             if get_dict['get_status'] == False:
                 print(self.put_request_code['201'])
@@ -80,7 +83,8 @@ class FTPClient:
             recv_size = 0
             self.downloading(f,recv_size,get_file,get_dict)
         else:
-            self.client.send(cmd.encode(self.encoding))
+            set_struct.send_message(self.client, {'cmd': cmd})
+            # self.client.send(cmd.encode(self.encoding))
             get_dict = set_struct.recv_message(self.client)
             if get_dict['get_status'] == False:
                 print(self.put_request_code['201'])
@@ -151,7 +155,8 @@ class FTPClient:
         put_file = os.path.join(self.base_dir,'download',self.username,filename)
 
         if os.path.exists(put_file):
-            self.client.send(cmd.encode(self.encoding))
+            # self.client.send(cmd.encode(self.encoding))
+            set_struct.send_message(self.client,{'cmd':cmd})
 
             file_size = os.path.getsize(put_file)
             file_md5 = set_md5.set_file_md5(put_file)
@@ -163,7 +168,6 @@ class FTPClient:
                 'put_time':str(set_time.set_time())
             }
             set_struct.send_message(self.client,put_file_dict)
-
             self.put_diff(put_file,file_size,put_file_dict)
         else:
             print(self.put_request_code['206'])

@@ -2,6 +2,8 @@ import socket
 import sys
 import os
 import select
+import json
+import struct
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 
@@ -54,6 +56,9 @@ class FTPServer:
                     break
             except BlockingIOError:
                 continue
+            #z在客户端登录时如果失去连接，那么会导致服务端也会被终止，在此捕获异常
+            except ConnectionResetError:
+                break
             #验证帐号是否正确，将返回的结果True和False返回给客户端，客户端以此凭据来展示登录成功或失败
             is_success,username = login_obj.verify_account(login_info)
             wdata[sock] = [username,]
@@ -172,15 +177,18 @@ class FTPServer:
                 print(self.put_response_code['206'])
                 sock.close()
 
-    def put(self,filename,sock,wdata):
+    def put(self,filename,sock,wdata,rlist):
+        print('jin')
         #服务端接收到put命令，处理上传文件的函数犯法
         #1、如果文件存在，则会调用check_put_pause方法，检查断点续传配置文件爱你
         #2、如果文件不存在，且磁盘空间满足上传文件的大小，则会调用puting方法执行上传
         put_file_dict = set_struct.recv_message(sock)
+        print('put_file_dict',put_file_dict)
         puted_file = os.path.join(self.base_dir, 'share', wdata[sock][0],filename)
         pause_init = os.path.join(self.base_dir, 'db', 'pause.init')
         free_size = self.free_size(sock,wdata)
 
+        print('走走走')
         if os.path.exists(puted_file):
             f,recv_size = self.check_put_pause(put_file_dict,puted_file,pause_init,sock)
             if f == None:
@@ -198,10 +206,12 @@ class FTPServer:
                 'recv_size':recv_size
             }
             set_struct.send_message(sock, put_status_dict)
-            self.puting(f,recv_size,put_file_dict,puted_file,sock)
+
+            t = Thread(target = self.puting,args = (f,recv_size,put_file_dict,puted_file,sock))
+            t.start()
+            t.join()
         else:
             self.size_not_enough(put_file_dict,sock,wdata)
-        return
 
     def put_file_existed(self,sock):
         #如果上传的文件已经存在，且MD5码一直，告知客户端文件已存在
@@ -252,17 +262,19 @@ class FTPServer:
         if f == None:
             f = set_file.write_file(puted_file, 'wb')
         while recv_size < put_file_dict['file_size']:
-            data = sock.recv(self.max_recv_size)
+            try:
+                data = sock.recv(self.max_recv_size)
+            except BlockingIOError:
+                continue
             if not data:
                 pause_obj.set_pause(puted_file, recv_size, conf_obj,
                                     warnmsg=True)
                 sock.close()
-                # self.server_accept()
                 return
             recv_size += len(data)
-            pause_obj.set_pause(puted_file, recv_size, conf_obj,
-                                warnmsg=False)
+
             f.write(data)
+        pause_obj.set_pause(puted_file, recv_size, conf_obj,warnmsg=False)
         f.close()
         verify_file_md5.verify_file_md5(put_file_dict, puted_file)
 
@@ -325,7 +337,7 @@ class FTPServer:
         wdata = {}
         while True:
             rl,wl,xl = select.select(rlist,wlist,[],0.5)
-            # print('rl',rl)
+            print('rl',rl)
             # print('wl',wl)
             # print('wdata',wdata)
             for sock in rl:
@@ -337,6 +349,8 @@ class FTPServer:
                     print(rlist)
                     conn_not_login.append(conn)
                 else:
+                    # if sock in wlist:
+                    #     break
                     if sock in conn_not_login:
                         t = Thread(target=self.login, args=(sock,wdata))
                         t.start()
@@ -346,7 +360,11 @@ class FTPServer:
                         break
                     while True:
                         try:
-                            cmd = sock.recv(self.max_recv_size)
+                            # cmd = sock.recv(self.max_recv_size)
+                            cmd_dict = set_struct.recv_message(sock)
+                            print('hhhhhhh',cmd_dict)
+                            cmd = cmd_dict['cmd']
+                            print('cmd',cmd)
                             if not cmd:
                                 print(self.put_response_code['203'])
                                 sock.close()
@@ -361,8 +379,12 @@ class FTPServer:
                         except ConnectionResetError:
                             print(self.put_response_code['203'])
                             sock.close()
-                            rlist.remove(sock)
-                            wdata.pop(sock)
+                            #在客户端登录时，还没有获取到rlist和wdata的值，所以当客户端重新连接时，服务端会报错
+                            try:
+                                rlist.remove(sock)
+                                wdata.pop(sock)
+                            except KeyError:
+                                break
                             break
                         except OSError:
                             print(self.put_response_code['203'])
@@ -371,32 +393,32 @@ class FTPServer:
                             wdata.pop(sock)
                             break
 
-
             for sock in wl:
-                request_method = wdata[sock][1].decode(self.encoding).split()[0]
+                request_method = wdata[sock][1].split()[0]
 
                 if hasattr(self,request_method):
                     #不同长度的命令分别处理，需要该判断，因为调用函数时传递的参数不同
-                    if len(wdata[sock][1].decode(self.encoding).split()) == 2:
-                        request_content = wdata[sock][1].decode(self.encoding).split()[1]
+                    if len(wdata[sock][1].split()) == 2:
+                        request_content = wdata[sock][1].split()[1]
                         func = getattr(self, request_method)
                         #从之前的通过反射判断如果方法存在，那么就执行func()变为发起一个线程去执行这个方法
                         t = Thread(target = func,args = (request_content,sock,wdata,rlist))
                         t.start()
-                        t.join()
-                        # func(request_content,sock,wdata)
+                        if request_method == 'get':
+                            t.join()
+                        #如果加了这句才能正确执行上传任务后，MD5码一致，如果去除下载完成后，MD5码不一致
+                        #但是如果加了这句，上传完成后不能执行下一个任务
+                        print('aa',rlist)
+                        rlist.remove(sock)
                         wlist.remove(sock)
                         #之前没加这一句，下载的都是同一个文件
                         del wdata[sock][1]
-                        # continue
                     else:
                         func = getattr(self, request_method)
                         t = Thread(target = func,args = (sock,wdata))
                         t.start()
                         wlist.remove(sock)
                         del wdata[sock][1]
-                        # wdata.pop(sock)
-                        # continue
 
 if __name__ == '__main__':
     f = FTPServer('127.0.0.1',8081)

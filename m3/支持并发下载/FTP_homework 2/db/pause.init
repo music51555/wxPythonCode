@@ -1,3 +1,8 @@
+[peiqi]
+password = e10adc3949ba59abbe56e057f20f883e
+name = peiqi
+disk_size = 102400000
+
 [egon]
 password = e10adc3949ba59abbe56e057f20f883e
 name = egon
@@ -23,20 +28,11 @@ password = e10adc3949ba59abbe56e057f20f883e
 name = xiaoyue
 disk_size = 102400000
 
-[D:\wx_work_space\git\wxPythonCode\wxPythonCode\m3\支持并发下载\FTP_homework 2\download\peiqi\小猫钓鱼.mp4]
-recv_size = 27614060
-
-[D:\wx_work_space\git\wxPythonCode\wxPythonCode\m3\支持并发下载\FTP_homework 2\download\alex\三只小猪.mp4]
-recv_size = 28395905
-
-[D:\wx_work_space\git\wxPythonCode\wxPythonCode\m3\支持并发下载\FTP_homework 2\download\peiqi\小蝌蚪找妈妈.mp4]
-recv_size = 35812829
-
-[D:\wx_work_space\git\wxPythonCode\wxPythonCode\m3\支持并发下载\FTP_homework 2\download\alex\龟兔赛跑.mp4]
-recv_size = 32370408
-
 [alex]
 password = e10adc3949ba59abbe56e057f20f883e
 name = alex
 disk_size = 102400000
+
+[D:\wx_work_space\git\wxPythonCode\wxPythonCode\m3\支持并发下载\FTP_homework 2\share\alex\三只小猪.mp4]
+recv_size = 28395905
 

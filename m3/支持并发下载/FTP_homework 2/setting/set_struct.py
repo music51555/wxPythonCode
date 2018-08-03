@@ -19,6 +19,7 @@ def recv_message(socket_obj):
         except BlockingIOError:
             print('循环了1')
             continue
+
     header_size = struct.unpack('i', header)[0]
     while True:
         try:
