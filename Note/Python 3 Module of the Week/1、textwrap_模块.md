@@ -1,4 +1,6 @@
-textwrap是对文本执行格式化的模块
+textwrap 美 /ræp/ 
+
+**文本执行格式化**模块
 
 ```python
 #测试文本
@@ -12,7 +14,9 @@ sample_text = '''
 
 #### **fill**:
 
-通过fill方法在短文前自动生成了自然段开头，还可以指定段位位宽
+填充自然段开头
+
+通过fill方法在短文前自动生成了自然段开头，还**可以指定整体文本的位宽**
 
 ```python
 #textwrap模块,被被翻译为文本换行
@@ -33,10 +37,17 @@ or filling features found in many text editors.
 
 #### dedent:
 
-使用dedent方法会将每一行紧贴左侧显示，去除空白
+de + indent，去除缩进
+
+使用dedent方法会将每一行紧贴左侧显示，去除缩进
 
 ```python
 #在使用三引号定义文本时，会有如下的格式，如果使用print打印出来，会原封不动的打印出样式，导致每一段的开头都有空格
+    The textwrap module can be used to format text for output in
+    situations where pretty-printing is desired.  It offers
+    programmatic functionality similar to the paragraph wrapping
+    or filling features found in many text editors.
+
 import textwrap
 
 #使用dedent方法会将每一行紧贴左侧显示，去除空白
@@ -140,13 +151,17 @@ EVENfeatures found in many text editors.
 
 #### initial_indent&subsequent_indent
 
+隶属于fill方法中的参数
+
 ```python
 import textwrap
 
 dedent_text = textwrap.dedent(sample_text)
 fill_text = textwrap.fill(dedent_text.strip(),
-                          initial_indent = 'a', # /ɪ'nɪʃəl/ 最初的,段落行首
-                          subsequent_indent = ' ' * 4, # /'sʌbsɪkwənt/，后来的，随后的，每行行首
+                          # /ɪ'nɪʃəl/ 在最初的首行添加字符
+                          initial_indent = 'a', 
+                          # /'sʌbsɪkwənt/，在随后的每行行首添加字符
+                          subsequent_indent = ' ' * 4, 
                           width = 50)
 print(fill_text)
 '''
@@ -163,7 +178,7 @@ aThe textwrap module can be used to format text
 
 #### shorten:
 
-是一整段文字，缩略为一小段
+将一整段文字，根据指定的字符宽度，缩略为一小段
 
 ```python
 import textwrap
@@ -171,6 +186,7 @@ import textwrap
 dedent_text = textwrap.dedent(sample_text)
 fill_text = textwrap.fill(dedent_text,width = 50)
 
+#shorten 美 /'ʃɔrtn/ 缩短
 shorten_text = textwrap.shorten(fill_text,50)
 print(shorten_text)
 '''
