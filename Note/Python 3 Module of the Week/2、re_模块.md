@@ -343,10 +343,13 @@ a!
 
 **r**
 
+如果是“\n”那么表示一个反斜杠字符，一个字母n，而不是表示换行了 
+
 ```python
 import re
 
 #其中r表示使字符串中的转移符默认变为不转义
+#如\d表示一个数字，但是添加r后，就变为普通的\和d两个字符了
 r = re.search(r'a\\d+','a\dd  b1 c followed by bbzero or more a3')
 print(r.group())
 print(r'\asd')
