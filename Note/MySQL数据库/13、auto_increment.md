@@ -2,6 +2,8 @@ auto_increment
 
 **自增长**
 
+**设置自增长的列必须是一个key列，primary key 或是 unique**
+
 ```mysql
 #在数据类型后添加auto_increment使列变为自增长列，美 /'ɪŋkrəmənt/ 增量；增加
 mysql> create table t4(id int primary key auto_increment,name char(5));

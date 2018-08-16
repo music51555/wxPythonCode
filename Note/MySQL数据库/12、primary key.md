@@ -1,12 +1,12 @@
 primary key
 
-对于innodb存储引擎，一张表中必须有一个主键，不为空，且唯一
+对于innodb存储引擎，一张表中必须有一个主键，不为空，且唯一，如果没有设置主键，那么就会对每一条记录生成rowid作为主键
 
 
 
 **单列主键**
 
-id字段一般情况下设置为主键
+使用primary key关键字设置主键，id字段一般情况下设置为主键
 
 ```python
 create table t1(id int primary key,name char(5));
@@ -90,7 +90,7 @@ mysql> desc t3;
 +-------+----------+------+-----+---------+-------+
 | id    | int(11)  | YES  |     | NULL    |       |
 | name  | char(5)  | YES  |     | NULL    |       |
-| host  | char(15) | NO   | PRI |         |       |
+| host  | char(15) | NO   | PRI |         |       |   #设置的联合主键都被显示为PRI主键
 | port  | char(4)  | NO   | PRI |         |       |
 +-------+----------+------+-----+---------+-------+
 
