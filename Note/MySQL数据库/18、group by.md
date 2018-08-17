@@ -4,9 +4,15 @@ group by
 
 1、先确定使用哪个表
 
-2、确定有没有查询条件
+2、确定有没有where查询条件
 
-3、有没有分组的概念，如每个xxx
+3、有没有group by分组的概念
+
+4、查看有没有having过滤，在having过滤中，不能使用别名进行比较，因为还没有运行到select ...
+
+5、去重，select distinct *.......
+
+6、再进行order by排序，在order排序中也可以使用聚合函数，是因为已经进行过分组了，但是在order by中可以使用别名进行排序，**是因为order by是运行在distinct之后，所以加上步骤5**
 
 当要求以每个xxx时，就以xxx为分组依据，group by xxx
 
@@ -53,6 +59,10 @@ mysql> select post,group_concat(name) from employee group by post;
 
 
 **结合聚合函数**
+
+只能在分组后使用，如果没有分组，在默认查询后就是默认一组
+
+在where后不能使用聚合函数，在执行角度来讲，先找到查询的表，再运行where条件，此时没有分组，如果就不能使用聚合函数，但是如果将聚合函数放在查询的列中，如select count(*) from employee中是可以使用的，是因为先找到查询的表，再运行where条件，再执行了select，默认的查询结果就是默认分组，所以就是在默认分组的情况下使用了聚合函数
 
 **max**
 

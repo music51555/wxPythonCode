@@ -86,3 +86,29 @@ mysql> select id,name from employee where name like 'jin___';
 +----+--------+
 ```
 
+
+
+正则表达式查询
+
+**regexp关键字**
+
+```mysql
+#添加regexp关键字，支持正则表达式
+mysql> select id,name,age from employee where name regexp '^jin';
++----+------------+-----+
+| id | name       | age |
++----+------------+-----+
+|  6 | jingliyang |  18 |
+|  7 | jinxin     |  18 |
++----+------------+-----+
+
+#查找以jin开头，以g或n结尾的内容
+mysql> select id,name,age from employee where name regexp '^jin.*(g|n)';
++----+------------+-----+
+| id | name       | age |
++----+------------+-----+
+|  6 | jingliyang |  18 |
+|  7 | jinxin     |  18 |
++----+------------+-----+
+```
+
