@@ -90,7 +90,7 @@ mysql> select id,name from employee where name like 'jin___';
 
 正则表达式查询
 
-**regexp关键字**
+**regexp关键字，使用了regexp，就无需like关键字，使其一即可**
 
 ```mysql
 #添加regexp关键字，支持正则表达式

@@ -32,7 +32,7 @@ mysql> select * from employee,department;
 |  6 | jingliyang | female |   18 |    204 |  203 | 运营         |
 +----+------------+--------+------+--------+------+--------------+
 
-#添加on进行连表操作，找相等的对应关系，并选择连接方式，inner，left，right
+#选择连接方式，inner，left，right,添加on进行连表操作，找相等的对应关系
 mysql> select * from employee inner join department on employee.dep_id = department.id;
 +----+-----------+--------+------+--------+------+--------------+
 | id | name      | sex    | age  | dep_id | id   | name         |
@@ -56,11 +56,12 @@ mysql> select department.name,avg(age) from employee inner join department on em
 
 
 #添加having过滤，题目说平均年龄大于30岁
+#正则表达式方法
 mysql> select department.name,avg(age) from employee inner join department on employee.dep_id = department.id group by department.name having avg(age)>30;
 +--------------+----------+
 | name         | avg(age) |
 +--------------+----------+
-| 人力资源     |  43.0000 |
+| 人力资源      |  43.0000 |
 +--------------+----------+
 
 
@@ -72,11 +73,11 @@ mysql> select department.name,avg(age) from employee inner join department on em
 
 1、先找到左右两张表，先形成笛卡尔积
 
-2、添加on进行连表操作，找相等的对应关系，并选择连接方式，inner，left，right
+2、首先进行连表操作inner，left，right，添加on进行连表操作，找相等的对应关系
 
-3、有无where过滤
+3、检查是否需要where过滤
 
-4、执行group by
+4、检查是否需要执行group by
 
 5、having
 
