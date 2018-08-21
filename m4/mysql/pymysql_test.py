@@ -9,10 +9,13 @@ conn=pymysql.connect(
     charset='utf8'
 )
 
-cursor=conn.cursor(pymysql.cursors.DictCursor)
-cursor.callproc('p1')
-res=cursor.fetchall()
-print(res)
+cursor=conn.cursor()
+#存储方式其实是@_p2_0=2,@_p2_1=4,@_p2_2=0
+cursor.callproc('p2',(2,4,0))
+print(cursor.fetchall())
+cursor.execute('select @_p2_2')
+print(cursor.fetchone())
+
 
 cursor.close()
 conn.close()
