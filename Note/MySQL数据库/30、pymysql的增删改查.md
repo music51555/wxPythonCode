@@ -21,7 +21,7 @@ rows=cursor.execute(sql,('alex','123456'))
 #5，查询当前表中的最后一行rowid是多少，必须在cursor.execute()方法后执行
 print(cursor.lastrowid)
 
-#执行sql语句后，还需要使用conn.commit提交数据，发现只有在insert插入数据后才能显示lastrowid的值
+#执行insert和update语句后，还需要使用conn.commit提交数据，发现只有在insert插入数据后才能显示lastrowid的值
 conn.commit()
 
 #关闭游标
