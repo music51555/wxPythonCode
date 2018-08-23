@@ -216,4 +216,14 @@ mysql> select * from staff_info;
 
 
 
+**删除外键**
+
+```mysql
+alter table teach2cls drop foreign key teach2cls_ibfk_2;
+```
+
+
+
+
+
 在实际的使用情况下，在逻辑角度尽量少的使用外键，因为会将表硬性的关联在一起
