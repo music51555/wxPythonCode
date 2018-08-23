@@ -306,11 +306,80 @@ mysql> select * from teacher where tid not in (select distinct tid from teach2cl
 
 16、查询学过“张三”老师所教的所有课的同学的学号、姓名；
 
+```mysql
+#思路：
+#1、首先在老师表查询出姓名为张三的老师id
+#2、在课程表中按张三id查询出张三所教的所有课程
+#3、在成绩表中按学生id分组，查询出每位学生报考张三课程的总数，设置为表t1
+#4、再次查询老师表，查询出张三课程的总数，设置为表t2
+#5、连接t1和t2表，查询出谁报考了所有张三的课程
+#6、连接学生表，查询出学生姓名
+mysql> select sid,sname from student as t1 inner join (select student_id from score where course_id in (select cid from course where teacher_id = (select tid from teacher where tname='张三')) group by student_id having count(course_id)=(select count(cid) from course where teacher_id = (select tid from teacher where tname='张三'))) as t2 on t1.sid=t2.student_id;
++-----+--------+
+| sid | sname  |
++-----+--------+
+|   1 | 乔丹   |
++-----+--------+
+```
+
+
+
 17、查询带过超过2个班级的老师的id和姓名；
+
+```mysql
+#思路：
+#1、在老师和班级的关系表中按老师id分组，查询出每位老师带的班级数
+#2、添加过滤条件，班级数>2的班级
+#3、连接老师表，查询老师姓名
+mysql> select t1.tid,t1.tname from teacher as t1 inner join (select tid,count(cid) as count_class from teach2cls group by tid having count_class>2) as t2 on t1.tid=t2.tid;
++-----+--------+
+| tid | tname  |
++-----+--------+
+|   1 | 张三   |
+|   2 | 李四   |
+|   3 | 王五   |
+|   4 | 乔六   |
++-----+--------+
+```
+
+
 
 18、查询课程编号“2”的成绩比课程编号“1”课程低的所有同学的学号、姓名；
 
+```mysql
+#思路：
+#1、在成绩表中查询出报考了课程2的所有学生，命名为t1
+#2、再查询出报考了课程1的所有学生，命名为t2
+#3、连接2张表，连接条件式学生id相同，因为要筛选出所有同时报考了课程1和课程2的学生
+#4、添加where条件，t1的成绩>t2的成绩
+#5、连接学生表查询姓名
+mysql> select sid,sname from student as t1 inner join (select t1.student_id from score as t1 inner join (select * from score where course_id=1) as t2 on t1.student_id=t2.student_id where t1.course_id=2 and t1.score>t2.score) as t2 on t1.sid=t2.student_id;
++-----+-----------+
+| sid | sname     |
++-----+-----------+
+|   2 | 艾佛森    |
+|   6 | 詹姆斯    |
++-----+-----------+
+```
+
+
+
 19、查询所带班级数最多的老师id和姓名；
+
+```mysql
+#思路：
+#1、在老师班级的关系表中按老师分组，查看每个老师所带的班级总数
+#2、降序排序后，取第一条
+#3、连接老师表查询老师姓名
+mysql> select t1.tid,t1.tname from teacher as t1 inner join (select tid,count(cid) from teach2cls group by tid order by count(cid) desc limit 1) as t2 on t1.tid=t2.tid;
++-----+--------+
+| tid | tname  |
++-----+--------+
+|   3 | 王五   |
++-----+--------+
+```
+
+
 
 20、查询有课程成绩小于60分的同学的学号、姓名；
 
