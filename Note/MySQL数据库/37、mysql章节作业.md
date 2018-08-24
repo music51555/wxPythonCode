@@ -383,19 +383,127 @@ mysql> select t1.tid,t1.tname from teacher as t1 inner join (select tid,count(ci
 
 20、查询有课程成绩小于60分的同学的学号、姓名；
 
+```mysql
+#思路：
+#1、在成绩表中查询有不及格成绩的学生id，意思也就是这些同学有不及格的成绩
+#2、连接学生表，查看学生姓名
+select sid,sname from student as t1 inner join
+(select distinct student_id from score where score<60) as t2
+on t1.sid=t2.student_id;
++-----+-----------+
+| sid | sname     |
++-----+-----------+
+|   1 | 乔丹      |
+|   2 | 艾佛森    |
+|   3 | 科比      |
+|   5 | 麦迪      |
+|   6 | 詹姆斯    |
+|   7 | 库里      |
++-----+-----------+
+```
+
+
+
 21、查询没有学全所有课的同学的学号、姓名；
+
+```mysql
+#思路：
+#1、先在成绩表中查询出每位学生报考的课程总数
+#2、再在课程表中查询出所有的课程总数
+#3、添加过滤如果每位学生的课程总数不等于所有的课程总数，那么就是没选所有课的学生
+select sid,sname from student as t1 inner join
+(select student_id from score group by student_id having 
+count(course_id) != (select count(cid) from course)) as t2
+on t1.sid=t2.student_id;
+```
+
+
 
 22、查询至少有一门课与学号为“1”的同学所学相同的同学的学号和姓名；
 
+```mysql
+#思路：
+#1、在成绩表中查询出学号为1的学生报考了哪些课程
+#2、继续在成绩表中查询出哪些学号不是1的学生，报考的课程id在步骤1的结果中
+mysql> select distinct sid,sname from student as t1 inner join (select student_id from score where course_id in (select course_id from score where student_id=1) and student_id!=1) as t2 on t1.sid=t2.student_id;
++-----+-----------+
+| sid | sname     |
++-----+-----------+
+|   2 | 艾佛森    |
+|   3 | 科比      |
+|   4 | 奥尼尔    |
+|   5 | 麦迪      |
+|   6 | 詹姆斯    |
+|   7 | 库里      |
++-----+-----------+
+```
+
+
+
 23、查询至少学过学号为“1”同学所选课程中任意一门课的**其他同学**学号和姓名；
+
+```
+与导师沟通，与上一题重复
+```
+
+
 
 24、查询和“2”号同学学习的课程完全相同的其他同学的学号和姓名；
 
+```mysql
+#思路：
+#1、首先成绩表中查询出2号学生所学的课程总数
+#2、再在成绩表中查询出和2号学生所学课程总数相等的学生
+#3、再添加过滤，不仅和2好学生所学课程总数一致，且课程总数相加的和也相等，那么就可以确定这名学生和2号学生报名了相同的课程
+mysql> select sid,sname from student as t1 inner join (select student_id from score group by student_id having count(course_id)=(select count(course_id) from score where student_id=2) and sum(course_id)=(select sum(course_id) from score where student_id=2)) as t2 on t1.sid=t2.student_id;
++-----+-----------+
+| sid | sname     |
++-----+-----------+
+|   2 | 艾佛森    |
+|   6 | 詹姆斯    |
++-----+-----------+
+```
+
+
+
 25、删除学习“张三”老师课的score表记录；
+
+```mysql
+#思路：
+#1、首先在老师表中查询出张三老师的教师id
+#2、在课程表中查询出张三老师所教课程的课程id
+#3、在成绩表中删除课程id为张三老师的课程id的成绩记录
+mysql> delete from score where course_id in (select cid from course where teacher_id=(select tid from teacher where tname='张三'));
+Query OK, 14 rows affected (0.04 sec)
+```
+
+
 
 26、向score表中插入一些记录，这些记录要求符合以下条件：①没有上过编号“2”课程的同学学号；②插入“2”号课程的平均成绩；
 
-27、按平均成绩从低到高显示所有学生的“语文”、“数学”、“英语”三门的课程成绩，按如下形式显示： 学生ID,语文,数学,英语,有效课程数,有效平均分；
+```mysql
+#思路：
+#重点是向表中同时插入多条记录
+#首先在成绩表中查询出上过课程2的学生
+#继续在成绩表中通过not in查询出没有上过课程2的学生
+#汇总查询结果，通过插入查询结果的方式插入数据，列的类型要匹配正确
+insert into score(student_id,course_id,score)
+	(select * from
+	(select distinct student_id from score where student_id not in (select student_id from score where course_id=2)) as t1,
+	(select distinct course_id from score where course_id=2) as t2,
+	(select avg(score) from score where course_id=2) as t3)
+```
+
+
+
+27、按平均成绩从低到高显示所有学生的“语文”、“数学”、“英语”三门的课程成绩，按如下形式显示： 学生ID,语文,数学,英语,课程数,平均分；
+
+```
+#由原题的“语文”、“数学”、“英语”改为“体育”，“物理”，“化学”
+
+```
+
+
 
 28、查询各科成绩最高和最低的分：以如下形式显示：课程ID，最高分，最低分；
 
