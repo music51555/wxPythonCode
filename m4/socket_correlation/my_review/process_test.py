@@ -1,28 +1,37 @@
-# import time
-# from multiprocessing import Process
+# from multiprocessing import Queue
 #
-# def task(name):
-#     print('%s is running'%name)
-#     time.sleep(2)
-#     print('%s is done'%name)
+# q = Queue(3)
 #
-# if __name__ == '__main__':
-#     p = Process(target=task,args=('子进程1',))
-#     p.start()
+# q.put(1)
+# q.put([1,2,3,4])
+# q.put('hello world')
+# print(q.full())
+#
+# print(q.get())
+# print(q.get())
+# print(q.get())
+# print(q.empty())
 
-import time
-from multiprocessing import Process
 
-class MyProcess(Process):
-    def __init__(self,name):
-        super(MyProcess,self).__init__()
-        self.name=name
+from multiprocessing import Process,Queue
 
-    def run(self):
-        print('%s is running'%self.name)
-        time.sleep(2)
-        print('%s is done'%self.name)
+def task(q):
+    q.put(1)
+    print('put')
+    q.put(2)
+    print('put')
+    q.put(3)
+    print('put')
 
-if __name__=='__main__':
-    m = MyProcess('子进程1')
-    m.start()
+def foo(q):
+    print(q.get())
+    print(q.get())
+    print(q.get())
+
+if __name__ == '__main__':
+    q = Queue(2)
+    p1 = Process(target=task,args=(q,))
+    p1.start()
+
+    p2 = Process(target=foo,args=(q,))
+    p2.start()
