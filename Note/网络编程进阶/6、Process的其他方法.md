@@ -204,6 +204,8 @@ False
 
 
 
+**pid、name**
+
 通过pid和name方法，查看进程的名称和pid，如果执行的name属性，会显示自定义的进程名称
 
 ```python
