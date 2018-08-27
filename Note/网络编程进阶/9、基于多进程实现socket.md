@@ -9,7 +9,7 @@ def work():
     n=0
     print('子进程内: ',n)
 
-#主进程和子进程在内存中是隔离的
+#通过在主进程和子进程中取得n的值，可以发现主进程和子进程的数据在内存中是隔离的
 if name == 'main':
     p=Process(target=work)
     p.start()
