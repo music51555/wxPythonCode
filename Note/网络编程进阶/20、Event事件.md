@@ -1,6 +1,6 @@
 Event事件
 
-简单的实现Event事件，设计的方法set()和wait()
+**简单的实现Event事件，涉及的方法set()和wait()**
 
 ```python
 #Event事件本质是通过wait方法设置等待状态，其他线程通过set方法发送给wait通知，让wait方法不必继续等待，可以执行后面的代码了
@@ -83,3 +83,10 @@ if __name__ == '__main__':
 '''
 ```
 
+
+
+**总结：**
+
+Event方法包含set、wait、is_set方法3种方法，set方法用于告知wait方法可以执行后续的代码，is_set方法用于判断是否执行了set方法
+
+Event可以既可以用于进程，也可以用于线程

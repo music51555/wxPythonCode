@@ -1,28 +1,30 @@
-# import time
-# from threading import Thread,current_thread
-#
-# def task(name):
-#     print('%s is running'%(name))
-#     time.sleep(2)
-#     print('%s is done'%name)
-#
-# if __name__ == '__main__':
-#     t = Thread(target=task,args=('子线程1',))
-#     t.start()
-
-import time
+import time,os
 from threading import Thread
+from multiprocessing import Process
 
-class MyThread(Thread):
-    def __init__(self,name):
-        super(MyThread,self).__init__()
-        self.name=name
-
-    def run(self):
-        print('%s is running'%self.name)
-        time.sleep(2)
-        print('%s is done'%self.name)
+def task():
+    res = 1
+    for i in range(1000000):
+        res *= i
 
 if __name__ == '__main__':
-    m = MyThread('子线程1')
-    m.start()
+    start = time.time()
+    p_l = []
+    t_l = []
+    for i in range(os.cpu_count()):
+        # p = Process(target=task) #5.192296981811523
+        # p.start()
+        # p_l.append(p)
+        t = Thread(target=task)
+        t.start()
+        t_l.append(t)
+
+    # for p in p_l:
+    #     p.join()
+    for t in t_l:
+        t.join()
+
+    end = time.time()
+    print(end - start)
+
+

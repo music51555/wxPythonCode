@@ -2,6 +2,8 @@ Thread的其他方法
 
 **1、getName**
 
+引入from threading import current_thread()，表示当前线程
+
 ```python
 import time,os
 from threading import Thread,current_thread
@@ -28,6 +30,12 @@ it is name Thread-1
 
 **2、setName**
 
+创建线程时
+
+1、可以通过name参数设置线程名
+
+2、或通过线程对象.setName()来设置线程名
+
 ```python
 from threading import Thread,current_thread
 
@@ -46,6 +54,8 @@ if __name__ == '__main__':
 
 
 **3、is_alive**
+
+和进程一样，线程也有is_alive方法，用于判断进程的状态，是否存活
 
 ```python
 import time
@@ -71,7 +81,7 @@ if __name__ == '__main__':
 
 **4、active_count**
 
-活跃线程数
+活跃线程数，从threading中引入active_count，打印active_count()来输出当前活跃的进程数
 
 ```python
 import time
@@ -95,7 +105,7 @@ if __name__ == '__main__':
 
 **5、enumerate**
 
-活跃线程对象
+活跃线程对象，和is_alive()一样，也是从threading中引入enumerate类，使用enumerate()打印当前活跃的线程对象
 
 ```python
 import time
