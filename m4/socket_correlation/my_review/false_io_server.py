@@ -24,10 +24,14 @@ def set_server():
                 except ConnectionResetError:
                     dis_connect_list.append(conn)
 
+            finish_send_list = []
             for item in ready_send_list:
                 conn = item[0]
                 data = item[1]
                 conn.send(data)
+                finish_send_list.append(item)
+
+            for item in finish_send_list:
                 ready_send_list.remove(item)
 
             for conn in dis_connect_list:
@@ -35,3 +39,4 @@ def set_server():
 
 if __name__ == '__main__':
     set_server()
+

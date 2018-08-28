@@ -51,3 +51,32 @@ password:123456
 '''
 ```
 
+
+
+插入数据
+
+```python
+import pymysql
+
+conn = pymysql.connect(
+    host = '140.143.188.59',
+    port = 3306,
+    user = 'wanghai',
+    password = '123456',
+    db = 'm4exam',
+    charset = 'utf8'
+)
+
+cursor = conn.cursor()
+sql = 'insert into student(sname,class_id) values(%s,%s)'
+#插入单条数据
+cursor.execute(sql,('马冬梅',1))
+#插入多条数据
+cursor.executemany(sql,[('马冬梅',1),('李小飞',2),('李梅梅',1)])
+#在插入数据后，必须使用commit提交后，才生效
+conn.commit()
+
+cursor.close()
+conn.close()
+```
+

@@ -18,7 +18,9 @@ cursor=conn.cursor()
 sql='insert into userinfo(username,password) values(%s,%s);'
 rows=cursor.execute(sql,('alex','123456'))
 
-#5，查询当前表中的最后一行rowid是多少，必须在cursor.execute()方法后执行
+#5，查询当前表中的最后一行rowid是多少
+#1、必须在cursor.execute()方法后执行
+#2、必须在insert into语句后使用，才能正确查询出行id，select语句后显示为None
 print(cursor.lastrowid)
 
 #执行insert和update语句后，还需要使用conn.commit提交数据，发现只有在insert插入数据后才能显示lastrowid的值
@@ -117,7 +119,7 @@ cursor=conn.cursor()
 sql='select * from userinfo'
 rows=cursor.execute(sql)
 
-#通过fetchmany方法取出多条记录，查询的结果是元祖类型
+#通过fetchmany方法取出多条记录，默认为1条，查询的结果是元祖类型
 print(cursor.fetchmany(2))
 ```
 

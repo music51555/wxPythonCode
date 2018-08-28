@@ -5,17 +5,19 @@ conn = pymysql.connect(
     port=3306,
     user='wanghai',
     password='123456',
-    db='db1',
+    db='m4exam',
     charset='utf8'
 )
 
 cursor=conn.cursor(pymysql.cursors.DictCursor)
-sql='select * from userinfo'
-cursor.callproc('p2',(2,4,0))
-res = cursor.fetchall()
+sql='select * from student'
+cursor.execute(sql)
+res = cursor.fetchmany(2)
 print(res)
-cursor.execute('select @_p2_2')
-print(cursor.fetchone())
+
+cursor.scroll(0,mode='relative')
+res = cursor.fetchone()
+print(res)
 
 cursor.close()
 conn.close()
