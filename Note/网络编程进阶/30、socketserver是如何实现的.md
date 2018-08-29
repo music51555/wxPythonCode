@@ -8,7 +8,7 @@ import socketserver
 #继承于BaseRequestHandler类的目的是，调用该类中的通过下方代码server.forever()获取到的self.client_address和self.request
 class Server(socketserver.BaseRequestHandler):
 
-    #重写父类的handle方法，因为handle是BaseRequestHandler父类中用于处理请求客户端请求的，所以重新handle方法
+    #重写父类的handle方法，因为handle是BaseRequestHandler父类中用于处理请求客户端请求的，所以重写handle方法
     def handle(self):
         print('new conn:',self.client_address)
         while True:
@@ -43,7 +43,7 @@ class ThreadingTCPServer(ThreadingMixIn, TCPServer): pass
 
 ThreadingTCPServer类继承于**ThreadingMixIn**类和**TCPServer**类，所有从左至右依次查找
 
-ThreadingMixIn类显示为，没有找到__init__方法
+ThreadingMixIn类显示为，也没有找到__init__方法
 
 ```python
 class ThreadingMixIn:
@@ -64,6 +64,7 @@ class ThreadingMixIn:
     def __init__(self, server_address, RequestHandlerClass, bind_and_activate=True):
         #通过传入的('127.0.0.1',8086),Serve参数实例化对象
         BaseServer.__init__(self, server_address, RequestHandlerClass)
+        
         #address_family = socket.AF_INET
         #socket_type = socket.SOCK_STREAM
         #实例化socket对象
@@ -80,7 +81,9 @@ class ThreadingMixIn:
                 raise
 ```
 
-所以现在看来，server就是通过TCPServer类实例化得到的套接字对象
+所以现在看来，server就是通过TCPServer类实例化得到的套接字对象，实例化后，其实就已经完成了服务端的套接字设置
+
+
 
 继续下一行代码
 
@@ -173,7 +176,7 @@ socketserver模块提供了三个Handler类：
 
 3、DatagramRequestHandler 
 
-后两个是第一个的子类。直接使用BaseRequestHandler也行，但StreamRequestHandler、DatagramRequestHandler分别适合处理流式数据和数据报数据 
+后两个是第一个的子类。直接使用BaseRequestHandler就行，但StreamRequestHandler、DatagramRequestHandler分别适合处理流式数据和数据报数据 
 
 首先看BaseRequestHandler类
 

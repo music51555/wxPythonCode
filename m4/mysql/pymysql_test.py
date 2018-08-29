@@ -10,13 +10,12 @@ conn = pymysql.connect(
 )
 
 cursor=conn.cursor(pymysql.cursors.DictCursor)
-sql='select * from student'
-cursor.execute(sql)
-res = cursor.fetchmany(2)
+cursor.callproc('p3',(2,12,1))
+res=cursor.fetchall()
 print(res)
 
-cursor.scroll(0,mode='relative')
-res = cursor.fetchone()
+cursor.execute('select @_p3_2')
+res=cursor.fetchone()
 print(res)
 
 cursor.close()
