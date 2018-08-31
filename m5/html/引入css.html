@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <!-- 内嵌方式，标签选择器，检索body中的指定标签，将所有的标签公用一个css样式，生产环境不要用，因为在body中的同类标签会很多 -->
+    <style type="text/css">
+        span{
+            color: blue
+        }
+    </style>
+
+    <!-- 外接样式，2、导入式 ，通过@import url方式导入css文件，结尾有分号-->
+    <style type="text/css">
+        @import url('./css/index.css');
+    </style>
+
+    <!--外接样式， 1、链接式，相对路径，建议使用。rel=relative，表示引入的将链接的css文件和html建立关系 -->
+    <!-- <link rel="stylesheet" href="./index.css"> -->
+</head>
+
+<body>
+    <!-- 行内样式 -->
+    <p style="color:red;">这是一个段落</p>
+    <div>
+        <span>这是另一个段落</span>
+        <span>这是另一个段落</span>
+        <span>这是另一个段落</span>
+    </div>
+    <div>
+        <a href="#">回到顶部</a>
+    </div>
+</body>
+</html>
