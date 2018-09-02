@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <!-- 内嵌方式 -->
+    <!-- 标签选择器，检索body中的指定标签，将所有的标签公用一个css样式，生产环境不要用，因为在body中的同类标签会很多 -->
+    <!-- 针对于所有的页面内所有的标签，在每一行css样式结尾，一定要添加分号 -->
+    <!-- <style type="text/css">
+        body{
+            font-size: 12px;
+        }
+        span{
+            color: blue;
+        }
+    </style> -->
+
+    <!-- id选择器，#表示id，id区分大小写，如s1和S1 -->
+    <style type="text/css">
+        #p1{
+            font-size: 20px;
+        }
+    </style>
+
+    <!-- 类选择器 -->
+    <style type="text/css">
+        .title{
+            color: green;
+        }
+        .leo{
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 行内样式 -->
+    <p style="color:red;">这是一个段落</p>
+    <div>
+        <span>这是另一个段落</span>
+        <span>这是另一个段落</span>
+        <span>这是另一个段落</span>
+    </div>
+    <div>
+        <a href="#">回到顶部</a>
+    </div>
+    <div>
+        <p id="p1" class="title leo">这是一篇作文 </p>
+    </div>
+</body>
+</html>

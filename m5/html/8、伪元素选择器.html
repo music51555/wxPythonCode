@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>伪元素选择器</title>
+    <style type="text/css">
+        /* 设置第一个首字母 */
+        p:first-letter{
+            font-size: 50px;
+        }
+
+        /* 在...之前添加内容，使用before和after是，要结合content属性 */
+        p:before{
+            content: "good night";
+        }
+
+        /* 在...之后添加内容，同样是结合content属性使用 */
+        p:after{
+            content: "一个句号";
+            color: red;
+        }
+
+    </style>
+</head>
+<body>
+    <p>这是一个段落</p>
+</body>
+</html>
