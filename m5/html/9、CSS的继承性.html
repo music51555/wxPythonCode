@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSS的特性</title>
+    <style type="text/css">
+        /* 为父级标签添加样式，子级会继承父级的样式 */
+        /* 可以继承的属性只有color、font-*、text-*、line-*这四类文本元素，盒子元素、定位元素（浮动、绝对定位、固定定位）不能继承 */
+        .father{
+            font-size: 30px;
+            /* background-color属性是不继承的，为div标签设置背景颜色黄色后，p标签的背景颜色也显示为了黄色，是因为p标签的默认的背景颜色是透明的 */
+            background-color: yellow;
+        }
+        .child{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <!-- p标签同时继承了father类和child类的样式，可以多级继承 -->
+    <div class="father" id="box">
+        <div class="child">
+            <p>我是一个段落</p>
+        </div>
+    </div>
+</body>
+</html>

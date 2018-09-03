@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style type="text/css">
+        /* id=1 class=2 tag=1 */
+        /* 当都是继承而来的样式，那么以就近原则为准，谁的描述离目标样式越近，越精确，则使用谁 */
+        #box1 .wrap2 .wrap3{
+            color: blue;
+        }
+
+        /* id=1 class=2 tag=1 */
+        .wrap1 #box2{
+            color: purple;
+        }
+    </style>
+</head>
+<body>
+    <!-- 先数id，再数类，最后数标签，谁的权重大，选择谁 -->
+    <div id="box1" class="wrap1">
+        <div id="box2" class="wrap2">
+            <div id="box3" class="wrap3">
+                <p>这是一个段落</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

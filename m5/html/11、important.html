@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>!important</title>
+
+    <style type="text/css">
+        /* ！important应用于权重比例不等时的标签选择器，在权重比例低的选择器中添加，则使当前选择器的权重最高 */
+        #box1 #box2{
+            color: red !important ;
+            font-size: 50px;
+        }
+
+        #box1 #box2 .wrap3 p{
+            color: blue  ;
+            font-size: 30px ;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap1" id="box1">
+        <div class="wrap2" id="box2">
+            <div class="wrap3" id="box3">
+                <p>这是一个段落</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
