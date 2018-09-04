@@ -12,7 +12,7 @@
     <title>!important</title>
 
     <style type="text/css">
-        /* 第1个标签选择器的权重大于第二个标签选择器，但在第2个标签选择器中添加了！important，使它的权重最高，优先使用 */
+        /* 第1个标签选择器的权重大于第二个标签选择器，因为id的数目大于第2标签的id数目，但在第2个标签选择器中添加了！important，使它的color属性权重最高，优先使用，但字体大小仍使用权重比例大的 */
         #box1 #box2 .wrap3{
             color: red;
             font-size: 50px;
@@ -78,7 +78,7 @@
 
 
 
-在继承的标签选择器中添加！important，权重仍然小于选中的标签选择器
+在继承的标签选择器中添加！important，**权重仍然小于选中的标签选择器**
 
 ```html
 <!DOCTYPE html>

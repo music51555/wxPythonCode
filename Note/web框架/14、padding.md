@@ -2,6 +2,8 @@ padding的属性，方向的设置顺序是上、右、下、左
 
 **1、小属性**
 
+**分别编辑padding的上（top）、右（right）、下（bottom）、左（left）属性**
+
 bottom   美 /'bɑtəm/  底部；末端
 
 ```html
@@ -38,6 +40,8 @@ bottom   美 /'bɑtəm/  底部；末端
 
 **2、综合属性**
 
+在一行中设置padding的上、左、下、右属性，**padding：20px 30px 40px 50px;**
+
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -70,41 +74,4 @@ bottom   美 /'bɑtəm/  底部；末端
 </body>
 </html>
 ```
-
-
-
-**3、清除一些标签中的默认padding和margin**
-
-padding在默认的网页body、ul等标签中都是默认存在的，所以在建站时将其去除
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-
-<style type="text/css">
-    /* 虽然可以使用通配符选择器，但是性能差 */
-    *{
-        padding: 0;
-        margin: 0;
-    }
-
-    /* 但是使用组合选择器，是别人总结的标签集 */
-    body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, button, textarea, p, blockquote, th, td {
-    margin: 0;
-    padding: 0;
-    }
-</style>
-<body>
-    
-</body>
-</html>
-```
-
-
 

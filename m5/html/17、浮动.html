@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>浮动</title>
+    <!-- 通过在样式中添加float，可以将div块状元素标签在一行中显示，并且可以设置width和height属性，而不是去设置inline-block将其转换为行内块元素。 -->
+    <style type="text/css">
+        /* 所谓脱标，就是将指定的元素标签浮动起来，脱离了标准文档流，使得下一个div盒子变成了标准文档流中的第一个盒子 */
+        .box1{
+            width: 50px;
+            height: 50px;
+            background-color: red;
+            float: left;
+        }
+        .box2{
+            width: 150px;
+            height: 150px;
+            background-color: yellow;
+        }
+        /* 为标签设置float浮动后，标签将不区分块级元素和行内元素，都可以设置width和height，且会并排显示 */
+        span{
+            background-color: green;
+            float: left;
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">
+        小红
+    </div>
+    <div class="box2">
+        小黄
+    </div>
+    <span>第一个小问题</span>
+    <span>第二个小问题</span>
+</body>
+</html>
