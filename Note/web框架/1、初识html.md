@@ -6,11 +6,11 @@
 
 **行为：**JavaScript
 
-HTML：Hyper Text Markup Language 超文本标记语言
+HTML：Hyper Text Markup Language 超文本标记语言，内容
 
-CSS：层叠样式表，网页的外观
+CSS：层叠样式表，外观
 
-JavaScript：网页的脚本语言
+JavaScript：网页的脚本语言，动作
 
 后缀名：.html
 
@@ -41,6 +41,10 @@ JavaScript：网页的脚本语言
 ```
 
 
+
+1、用户输入网址
+
+浏览器给服务端发送一个消息
 
 
 

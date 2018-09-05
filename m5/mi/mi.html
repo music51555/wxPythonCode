@@ -10,46 +10,154 @@
             padding: 0;
             margin: 0;
         }
+        ul{
+            list-style: none;
+        }
         
         .topbar{
             width: 100%;
             height: 40px;
             background-color: black;
         }
-        
-        .banner{
+
+        /* 之前在此写了height:40px，将定义的container高度设置为40px，但是在编写过程中去掉了，后询问原来是banner类所在的盒子下有3个子级小盒子，他们的高度是40px，使用子级的小盒子的高度去撑起父级的banner盒子的高度，所以可以去除banner类的height高度。但是在实际的页面中，由于子级的三个小盒子有了浮动的效果，脱离了标准文档流，将不占用父级盒子中的位置，且父级盒子没有浮动的效果，父级盒子内没有了标准文档流的标签，所以就没有了高度。如果父级盒子也设置浮动，那么也会脱离标准文档流，3个浮动的子级盒子就会撑起了父级浮动的盒子的高度 */
+        .container1{
             width: 1226px;
             margin: 0 auto;
+            background-color:red;
         }
         .nav{
             float: left;
-            width: 375px;
+            width: 490px;
             height: 40px;
-            background-color: green;
+            background-color: green;    
         }
         .userinfo{
-            width: 140px;
-            height: 40px;
             float: right;
-            background-color: pink;
+            width: 142px;
+            height: 40px;
+            background-color: yellow;
+            margin-right: 15px;
         }
         .cart{
-            margin-left: 15px;
+            float: right;
             width: 120px;
             height: 40px;
-            background-color: aqua;
+            background-color: purple;
+        }
+        
+        /* 像导航栏、topbar一般都会设置固定高度，原理是如果没有设置固定高度，在下方的盒子设置浮动后，贴靠到导航栏浮动的标签上 */
+        .header{
+            width: 100%;
+            height: 100px;
+        }
+        .container2{
+            width: 1226px;
+            /* 如果没有设置高度，下边的盒子不会挤上去 */
+            height: 100px;
+            margin: 0 auto;
+        }
+        .header-logo{
+            float: left;
+            width: 55px;
+            height: 55px;
+            background-color: orange;
+            margin-top: 22px;
+        }
+        .header-nav{
+            float: left;
+            width: 850px;
+            height: 100px;
+            background-color: tomato;
+        }
+        .header-search{
             float: right;
+            width: 296px;
+            height: 50px;
+            background: #666;
+            margin-top: 25px;
+        }
+        .content{
+            width: 1226px;
+            height: 460px;
+            margin: 0 auto 14px;
+            background-color: blue;
+        }
+        .content-list{
+            float: left;
+            width: 234px;
+            height: 460px;
+            background-color: darkorange;
+        }
+        .lunbo{
+            float: left;
+            width: 992px;
+            height: 460px;
+            background-color: chartreuse;
+        }
+        .shop{
+            width: 1226px;
+            height: 170px;
+            margin: 0 auto;
+            margin-bottom: 50px;
+            margin-bottom: 50px;
+        }
+        .shop .channel{
+            float: left;
+            width: 234px;
+            height: 170px;
+            background-color: brown;
+        }
+        .advertising li{
+            float: right;
+            width:316px;
+            height: 170px;
+            margin-left: 14px;
+            background-color: red;
+        }
+        .box-hd{
+            width: 1226px;
+            height: 58px;
+            margin: 0 auto;
+            background-color: aqua;
+        }
+        .box-hd h2{
+            float: left
         }
     </style>
 </head>
 <body>
+    <!-- 被称作为通天栏 -->
     <div class="topbar">
-        <div class="banner">
+        <div class="container1">
             <div class="nav">导航栏</div>
             <div class="cart">购物车</div>
             <div class="userinfo">用户登录</div>
         </div>
-
+    </div>
+    <div class="header">
+        <div class="container2">
+            <div class="header-logo">logo</div>
+            <div class="header-nav">导航栏</div>
+            <div class="header-search">搜索框</div>
+        </div>
+    </div>
+    <div class="content">
+        <div class="content-list">产品选购</div>
+        <div class="lunbo">轮播图</div>
+    </div>
+    <div class="shop">
+        <div class="channel">选购通道</div>
+        <div class="advertising">
+            <ul>
+                <li>广告1</li>
+                <li>广告2</li>
+                <li>广告3</li>
+            </ul>
+        </div>
+    </div>
+    <div class="box-hd">
+        <h2 class="title">开始闪购</h2>
     </div>
 </body>
 </html>
