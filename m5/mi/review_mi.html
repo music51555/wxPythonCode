@@ -14,16 +14,21 @@
     ul{
         list-style: none;
     }
-
     .container{
         margin: 0 auto;
     }
 
-    
+    /* 顶部导航栏 */
     .topBar{
         width: 100%;
-        height: 45px;
         background-color: black;
+    }
+    .topBar:after{
+        content: '.';
+        visibility: hidden;
+        clear: both;
+        height: 0;
+        display: block;
     }
     /* 之前在此写了height:40px，将定义的container高度设置为40px，但是在编写过程中去掉了，后询问原来是banner类所在的盒子下有3个子级小盒子，他们的高度是40px，使用子级的小盒子的高度去撑起父级的topBar-banner盒子的高度，所以可以去除topBar-banner类的height高度。但是在实际的页面中，由于子级的三个小盒子有了浮动的效果，脱离了标准文档流，将不占用父级盒子中的位置，且父级盒子没有浮动的效果，父级盒子内没有了标准文档流的标签，所以就没有了高度。如果父级盒子也设置浮动，那么也会脱离标准文档流，3个浮动的子级盒子就会撑起了父级浮动的盒子的高度 */
     .topBar-banner{
@@ -50,13 +55,10 @@
         background-color: chartreuse;
     }
 
-    /* 像导航栏、topbar一般都会设置固定高度，原理是如果没有设置固定高度，在下方的盒子设置浮动后，贴靠到导航栏浮动的标签上 */
-    .header{
-        width: 100%;
-        height: 100px;
-    }
+    /* 像固定不变导航栏、topbar一般都会设置固定高度，原理是如果没有设置固定高度，在下方的盒子设置浮动后，贴靠到导航栏浮动的标签上 */
     .header-banner{
         width: 1226px;
+        overflow: hidden;
     }
     .header-logo{
         float: left;
@@ -79,15 +81,17 @@
         margin-top: 23px;
     }
 
-    .content{
-        width: 100%;
-        height: 460px;
-        margin-bottom: 20px;
-    }
     .content-banner{
         width: 1226px;
-        height: 460px;
         background-color: rgb(11, 68, 70);
+        margin-bottom: 20px;
+    }
+    .content-banner:after{
+        content: '.';
+        visibility: hidden;
+        clear: both;
+        height: 0px;
+        display: block;
     }
     .content-list{
         float: left;
@@ -102,13 +106,9 @@
         background-color: rgb(184, 173, 11);
     }
 
-    .shop{
-        width: 100%;
-        height: 170px;
-    }
     .shop-banner{
         width: 1226px;
-        height: 170px;
+        overflow: hidden;
     }
     .shop-channel{
         float: left;
@@ -143,30 +143,23 @@
             <div class="topBar-userinfo">用户登录</div>
         </div>
     </div>
-    <div class="header">
-        <div class="header-banner container">
-            <div class="header-logo">logo</div>
-            <div class="header-nav">导航栏</div>
-            <div class="header-search">搜索栏</div>
-        </div>
+    <div class="header-banner container">
+        <div class="header-logo">logo</div>
+        <div class="header-nav">导航栏</div>
+        <div class="header-search">搜索栏</div>
     </div>
-    <div class="content">
-        <div class="content-banner container">
-            <div class="content-list">商品列表</div>
-            <div class="lunbo">轮播图</div>
-        </div>
+    <div class="content-banner container">
+        <div class="content-list">商品列表</div>
+        <div class="lunbo">轮播图</div>
     </div>
-    
-    <div class="shop">
-        <div class="shop-banner container">
-            <div class="shop-channel" >购物通道</div>
-            <div class="shop-advertising">
-                <ul>
-                    <li>广告3</li>
-                    <li>广告2</li>
-                    <li>广告1</li>
-                </ul>
-            </div>
+    <div class="shop-banner container">
+        <div class="shop-channel" >购物通道</div>
+        <div class="shop-advertising">
+            <ul>
+                <li>广告3</li>
+                <li>广告2</li>
+                <li>广告1</li>
+            </ul>
         </div>
     </div>
     <div class="box-hd container">
