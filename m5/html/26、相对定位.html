@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style type="text/css">
+        .box{
+            margin: 100px;
+        }
+        .username{
+            font-size: 20px;
+        }
+        /* 当input的text输入框调整了文字大小后，会导致和按钮的底边不在一条线上，所以可以通过相对位置来微调元素的位置，先在浏览器网页控制台中添加样式微调，在写在代码中 */
+        .submit{
+            position: relative;
+            top: 1px;
+            left: -3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <input type="text" class="username">
+        <input type="submit" class="submit" value="提交">
+    </div>
+</body>
+</html>

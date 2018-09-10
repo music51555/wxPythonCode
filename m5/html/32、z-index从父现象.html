@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style type="text/css">
+        .father1{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            position: relative;
+            /* 如果父级设置了z-index，那么就对比父级之间的z-index */
+            z-index: 0;
+        }
+        .child1{
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            position: relative;
+            top: 250px;
+            left: 450px;
+            /* 如果父级没有设置z-index，只有子级设置了z-index，那么就是子级之间的z-index进行对比 */
+            z-index: 1;
+        }
+        .father2{
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+            position: relative;
+            z-index: 1;
+        }
+        .child2{
+            width: 100px;
+            height: 100px;
+            background-color: green;
+            position: relative;
+            top: 100px;
+            left: 500px;
+            z-index: 0;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="father1">
+        <div class="child1">
+
+        </div>
+    </div>
+    <div class="father2">
+        <div class="child2">
+
+        </div>
+    </div>
+</body>
+</html>

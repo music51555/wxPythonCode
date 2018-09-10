@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style type="text/css">
+        /* 当父级盒子设置了padding后，子级盒子的绝对定位位置，依然是父盒子的左上角，而不是设置过padding的内容区域 */
+        .father{
+            width: 100%;
+            height: 50px;
+            background-color: blue;
+        }
+        .child{
+            width: 900px;
+            height: 50px;
+            background-color:yellow;
+            position: absolute;
+            /* 绝对定位后，left偏移50%后，再margin-left：父盒子宽度的一半 */
+            left: 50%;
+            margin-left: -450px;
+        }
+    </style>
+</head>
+<body>
+    <div class="father">
+        <div class="child"></div>
+    </div>
+</body>
+</html>
