@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+
+        // 1、字面量的方式
+        var colors = ['red','blue','green'];
+        // 可以通过console.log()在浏览器中输出内容
+        // 所有的变量都挂载到全局对象window，在控制台中输入window.colors，可以输出数组内容，相当于解释器
+        console.log(colors);
+        
+        // 2、创建对象的方式
+        var colors = new Array();
+        // []输出一个空的数组对象
+        console.log(colors);
+
+        colors[0] = 'red';
+        colors[1] = 'blue';
+        colors[2] = 'green';
+        
+        for(var i = 0; i < colors.length;i++){
+            console.log(colors[i]);
+        }
+    </script>
+</body>
+</html>
