@@ -252,12 +252,28 @@
             font-weight: lighter;
             line-height: 57px;
         }
-        .shangou-list{
+        .shangou-banner{
             width: 1226px;
-            height: 340px;
             margin: 0 auto;
         }
-        .shangou-list .info{
+        .shangou-banner:after{
+            content: ".";
+            visibility: hidden;
+            clear: both;
+            height: 0px;
+            display: block;
+        }
+        .shangou-banner li{
+            padding-top: 30px;
+            float: left;
+            width: 234px;
+            height: 310px;
+            display: block;
+            margin-right: 10px;
+            text-align: center;
+        }
+        .shangou-banner .info{
+            border-top: 1px solid red;
             float: left;
             background-color: #f1eded;
             width: 234px;
@@ -270,7 +286,6 @@
             background-repeat: no-repeat;
             background-position: center;
         }
-                
         .info .shangou-time{
             color: red;
             font-size: 21px;
@@ -283,26 +298,86 @@
             color: rgba(0,0,0,0.54);
         }
 
-        .shandou-content-list{
+        .shangou-content-list{
             float: left;
             width: 980px;
-            height: 340px;
         }
-
-        .shangou-list li{
-            padding-top: 30px;
-            float: left;
-            width: 234px;
-            height: 310px;
-            display: block;
-            margin-right: 10px;
+        .shangou-content-list li{
+            position: relative;
         }
-        .shandou-content-list img{
+        .shangou-content-list a{
+            margin: 0 37px 22px;
+        }
+        .shangou-content-list img{
             width: 160px;
             height: 160px;
+            left: 15px;
+            margin: 0 auto;
         }
-        .shandou-content-list h3{
+        .shangou-content-list h3{
             font-size: 14px;
+            font-weight: 400;
+            margin: 0px 20px 3px;
+        }
+        .shangou-content-list p{
+            margin: 0px 20px 12px;
+            font-size: 12px;
+            color: #b0b0b0;
+        }
+        .price span:first-child{
+            color: #ff6709;
+        }
+        .miaosha{
+            width: 64px;
+            height: 20px;
+            color: white;
+            background-color:#e53935;
+            position: absolute;
+            top: 0px;
+            left: 50%;
+            margin-left: -32px;
+            font-size: 12px;
+            line-height: 20px;
+        }
+        .toolbar{
+            position: fixed;
+            bottom: 70px;
+            right: 0px;
+        }
+        .tools a{
+            width: 82px;
+            height: 90px;
+            display: block;
+            position: relative;
+        }
+        .tools a:hover .hover-img{
+            display: block;
+        }
+        .tools div{
+            margin: 0px 27px;
+            padding-top: 30px;
+        }
+        .tools a{
+            text-decoration: none;
+        }
+        .tools img{
+            width: 30px;
+            height: 30px;
+        }
+        .tools p{
+            margin: 8px 0 0 0;
+            color: #757575;
+            text-align: center;
+        }
+        .toolbar{
+            background-color: white;
+        }
+        .hover-img{
+            display: none;
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            top: 30px;
         }
     </style>
 </head>
@@ -474,7 +549,7 @@
     <div class="shangou">
         开始闪购
     </div>
-    <div class="shangou-list">
+    <div class="shangou-banner">
         <ul>
             <li class="info">
                 <div class="shangou-time">22:00 场</div>
@@ -482,35 +557,120 @@
                 <div class="count-time">距离结束还有</div>
             </li>
         </ul>
-        <div class="shandou-content-list">
+        <div class="shangou-content-list">
             <ul>
-                <li>
-                    <a href=""><img src="" alt="">
-                        <img src="./images/闪购1.jpg" alt="">
-                    </a>
-                    <h3>实时感知门窗状态</h3>
+                <li style="border-top:1px solid orange">
+                    <div class="shangou-content" >
+                        <a href="">
+                            <img src="./images/闪购1.jpg" alt="">
+                        </a>
+                        <h3>小米电视4A 32英寸体育版</h3>
+                        <p>高清液晶屏，第6代画质引擎</p>
+                        <p class="price">
+                            <span >549 元</span>
+                            &nbsp;
+                            <span>
+                                <del>1099元</del>
+                            </span>
+                        </p>
+                        <div class="miaosha">5折秒杀</div>
+                    </div>
                 </li>
-                <li>
-                    <a href="">
-                        <img src="./images/闪购2.jpg" alt="">
-                    </a>
-                    <h3>米兔Hape 70粒益智积木 彩色</h3>
+                <li style="border-top:1px solid green">
+                    <div class="shangou-content">
+                        <a href="">
+                            <img src="./images/闪购2.jpg" alt="">
+                        </a>
+                        <h3>米兔Hape 70粒益智积木 彩色</h3>
+                        <p>启智专属，无限拼搭</p>
+                        <p class="price">
+                            <span >1 元</span>
+                            &nbsp;
+                            <span>
+                                <del>39.9元</del>
+                            </span>
+                        </p>
+                        <div class="miaosha">1元秒杀</div>
+                    </div>
                 </li>
-                <li>
-                    <a href="">
-                        <img src="./images/闪购3.jpg" alt="">
-                    </a>
-                    <h3>玩转你的自由时光</h3>
+                <li style="border-top:1px solid blue">
+                    <div class="shangou-content">
+                        <a href="">
+                                <img src="./images/闪购3.jpg" alt="">
+                        </a>
+                        <h3>米兔指尖积木</h3>
+                        <p>玩转你的自由时光</p>
+                        <p class="price">
+                            <span >1 元</span>
+                            &nbsp;
+                            <span>
+                                <del>30元</del>
+                            </span>
+                        </p>
+                        <div class="miaosha">1元秒杀</div>
+                    </div>
+                    
                  </li>
-                 <li>
-                    <a href="">
-                        <img src="./images/闪购4.jpg" alt="">
-                    </a>
-                    <h3>时刻定位，守护你所爱</h3>
+                 <li style="border-top:1px solid red">
+                     <div class="shangou-content">
+                        <a href="">
+                            <img src="./images/闪购4.jpg" alt="">
+                        </a>
+                        <h3>小米随身蓝牙音箱 金属银</h3>
+                        <p>全金属外壳，内置麦克风</p>
+                        <p class="price">
+                            <span >90 元</span>
+                            &nbsp;
+                            <span>
+                                <del>180元</del>
+                            </span>
+                        </p>
+                        <div class="miaosha">5折秒杀</div>
+                     </div>
                 </li>
         </ul>
         </div>
-       
+    </div>
+    <div class="toolbar">
+        <div class="tools">
+            <ul>
+                <li>
+                    <a class="fixed_usercenter" href="">
+                        <div>
+                            <img class="original-img" src="./images/usercenter.png" alt="">
+                            <img class="hover-img" src="./images/usercenter_hover.png" alt="">
+                        </div>
+                        <p>个人中心</p>
+                    </a>
+                </li>
+                <li>
+                    <a class="fixed_service" href="">
+                        <div>
+                            <img class="original-img" src="./images/service.png" alt="">
+                            <img class="hover-img" src="./images/service_hover.png" alt="">
+                        </div>
+                        <p>联系客服</p>
+                    </a>
+                </li>
+                <li>
+                    <a class="fixed_cart" href="">
+                        <div>
+                            <img class="original-img" src="./images/cart.png" alt="">
+                            <img class="hover-img" src="./images/cart_hover.png" alt="">
+                        </div>
+                        <p>购物车</p>
+                    </a>
+                </li>
+                <a class="fixed_top" href="">
+                        <div>
+                            <img class="original-img" src="./images/top.png" alt="">
+                            <img class="hover-img" src="./images/totop_hover.png" alt="">
+                        </div>
+                        <p>回到顶部</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
     </div>
 </body>
 </html>

@@ -7,157 +7,670 @@
     <title>Document</title>
     <style type="text/css">
         *{
-            padding: 0;
             margin: 0;
+            padding: 0;
         }
         ul{
             list-style: none;
         }
-        
+        .topadvertising{
+            width: 100%;
+            height: 120px;
+            background-image: url("./images/小米8新品发布会.jpg");
+            background-repeat: no-repeat;
+            background-position: center top;
+            display: block;
+            text-decoration: none;
+        }
         .topbar{
             width: 100%;
             height: 40px;
             background-color: black;
         }
-
-        /* 之前在此写了height:40px，将定义的container高度设置为40px，但是在编写过程中去掉了，后询问原来是banner类所在的盒子下有3个子级小盒子，他们的高度是40px，使用子级的小盒子的高度去撑起父级的banner盒子的高度，所以可以去除banner类的height高度。但是在实际的页面中，由于子级的三个小盒子有了浮动的效果，脱离了标准文档流，将不占用父级盒子中的位置，且父级盒子没有浮动的效果，父级盒子内没有了标准文档流的标签，所以就没有了高度。如果父级盒子也设置浮动，那么也会脱离标准文档流，3个浮动的子级盒子就会撑起了父级浮动的盒子的高度 */
-        .container1{
+        .top-banner{
             width: 1226px;
             margin: 0 auto;
-            background-color:red;
         }
-        .nav{
+        .top-banner:after{
+            content: ".";
+            visibility: hidden;
+            clear: both;
+            height: 0px;
+            display: block;
+        }
+        .topbar-nav{
             float: left;
-            width: 490px;
-            height: 40px;
-            background-color: green;    
+            width: 491px;
         }
-        .userinfo{
+        .topbar-nav a{
+            float: left;
+            font-size: 12px;
+            color: #b0b0b0;
+            text-decoration: none;
+            line-height: 40px;
+        }
+        .topbar-nav a:hover{
+            color: white;
+        }
+        .topbar-nav-sep{
+            float: left;
+            margin:0px 6px;
+            display: block;
+            height: 40px;
+        }
+        .topbar-userinfo{
             float: right;
             width: 142px;
             height: 40px;
-            background-color: yellow;
-            margin-right: 15px;
         }
-        .cart{
+        .topbar-userinfo a{
+            float: left;
+            font: 12px/40px "宋体";
+            text-decoration: none;
+            color: #b0b0b0;
+        }
+        .topbar-userinfo a:hover{
+            color: white;
+        }
+        .topbar-userinfo-sep{
+            float: left;
+            width: 6px;
+            height: 40px;
+        }
+        .topbar-cart{
             float: right;
             width: 120px;
             height: 40px;
-            background-color: purple;
         }
-        
-        /* 像导航栏、topbar一般都会设置固定高度，原理是如果没有设置固定高度，在下方的盒子设置浮动后，贴靠到导航栏浮动的标签上 */
-        .header{
-            width: 100%;
-            height: 100px;
+        .topbar-cart a{
+            font:12px/40px "宋体";
+            color: #b0b0b0;
+            text-decoration: none;
+            text-align: center;
+            background-color: #424242;
+            display: block;
         }
-        .container2{
+        .topbar-cart a:hover{
+            text-align: center;
+            background-color: white;
+            color: orange;
+            display: block;
+        }
+        .banner{
             width: 1226px;
-            /* 如果没有设置高度，下边的盒子不会挤上去 */
             height: 100px;
             margin: 0 auto;
         }
-        .header-logo{
+        .banner-logo{
             float: left;
             width: 55px;
             height: 55px;
-            background-color: orange;
+            background-image: url(./images/mi-logo.jpg);
+            background-repeat: no-repeat;
             margin-top: 22px;
+            display: block;
         }
-        .header-nav{
+        .banner-nav{
             float: left;
-            width: 850px;
-            height: 100px;
-            background-color: tomato;
+            width: 840px;
+            height: 88px;
+            padding-left: 30px;
+            padding-top: 12px;
         }
-        .header-search{
-            float: right;
-            width: 296px;
-            height: 50px;
-            background: #666;
+        .banner-nav-li-first{
+            float: left;
+            width: 127px;
+            height: 88px;
+            padding-right: 15px;
+        }
+        .banner-nav-li-other{
+            float: left;
+            padding: 26px 10px 38px;
+        }
+        .banner-nav li a{
+            font: 16px;
+            text-decoration: none;
+            color: black;
+            font-family: "雅黑";
+        }
+        .banner-nav li a:hover{
+            color: orange;
+        }
+        .banner-search{
+            float: left;
             margin-top: 25px;
+            line-height: 100px;
+            position: relative;
         }
-        .content{
+        #search_data{
+            width: 245px;
+            height: 50px;
+            display: block;
+            float: left;
+        }
+        #submit_button{
+            width: 52px;
+            height: 54px;
+            float: left;
+            left:1px;
+        }
+        .hot-word{
+            position:absolute;
+            left: 107px;
+            bottom: -24px;
+        }
+        .hot-word a{
+            text-decoration: none;
+            color: black;
+            background: #eee;
+        }
+        .hot-word a:hover{
+            background: orange;
+        }
+        .buy-list{
             width: 1226px;
             height: 460px;
-            margin: 0 auto 14px;
-            background-color: blue;
+            margin: 0 auto;
+            background-image: url('./images/轮播图2.jpg');
+            background-repeat: no-repeat;
+            background-position: left;
+            position: relative;
+            z-index: 0;
         }
-        .content-list{
+        .product-type{
+            position: relative;
             float: left;
             width: 234px;
             height: 460px;
-            background-color: darkorange;
+            background-color: #989934;  
+            z-index: 1;
         }
         .lunbo{
             float: left;
             width: 992px;
             height: 460px;
-            background-color: chartreuse;
+        }
+        .product-type ul{
+            margin: 20px 0px;
+        }
+        .product-type li{
+            margin: 0 auto;
+        }
+        .product-type a{
+            padding-left: 30px;
+            height: 42px;
+            display: block;
+            text-decoration: none;
+            color: white;
+            line-height: 42px;
+            font:14px;
+        }
+        .product-type a:hover{
+            background-color: orange;
+            font-size: 16px;
+        }
+        .shop-banner{
+            width: 1226px;
+            overflow: hidden;
+            margin: 15px auto 26px;
         }
         .shop{
-            width: 1226px;
-            height: 170px;
-            margin: 0 auto;
-            margin-bottom: 50px;
-            margin-bottom: 50px;
-        }
-        .shop .channel{
             float: left;
             width: 234px;
             height: 170px;
-            background-color: brown;
+            background-color: #5f5750;
         }
-        .advertising li{
+        .shop li{
+            width: 70px;
+            height: 82px;
+            float: left;
+        }
+        .adversiting{
+            float: left;
+            width: 992px;
+        }
+        .adversiting li{
             float: right;
-            width:316px;
-            height: 170px;
+            display: block;
             margin-left: 14px;
-            background-color: red;
         }
-        .box-hd{
-            width: 1226px;
-            height: 58px;
+        .adversiting li a{
+            display: block;
+            width: 316px;
+            height: 170px;
+        }
+        .adversiting li img{
+            width: 316px;
+            height: 170px;
+        }
+
+        .shangou{
+            font-size: 22px;
             margin: 0 auto;
-            background-color: aqua;
+            width: 1226px;
+            height: 57px;
+            font-weight: lighter;
+            line-height: 57px;
         }
-        .box-hd h2{
-            float: left
+        .shangou-banner{
+            width: 1226px;
+            margin: 0 auto;
+        }
+        .shangou-banner:after{
+            content: ".";
+            visibility: hidden;
+            clear: both;
+            height: 0px;
+            display: block;
+        }
+        .shangou-banner li{
+            padding-top: 30px;
+            float: left;
+            width: 234px;
+            height: 310px;
+            display: block;
+            margin-right: 10px;
+            text-align: center;
+        }
+        .shangou-banner .info{
+            border-top: 1px solid red;
+            float: left;
+            background-color: #f1eded;
+            width: 234px;
+            margin-right: 10px;
+        }
+        .shandian{
+            margin: 25px 0px;
+            height: 53px;
+            background-image: url(./images/闪购闪电.png);
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        .info .shangou-time{
+            color: red;
+            font-size: 21px;
+            text-align: center;
+            padding-top: 15px;
+        }
+        .count-time{
+            text-align: center;
+            font-size: 15px;
+            color: rgba(0,0,0,0.54);
+        }
+
+        .shangou-content-list{
+            float: left;
+            width: 980px;
+        }
+        .shangou-content-list li{
+            position: relative;
+        }
+        .shangou-content-list a{
+            margin: 0 37px 22px;
+        }
+        .shangou-content-list img{
+            width: 160px;
+            height: 160px;
+            left: 15px;
+            margin: 0 auto;
+        }
+        .shangou-content-list h3{
+            font-size: 14px;
+            font-weight: 400;
+            margin: 0px 20px 3px;
+        }
+        .shangou-content-list p{
+            margin: 0px 20px 12px;
+            font-size: 12px;
+            color: #b0b0b0;
+        }
+        .price span:first-child{
+            color: #ff6709;
+        }
+        .miaosha{
+            width: 64px;
+            height: 20px;
+            color: white;
+            background-color:#e53935;
+            position: absolute;
+            top: 0px;
+            left: 50%;
+            margin-left: -32px;
+            font-size: 12px;
+            line-height: 20px;
+        }
+        .toolbar{
+            position: fixed;
+            bottom: 70px;
+            right: 0px;
+        }
+        .tools a{
+            width: 82px;
+            height: 90px;
+            display: block;
+            position: relative;
+        }
+        .tools a:hover .hover-img{
+            display: block;
+        }
+        .tools div{
+            margin: 0px 27px;
+            padding-top: 30px;
+        }
+        .tools a{
+            text-decoration: none;
+        }
+        .tools img{
+            width: 30px;
+            height: 30px;
+        }
+        .tools p{
+            margin: 8px 0 0 0;
+            color: #757575;
+            text-align: center;
+        }
+        .toolbar{
+            background-color: white;
+        }
+        .hover-img{
+            display: none;
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            top: 30px;
         }
     </style>
 </head>
 <body>
-    <!-- 被称作为通天栏 -->
+    <a class="topadvertising" href=""></a>
     <div class="topbar">
-        <div class="container1">
-            <div class="nav">导航栏</div>
-            <div class="cart">购物车</div>
-            <div class="userinfo">用户登录</div>
+        <div class="top-banner">
+                <div class="topbar-nav">
+                    <a href="">小米商城</a>
+                    <span class="topbar-nav-sep"></span>
+                    <a href="">MIUI</a>
+                    <span class="topbar-nav-sep"></span>
+                    <a href="">IoT</a>
+                    <span class="topbar-nav-sep"></span>
+                    <a href="">云服务</a>
+                    <span class="topbar-nav-sep"></span>
+                    <a href="">金融</a>
+                    <span class="topbar-nav-sep"></span>
+                    <a href="">有品</a>
+                    <span class="topbar-nav-sep"></span>
+                    <a href="">小爱开放平台</a>
+                    <span class="topbar-nav-sep"></span>
+                    <a href="">政企服务</a>
+                    <span class="topbar-nav-sep"></span>
+                    <a href="">Select Region</a>
+                </div>
+                <div class="topbar-cart">
+                    <a href="">购物车（0）</a>
+                </div>
+                <div class="topbar-userinfo">
+                        <a href="" class="login">登录</a>
+                    <span class="topbar-userinfo-sep"></span>
+                        <a href="" class="register">注册</a>
+                    <span class="topbar-userinfo-sep"></span>
+                        <a href="" class="message">消息通知</a>
+                </div>
         </div>
     </div>
-    <div class="header">
-        <div class="container2">
-            <div class="header-logo">logo</div>
-            <div class="header-nav">导航栏</div>
-            <div class="header-search">搜索框</div>
-        </div>
-    </div>
-    <div class="content">
-        <div class="content-list">产品选购</div>
-        <div class="lunbo">轮播图</div>
-    </div>
-    <div class="shop">
-        <div class="channel">选购通道</div>
-        <div class="advertising">
+    <div class="banner">
+        <a href="" class="banner-logo"></a>
+        <div class="banner-nav">
             <ul>
-                <li>广告1</li>
-                <li>广告2</li>
-                <li>广告3</li>
+                <li class="banner-nav-li-first"></li>
+                <li class="banner-nav-li-other">
+                    <a href="">小米手机</a>
+                </li>
+                <li class="banner-nav-li-other">
+                    <a href="">红米</a>
+                </li>
+                <li class="banner-nav-li-other">
+                    <a href="">电视</a>
+                </li>
+                <li class="banner-nav-li-other">
+                    <a href="">笔记本</a>
+                </li>
+                <li class="banner-nav-li-other">
+                    <a href="">空调</a>
+                </li>
+                <li class="banner-nav-li-other">
+                    <a href="">新品</a>
+                </li>
+                <li class="banner-nav-li-other">
+                    <a href="">路由器</a>
+                </li>
+                <li class="banner-nav-li-other">
+                    <a href="">智能硬件</a>
+                </li>
+                <li class="banner-nav-li-other">
+                    <a href="">服务</a>
+                </li>
+                <li class="banner-nav-li-other">
+                    <a href="">社区</a>
+                </li>
+            </ul>
+        </div>
+        <form action="">
+            <div class="banner-search">
+                <input type="text" id="search_data">
+                <input type="submit" id="submit_button" value="搜索">
+                <div class="hot-word">
+                    <a href="">小米8</a>
+                    <a href="">小米MIS 2S</a>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="buy-list">
+        <div class="product-type">
+            <ul>
+                <li>
+                    <a href="">手机 电话卡</a>
+                </li>
+                <li>
+                    <a href="">电视 盒子</a>
+                </li>
+                <li>
+                    <a href="">笔记本 平板</a>
+                </li>
+                <li>
+                    <a href="">家电 插线板</a>
+                </li>
+                <li>
+                    <a href="">出行 穿戴</a>
+                </li>
+                <li>
+                    <a href="">智能 路由器</a>
+                </li>
+                <li>
+                    <a href="">电源 配件</a>
+                </li>
+                <li>
+                    <a href="">个护 儿童</a>
+                </li>
+                <li>
+                    <a href="">耳机 音箱</a>
+                </li>
+                <li>
+                    <a href="">生活 箱包</a>
+                </li>
+            </ul>
+        </div>
+        <div class="lunbo">
+
+        </div>
+    </div>
+    <div class="shop-banner">
+        <div class="shop">
+            <ul>
+                <li>
+                    <a href=""></a>
+                </li>
+                <li>
+                    <a href=""></a>
+                </li>
+                <li>
+                    <a href=""></a>
+                </li>
+                <li>
+                    <a href=""></a>
+                </li>
+                <li>
+                    <a href=""></a>
+                </li>
+                <li>
+                    <a href=""></a>
+                </li>
+            </ul>
+        </div>
+        <div class="adversiting">
+            <ul>
+                <li>
+                    <a href="" class="ad1">
+                        <img src="./images/ad1.jpg" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="" class="ad2">
+                        <img src="./images/ad2.jpg" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="" class="ad3">
+                        <img src="./images/ad3.jpg" alt="">
+                    </a>
+                </li>
             </ul>
         </div>
     </div>
-    <div class="box-hd">
-        <h2 class="title">开始闪购</h2>
+    <div class="shangou">
+        开始闪购
+    </div>
+    <div class="shangou-banner">
+        <ul>
+            <li class="info">
+                <div class="shangou-time">22:00 场</div>
+                <div class="shandian"></div>
+                <div class="count-time">距离结束还有</div>
+            </li>
+        </ul>
+        <div class="shangou-content-list">
+            <ul>
+                <li style="border-top:1px solid orange">
+                    <div class="shangou-content" >
+                        <a href="">
+                            <img src="./images/闪购1.jpg" alt="">
+                        </a>
+                        <h3>小米电视4A 32英寸体育版</h3>
+                        <p>高清液晶屏，第6代画质引擎</p>
+                        <p class="price">
+                            <span >549 元</span>
+                            &nbsp;
+                            <span>
+                                <del>1099元</del>
+                            </span>
+                        </p>
+                        <div class="miaosha">5折秒杀</div>
+                    </div>
+                </li>
+                <li style="border-top:1px solid green">
+                    <div class="shangou-content">
+                        <a href="">
+                            <img src="./images/闪购2.jpg" alt="">
+                        </a>
+                        <h3>米兔Hape 70粒益智积木 彩色</h3>
+                        <p>启智专属，无限拼搭</p>
+                        <p class="price">
+                            <span >1 元</span>
+                            &nbsp;
+                            <span>
+                                <del>39.9元</del>
+                            </span>
+                        </p>
+                        <div class="miaosha">1元秒杀</div>
+                    </div>
+                </li>
+                <li style="border-top:1px solid blue">
+                    <div class="shangou-content">
+                        <a href="">
+                                <img src="./images/闪购3.jpg" alt="">
+                        </a>
+                        <h3>米兔指尖积木</h3>
+                        <p>玩转你的自由时光</p>
+                        <p class="price">
+                            <span >1 元</span>
+                            &nbsp;
+                            <span>
+                                <del>30元</del>
+                            </span>
+                        </p>
+                        <div class="miaosha">1元秒杀</div>
+                    </div>
+                    
+                 </li>
+                 <li style="border-top:1px solid red">
+                     <div class="shangou-content">
+                        <a href="">
+                            <img src="./images/闪购4.jpg" alt="">
+                        </a>
+                        <h3>小米随身蓝牙音箱 金属银</h3>
+                        <p>全金属外壳，内置麦克风</p>
+                        <p class="price">
+                            <span >90 元</span>
+                            &nbsp;
+                            <span>
+                                <del>180元</del>
+                            </span>
+                        </p>
+                        <div class="miaosha">5折秒杀</div>
+                     </div>
+                </li>
+        </ul>
+        </div>
+    </div>
+    <div class="toolbar">
+        <div class="tools">
+            <ul>
+                <li>
+                    <a class="fixed_usercenter" href="">
+                        <div>
+                            <img class="original-img" src="./images/usercenter.png" alt="">
+                            <img class="hover-img" src="./images/usercenter_hover.png" alt="">
+                        </div>
+                        <p>个人中心</p>
+                    </a>
+                </li>
+                <li>
+                    <a class="fixed_service" href="">
+                        <div>
+                            <img class="original-img" src="./images/service.png" alt="">
+                            <img class="hover-img" src="./images/service_hover.png" alt="">
+                        </div>
+                        <p>联系客服</p>
+                    </a>
+                </li>
+                <li>
+                    <a class="fixed_cart" href="">
+                        <div>
+                            <img class="original-img" src="./images/cart.png" alt="">
+                            <img class="hover-img" src="./images/cart_hover.png" alt="">
+                        </div>
+                        <p>购物车</p>
+                    </a>
+                </li>
+                <a class="fixed_top" href="">
+                        <div>
+                            <img class="original-img" src="./images/top.png" alt="">
+                            <img class="hover-img" src="./images/totop_hover.png" alt="">
+                        </div>
+                        <p>回到顶部</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
     </div>
 </body>
 </html>
