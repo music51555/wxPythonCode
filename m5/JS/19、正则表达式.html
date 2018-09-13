@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        var str = 'hello world';
+
+        // 1、构造函数创建正则表达式对象
+        var reg = new RegExp('l','ig');
+
+        // 2、字面量的方式创建，常用方法
+        var reg1 = /o/ig;
+        
+        // 输出0，因为还没有使用exec去检索目标字符串
+        console.log(reg1.lastIndex);
+        // exec检索字符串中正则表达式的匹配，如果匹配到那么就返回一个结果数组，没有匹配到返回null
+        // 输出["o", index: 4, input: "hello world", groups: undefined]，返回的结果数组
+        console.log(reg1.exec(str));
+        // 输出5，表示查找到的结果的索引，后面的索引
+        console.log(reg1.lastIndex);
+        
+        // 返回true或false，验证是否匹配到对应的内容
+        console.log(reg1.test(str));
+        
+        // ["o", "o"]，输出所有查找到的内容
+        console.log(str.match(reg1));
+        
+        // 返回查找到内容的索引
+        console.log(str.search(reg1));
+    </script>
+</body>
+</html>

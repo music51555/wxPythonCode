@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        var str = 'hello word 2018'
+        var reg = /./ig;
+        // .匹配任意字符和数字，输出"h"
+        console.log(reg.exec(str));
+
+        var str = 'www.baidu.com';
+        var reg1 = /www\......\.com/g;
+        // \.表示转义.，不是正则表达式，就代表一个普通的“.”，输出"www.baidu.com"
+        console.log(reg1.exec(str));
+
+        var str = 'hello';
+        // 匹配a-z、0-9、A-Z范围内的字符，[a-z][a-z][a-z]表示依次匹配3位
+        var reg = /[a-z0-9A-Z]/g;
+        console.log(reg.exec(str));
+
+        var str = 'abc123';
+        // 表示匹配非范围内的字符，输出"ab"
+        var reg = /[^0-9][^0-9]/g;
+        console.log(reg.exec(str));
+
+        var str = '123abc';
+        // \d表示数字，\D表示非数字
+        var reg = /..\d/g;
+        var reg1 = /\D/g;
+        // 输出123
+        console.log(reg.exec(str));
+        // 输出a
+        console.log(reg1.exec(str));
+
+        var str = '2_3abc$';
+        // 输出2_3a，匹配数字、字母和下划线
+        var reg = /\w\w\w\w/g;
+        var reg1 = /\W/g;
+        console.log(reg.exec(str));
+        // 输出"$"，匹配除数字、字母和下划线以外的内容
+        console.log(reg1.exec(str));
+
+        var str = ' hello';
+        // 输出" "，匹配空格
+        var reg = /\s/g;
+        // 输出"h"，匹配非空白字符
+        var reg1 = /\S/g;
+        console.log(reg.exec(str));
+        console.log(reg1.exec(str));
+
+        var str = 'luffycity';
+        var reg = /^l....city$/g;
+        // 输出"luffycity",^表示以...开头,$表示以...结尾
+        console.log(reg.exec(str));
+
+        var str = 'luffycity';
+        // 输出"l"，匹配前面的字符1个或0个
+        var reg = /[a-z]?/g;
+        console.log(reg.exec(str));
+
+        var str = '1122luffycity';
+        var str1 = 'luffycity';
+        var reg = /[a-z]*/g;
+        // 输出""，从头匹配，没有找到，匹配到了0个
+        console.log(reg.exec(str));
+        // 输出"luffycity"，匹配1个或多个，尽可能多的匹配
+        console.log(reg.exec(str1));
+
+        var str = '1122luffycity';
+        var reg = /\d+/g;
+        // 输出"1122"，至少匹配1次
+        console.log(reg.exec(str));
+
+        var str = '12345567890'
+        var reg = /\d{10}/g;
+        // 输出"1234556789"，表示连续匹配多少次
+        console.log(reg.exec(str));
+
+        var str = '1122luffycity';
+        var reg = /\d{2,3}/g;
+        // 输出"112"，表示匹配2-3次，最少2次
+        console.log(reg.exec(str));
+
+        var str = 'www.baidu.com';
+        var reg = /www\.baidu|google|sina\.com/g;
+        // 输出"www.baidu"，|表示或者，提供了多少选项
+        console.log(reg.exec(str));
+
+        var str = 'www.google';
+        var reg = /(baidu)|(google)|(sina)/g;
+        // 输出0:"google"，1:undefined，2:"google"，3:undefined
+        // 0表示查找到的结果，第1分组没有找到为undefined，第2分组找到了输出内容，第3分组没有找到为undefined
+        console.log(reg.exec(str));
+        // 取列表中的结果$1，表示取第一个，$2，表示取第2个
+        console.log(RegExp.$1);
+
+        var str = 'helloworld';
+        var reg = /(hello)(world)/g;
+        // 0:"helloworld",1:"hello",2:"world"，表示拿(hello)(world)2小组合并为一组，取匹配整个字符串，将某一组匹配到的为一个结果
+        console.log(reg.exec(str));
+        console.log(RegExp.$2);
+    </script>
+</body>
+</html>

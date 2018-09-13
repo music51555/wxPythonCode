@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+
+        var mydate = new Date();
+        // getDate()方法获取当前的日期，输出13
+        console.log(mydate.getDate());
+        
+        // getMonth()方法获取当前月份，输出9
+        console.log(mydate.getMonth()+1);
+        
+        // getFullYear()方法获取当前年份，输出2018
+        console.log(mydate.getFullYear());
+        
+        // getDay()方法获取星期几，输出4,星期天用0表示
+        console.log(mydate.getDay());
+        
+        // 获取时、分、秒，输出20:38:32
+        console.log(mydate.getHours()+':'+mydate.getMinutes()+':'+mydate.getSeconds());
+        
+        // 获取本地事件，输出2018/9/13 下午8:38:32
+        console.log(mydate.toLocaleString());
+    
+    </script>
+</body>
+</html>
