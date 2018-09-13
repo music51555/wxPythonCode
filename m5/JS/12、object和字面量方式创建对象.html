@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        // 定义对象
+        // 1、使用object或对象字面量的方式创建对象
+        // 1.1、使用object方式创建对象，
+        var person = new Object();
+
+        // 输出{}，以及对象的内置方法；输出object，表示是对象类型
+        console.log(person);
+        console.log(typeof person);
+
+        // 为对象赋值
+        person.name = 'alex';
+        person.age = 20;
+
+        // 输出{name: "alex", age: 20}
+        console.log(person);
+
+        // 2、字面量方式创建对象
+        var favfn = function(){
+            // 调用函数后输出[object Object]，this表示当前对象
+            alert(this);
+        }
+
+        var person2 = {
+            name : 'wupeiqi',
+            age : 18,
+            fav : favfn
+        }
+
+        // 输出{name: "wupeiqi", age: 18, fav: ƒ}，同时定义了对象、属性和函数
+        console.log(person2);
+        
+        // 调用对象中的函数方法
+        person2.fav();
+    </script>
+</body>
+</html>

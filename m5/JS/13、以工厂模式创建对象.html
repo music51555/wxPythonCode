@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        // 以工厂模式创建对象，工厂=函数，在函数中创建对象，并返回对象，调用函数=创建对象
+        function creatobj(name,age){
+            var obj = new Object();
+            obj.name = name;
+            obj.age = age;
+            return obj;
+        }
+
+        var person1 = creatobj('alex',12);
+        var person2 = creatobj('peiqi',12);
+        console.log(person1);
+        // 返回true，验证是否是对象，这样创建出来的p1、p2对象，都隶属于Object类
+        console.log(person1 instanceof Object);
+    </script>
+</body>
+</html>

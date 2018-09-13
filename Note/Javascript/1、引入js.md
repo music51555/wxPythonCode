@@ -4,9 +4,9 @@
 
 **ECMAScript**：定义了js的标准语法
 
-**DOM**：Document Object Model，操作页面上元素的API
+**DOM**：Document Object Model，操作文档页面上元素的API
 
-**BOM**：Browser Object Model，操作浏览器上的部门API
+**BOM**：Browser Object Model，操作浏览器上的部分API
 
 
 
@@ -25,7 +25,7 @@
     </style>
 </head> 
 <body>
-    <!-- 内接式，js以分号结尾 -->
+    <!-- 内接式，js语句以分号结尾 -->
     <script type="text/javascript">
         alert("alex");
     </script>

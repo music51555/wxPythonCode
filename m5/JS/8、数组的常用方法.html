@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        // 1、concat数组合并
+        var north = ['北京','天津','河北'];
+        var south = ['上海','深圳','广东'];
+        
+        // 数组合并，生成新的数组['北京','天津','河北','上海','深圳','广东']
+        var newArray = north.concat(south);
+        console.log(newArray);
+
+        // 2、join，指定字符连接数组内容
+        var colors = ['red','blue','green'];
+        var str = colors.join('_');
+
+        // 输出red_blue_green，将数组内容以“_”连接
+        console.log(str);
+
+        // 3、slice(start,end)，输出数组中的某一段记录
+        var colors = ['red','blue','green','purple','pink','black'];
+        var arr = colors.slice(2,5);
+
+        // 输出["green", "purple", "pink"]
+        console.log(arr); 
+
+        // 4、push，向数组中添加元素
+        var colors = ['red','blue','green','purple','pink','black'];
+        colors.push('white');
+
+        //输出["red", "blue", "green", "purple", "pink", "black", "white"]，将white添加到了数组最后一位
+        console.log(colors);
+
+        // 5、pop，删除数组中最后一个元素
+        colors.pop();
+        
+        // 输出["red", "blue", "green", "purple", "pink", "black"]，将最后一个white从数组中删除
+        console.log(colors);
+
+        // 6、reverse倒序输出数组
+        colors.reverse();
+
+        // 输出["black", "pink", "purple", "green", "blue", "red"]
+        console.log(colors);
+
+        // 7、sort，数组排序
+        colors.sort();
+
+        // 输出["black", "blue", "green", "pink", "purple", "red"]，按英文字母排序
+        console.log(colors);
+
+        // 8、isArray()，判断是否是数组
+        var isArray = Array.isArray(colors);
+
+        // 输出true，表示colors是一个数组
+        console.log(isArray);
+
+        // 9、forEach(function(item,index))，遍历数组，其中item为数组元素内容，index为元素序号
+        // function表示回调函数，匿名函数
+        colors.forEach(function(item,index){
+            // 注意输出数组元素和索引
+            console.log(item);
+            console.log(index);
+        });
+
+    </script>
+</body>
+</html>
