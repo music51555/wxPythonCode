@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style type="text/css">
+    .box{
+        width: 100px;
+        height: 100px;
+        background-color: red;
+    }
+</style>
+<body>
+    <div class="box"></div>
+    <script type="text/javascript">
+        var divobj = document.getElementsByClassName('box')[0];
+
+        // 打印CSSStyleDeclaration，里面显示的是可用的CSS样式属性
+        console.log(divobj.style);
+
+        // js中的css样式名称，是以驼峰的形式显示的
+        console.log(divobj.style.backgroundColor);
+
+        var isRed = true;
+
+        // 触发点击事件，绑定匿名函数
+        divobj.onclick = function(){
+            if(isRed){
+                divobj.style.backgroundColor = "green";
+                isRed = false;
+            }else{
+                divobj.style.backgroundColor = "red";
+                isRed = true;
+            }
+            // 通过标签对象.style.css属性 = '  '来设置标签样式
+            // 通过js设置的样式，实则是设置和打印标签的行内样式，<div class="box" style="background-color: green;"></div>
+            // console.log(divobj.style.backgroundColor = 'green');
+        }
+
+        // 在还没有执行onclick事件时，就已经显示22222，所以执行过程是异步的，没有等待上一步行动执行完毕，如果等待上一步执行完毕，再输出22222，那么就是同步的 
+        console.log(22222);
+    </script>
+</body>
+</html>
