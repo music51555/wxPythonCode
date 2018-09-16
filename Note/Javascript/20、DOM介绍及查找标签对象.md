@@ -43,7 +43,7 @@ DOM的工作流程
         // 获取整个文档对象
         console.log(document);
         
-        // 获取html
+        // 获取html，console.log()是在控制台输出内容
         console.log(document.documentElement);
         
         // console.dir()可以显示一个对象所有的属性和方法，可以查看html标签对象下的属性和方法

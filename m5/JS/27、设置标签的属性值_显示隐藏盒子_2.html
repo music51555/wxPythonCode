@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style type="text/css">
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+        .none{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn">隐藏</button>
+    <div id='box' class="box"></div>
+
+    <script type="text/javascript">
+        window.onload = function(){
+            function $(id){
+                var obj = document.getElementById(id);
+                return obj;
+            }
+            
+            // 第二种方式是修改标签的class属性，在js中修改class属性格式为className驼峰式
+            var isShow = true;
+            $('btn').onclick = function(){
+                console.log($('box'));
+                if(isShow){
+                    // +=类名，表示在原有类的基础上，再添加一个类，表示标签有2个类
+                    $('box').className += ' none';
+                    isShow = false;
+                }else{
+                    $('box').className = 'box';
+                    isShow = true;
+                }
+            }
+        }
+    </script>
+</body>
+</html>
