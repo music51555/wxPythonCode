@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style type="text/css">
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #wrap{
+            width: 300px;
+            height: 300px;
+            padding: 20px;
+            margin-top: 50px;
+            background-color: green;
+            position: relative;
+        }
+        #box{
+            width: 180px;
+            height: 180px;
+            padding: 10px;
+            border: 5px solid red;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div id="box">
+            第二个盒子第二个盒子第二个盒子第二个盒子第二个盒子第二个盒子
+        </div>
+    </div>
+    <script type="text/javascript">
+        var divobj = document.getElementById('box');
+        // offsetWidth、offsetHeight表示盒子中内容 + padding + border的长度
+        console.log(divobj.offsetWidth);
+        console.log(divobj.offsetHeight);
+        // 如果没有设置定位
+        // offsetTop是盒子的外边距到body顶部的距离，70px
+        // offsetLeft是盒子的外边距到body左边的距离，20px
+        // 如果设置了定位，就以父盒子为准，如父相子绝
+        // 那么offsetTop就是盒子的外边距到父级盒子顶部的距离
+        // offsetLeft就是盒子的外边距到伏击盒子左边的距离
+        console.log(divobj.offsetTop);
+        console.log(divobj.offsetLeft);
+    </script>
+</body>
+</html>
