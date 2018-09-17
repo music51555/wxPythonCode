@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button id="append">添加</button>
+    <button id="remove">删除</button>
+    <div id="box">
+        <h3 id="h3">这是一个h3的标题
+            <span>小段落</span>
+        </h3>
+    </div>
+    <script type="text/javascript">
+        window.onload = function(){
+            function $(id){
+                return document.getElementById(id);
+            }
+            
+            // 通过parentNode方法，获取父级对象
+            var h3obj = document.getElementById('h3');
+            boxparent = h3obj.parentNode;
+
+            // 通过children方法，获取子级对象
+            var divobj = document.getElementById('box');
+            console.log(divobj.children);
+            
+            // 删除自己，通过parentNode找到自己的父级，再通过父级的children(this)删除自己
+            $('append').onclick = function(){
+                this.parentNode.removeChild(this);
+            }
+        }
+    </script>
+</body>
+</html>
