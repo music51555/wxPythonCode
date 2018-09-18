@@ -27,6 +27,16 @@ DOM的工作流程
 
 **查找元素对象**
 
+**document.documentElement**
+
+**document.body**
+
+**getElementById**
+
+**getElementsByClassName**
+
+**getElementsByTagName**
+
 ```html
 <!DOCTYPE html>
 <html lang="en">

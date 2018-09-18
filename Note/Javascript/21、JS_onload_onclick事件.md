@@ -1,6 +1,14 @@
 事件
 
-onclick、onload事件
+**onclick**
+
+**onload**
+
+**触发事件，并绑定匿名函数**
+
+window.onload = function(){
+
+}
 
 ```html
 <!DOCTYPE html>

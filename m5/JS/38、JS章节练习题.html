@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box"></div>
+    <script type="text/javascript">
+        var box = document.getElementById('box');        
+        var p = document.createElement('p');
+        var button = document.createElement('button');
+        button.innerText = '删除p标签';
+        p.innerText = 'alex';
+        
+        // 无论是appendChild，还是removeChild，参数传递的都是标签对象，只有在createElement时，传入的才是字符串'div'、'p'
+        box.parentNode.children[0].appendChild(p);
+        box.parentNode.children[0].appendChild(button);
+
+        button.onclick = function(){
+            p.parentNode.removeChild(p);
+        }
+    </script>
+</body>
+</html>

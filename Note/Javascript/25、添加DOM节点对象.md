@@ -1,6 +1,6 @@
 **document.createElement：**创建标签对象
 
-**fatherobj.appendChild(childobj)：**添加自己节点
+**fatherobj.appendChild(childobj)：**添加子级节点
 
 **fatherobj.removeChild：**删除子级节点
 
@@ -40,7 +40,8 @@
                 // 第二种添加子级的方式是fatherobj.insertBefore(newtagobj,oldtagobj);在已存在的节点对象前添加新的对象
                 $('box').insertBefore(P_element,$('h3'));
             }
-
+			
+            //删除子级节点的方法是fatherobj.removeChild
             $('remove').onclick = function(){
                 $('box').removeChild(P_element);
             }
@@ -83,11 +84,11 @@
             var h3obj = document.getElementById('h3');
             boxparent = h3obj.parentNode;
 
-            // 通过children方法，获取子级对象
+            // 通过children方法，获取子级对象集合
             var divobj = document.getElementById('box');
             console.log(divobj.children);
             
-            // 删除自己，通过parentNode找到自己的父级，再通过父级的children(this)删除自己
+            // 删除自己，通过parentNode找到自己的父级，再通过父级的children(this)/obj删除自己
             $('append').onclick = function(){
                 this.parentNode.removeChild(this);
             }

@@ -1,5 +1,7 @@
 操作DOM实现模态框
 
+**模态框：**点击按钮后，弹出的一个窗口，如点击登录按钮，在页面中弹出登录窗口（盒子）
+
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -65,6 +67,7 @@
         var form = document.createElement('form');
         form.id = 'register';
         
+        //将背景图标签对象添加在按钮父级的子级，也就是与按钮同一层级
         $('btn').parentNode.appendChild(bgc);
 
         $('btn').onclick = function(){

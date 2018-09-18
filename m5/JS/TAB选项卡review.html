@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style type="text/css">
+        .wrap{
+            width: 200px;
+            height: 200px;
+            border: 5px solid red;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap" style="overflow:auto">
+        一堆内容一堆内容一堆内容一堆内容一堆内容一堆内容一堆内容一堆内容一堆内容一堆内容一堆内容一堆内容一堆内容一堆内容一堆内容一堆内容一堆内容一堆内容一堆内容一堆内容一堆内容一堆内容一堆内容一堆内容一堆内容一堆内容一堆内容一堆内容一堆内容一堆内容一堆内容一堆内容一堆内容一堆内容一堆内容一堆内容一堆内容一堆内容一堆内容一堆内容一堆内容一堆内容
+    </div>
+    <script type="text/javascript">
+        var div = document.getElementsByClassName('wrap')[0];
+        div.onscroll = function(){
+            console.log(div.scrollTop);
+            console.log(div.scrollLeft);
+            console.log(div.scrollWidth);
+            console.log(div.scrollHeight);
+        }
+    </script>
+</body>
+</html>
