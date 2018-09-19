@@ -68,7 +68,7 @@ function add_element(bz){
     var star_target = document.createElement('img');
     star_target.className = 'star_target';
     star_target.src = './images/star.png';
-    this.starShow = false;  
+    star_target.starShow = false;  
 
     tododiv.appendChild(star_target);
     tododiv.appendChild(listchb);
