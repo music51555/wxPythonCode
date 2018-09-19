@@ -5,14 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="./css/index.css">
 </head>
 <body>
-    <button id="back">后退</button>
-    <script type="text/javascript">
-        var back = document.getElementById('back');
-        back.onclick = function(){
-            window.history.go(-1);
-        }
-    </script>
+    <div class="topbar">
+        <div class="logo">
+            TodoList
+        </div>
+        <div>
+            <input type="text" id="todo" placeholder="添加您的ToDo">
+        </div>
+    </div>
+    <div class="list-banner">
+        <div class="list-top">
+            <img id="task-img" src="./images/task-img.jpg" alt="">
+            <img id="finish-img" src="./images/finish-img.jpg" alt="">
+        </div>
+        <div class="task">
+            <div class="task-top">
+                <img src="./images/star.png" alt="">
+            </div>
+            <div class="todolist-div">
+                    <ul id="todolist"></ul>
+            </div>
+        </div>
+        <div class="finish">
+            <div class="finish-top">
+                <div class="finish-logo">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="./js/index.js"></script>
 </body>
 </html>
