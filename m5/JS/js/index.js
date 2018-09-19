@@ -120,11 +120,28 @@ window.onload = function(){
                 this.starShow = true;
             }else{
                 star_list.pop(i);
+                // console.log(localStorage.getItem('star_list').length);
+                // if(localStorage.getItem('star_list').length == 1){
+                //     console.log('111111');
+                //     localStorage.removeItem('star_list');
+                // }
                 this.src = './images/star.png';
                 localStorage.setItem('star_list',star_list);
                 this.starShow = false;
             }
         }
     }
-   
+
+    if(localStorage.getItem('star_list')){
+        var yellow_star_list = localStorage.getItem('star_list').split(',');
+        var lis = document.getElementsByTagName('li');
+        for(k in yellow_star_list){
+            for(i in lis){
+                if(i == yellow_star_list[k]){
+                    console.log(i);
+                    lis[i].parentNode.children[0].src = './images/star_hover.png';
+                }
+            }
+        }
+    }
 }
