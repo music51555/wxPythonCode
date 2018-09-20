@@ -5,8 +5,10 @@
 .topbar{
     width: 100%;
     height: 50px;
-    background-color: rgba(47,47,47,0.98);
-    position: relative;
+    background-color: rgba(248, 79, 76);
+    position: fixed;
+    top: 0;
+    z-index: 99999;
 }
 .topbar:after{
     content: '.';
@@ -35,34 +37,34 @@
 .list-banner{
     width: 1300px;
     height: 800px;
-    border: 1px solid black;
     margin: 50px auto 0; 
     padding: 80px 100px 50px;
 }
 .task{
     float: left;
-    width: 500px;
+    width: 505px;
     height: 600px;
-    border: 1px solid red;
-    overflow: hidden;
+    border: 1px solid rgba(255, 103, 0);
+    overflow: scroll;
 }
 .task-top{
     width: 100%;
     height: 30px;
-    border-bottom: 1px solid red;
-    background-color: red;
+    /* border-bottom: 1px solid red; */
+    background-color: rgba(255, 103, 0);
 }
 .finish{
     float: right;
-    width: 500px;
+    width: 505px;
     height: 600px;
-    border: 1px solid green;
+    border: 1px solid rgba(45, 89, 184);
+    overflow: scroll;
 }
 .finish-top{
     width: 100%;
     height: 30px;
-    border-bottom: 1px solid green;
-    background-color: green;
+    /* border-bottom: 1px solid green; */
+    background-color: rgba(45, 89, 184);
 }
 .list-top{
     width: 100%;
@@ -81,6 +83,10 @@
     margin-top: 15px;
 }
 .todolist-div{
+    width: 100%;
+    height: 100%;
+}
+.finishlist-div{
     width: 100%;
     height: 100%;
 }
@@ -103,10 +109,11 @@
 }
 .tododiv li{
     float: left;
-    width: 325px;
-    height: 20px;
+    width: 336px;
+    height: 25px;
     display: block;
-    font: 18px/22px  'Graphik Web';
+    font: 15px/22px  'Graphik Web';
+    overflow: hidden;
 }
 .tododiv p{
     float: right;
@@ -114,25 +121,55 @@
     margin-right: 30px;
     font: 15px "Graphik Web";
 }
+.task-top p{
+    float: left;
+    color: white;
+    font-weight: bolder;
+    line-height: 30px;
+    margin-left: 220px;
+}
+.finish-top p{
+    float: left;
+    color: white;
+    font-weight: bolder;
+    line-height: 30px;
+    margin-left: 220px;
+}
 .task-top img{
+    float: right;
+    width: 30px;
+    height: 30px;
+}
+.finish-top img{
     float: right;
     width: 30px;
     height: 30px;
 }
 #todo_btn_div{
     float: right;
-    width: 103px;
+    width: 133px;
     height: 24px;
-    margin-right: 10px;
+    margin-right: -33px;
+    display: none;
 }
 .detail{
     width: 38px;
     height: 100%;
+    background-color: rgba(255, 103, 0);
+    color: white;
+    font-family: "Graphik Web";
+    border: 1px solid rgba(45, 89, 184);
+    border-radius: 3px;
 }
-.over{
+.delete{
     width: 38px;
     height: 100%;
-    margin-left: 8px;
+    margin-left: 4px;
+    background-color: rgba(255, 103, 0);
+    color: white;
+    font-family: "Graphik Web";
+    border: 1px solid rgba(45, 89, 184);
+    border-radius: 3px;
 }
 .star_target{
     width: 20px;
@@ -140,4 +177,10 @@
     float: left;
     position: relative;
     top: 2px;
+}
+.finish-great{
+    width: 22px;
+    height: 22px;
+    margin-right: 10px;
+    float: left;
 }
