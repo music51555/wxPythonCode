@@ -41,6 +41,8 @@ window.onload = function(){
         var finishdiv = document.createElement('div');
         finishdiv.className = 'finishdiv';
 
+        $('todolist').appendChild(tododiv);
+        $('finishlist').appendChild(finishdiv);
 
         // 在top-bar中输入的代办事项，将其添加到待办列表中的li.innerText
         var li = document.createElement('li');
@@ -65,55 +67,40 @@ window.onload = function(){
         var detail_btn = document.createElement('button');
         var finish_detail_btn = document.createElement('button');
         detail_btn.className = 'detail';
-        detail_btn.id = 'detail_todo';
         detail_btn.innerText = '详细';
         detail_btn.isShow = false;
-        finish_detail_btn.className = 'detail';
-        finish_detail_btn.id = 'detail_finish';
-        finish_detail_btn.innerText = '详细';
-        finish_detail_btn.isShow = false;
 
         var del_btn = document.createElement('button');
         var finish_del_btn = document.createElement('button');
         del_btn.className = 'delete';
-        del_btn.id = 'delete_todo';
         del_btn.innerText = '删除';
-        finish_del_btn.className = 'delete';
-        finish_del_btn.id = 'delete_finish';
-        finish_del_btn.innerText = '删除';
 
         var star_target = document.createElement('img');
         star_target.className = 'star_target';
         star_target.src = './images/star.png';
-        star_target.starShow = false;
+        star_target.starShow = false;  
 
-        var finish_great = document.createElement('img');
-        finish_great.className = 'finish_great';
-        finish_great.src = './images/finish-hover.png';
-
-        var hr = document.createElement('hr');
-
+        debugger;
+        
         var finish_li = li;
         if(bz.startsWith('todo') || bz.startsWith('on')){
-            $('todolist').appendChild(tododiv);
             tododiv.appendChild(star_target);
             tododiv.appendChild(listchb);
             tododiv.appendChild(li);
             tododiv.appendChild(todo_btn_div);
             todo_btn_div.appendChild(detail_btn);
             todo_btn_div.appendChild(del_btn);
-            tododiv.parentNode.appendChild(hr);
         }else if(bz.startsWith('finish')){
-            $('finishlist').appendChild(finishdiv);
-            finishdiv.appendChild(finish_great);
             finishdiv.appendChild(finish_li);
             finishdiv.appendChild(finish_btn_div);
-            finish_btn_div.appendChild(finish_detail_btn);
-            finish_btn_div.appendChild(finish_del_btn);
-            finishdiv.parentNode.appendChild(hr);
+            todo_btn_div.appendChild(finish_detail_btn);
+            todo_btn_div.appendChild(finish_del_btn);
         }
 
         $('topbar-todo').value = '';
+
+        var hr = document.createElement('hr');
+        tododiv.parentNode.appendChild(hr);
     }
 
     // 在待办列表中将每一条记录，添加一个key，把这些key值存储到list列表中，将key值读取出来时，是一个字符串，而不是列表，所以通过split分割，形成一个列表，循环列表中每一个值，传入add_element方法中，将key值读取出来后，在页面刷新后，赋值给每一条记录
@@ -135,15 +122,11 @@ window.onload = function(){
     var detail_btns = document.getElementsByClassName('detail');
     for(var i = 0; i < detail_btns.length; i++){
         detail_btns[i].onclick = function(){
-            if(this.isShow == false && this.id == 'detail_finish'){
-                this.parentNode.parentNode.children[1].style.height = '80px';
-                this.innerText = '简略';
-                this.isShow = true;
-            }else if(this.isShow == false && this.id == 'detail_todo'){
+            if(this.isShow == false){
                 this.parentNode.parentNode.children[2].style.height = '80px';
                 this.innerText = '简略';
                 this.isShow = true;
-            }else if(this.isShow == true){
+            }else{
                 this.parentNode.parentNode.children[2].style.height = '25px';
                 this.innerText = '详细';
                 this.isShow = false;
@@ -152,7 +135,7 @@ window.onload = function(){
     }
 
     // 删除功能，点击【删除】按钮后，删除此条待办事件，并删除本条记录的星标状态，以及此条数据的列表索引
-    var delete_btns = document.getElementsByClassName('delete_todo');
+    var delete_btns = document.getElementsByClassName('delete');
     for(let i = 0; i < delete_btns.length; i++){
         delete_btns[i].onclick = function(){
             this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode.nextSibling);
@@ -172,23 +155,6 @@ window.onload = function(){
             localStorage.setItem('list',list);
             localStorage.setItem('star_list',star_list);
             localStorage.removeItem('todo_' + (i+1));
-        }
-    }
-
-    //办结事项的删除按钮
-    var delete_btns = document.getElementsByClassName('delete_finish');
-    for(let i = 0; i < delete_btns.length; i++){
-        delete_btns[i].onclick = function(){
-            this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode.nextSibling);
-            this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode);
-            var finishlist = localStorage.getItem('finishlist').split(',');
-            if(finishlist.length == 1){
-                finishlist.pop();
-            }else{
-                finishlist.splice(i,1);
-            }
-            localStorage.setItem('finishlist',finishlist);
-            localStorage.removeItem('finish_' + (i+1));
         }
     }
 
@@ -257,43 +223,28 @@ window.onload = function(){
         }
     }
 
-    // 当鼠标浮动在todo待办列表中的每一条记录上时，触发的方法，将按钮显示出来
+    // 当鼠标浮动在待办列表中的每一条记录上时，触发的方法，将按钮显示出来
     var tododivs = document.getElementsByClassName('tododiv');
     if(tododivs[0]){
         tododivs[0].children[3].style.display = 'block';
     }
-    for(let i = 0; i < tododivs.length; i++){
+    for(var i = 0; i < tododivs.length; i++){
         tododivs[i].onmouseover = function(){
-            for(let j = 0; j < tododivs.length; j++){
+            for(var j = 0; j < tododivs.length; j++){
                 tododivs[j].children[3].style.display = 'none';
             }
-            tododivs[i].children[3].style.display = 'block';
+            // this.style.display = 'block';
+            this.children[3].style.display = 'block';
         }
         tododivs[i].onmouseout = function(){
-            tododivs[i].children[3].style.display = 'none';
+            this.children[3].style.display = 'none';
         }
     }
 
-    // 当鼠标浮动在finish办结列表中的每一条记录上时，触发的方法，将按钮显示出来
-    var finishdivs = document.getElementsByClassName('finishdiv');
-    if(finishdivs[0]){
-        console.log(finishdivs[0]);
-        finishdivs[0].children[2].style.display = 'block';
-    }
-    for(let i = 0; i < finishdivs.length; i++){
-        finishdivs[i].onmouseover = function(){
-            for(let j = 0; j < finishdivs.length; j++){
-                finishdivs[j].children[2].style.display = 'none';
-            }
-            finishdivs[i].children[2].style.display = 'block';
-        }
-        finishdivs[i].onmouseout = function(){
-        finishdivs[i].children[2].style.display = 'none';
-        }
-    }
-
-    // 点击checkbox后，将待办事件转为办结事件的方法
     var ipts = document.getElementsByClassName('listchb');
+    console.log(ipts);
+    var x;
+    
     for(let i = 0; i < ipts.length; i++){
         ipts[i].onclick = function(){
             this.checked = true;
@@ -301,17 +252,11 @@ window.onload = function(){
             if(r == false){
                 this.checked = false;
             }else{
-                this.parentNode.parentNode.removeChild(this.parentNode);
-                this.parentNode.className = 'finishdiv';
-                this.parentNode.children[3].id = 'finish_btn_div';
-                this.parentNode.children[3].children[0].className = 'detail_finish';
-                this.parentNode.children[3].children[1].className = 'delete_finish';
                 $('finishlist').appendChild(this.parentNode);
-
                 var hr = document.createElement('hr');
                 $('finishlist').appendChild(hr);
                 this.parentNode.children[0].src = './images/finish-hover.png';
-                this.parentNode.children[0].className = 'finish_great';
+                this.parentNode.children[0].className = 'finish-great';
                 this.parentNode.removeChild(this.parentNode.children[1]);
 
                 var list = localStorage.getItem('list').split(',');
@@ -329,34 +274,14 @@ window.onload = function(){
                         star_list.splice(i,1);
                     }
                 }
-
-                debugger;
-                if(!localStorage.getItem('finishlist')){
-                    var finishlist = [];
-                }else{
-                    var finishlist = localStorage.getItem('finishlist').split(' ');
-                }
-                if(localStorage.getItem('todo_' + (i+1))){
-                    var todovalue = localStorage.getItem('todo_' + (i+1));
-                    if(localStorage.getItem('todo_' + (i+2))){
-                        var next_todovalue = localStorage.getItem('todo_' + (i+2));
-                        localStorage.setItem('todo_' + (i+1),next_todovalue)
-                        localStorage.removeItem('todo_' + (i+2));
-                        list.splice(i,1,'todo_' + (i+1));
-                    }
-
-                    localStorage.setItem('finish_' + (finishlist.length+1),todovalue);
-                    finishlist.push('finish_' + (finishlist.length+1));
-                    localStorage.setItem('finishlist',finishlist);
-                    localStorage.setItem('list',list);
-                    localStorage.removeItem('todo_' + (list.length+1));
-                }
-                // localStorage.setItem('finish_' + (i+1),todovalue.replace('todo','finish'));
-                
-                if( localStorage.getItem('star_list')){
-                    localStorage.setItem('star_list',star_list);
-                }
-                location.reload();
+                var finishlist = [];
+                var todovalue = localStorage.getItem('todo_' + (i+1));
+                localStorage.setItem('finish_' + (i+1),todovalue.replace('todo','finish'));
+                finishlist.push('finish_' + (i+1));
+                localStorage.setItem('finishlist',finishlist);
+                localStorage.setItem('list',list);
+                localStorage.setItem('star_list',star_list);
+                localStorage.removeItem('todo_' + (i+1));
             }
         }
     }

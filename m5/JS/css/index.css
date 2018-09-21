@@ -45,12 +45,10 @@
     width: 505px;
     height: 600px;
     border: 1px solid rgba(255, 103, 0);
-    overflow: scroll;
 }
 .task-top{
     width: 100%;
     height: 30px;
-    /* border-bottom: 1px solid red; */
     background-color: rgba(255, 103, 0);
 }
 .finish{
@@ -58,12 +56,10 @@
     width: 505px;
     height: 600px;
     border: 1px solid rgba(45, 89, 184);
-    overflow: scroll;
 }
 .finish-top{
     width: 100%;
     height: 30px;
-    /* border-bottom: 1px solid green; */
     background-color: rgba(45, 89, 184);
 }
 .list-top{
@@ -84,16 +80,27 @@
 }
 .todolist-div{
     width: 100%;
-    height: 100%;
+    height: 570px;
+    overflow: hidden;
 }
 .finishlist-div{
     width: 100%;
-    height: 100%;
+    height: 570px;
+    overflow: hidden;
 }
 #todolist{
     list-style: none;
 }
+#finishlist{
+    list-style: none;
+}
 .tododiv{
+    float: left;
+    width: 100%;
+    margin: 10px;
+    overflow: hidden;
+}
+.finishdiv{
     float: left;
     width: 100%;
     margin: 10px;
@@ -108,6 +115,14 @@
     top: 1px;
 }
 .tododiv li{
+    float: left;
+    width: 336px;
+    height: 25px;
+    display: block;
+    font: 15px/22px  'Graphik Web';
+    overflow: hidden;
+}
+.finishdiv li{
     float: left;
     width: 336px;
     height: 25px;
@@ -152,20 +167,46 @@
     margin-right: -33px;
     display: none;
 }
-.detail{
+#finish_btn_div{
+    float: right;
+    width: 133px;
+    height: 24px;
+    margin-right: -33px;
+    display: none;
+}
+#detail_todo{
     width: 38px;
     height: 100%;
     background-color: rgba(255, 103, 0);
     color: white;
     font-family: "Graphik Web";
+    border: 1px solid rgba(255, 103, 0);
+    border-radius: 3px;
+}
+#detail_finish{
+    width: 38px;
+    height: 100%;
+    background-color: rgba(45, 89, 184);
+    color: white;
+    font-family: "Graphik Web";
     border: 1px solid rgba(45, 89, 184);
     border-radius: 3px;
 }
-.delete{
+#delete_todo{
     width: 38px;
     height: 100%;
     margin-left: 4px;
     background-color: rgba(255, 103, 0);
+    color: white;
+    font-family: "Graphik Web";
+    border: 1px solid rgba(255, 103, 0);
+    border-radius: 3px;
+}
+#delete_finish{
+    width: 38px;
+    height: 100%;
+    margin-left: 4px;
+    background-color: rgba(45, 89, 184);
     color: white;
     font-family: "Graphik Web";
     border: 1px solid rgba(45, 89, 184);
@@ -178,7 +219,7 @@
     position: relative;
     top: 2px;
 }
-.finish-great{
+.finish_great{
     width: 22px;
     height: 22px;
     margin-right: 10px;
