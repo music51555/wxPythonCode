@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style type="text/css">
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        li{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            margin-right: 10px;
+            float: left;
+        }
+        li a{
+            width: 50px;
+            height: 30px;
+            color: white;
+            text-align: center;
+            line-height: 30px;
+            background-color: pink;
+            display: block;
+            margin: 35px auto;
+        }
+    </style>
+</head>
+<body>
+    <div>
+            <ul>
+                <li>
+                    <a href="#">alex1</a>
+                </li>
+                <li>
+                    <a href="#">alex2</a>
+                </li>
+                <li>
+                    <a href="#">alex3</a>
+                </li>
+                <li>
+                    <a href="#">alex4</a>
+                </li>
+                <li>
+                    <a href="#">alex4</a>
+                </li>
+            </ul>
+    </div>
+    <script type="text/javascript" src="./js/jquery-3.3.1.js"></script>
+    <script type="text/javascript">
+        $('li a').click(function(){
+            $(this).siblings
+        });
+    </script>
+</body>
+</html>
