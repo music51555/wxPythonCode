@@ -75,10 +75,10 @@ window.onload = function(){
 
         var del_btn = document.createElement('button');
         var finish_del_btn = document.createElement('button');
-        del_btn.className = 'delete';
+        del_btn.className = 'delete_todo';
         del_btn.id = 'delete_todo';
         del_btn.innerText = '删除';
-        finish_del_btn.className = 'delete';
+        finish_del_btn.className = 'delete_finish';
         finish_del_btn.id = 'delete_finish';
         finish_del_btn.innerText = '删除';
 
@@ -137,13 +137,19 @@ window.onload = function(){
         detail_btns[i].onclick = function(){
             if(this.isShow == false && this.id == 'detail_finish'){
                 this.parentNode.parentNode.children[1].style.height = '80px';
+                this.parentNode.parentNode.children[1].style.overflow = 'auto';
                 this.innerText = '简略';
                 this.isShow = true;
             }else if(this.isShow == false && this.id == 'detail_todo'){
                 this.parentNode.parentNode.children[2].style.height = '80px';
+                this.parentNode.parentNode.children[2].style.overflow = 'auto';
                 this.innerText = '简略';
                 this.isShow = true;
-            }else if(this.isShow == true){
+            }else if(this.isShow == true && this.id == 'detail_finish'){
+                this.parentNode.parentNode.children[1].style.height = '25px';
+                this.innerText = '详细';
+                this.isShow = false;
+            }else if(this.isShow == true && this.id == 'detail_todo'){
                 this.parentNode.parentNode.children[2].style.height = '25px';
                 this.innerText = '详细';
                 this.isShow = false;
@@ -158,15 +164,21 @@ window.onload = function(){
             this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode.nextSibling);
             this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode);
             var list = localStorage.getItem('list').split(',');
-            var star_list = localStorage.getItem('star_list').split(',');
+            if(localStorage.getItem('star_list')){
+                var star_list = localStorage.getItem('star_list').split(',');
+            }
             console.log(list);
             console.log(list.length);
             if(list.length == 1){
                 list.pop();
-                star_list.pop();
+                if(localStorage.getItem('star_list')){
+                    star_list.pop();
+                }
             }else{
                 list.splice(i,1);
-                star_list.splice(i,1);
+                if(localStorage.getItem('star_list')){
+                    star_list.splice(i,1);
+                }
             }
             console.log(list);
             localStorage.setItem('list',list);
@@ -179,6 +191,7 @@ window.onload = function(){
     var delete_btns = document.getElementsByClassName('delete_finish');
     for(let i = 0; i < delete_btns.length; i++){
         delete_btns[i].onclick = function(){
+            debugger;
             this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode.nextSibling);
             this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode);
             var finishlist = localStorage.getItem('finishlist').split(',');
@@ -351,8 +364,6 @@ window.onload = function(){
                     localStorage.setItem('list',list);
                     localStorage.removeItem('todo_' + (list.length+1));
                 }
-                // localStorage.setItem('finish_' + (i+1),todovalue.replace('todo','finish'));
-                
                 if( localStorage.getItem('star_list')){
                     localStorage.setItem('star_list',star_list);
                 }

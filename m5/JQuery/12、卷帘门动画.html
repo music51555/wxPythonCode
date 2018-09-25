@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style type="text/css">
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            display: none;
+        }
+        button{
+            width: 100px;
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <button id="slideDown">卷帘门下拉</button>
+    <button id="slideUp">卷帘门上拉</button>
+    <button id="slideToggle">卷帘门开关</button>
+    <div class="box"></div>
+    <script type="text/javascript" src="./js/jquery-3.3.1.js"></script>
+    <script type="text/javascript">
+        //  美 /slaɪd/ 滑动；幻灯片 卷帘门下拉方法
+        $('#slideDown').click(function(){
+            $('.box').slideDown(2000);
+        });
+        
+        // 卷帘门下拉方法
+        $('#slideUp').click(function(){
+            $('.box').slideUp(2000);
+        });
+        
+        // 卷帘门开关方法
+        $('#slideToggle').click(function(){
+            $('.box').stop().slideToggle(2000);
+        });
+    </script>
+</body>
+</html>

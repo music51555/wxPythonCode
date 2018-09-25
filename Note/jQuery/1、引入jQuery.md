@@ -13,7 +13,7 @@
 **在控制台打印JQuery**
 
 ```
-jQuery
+>jQuery
 ƒ ( selector, context ) {
 
 		// The jQuery object is actually just the init constructor 'enhanced'

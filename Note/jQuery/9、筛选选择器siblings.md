@@ -35,3 +35,101 @@ $(this).siblings('button')，选择当前jquery对象的其他兄弟对象
 </html>
 ```
 
+
+
+
+
+sibling选项卡
+
+**index()**：用于在兄弟元素中查看当前元素的索引
+**addClass()：**表示为元素添加类
+**removeClass()：**表示为元素删除类
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style type="text/css">
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .box{
+            width: 550px;
+            overflow: hidden;
+        }
+        ul{
+            list-style: none;
+        }
+        li{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            margin-right: 10px;
+            float: left;
+        }
+        li a{
+            width: 50px;
+            height: 30px;
+            color: white;
+            text-align: center;
+            line-height: 30px;
+            background-color: pink;
+            display: block;
+            margin: 35px auto;
+        }
+        p{
+            display: none;
+        }
+        .active{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <ul>
+            <li>
+                <a href="#">alex1</a>
+            </li>
+            <li>
+                <a href="#">alex2</a>
+            </li>
+            <li>
+                <a href="#">alex3</a>
+            </li>
+            <li>
+                <a href="#">alex4</a>
+            </li>
+            <li>
+                <a href="#">alex5</a>
+            </li>
+        </ul>
+        <p>alex1</p>
+        <p>alex2</p>
+        <p>alex3</p>
+        <p>alex4</p>
+        <p>alex5</p>
+    </div>
+    <script type="text/javascript" src="./js/jquery-3.3.1.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $('li a').click(function(){
+                // a标签不是同级的元素，但是他们的父级是同级的标签，所以siblings他们父级下的标签a
+                $(this).parent().siblings('li').find('a').css('background','transparent');
+                $(this).css('background','green');
+                // index()方法用于在兄弟元素中查看当前元素的索引
+                // addClass()表示为元素添加类，removeClass()表示为元素删除类
+                var i = $(this).parent().index();
+                $('p').eq(i).addClass('active').siblings('p').removeClass('active');
+        	});
+        })
+    </script>
+</body>
+</html>
+```
+

@@ -20,7 +20,7 @@
 .logo{
     float: left;
     margin-left: 500px;
-    font: 30px/50px 'Graphik Web';
+    font: 30px/50px 'Microsoft YaHei',"PingFang SC";
     color: white;
     list-style: none;
 }
@@ -119,7 +119,7 @@
     width: 336px;
     height: 25px;
     display: block;
-    font: 15px/22px  'Graphik Web';
+    font: 15px/22px  'Microsoft YaHei','PingFang SC';
     overflow: hidden;
 }
 .finishdiv li{
@@ -127,14 +127,14 @@
     width: 336px;
     height: 25px;
     display: block;
-    font: 15px/22px  'Graphik Web';
+    font: 15px/22px  'Microsoft YaHei',"PingFang SC";
     overflow: hidden;
 }
 .tododiv p{
     float: right;
     color: red;
     margin-right: 30px;
-    font: 15px "Graphik Web";
+    font: 15px "Microsoft YaHei","PingFang SC";
 }
 .task-top p{
     float: left;
@@ -179,7 +179,7 @@
     height: 100%;
     background-color: rgba(255, 103, 0);
     color: white;
-    font-family: "Graphik Web";
+    font-family: "Microsoft YaHei","PingFang SC";
     border: 1px solid rgba(255, 103, 0);
     border-radius: 3px;
 }
@@ -188,7 +188,7 @@
     height: 100%;
     background-color: rgba(45, 89, 184);
     color: white;
-    font-family: "Graphik Web";
+    font-family: "Microsoft YaHei","PingFang SC";
     border: 1px solid rgba(45, 89, 184);
     border-radius: 3px;
 }
@@ -198,7 +198,7 @@
     margin-left: 4px;
     background-color: rgba(255, 103, 0);
     color: white;
-    font-family: "Graphik Web";
+    font-family: "Microsoft YaHei","PingFang SC";
     border: 1px solid rgba(255, 103, 0);
     border-radius: 3px;
 }
@@ -208,7 +208,7 @@
     margin-left: 4px;
     background-color: rgba(45, 89, 184);
     color: white;
-    font-family: "Graphik Web";
+    font-family: "Microsoft YaHei","PingFang SC";
     border: 1px solid rgba(45, 89, 184);
     border-radius: 3px;
 }

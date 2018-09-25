@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style type="text/css">
+        .box{
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            bottom: 0px;
+            left: 10px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <button>动画</button>
+    <script type="text/javascript" src="./js/jquery-3.3.1.js"></script>
+    <script type="text/javascript">
+        var json = {
+            width: "200px",
+            height: "200px",
+            top: '200px',
+            left: '500px'
+        }
+
+        var json2 = {
+            width: '0',
+            height: '0',
+            top: '0',
+            left: '1000px'
+        }
+        
+        $(function(){
+            $('button').click(function(){
+                $('.box').animate(json,1000,function(){
+                    $('.box').animate(json2,1000,function(){
+                        alert('已添加到购物车');
+                    });
+                    
+                });
+            });
+        })
+    </script>
+</body>
+</html>

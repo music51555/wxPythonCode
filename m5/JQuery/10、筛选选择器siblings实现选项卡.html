@@ -10,6 +10,10 @@
             padding: 0;
             margin: 0;
         }
+        .box{
+            width: 550px;
+            overflow: hidden;
+        }
         ul{
             list-style: none;
         }
@@ -30,33 +34,52 @@
             display: block;
             margin: 35px auto;
         }
+        p{
+            display: none;
+        }
+        .active{
+            display: block;
+        }
     </style>
 </head>
 <body>
-    <div>
-            <ul>
-                <li>
-                    <a href="#">alex1</a>
-                </li>
-                <li>
-                    <a href="#">alex2</a>
-                </li>
-                <li>
-                    <a href="#">alex3</a>
-                </li>
-                <li>
-                    <a href="#">alex4</a>
-                </li>
-                <li>
-                    <a href="#">alex4</a>
-                </li>
-            </ul>
+    <div class="box">
+        <ul>
+            <li>
+                <a href="#">alex1</a>
+            </li>
+            <li>
+                <a href="#">alex2</a>
+            </li>
+            <li>
+                <a href="#">alex3</a>
+            </li>
+            <li>
+                <a href="#">alex4</a>
+            </li>
+            <li>
+                <a href="#">alex5</a>
+            </li>
+        </ul>
+        <p>alex1</p>
+        <p>alex2</p>
+        <p>alex3</p>
+        <p>alex4</p>
+        <p>alex5</p>
     </div>
     <script type="text/javascript" src="./js/jquery-3.3.1.js"></script>
     <script type="text/javascript">
-        $('li a').click(function(){
-            $(this).siblings
-        });
+        $(function(){
+            $('li a').click(function(){
+                // a标签不是同级的元素，但是他们的父级是同级的标签，所以siblings他们父级下的标签a
+                $(this).parent().siblings('li').find('a').css('background','transparent');
+                $(this).css('background','green');
+                // index()方法用于在兄弟元素中查看当前元素的索引
+                // addClass()表示添加类，removeClass()表示删除类
+                var i = $(this).parent().index();
+                $('p').eq(i).addClass('active').siblings('p').removeClass('active');
+            });
+        })
     </script>
 </body>
 </html>
