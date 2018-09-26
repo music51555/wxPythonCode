@@ -1,8 +1,8 @@
 筛选选择器siblings
 
-简单的siblings
+**简单的siblings**
 
-$(this).siblings('button')，选择当前jquery对象的其他兄弟对象
+$(this).siblings('button')，选择当前jquery对象的其他兄弟对象，不包含自己
 
 ```html
 <!DOCTYPE html>
@@ -123,7 +123,7 @@ sibling选项卡
                 $(this).parent().siblings('li').find('a').css('background','transparent');
                 $(this).css('background','green');
                 // index()方法用于在兄弟元素中查看当前元素的索引
-                // addClass()表示为元素添加类，removeClass()表示为元素删除类
+                // addClass()表示为元素添加类，removeClass()表示为元素删除类，在js中是设置js对象的className += xxx;
                 var i = $(this).parent().index();
                 $('p').eq(i).addClass('active').siblings('p').removeClass('active');
         	});

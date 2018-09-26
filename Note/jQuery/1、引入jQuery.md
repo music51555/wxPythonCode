@@ -1,4 +1,4 @@
-快速，小巧，功能丰富的javascript库，分为编译版本和未编译版本，将未编译版本放在服务器上
+快速，小巧，功能丰富的javascript库，分为编译版本和未编译版本，将未编译版本放在服务器上，占用空间小
 
 
 
@@ -15,7 +15,6 @@
 ```
 >jQuery
 ƒ ( selector, context ) {
-
 		// The jQuery object is actually just the init constructor 'enhanced'
 		// Need init if jQuery is called (just allow error to be thrown if not included)
 		return new jQ…
@@ -58,7 +57,7 @@ jQuery的执行函数，function( selector, context )，按该格式调用
     <div class="box"></div>
     <script type="text/javascript" src="./js/jquery-3.3.1.js"></script>
     <script type="text/javascript">
-        // 自执行函数，创建完即调用
+        // 自执行函数，创建完即调用，用括号括起来函数，并在结尾添加（）
         (function fn(){
             console.log('自执行函数');
         })();
@@ -68,7 +67,7 @@ jQuery的执行函数，function( selector, context )，按该格式调用
         console.log($);
 
         // jQuery是一个全局函数，调用function( selector, context )，传入selector选择器和context，其中context是可以省略的，通过选择器查找对象
-        // 返回jQuery.fn.init [div.box, prevObject: jQuery.fn.init(1)]
+        // 返回jQuery.fn.init [div.box, prevObject: jQuery.fn.init(1)]，是jquery对象
         console.log($('.box'));
     </script>
 </body>

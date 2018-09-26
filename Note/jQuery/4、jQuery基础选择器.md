@@ -1,5 +1,7 @@
 jQuery基础选择器
 
+在jquery中传入选择器，$(selector)
+
 **标签选择器：**$('div')
 
 **类选择器：**$('.box1')
@@ -10,7 +12,7 @@ jQuery基础选择器
 
 **并集选择器：**$('.box1,div')
 
-jquery事件的函数中this表示js对象，$(this)表示将js对象转换为jquery对象，调用jquery方法
+**jquery事件的函数中this表示js对象，$(this)表示将js对象转换为jquery对象，调用jquery方法**
 
 ```html
 <!DOCTYPE html>
@@ -41,7 +43,7 @@ jquery事件的函数中this表示js对象，$(this)表示将js对象转换为jq
                 // jquery函数中的this，表示当前jquery伪数组对象中的js对象
                 console.log(this);
 
-                // 通过js对象打印innerText
+                // 通过js对象打印innerText标签内容
                 console.log(this.innerText);
 
                 // 把js对象转换为jquery对象后，调用text()API打印标签内容
