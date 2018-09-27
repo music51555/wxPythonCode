@@ -7,8 +7,8 @@ jquery属性操作
 **设置属性值：**setAttribute
 
 **jquery中**
-**获取属性值：**jqueryobj.attr(属性)
-**设置属性值：**jqueryobj.attr(属性，属性值)
+**获取属性值：**jqueryobj.**attr(属性)**
+**设置属性值：**jqueryobj.**attr(属性，属性值)**
 
 jqueryobj.attr{
     属性1：属性值1，
@@ -16,7 +16,7 @@ jqueryobj.attr{
 }
 
 **删除属性值**：
-removeAttr(属性)
+**removeAttr(属性)**
 但是不建议设置class属性，因为原来的类会被替换掉，建议使用类样式属性操作：addClass和removeClass
 
 ```html
