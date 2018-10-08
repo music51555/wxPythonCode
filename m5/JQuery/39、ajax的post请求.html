@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <input type="text">
+        <input type="submit" value="提交">
+    </form>
+    <script type="text/javascript" src="./js/jquery-3.3.1.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            
+            $('form').submit(function(event){
+                event.preventDefault();
+                var name = $('[type = text]').val();
+                console.log(name);
+                $.ajax({
+                    url: 'http://localhost:8880/create',
+                    type: 'post',
+                    data: {
+                        "name": name
+                    },
+                    success: function(data){
+                        console.log(data);
+                    },
+                    error: function(err){
+                        console.log(err);
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>

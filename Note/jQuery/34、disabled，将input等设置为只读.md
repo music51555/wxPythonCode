@@ -1,0 +1,1 @@
+disabled，将input等设置为只读

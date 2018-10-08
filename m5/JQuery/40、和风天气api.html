@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style type="text/css">
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        .box{
+            width: 100%;
+            height: 30px;
+            background-color: rgba(15,25,50,.3);
+            position: relative;
+        }
+        .location{
+            line-height: 30px;
+            float: left;
+            margin-right: 5px;
+        }
+        .cond_code_img>img{
+            float: left;
+            width: 30px;
+            height: 30px;
+            margin-right: 5px;
+        }
+        .tmp{
+            float: left;
+            line-height: 30px;
+        }
+        .weather-detail{
+            width: 600px;
+            height: 400px;
+            background-color: red;
+            position: absolute;
+            top: 30px;
+        }
+        .yujing{
+            width: 100%;
+            height: 50px;
+            background-color: rgb(242, 242, 100);
+        }
+        .flag{
+            width: 50px;
+            height: 50px;
+            background-color: blue;
+            background-image: url(./img/5.png);
+            background-repeat: no-repeat;
+            background-position: center center;
+            float: left;
+        }
+        .yujing-desc{
+            float: left;
+            line-height: 50px;
+            padding-left: 10px;
+        }
+        .date{
+            height: 50px;
+            background-color: rgb(242, 100, 100);
+            line-height: 50px;
+        }
+        .weather-detail{
+            height: 300px;
+            background-color: #f2f2f2;
+            display: none;
+        }
+        .future-weather{
+            width: 600px;
+            height: 220px;
+        }
+        .today-weather{
+            width: 200px;
+            height: 200px;
+            padding-top: 20px;
+            float: left;
+            background-color: #8000ff;
+            text-align: center;
+        }
+        .tomorrow-weather{
+            width: 200px;
+            height: 200px;
+            padding-top: 20px;
+            float: left;
+            background-color: #00ff88;
+            text-align: center;
+        }
+        .thirdday-weather{
+            width: 200px;
+            height: 200px;
+            padding-top: 20px;
+            float: left;
+            background-color: #ae00ff;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="location"></div>
+        <div class="cond_code_img">
+            <img src="" alt="">
+        </div>
+        <div class="tmp"></div>
+        <div class="weather-detail">
+            <div class="yujing">
+                <div class="flag"></div>
+                <div class="yujing-desc">北京市发布大风蓝色预警</div>
+            </div>
+            <div class="date-box">
+                <div class="date"></div>
+                <div class="nongli"></div>
+            </div>
+            <div class="future-weather">
+                <div class="today-weather">
+                    <p></p>
+                    <img src="" alt="">
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                </div>
+                <div class="tomorrow-weather">
+                    <p></p>
+                    <img src="" alt="">
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                </div>
+                <div class="thirdday-weather">
+                    <p></p>
+                    <img src="" alt="">
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="./js/jquery-3.3.1.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $('.box').mouseenter(function(){
+                $('.weather-detail').stop().slideDown(0);
+            });
+            $('.box').mouseleave(function(){
+                $('.weather-detail').stop().slideUp(0);
+            });
+            $.ajax({
+                url: 'https://free-api.heweather.com/s6/weather/now?location=beijing&key=a657489cd4f34b60b7eba66d68cdbf12',
+                type: 'get',
+                success: function(data){
+                    $('.location').text(data.HeWeather6[0].basic.location);
+                    $('.cond_code_img>img').attr('src','./img/cond-icon-heweather/' + data.HeWeather6[0].now.cond_code + '.png');
+                    $('.tmp').text(data.HeWeather6[0].now.tmp + '℃');
+                },
+                error:function(err){
+                    console.log(err);
+                }
+            });
+            $.ajax({
+                url: 'https://free-api.heweather.com/s6/weather/forecast?location=beijing&key=a657489cd4f34b60b7eba66d68cdbf12',
+                type: 'get',
+                success: function(data){
+                    $('.date>div:eq(0)').text(data.HeWeather6[0].daily_forecast[0].date);
+                    $('.today-weather>p:eq(0)').text('今天');
+                    $('.today-weather>img:eq(0)').attr('src','./img/cond-icon-heweather/'+data.HeWeather6[0].daily_forecast[1].cond_code_d+'.png');
+                    $('.today-weather>p:eq(1)').text(data.HeWeather6[0].daily_forecast[0].tmp_max + ' ~ ' + data.HeWeather6[0].daily_forecast[0].tmp_min + '℃');
+                    $('.today-weather>p:eq(2)').text(data.HeWeather6[0].daily_forecast[0].cond_txt_d);
+                    $('.today-weather>p:eq(3)').text(data.HeWeather6[0].daily_forecast[0].wind_dir + data.HeWeather6[0].daily_forecast[0].wind_sc + '级');
+
+                    $('.tomorrow-weather>p:eq(0)').text(data.HeWeather6[0].daily_forecast[1].date);
+                    $('.tomorrow-weather>img:eq(0)').attr('src','./img/cond-icon-heweather/'+data.HeWeather6[0].daily_forecast[1].cond_code_d+'.png');
+                    $('.tomorrow-weather>p:eq(1)').text(data.HeWeather6[0].daily_forecast[1].tmp_max + ' ~ ' + data.HeWeather6[0].daily_forecast[1].tmp_min + '℃');
+                    $('.tomorrow-weather>p:eq(2)').text(data.HeWeather6[0].daily_forecast[1].cond_txt_d);
+                    $('.tomorrow-weather>p:eq(3)').text(data.HeWeather6[0].daily_forecast[1].wind_dir + data.HeWeather6[0].daily_forecast[1].wind_sc + '级');
+
+                    $('.thirdday-weather>p:eq(0)').text(data.HeWeather6[0].daily_forecast[2].date);
+                    $('.thirdday-weather>img:eq(0)').attr('src','./img/cond-icon-heweather/'+data.HeWeather6[0].daily_forecast[1].cond_code_d+'.png');
+                    $('.thirdday-weather>p:eq(1)').text(data.HeWeather6[0].daily_forecast[2].tmp_max + ' ~ ' + data.HeWeather6[0].daily_forecast[2].tmp_min + '℃');
+                    $('.thirdday-weather>p:eq(2)').text(data.HeWeather6[0].daily_forecast[2].cond_txt_d);
+                    $('.thirdday-weather>p:eq(3)').text(data.HeWeather6[0].daily_forecast[2].wind_dir + data.HeWeather6[0].daily_forecast[2].wind_sc + '级');
+                },
+                error: function(err){
+                    console.log(err);
+                }
+            })
+        });
+    </script>
+</body>
+</html>

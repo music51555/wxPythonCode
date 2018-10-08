@@ -44,11 +44,11 @@ dom对象之间的插入
         // 2、在标签下添加标签+文本    
         $('.box').append('<p>we are friends</p>');
         
+        // 3、在标签下添加JS对象
         var input = document.createElement('input');
         input.type = 'text';
         input.placeholder = '请输入用户名';
         
-        // 3、在标签下添加JS对象
         $('.box').append(input);
         
         // 4、在标签添加jquery对象，相当于把现有的jquery对象移动位置，并且连同jquery下的标签一同移动

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style type="text/css">
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .father{
+            width: 100px;
+            height: 50px;
+            background-color:red;
+        }
+        .child{
+            width: 300px;
+            height: 200px;
+            background-color: green;
+            position: absolute;
+            top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="father">
+        <span>购物车</span>
+        <div class="child" style="display:none">
+
+        </div>
+    </div>
+    <script type="text/javascript" src="./js/jquery-3.3.1.js"></script>
+    <script type="text/javascript">
+        // 如果使用mouseover和mouseout事件，那么是在移入和移出父级元素和子级元素都会触发事件，也就是鼠标移入父盒子和子盒子时，都会触发子盒子的slideDown方法，导致从父盒子移动到子盒子的过程中，子盒子执行了mouseout方法
+        $('.father').mouseover(function(){
+            $('.child').slideDown(500);
+        });
+        
+        $('.father').mouseout(function(){
+            console.log(1);
+            $('.child').slideUp(500);
+        });
+
+        // 而使用mouseenter和mouseleave方法时，只有在进入和离开父盒子的时候，才会触发事件
+        $('.father').mouseenter(function(){
+            $('.child').stop().slideDown(1);
+        });
+        
+        $('.father').mouseleave(function(){
+            console.log(1);
+            $('.child').stop().slideUp(1);
+        });
+            
+        // jquery中的hover方法，同时集成了mouseenter方法和mouseleave方法
+        $('.father').hover(function(){
+            $('.child').slideDown(500);
+        },function(){
+            $('.child').slideUp(500);
+        });
+    </script>
+</body>
+</html>

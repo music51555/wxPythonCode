@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style type="text/css">
+        .wrap{
+            width: 581px;
+            border: 1px solid #8aa3c4;
+            padding: 20px;
+        }
+        .public{
+            width: 581px;
+            border: 0 1px 1px 1px solid #8aa3c4;
+            overflow: hidden;
+        }
+        .public-link-banner{
+            padding-top: 15px;
+            display: none;
+        }
+        .public-top{
+            height: 28px;
+            background-color: #e6ecf3;
+            font-weight: 700;
+            font: 14px/28px '宋体';
+            color: #8aa3c4;
+            font-weight: 700;
+        }
+        .public-title span{
+            color: #8aa3c4;
+            font: 14px;
+        }
+        .public-nav-btns{
+            overflow: hidden;
+            padding-top: 15px;
+            border-bottom: 1px solid #ccdcef;
+        }
+        .public-nav-btn{
+            text-decoration: none;
+            color: #369;
+            display: block;
+            width: 90px;
+            height: 35px;
+            font: 14px/35px '宋体';
+            background: url(./images/bottom_mo_128_220.png) no-repeat;
+            float: left;
+            border-radius: 3px;
+            text-align: center;
+            margin-right: 4px;
+            font-weight: 700;
+        }
+        .public-nav-active{
+            color: #787878;
+            background: url(./images/bottom_mo_128_220.png) no-repeat;
+            background-position: 0 74px;
+            border-top: 1px solid #8aa3c4;
+            border-left: 1px solid #8aa3c4;
+            border-right: 1px solid #8aa3c4;
+        }
+        .public-form-desc{
+            color: #999;
+            font-size: 12px;
+            margin-top: 8px;
+            margin-bottom: 5px;
+        }
+        .add-link{
+            background-color: #e6ecf3;
+            padding: 5px;
+            overflow: hidden;
+            width: 461px;
+            float: left;
+            margin-right: 5px;
+            padding: 6px;
+        }
+        .public-form-link{
+            width: 453px;
+            height: 24px;
+            padding: 2px;
+            border: 1px solid rgb(204, 220, 239);
+        }
+        .add-link-box{
+            overflow: hidden;
+        }
+        .add-link input{
+            float: left;
+        }
+        .add-link-btn{
+            margin-top: 5px;
+            width: 95px;
+            height: 31px;
+            font: 14px/31px '宋体';
+            display: block;
+            float: left;
+            text-decoration: none;
+            background: url(./images/bottom.png) no-repeat;
+            background-position: 0 -165px;
+            text-align: center;
+            color: #fff;
+            font-weight: 700;
+        }
+        .public-title,.public-abs{
+            background-color: #e6ecf3;
+            padding: 5px;
+            margin-right: 5px;
+            padding: 6px;
+        }
+        .public-title input{
+            width: 556px;
+        }
+        .public-abs textarea{
+            width: 556px;
+            height: 70px;
+            border: 1px solid #ccdcef;
+            padding: 2px;
+        }
+        .public-where{
+            margin-top: 15px;
+            overflow: hidden;
+        }
+        .public-module a{
+            display: block;
+            width: 60px;
+            height: 28px;
+            background: url(./images/bottom.png) no-repeat;
+            color: #fff;
+            float: left;
+            text-align: center;
+            line-height: 28px;
+            margin-right: 3px;
+        }
+        .clear{
+            display: block;
+            font-size: 12px;
+            color: #369;
+            float: right;
+            text-decoration: none;
+            margin-right: 18px;
+            line-height: 30px;
+        }
+        .public-go{
+            width: 96px;
+            height: 30px;
+            float: right;
+            text-decoration: none;
+            line-height: 30px;
+            text-align: center;
+            background: url(./images/bottom.png) no-repeat;
+            background-position: 0 -563px;
+            color: #fff;
+        }
+        .public-btn{
+            margin-top: 10px;
+            overflow: hidden;
+        }
+        .wenzi-desc textarea{
+            width: 523px;
+            height: 70px;
+            font-size: 13px;
+        }
+        .public-wenzi-banner{
+            padding-top: 15px;
+            /* display: none; */
+        }
+        .wenzi-count{
+            background-color: #e6ecf3;
+        }
+        .wenzi-counter{
+            float: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="public-top">
+            <span>分享新发现</span>
+        </div>
+        <div class="public">
+            <div>
+                <div class="public-nav">
+                    <div class="public-nav-btns">
+                        <a href="" class="public-nav-btn public-nav-active">链接</a>
+                        <a href="" class="public-nav-btn">文字</a>
+                        <a href="" class="public-nav-btn">图片</a>
+                    </div>
+                    </div class="public-box">
+                    <form action="">
+                        <div class="public-link-banner">
+                            <div class="public-form-desc">添加链接</div>
+                            <div class="add-link-box">
+                                <div class="add-link">
+                                    <input type="text" placeholder="http://" class="public-form-link">
+                                </div>
+                                <div>
+                                    <a href="" class="add-link-btn">获取标题</a>
+                                </div>
+                            </div >
+                            <div class="public-form-desc">标题</div>
+                            <div class="public-title">
+                                <input type="text" class="public-form-link" disabled>
+                            </div>
+                            <div class="public-form-desc">添加摘要（选填</div>
+                            <div class="public-abs">
+                                <textarea name="" id="" disabled></textarea>
+                            </div>
+                            <div class="public-where">
+                                <div style="padding-right:6px;float:left" class="public-form-desc">发布到</div>
+                                <div style="float:left" class="public-module">
+                                    <a style="background-position:0 -409px;" href="" class="public-to-42">
+                                        42区
+                                    </a>
+                                    <a style="background-position: 0 -469px;" href="" class="public-to-dz">
+                                        段子
+                                    </a>
+                                    <a style="background-position: 0 -469px;" href="" class="public-to-tp">
+                                        图片
+                                    </a>
+                                    <a style="width: 105px; background-position: 0 -655px;" href="" class="public-to-it">
+                                        挨踢1024
+                                    </a>
+                                    <a style="width: 90px; background-position: 0 -655px" href="" class="public-to-wd">
+                                        你问我答
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="public-btn">
+                                <a class="public-go" href="">发布</button>
+                                <a class="clear" href="">清空</a>
+                            </div>
+                        </div>
+                        <div class="public-wenzi-banner">
+                            <div class="wenzi-desc">
+                                <textarea name="" id=""></textarea>
+                            </div>
+                            <div class="wenzi-count">
+                                <div class="wenzi-counter">还可以输入150字</div>
+                            </div>
+                        </div>
+                    </form>
+                    <div style="height: 20px;clear: both;visibility: hidden;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

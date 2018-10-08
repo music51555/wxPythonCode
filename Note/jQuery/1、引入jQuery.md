@@ -22,7 +22,7 @@
 
 
 
-其实是在jQuery文件中执行的这段源码，jQuery是一个全局函数
+其实是在jQuery文件中执行的这段源码，jQuery是一个全局函数，返回了一个jquery对象
 
 ```javascript
 version = "3.3.1",

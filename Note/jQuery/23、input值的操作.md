@@ -1,20 +1,20 @@
 点击**单选按钮radio**触发事件的方法
 
-JS：onchange
+JS：**onchange**
 
-Jquery：change
+Jquery：**change**
 
 设置单选按钮默认被选中
 
 
 
-主要的思想是添加**“:selected”**，表示拥有某个属性的对象
+主要的思想是添加**“:selected”**，表示拥有某个属性的标签
 
 $('select').find('option:selected')
 
 
 
-JS对象.selectedIndex表示设置被选中的索引序号，将其设置为选中
+**JS对象.selectedIndex**表示设置被选中的索引序号，将其设置为选中
 
 ```html
 <!DOCTYPE html>

@@ -2,9 +2,13 @@
 
 在jquery中没有捕获事件流
 
-event.stopPropageation，简便写法return false
+### propagation 美 /,prɑpə'geʃən/  传播
 
-event.preventDefault，阻止a标签的默认事件，alert
+### prevent 美 /pri'vɛnt/ 阻止
+
+**event.stopPropageation**，简便写法return false
+
+**event.preventDefault**，阻止a标签的默认事件，alert
 
 ```html
 <!DOCTYPE html>
