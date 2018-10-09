@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class="box"></div>
+    <script type="text/javascript" src="./js/jquery-3.3.1.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $.ajax({
+                // 简单的ajax请求，请求的网址、访问的类型，访问成功或错误后执行的函数
+                url: 'https://www.luffycity.com/home',
+                type: 'get',
+                dataType: 'jsonp',
+                // 在success的匿名函数形参中，会得到后台返回的data数据
+                success: function(data){
+                    // 当访问成功根目录/后，后台response会一个data数据，是一个h2字符串标签，并将他添加到body下，展示在网页中，实现了MVC数据驱动视图，data就是服务器返回的数据，通过html方法驱动视图，展示在页面中
+                    console.log(data);
+                    $('body').html(data);
+                },
+                error: function(){
+                    console.log(err);
+                }
+            })
+
+            $.ajax({
+                url: 'http://localhost:8880/course',
+                type: 'get',
+                // 通过后台返回的数据是字符串格式，设置数据类型为json后，变为{name: "张三"}
+                dataType: 'json',
+                success: function(data){
+                    console.log(data);
+                    // 获取到name的值，将其通过MVC赋值给jquery对象
+                    $('.box').text(data.name);
+                },
+                error: function(err){
+                    console.log(err)
+                }
+            });
+        })
+    </script>
+</body>
+</html>

@@ -7,18 +7,20 @@
     <title>Document</title>
     <style type="text/css">
         .wrap{
-            width: 581px;
+            width: 621px;
             border: 1px solid #8aa3c4;
-            padding: 20px;
+            position: absolute;
+            top: 130px;
+            left: 541px;
         }
         .public{
             width: 581px;
             border: 0 1px 1px 1px solid #8aa3c4;
             overflow: hidden;
+            padding: 0 20px 20px 20px;
         }
         .public-link-banner{
             padding-top: 15px;
-            display: none;
         }
         .public-top{
             height: 28px;
@@ -129,6 +131,9 @@
             text-align: center;
             line-height: 28px;
             margin-right: 3px;
+            font-size: 12px;
+            line-height: 28px;
+            text-decoration: none;
         }
         .clear{
             display: block;
@@ -154,20 +159,70 @@
             margin-top: 10px;
             overflow: hidden;
         }
+        .wenzi-desc{
+            background-color: #e6ecf3;
+            padding: 5px;
+        }
         .wenzi-desc textarea{
-            width: 523px;
+            width: 565px;
+            height: 70px;
+            font-size: 13px;
+        }
+        .img-desc textarea{
+            width: 565px;
             height: 70px;
             font-size: 13px;
         }
         .public-wenzi-banner{
             padding-top: 15px;
-            /* display: none; */
+            display: none;
         }
         .wenzi-count{
             background-color: #e6ecf3;
+            overflow: hidden;
         }
-        .wenzi-counter{
+        .write-length{
+            height: 29px;
             float: right;
+            background-color: #e6ecf3;
+            font-family: Constantia,Georgia;
+            color: #8ca1c1;
+            font-size: 14px;
+            margin-right: 10px;
+        }
+        .write-num{
+            font-size: 20px;
+            line-height: 22px;
+        }
+        .upload{
+            padding: 5px;
+            background-color: #e6ecf3;
+            height: 31px;
+            line-height: 25px;
+        }
+        .upload-btn{
+            display: block;
+            width: 63px;
+            height: 31px;
+            background: url(./images/bottom.png) no-repeat 0 0;
+            text-decoration: none;
+            color: #fff;
+            font-weight: 700;
+            margin-right: 10px;
+            float: left;
+            text-align: center;
+            line-height: 31px;
+        }
+        .upload-desc{
+            display: blockl;
+            float: left;
+            font-size: 12px;
+            color: #8ca1c1;
+            line-height: 31px;
+        }
+        .public-img-banner{
+            padding-top: 15px;
+            display: none;
         }
     </style>
 </head>
@@ -200,49 +255,179 @@
                             <div class="public-title">
                                 <input type="text" class="public-form-link" disabled>
                             </div>
-                            <div class="public-form-desc">添加摘要（选填</div>
+                            <div class="public-form-desc">添加摘要（选填）</div>
                             <div class="public-abs">
                                 <textarea name="" id="" disabled></textarea>
                             </div>
                             <div class="public-where">
                                 <div style="padding-right:6px;float:left" class="public-form-desc">发布到</div>
                                 <div style="float:left" class="public-module">
-                                    <a style="background-position:0 -409px;" href="" class="public-to-42">
+                                    <a style="background-position:0 -409px;" href="">
                                         42区
                                     </a>
-                                    <a style="background-position: 0 -469px;" href="" class="public-to-dz">
+                                    <a style="background-position: 0 -469px;" href="">
                                         段子
                                     </a>
-                                    <a style="background-position: 0 -469px;" href="" class="public-to-tp">
+                                    <a style="background-position: 0 -469px;" href="">
                                         图片
                                     </a>
-                                    <a style="width: 105px; background-position: 0 -655px;" href="" class="public-to-it">
+                                    <a style="width: 105px; background-position: 0 -655px;" href="">
                                         挨踢1024
                                     </a>
-                                    <a style="width: 90px; background-position: 0 -655px" href="" class="public-to-wd">
+                                    <a style="width: 60px; background-position: 0 -469px" href="">
                                         你问我答
                                     </a>
                                 </div>
                             </div>
                             <div class="public-btn">
-                                <a class="public-go" href="">发布</button>
+                                <a class="public-go" href="">发布</a>
                                 <a class="clear" href="">清空</a>
                             </div>
                         </div>
                         <div class="public-wenzi-banner">
                             <div class="wenzi-desc">
-                                <textarea name="" id=""></textarea>
+                                <textarea name="" id="" placeholder="发布段子..." maxlength="150"></textarea>
                             </div>
                             <div class="wenzi-count">
-                                <div class="wenzi-counter">还可以输入150字</div>
+                                <div class="write-length">还可以输入
+                                    <span class="write-num">150</span>
+                                    字</div>
+                            </div>
+                            <div class="public-where">
+                                    <div style="padding-right:6px;float:left" class="public-form-desc">发布到</div>
+                                    <div style="float:left" class="public-module">
+                                        <a style="background-position:0 -409px;" href="">
+                                            42区
+                                        </a>
+                                        <a style="background-position: 0 -469px;" href="">
+                                            段子
+                                        </a>
+                                        <a style="background-position: 0 -469px;" href="">
+                                            图片
+                                        </a>
+                                        <a style="width: 105px; background-position: 0 -655px;" href="">
+                                            挨踢1024
+                                        </a>
+                                        <a style="width: 60px; background-position: 0 -469px" href="">
+                                            你问我答
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="public-btn">
+                                    <a class="public-go" href="">发布</a>
+                                    <a class="clear" href="">清空</a>
+                                </div>
+                        </div>
+                        <div class="public-img-banner">
+                            <div>
+                                <div class="public-form-desc">添加图片</div>
+                                <div class="upload">
+                                    <div href="" class="upload-btn">
+                                        上传
+                                    </div>
+                                    <input  style="display: none;" type="file" id="loadfile">
+                                    <span class="upload-desc">支持jpg、jpeg、gif、png格式，且不超过5MB</span>
+                                </div>
+                                <div class="img-desc">
+                                        <textarea name="" id="" placeholder="请输入图片描述..." maxlength="150"></textarea>
+                                </div>
+                                <div class="wenzi-count">
+                                    <div class="write-length">还可以输入
+                                        <span class="write-num">150</span>
+                                        字
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="public-where">
+                                <div style="padding-right:6px;float:left" class="public-form-desc">发布到</div>
+                                <div style="float:left" class="public-module">
+                                    <a style="background-position:0 -409px;" href="">
+                                        42区
+                                    </a>
+                                    <a style="background-position: 0 -469px;" href="">
+                                        段子
+                                    </a>
+                                    <a style="background-position: 0 -469px;" href="">
+                                        图片
+                                    </a>
+                                    <a style="width: 105px; background-position: 0 -655px;" href="">
+                                        挨踢1024
+                                    </a>
+                                    <a style="width: 60px; background-position: 0 -469px" href="">
+                                        你问我答
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="public-btn">
+                                <a class="public-go" href="">发布</a>
+                                <a class="clear" href="">清空</a>
                             </div>
                         </div>
                     </form>
                     <div style="height: 20px;clear: both;visibility: hidden;"></div>
                 </div>
-            </div>
         </div>
     </div>
-
+    <script type="text/javascript" src="./js/jquery-3.3.1.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $('.public-nav-btns').children('a').click(function(event){
+                event.preventDefault();
+                $('form').children().eq($(this).index()).show();
+                $('form').children().eq($(this).index()).siblings().hide();
+                $(this).addClass('public-nav-active');
+                $(this).siblings().removeClass('public-nav-active');
+                $(this).parent().parent().siblings('form').children().find('input,textarea').val('');
+                $(this).parent().parent().siblings('form').children().find('.public-title>input,.public-abs>textarea').attr('disabled','disabled');
+                $(this).parent().parent().siblings('form').children().find('.add-link-btn').css('background-position','0 -165px');
+                $(this).parent().parent().siblings('form').children().find('.public-go').css('background-position','0 -563px');
+            });
+            $('.public-module').children('a').click(function(event){
+                event.preventDefault();
+                if($(this).index()!=3){
+                    $(this).css('background-position', '0 -409px');
+                    $(this).siblings().css('background-position','0 -469px');
+                    $(this).parent().children().eq(3).css('background-position','0 -655px');
+                }else{
+                    $(this).css('background-position', '0 -595px');
+                    $(this).siblings().css('background-position','0 -469px');
+                }
+            });
+            $('.add-link>input').keyup(function(event){
+                event.preventDefault();
+                console.log($('.add-link>input').val());
+                $('.add-link-btn').css('background-position','0 -99px');
+            });
+            $('.add-link-btn').click(function(event){
+                event.preventDefault();
+                if($('.add-link>input').val()){
+                    $('.public-title>input').val('路飞学城');
+                    $('.public-abs>textarea').val('路飞学城立志帮助有志向的年轻人通过努力学习获得体面的工作和生活!路飞学员通过学习Python ,金融分析,人工智能等互联网最前沿技术,开启职业生涯新可能。');
+                    $('.public-title>input').removeAttr('disabled');
+                    $('.public-abs>textarea').removeAttr('disabled');
+                    $('.public-link-banner .public-go').css('background-position','0 -499px');
+                }
+            });
+            $('.clear').click(function(event){
+                event.preventDefault();
+                $(this).parent().parent().find('input,textarea').val('');
+                $('.add-link-btn').css('background-position','0 -165px');
+                $('.public-title>input').attr('disabled','disabled');
+                $('.public-abs>textarea').attr('disabled','disabled');
+                $('.public-go').css('background-position','0 -563px');
+            });
+            $('.wenzi-desc>textarea').keyup(function(){
+                $('.write-num').text(150-$(this).val().length);
+                $(this).parent().parent().find('.public-go').css('background-position','0 -499px');
+            });
+            $('.img-desc>textarea').keyup(function(){
+                $('.write-num').text(150-$(this).val().length);
+                $(this).parent().parent().parent().find('.public-go').css('background-position','0 -499px');
+            });
+            $('.upload-btn').click(function(event){
+                $('#loadfile').click();
+            });
+        });
+    </script>
 </body>
 </html>
