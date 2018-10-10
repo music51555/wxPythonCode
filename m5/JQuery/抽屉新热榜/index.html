@@ -859,23 +859,26 @@
         $(function(){
             var title = null;
             var content = null;
+            var url = null;
+            var j = 0;
             function loadpage(i){
-                debugger;
                 var itembanner = document.createElement('div');
-                if(i >= 0){
+                if(i != 'false'){
                     itembanner.className = 'items-banner' + i;
+                }else{
+                    itembanner.className = 'items-banner' + j;
                 }
                 $('.content-L').append($(itembanner));
                 var newItem = document.createElement('div');
                 newItem.className = 'item';
-                console.log(newItem);
                 var itemTitle = document.createElement('div');
                 var itemurl = document.createElement('div');
-                titlelist = localStorage.getItem('item-title').split(' ');
-                
-                var content = document.createElement('div');
-                content.className = 'content';
-                $('.items-content').append($(content));
+                if(localStorage.getItem('item-title')){
+                    titlelist = localStorage.getItem('item-title').split(' ');
+                }
+                var itemcontent = document.createElement('div');
+                itemcontent.className = 'item-content';
+                // $(itembanner).append($(itemcontent));
                 var itempart = document.createElement('div');
                 var commentbox = document.createElement('div');
                 var tuijian = document.createElement('a');
@@ -895,18 +898,24 @@
                 var mydate = new Date();
                 var nowtime = mydate.getMinutes();
                 publictime.innerHTML = '<span class="timecount">小于1分钟</span><span class="inhot">入热榜</span>';
-                if(i >= 0){
+                debugger;
+                if(i != 'false'){
                     $('.items-banner'+i).append($(newItem));
-                    $('.items-banner'+i).append($(content));
+                    $('.items-banner'+i).append($(itemcontent));
                     $('.items-banner'+i).append($(itempart));
                     $('.items-banner'+i).append($(commentbox));
                     $('.items-banner'+i).append('<hr>');
+                }else{
+                    $('.items-banner'+j).append($(newItem));
+                    $('.items-banner'+j).append($(itemcontent));
+                    $('.items-banner'+j).append($(itempart));
+                    $('.items-banner'+j).append($(commentbox));
+                    $('.items-banner'+j).append('<hr>');
                 }
                 itemTitle.className = 'item-title';
                 itemurl.className = 'item-url';
                 itempart.className = 'item-part';
                 commentbox.className = 'comment-box';
-                // $('.comment-box').css('display','none');
                 $('.comment-box').html('<div class="comment-top">\
         <div class="tip1">\
         最热评论(\
@@ -935,16 +944,17 @@
                 itempart.appendChild(lianjie);
                 itempart.appendChild(publictime);
                 console.log(i);
-                if(localStorage.getItem('item-title') && i >= 0){
-                    console.log(111);
-                    console.log(localStorage.getItem('item-title').split(' ')[i]);
-                    itemTitle.innerText = localStorage.getItem('item-title').split(' ')[i];
-                    content.innerText = localStorage.getItem('item-content').split(' ')[i];
+                if(localStorage.getItem('item-title') && i != 'false'){
+                    itemTitle.innerText = localStorage.getItem('item-title').split(',')[i];
+                    itemcontent.innerText = localStorage.getItem('item-content').split(',')[i];
+                    itemurl.innerText = localStorage.getItem('item-url').split(',')[i];
                 }else{
                     title = itemTitle.innerText = $('.public-link-banner .public-title>input').val();
-                    content = content.innerText = $('.public-link-banner .public-abs>textarea').val();
+                    content = itemcontent.innerText = $('.public-link-banner .public-abs>textarea').val();
+                    url = itemurl.innerText = $('.public-link-banner .add-link>input').val();
                     itemurl.innerText = $('.public-link-banner .add-link>input').val();
                 }
+                j++;
             }
             if(localStorage.getItem('item-title')){
                 titlelist = localStorage.getItem('item-title').split(' ');
@@ -996,7 +1006,7 @@
                 event.preventDefault();
                 if($('.add-link>input').val()){
                     $('.public-title>input').val('路飞学城');
-                    $('.public-abs>textarea').val('路飞学城立志帮助有志向的年轻人通过努力学习获得体面的工作和生活!路飞学员通过学习Python ,金融分析,人工智能等互联网最前沿技术,开启职业生涯新可能。');
+                    $('.public-abs>textarea').val('路飞学城立志帮助有志向的年轻人通过努力学习获得体面的工作和生活!路飞学员通过学习Python，金融分析，人工智能等互联网最前沿技术，开启职业生涯新可能。');
                     $('.public-title>input').removeAttr('disabled');
                     $('.public-abs>textarea').removeAttr('disabled');
                     $('.public-link-banner .public-go').css('background-position','0 -499px');
@@ -1024,22 +1034,24 @@
             $('.public-link-banner .public-go').click(function(event){
                 event.preventDefault();
                 if($('.public-link-banner .public-title>input').val()){
-                    var i = false;
+                    var i = 'false';
                     loadpage(i);
                     $('.wrap').hide();
                     $('.clear').click();
                     if(localStorage.getItem('item-title')){
                         titlelist = localStorage.getItem('item-title').split(' ');
                         contentlist = localStorage.getItem('item-content').split(' ');
+                        urllist = localStorage.getItem('item-url').split(' ');
                         titlelist.push(title);
                         contentlist.push(content);
-                        console.log(titlelist);
-                        console.log(contentlist); 
+                        urllist.push(url);
                         localStorage.setItem('item-title',titlelist);
                         localStorage.setItem('item-content',contentlist);
+                        localStorage.setItem('item-url',urllist);
                     }else{
                         localStorage.setItem('item-title',title);
                         localStorage.setItem('item-content',content);
+                        localStorage.setItem('item-url',url);
                     }
                 }
             });
@@ -1073,8 +1085,12 @@
             },function(){
                 $(this).css('background-position','0 -100px');
             });
-            $('.pinglun').click(function(){
-                $('.comment-box').css('display','block');
+            $('.pinglun').click(function(event){
+                if($(this).parent().siblings('.comment-box').css('display') == 'none'){
+                    $(this).parent().siblings('.comment-box').css('display','block');
+                }else{
+                    $(this).parent().siblings('.comment-box').css('display','none');
+                }
             });
             $('.sicang').hover(function(){
                 $('.sicang>span').css('background-position','0 -140px');
@@ -1083,16 +1099,23 @@
                 $('.sicang>span').css('background-position','0 -160px');
                 $('.sicang>b').css('text-decoration','none');
             });
+            var comment_value = null;
             $('.comment-textarea').keyup(function(){
                 $('.comment-btn').css('background-position','0 -33px');
+                comment_value = $(this).val();
             });
             $('.comment-btn').click(function(event){
                 event.preventDefault();
-                $('.comment-innerbox').before('<div class="comment-content"><span class="comment-item"></span></div>');
-                $('comment-content').css('');
-                $('.comment-content>span').text('alex:    ' + $('.comment-textarea').val());
-                $('.comment-textarea').val('');
-                $('.comment-btn').css('background-position','0 -66px');
+                if($('.comment-btn').css('background-position') == '0px -33px'){
+                    $('.comment-innerbox').before('<div class="comment-content"><span class="comment-item"></span></div>');
+                    $('comment-content').css('');
+                    $('.comment-content>span').text('alex:    ' + $('.comment-textarea').val());
+                    $('.comment-textarea').val('');
+                    $('.comment-btn').css('background-position','0px -33px');
+                    $(this).parent().siblings('.comment-top').children('.tip1').children('span').text(Number($(this).parent().siblings('.comment-top').children('.tip1').children('span').text())+1);
+                    $('.comment-btn').css('background-position','0px -66px');
+                    localStorage.setItem($(this).parent().parent().parent().attr('class'),comment_value);
+                }
             });
             $('.closehide,.closex').click(function(event){
                 event.preventDefault();
