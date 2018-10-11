@@ -659,6 +659,11 @@
             font-size: 14px;
             font-family: '宋体';
         }
+        .comment-item{
+            display: block;
+            width: 520px;
+            margin-top: 5px;
+        }
     </style>
 </head>
 <body>
@@ -861,26 +866,31 @@
             var content = null;
             var url = null;
             var j = 0;
+
             function loadpage(i){
                 var itembanner = document.createElement('div');
+                // 在刷新网页后，程序会或许当前页面的的数据条数，有多少条就会进行多少次循环，i的值 == 数据的条数
+                // 在点击发布按钮后，新增数据，以j的值为准，新增第一条，第一条数据的类名为xxx0，xxx1...
                 if(i != 'false'){
                     itembanner.className = 'items-banner' + i;
                 }else{
                     itembanner.className = 'items-banner' + j;
                 }
+                
+                // 发布帖子后，在页面创建元素
                 $('.content-L').append($(itembanner));
                 var newItem = document.createElement('div');
                 newItem.className = 'item';
                 var itemTitle = document.createElement('div');
+                itemTitle.className = 'item-title';
                 var itemurl = document.createElement('div');
-                if(localStorage.getItem('item-title')){
-                    titlelist = localStorage.getItem('item-title').split(' ');
-                }
+                itemurl.className = 'item-url';
                 var itemcontent = document.createElement('div');
                 itemcontent.className = 'item-content';
-                // $(itembanner).append($(itemcontent));
                 var itempart = document.createElement('div');
+                itempart.className = 'item-part';
                 var commentbox = document.createElement('div');
+                commentbox.className = 'comment-box';
                 var tuijian = document.createElement('a');
                 tuijian.className = 'tuijian';
                 tuijian.innerHTML = '<span></span><b>0</b>';
@@ -895,10 +905,24 @@
                 lianjie.innerHTML = '<span><img src = "./images/lianjie.png"></span><b>路飞特派员</b>';
                 var publictime = document.createElement('a');
                 publictime.className = 'public-time';
+
+                // 发布帖子后，发布时间的更新
                 var mydate = new Date();
-                var nowtime = mydate.getMinutes();
-                publictime.innerHTML = '<span class="timecount">小于1分钟</span><span class="inhot">入热榜</span>';
-                debugger;
+                if(localStorage.getItem(itembanner.className+'time')){
+                    var refreshtime = mydate.getMinutes();
+                    var nowtime = localStorage.getItem(itembanner.className+'time');
+                    var timecha = refreshtime - nowtime;
+                    if (timecha < 0){
+                        timecha = 60 - nowtime + refreshtime;
+                    }
+                    publictime.innerHTML = '<span class="timecount">'+timecha+'分钟前</span><span class="inhot">入热榜</span>';
+                }else{
+                    var nowtime = mydate.getMinutes();
+                    localStorage.setItem(itembanner.className+'time',nowtime);
+                    publictime.innerHTML = '<span class="timecount">小于1分钟</span><span class="inhot">入热榜</span>';
+                }
+                
+                // 在每一个盒子下添加数据
                 if(i != 'false'){
                     $('.items-banner'+i).append($(newItem));
                     $('.items-banner'+i).append($(itemcontent));
@@ -912,10 +936,8 @@
                     $('.items-banner'+j).append($(commentbox));
                     $('.items-banner'+j).append('<hr>');
                 }
-                itemTitle.className = 'item-title';
-                itemurl.className = 'item-url';
-                itempart.className = 'item-part';
-                commentbox.className = 'comment-box';
+
+                // 评论盒子的HTML
                 $('.comment-box').html('<div class="comment-top">\
         <div class="tip1">\
         最热评论(\
@@ -936,6 +958,8 @@
         <a href="" class="closehide">收起</a>\
     </div>\
     <a href="" class="closex">X</a>');
+
+                // 在一个盒子下添加子元素
                 newItem.appendChild(itemTitle);
                 newItem.appendChild(itemurl);
                 itempart.appendChild(tuijian);
@@ -943,24 +967,56 @@
                 itempart.appendChild(sicang);
                 itempart.appendChild(lianjie);
                 itempart.appendChild(publictime);
-                console.log(i);
+
+                // 为每一条数据复制标题、内容和URL
                 if(localStorage.getItem('item-title') && i != 'false'){
-                    itemTitle.innerText = localStorage.getItem('item-title').split(',')[i];
-                    itemcontent.innerText = localStorage.getItem('item-content').split(',')[i];
-                    itemurl.innerText = localStorage.getItem('item-url').split(',')[i];
+                    if(i == 0){
+                        itemTitle.innerText = localStorage.getItem('item-title').split(',')[i];
+                        itemcontent.innerText = localStorage.getItem('item-content').split(',')[i];
+                        itemurl.innerText = localStorage.getItem('item-url').split(',')[i];
+                    }else{
+                        itemTitle.innerText = localStorage.getItem('item-title').split(',')[i-1];
+                        itemcontent.innerText = localStorage.getItem('item-content').split(',')[i-1];
+                        itemurl.innerText = localStorage.getItem('item-url').split(',')[i-1];
+                    }
                 }else{
                     title = itemTitle.innerText = $('.public-link-banner .public-title>input').val();
                     content = itemcontent.innerText = $('.public-link-banner .public-abs>textarea').val();
                     url = itemurl.innerText = $('.public-link-banner .add-link>input').val();
                     itemurl.innerText = $('.public-link-banner .add-link>input').val();
                 }
+                // 每一次发布后，帖子的banner+1，形成一条独立的数据
                 j++;
             }
             if(localStorage.getItem('item-title')){
-                titlelist = localStorage.getItem('item-title').split(' ');
+                titlelist = localStorage.getItem('item-title').split(',');
                 console.log(titlelist);
+                console.log(titlelist.length);
+                if(titlelist.length > 1){
+                    for(var i = 1; i <= titlelist.length; i++){
+                        loadpage(i);
+                    }
+                    if(localStorage.getItem('items-banner0')){
+                        localStorage.setItem('items-banner1',localStorage.getItem('items-banner0'));
+                    }
+                    localStorage.removeItem('items-banner0time');
+                    localStorage.removeItem('items-banner0');
+                }else{
+                    for(var i = 0; i < titlelist.length; i++){
+                        loadpage(i);
+                    }
+                }
+                debugger;
                 for(var i = 0; i <= titlelist.length; i++){
-                    loadpage(i);
+                    if(localStorage.getItem('items-banner'+i)){
+                        conment_list = localStorage.getItem('items-banner'+i).split(',');
+                        console.log(conment_list);
+                        $('.items-banner'+i).children('.comment-box').children('.comment-top').after('<div class="comment-content"></div>');
+                        for(var k = 0; k < conment_list.length; k++){
+                            $('.items-banner'+i).children('.comment-box').children('.comment-content').append('<span class="comment-item">'+conment_list[k]+'</span>');
+                        }
+                        $('.items-banner'+i).children('.item-part').children('.pinglun').children('b').text(conment_list.length);
+                    }
                 }
             }
             $('.public-btn').click(function(event){
@@ -1053,6 +1109,7 @@
                         localStorage.setItem('item-content',content);
                         localStorage.setItem('item-url',url);
                     }
+                    window.location.reload();
                 }
             });
             $('.item').mouseenter(function(){
@@ -1093,11 +1150,11 @@
                 }
             });
             $('.sicang').hover(function(){
-                $('.sicang>span').css('background-position','0 -140px');
-                $('.sicang>b').css('text-decoration','underline');
+                $(this).children('span').css('background-position','0 -140px');
+                $(this).children('b').css('text-decoration','underline');
             },function(){
-                $('.sicang>span').css('background-position','0 -160px');
-                $('.sicang>b').css('text-decoration','none');
+                $(this).children('span').css('background-position','0 -160px');
+                $(this).children('b').css('text-decoration','none');
             });
             var comment_value = null;
             $('.comment-textarea').keyup(function(){
@@ -1106,15 +1163,36 @@
             });
             $('.comment-btn').click(function(event){
                 event.preventDefault();
+                debugger;
                 if($('.comment-btn').css('background-position') == '0px -33px'){
-                    $('.comment-innerbox').before('<div class="comment-content"><span class="comment-item"></span></div>');
-                    $('comment-content').css('');
-                    $('.comment-content>span').text('alex:    ' + $('.comment-textarea').val());
-                    $('.comment-textarea').val('');
+                    if($(this).parent().siblings('.comment-content').length > 0){
+                        console.log($(this).parent().siblings('comment-content'));
+                        $(this).parent().siblings('.comment-content').append('<span class="comment-item"></span>');
+                    }else{
+                        $(this).parent().before('<div class="comment-content"><span class="comment-item"></span></div>');
+                    }
+                    
+                    if(localStorage.getItem($(this).parent().parent().parent().attr('class'))){
+                        console.log($(this).parent().parent().parent().attr('class'));
+                        var commentlist = localStorage.getItem($(this).parent().parent().parent().attr('class')).split(' ');
+                        commentlist.push(comment_value);
+                        // for(var i = 0;i < commentlist.length;i++){
+                        $(this).parent().siblings('.comment-content').children('span:last').text(comment_value);
+                        // }
+                        localStorage.setItem($(this).parent().parent().parent().attr('class'),commentlist);
+                    }else{
+                        $(this).parent().siblings('.comment-content').children('span:last').text(comment_value);
+                        localStorage.setItem($(this).parent().parent().parent().attr('class'),comment_value);
+                    }
+                    // $('comment-content').css('');
                     $('.comment-btn').css('background-position','0px -33px');
+                    console.log($(this).siblings('.comment-area').children('span'));
+                    $(this).siblings('.comment-area').children('textarea').val('');
+                    // 每发布一条评论，评论数+1
                     $(this).parent().siblings('.comment-top').children('.tip1').children('span').text(Number($(this).parent().siblings('.comment-top').children('.tip1').children('span').text())+1);
                     $('.comment-btn').css('background-position','0px -66px');
-                    localStorage.setItem($(this).parent().parent().parent().attr('class'),comment_value);
+
+                    
                 }
             });
             $('.closehide,.closex').click(function(event){
