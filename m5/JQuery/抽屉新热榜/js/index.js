@@ -508,6 +508,9 @@ $(function(){
         $('.user-center').hover(function(){
             $('.more').css('display','block');
         },function(){
+            $('.more').css('display','none');
+        });
+        $('.more').mouseenter(function(){
             $('.more').css('display','block');
         });
         $('.more').mouseleave(function(){
