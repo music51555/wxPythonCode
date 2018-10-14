@@ -148,12 +148,13 @@ $(function(){
             $('.logined').css('display','block');
         }
         if(localStorage.getItem('item-title') && $('.logined').css('display') == 'block'){
+            debugger;
             titlelist = localStorage.getItem('item-title').split(',');
             console.log(titlelist);
             console.log(titlelist.length);
             if(titlelist.length > 1){
-                for(let i = 1; i <= titlelist.length; i++){
-                    loadpage(i);
+                for(let c = 1; c <= titlelist.length; c++){
+                    loadpage(c);
                 }
                 if(localStorage.getItem('items-banner0')){
                     localStorage.setItem('items-banner1',localStorage.getItem('items-banner0'));
@@ -162,7 +163,10 @@ $(function(){
                 }
                 localStorage.removeItem('items-banner0time');
                 localStorage.removeItem('items-banner0');
-                localStorage.setItem($('.user-center>span').text()+1,localStorage.getItem($('.user-center>span').text()+0));
+                if(localStorage.getItem($('.user-center>span').text()+0)){
+                    localStorage.setItem($('.user-center>span').text()+1,localStorage.getItem($('.user-center>span').text()+0));
+                }
+                
                 // localStorage.removeItem($('.user-center>span').text()+0);
             }else{
                 for(var z = 0; z < titlelist.length; z++){
@@ -365,6 +369,7 @@ $(function(){
             comment_value = $(this).val();
         });
         $('.comment-btn').click(function(event){
+            debugger;
             event.preventDefault();
             if($(this).css('background-position') == '0px -33px'){
                 if($(this).parent().siblings('.comment-content').length > 0){
