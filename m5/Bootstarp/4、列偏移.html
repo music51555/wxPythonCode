@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./bootstrap-3.3.7/css/bootstrap.css">
+    <style type="text/css">
+        .thumbnail{
+            height: 336px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="thumbnail"></div>
+            </div>
+            <!-- 一行12列，每一个盒子占用4列，那么就是一行显示3个盒子，但是页面上只有2个盒子，所以为了对称页面布局，讲第二个盒子使用col-md-offset-4，表示偏移4列后形成对称效果 -->
+            <div class="col-md-4 col-md-offset-4">
+                <div class="thumbnail"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
