@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./bootstrap-3.3.7/css/bootstrap.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <!-- 在下拉菜单的父级盒子添加dropup类，可使下拉菜单向上弹出 -->
+                <div class="thumnail">
+                    <div class="dropdown">
+                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            更多
+                            <span class="caret"></span>
+                        </button>
+                        <!-- dropdown-menu类为下拉菜单弹出的面板，附加样式 -->
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                            <li class="dropdown-header">国内新闻</li>
+                            <li><a href="#">新闻</a></li>
+                            <li><a href="#">赛事</a></li>
+                            <!-- 继承于dropdown-header类的li标签，将被显示为标题 -->
+                            <li class="dropdown-header">英雄联盟</li>
+                            <li><a href="#">电竞</a></li>
+                            <!--separator 美 /'sɛpəretɚ/  分割线-->
+                            <li role="separator" class="divider"></li>
+                            <!-- 同样为li标签添加disabled后，也将其设置为禁用状态 -->
+                            <li class="disabled"><a href="#">退出</a></li>
+                        </ul>
+                    </div>                   
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="./js/jquery.min.js"></script>
+<script type="text/javascript" src="./bootstrap-3.3.7/js/bootstrap.min.js"></script>
+</html>
