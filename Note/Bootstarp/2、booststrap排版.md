@@ -1,5 +1,47 @@
 booststrap排版
 
+`h1-h6`的样式
+
+`lead类`：凸显中心内容
+
+`mark`标签：为文字添加标记背景颜色
+
+`del`、`s`标签：为文字添加删除线
+
+`ins`标签：插入内容，以下划线展示
+
+`small`标签：小号字体
+
+`strong`标签：加粗字体
+
+`em`标签：斜体
+
+`text-left`类：文字靠左
+
+`text-right`类：文字靠右
+
+`text-center`类：文字居中
+
+`text-justify`类：文字两端对齐，美 /'dʒʌstə'fai/ 证明、两端对齐
+
+`text-nowrap`类：不换行对齐，添加该类后，文字不换行显示
+
+`text-uppercase`类，将字母变为大写
+
+`text-lowercase`类，将字母变为小写
+
+`text-capitalize`类，将首字母大写
+
+`abbr`标签+`title`属性，缩略展示内容，在title中展示完整内容
+
+`blockquote`标签，美 /kwot/  报价，引用。在文字开头添加引用标识，实则是设置了border-left: 5px solid #eee
+
+`footer`在blockquote中的`footer`标签将显示为以“—”开头，灰色的文字，意义是显示为这句话引自哪里
+
+`list-unstyled`类，列表的每一行数据开头没有标识
+
+`list-inline`类，列表的数据在一行中显示
+
 ```html
 <!DOCTYPE html>
 <html lang="en">

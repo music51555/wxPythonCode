@@ -1,5 +1,13 @@
 bootstarp下拉菜单
 
+`dropdown-menu`类：为下拉菜单弹出的面板，附加样式
+
+`dropup`类：使下拉菜单向上弹出
+
+`dropdown-header`类：将li标签中的内容显示为标题
+
+`disabled`类：禁用下拉菜单中的选项
+
 ```html
 <!DOCTYPE html>
 <html lang="en">

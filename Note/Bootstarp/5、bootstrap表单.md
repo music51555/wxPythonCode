@@ -1,26 +1,26 @@
 bootstarp表单
 
-form-group：表单包裹在该类下可以得到最好排列
+`form-group`类：表单包裹在该类下可以得到最好排列
 
-from-control：添加了from-control类的input、textarea、select都会被附加width：100%的样式
+`form-control`类：添加了form-control类的`input`、`textarea`、`select`都会被附加width：100%的样式
 
-checkbox：添加checkbox类，以及将input放置在label中，可以将其放在一行中显示
+`checkbox`类：将`type = "checkbox"`的`input`标签放置在`label`中，可以将文字和复选框放在一行中显示
 
-btn-info、btn-warning、btn-success、btn-danger、btn-active类为按钮添加样式
+`btn-info`、`btn-warning`、`btn-success`、`btn-danger`、`btn-active`类：为按钮添加颜色样式
 
-form-inline：将form中所有的控件在一行中显示
+`form-inline`类：将form中所有的控件在一行中显示
 
-disabled：属性将文本框设置为禁用
+`disabled = "disabled"`属性：将文本框设置为禁用
 
-readonly：设置文本框为只读状态
+`readonly`属性：设置文本框为只读状态
 
-has-success、has-warning、has-error，使控件颜色改变
+`has-success`、`has-warning`、`has-error`类，在控件所在盒子添加类，使控件颜色改变
 
-form-horizontal：将表单控件在一行中显示
+`form-horizontal`：美 /'hɔrə'zɑntl/  水平的，将表单的label和input控件在一行中显示
 
-input-lg、input-sm：调整input的高度
+`input-lg`、`input-sm`：调整input控件的高度
 
-将组件图标，放置在span标签中，类型为图标类
+将组件图标类，放置在span标签中，展示图标图片
 
 ```html
 <!DOCTYPE html>

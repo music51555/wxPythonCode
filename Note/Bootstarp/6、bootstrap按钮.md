@@ -1,5 +1,19 @@
 bootstrap按钮
 
+`role="button`属性：如果使用a作为按钮，a标签不是作为跳转链接的话，必须为其添加
+
+`btn-lg`、`btn-sm`、`btn-xs`类，改变按钮尺寸大小
+
+`btn-block`类：将按钮拉伸到100%的宽度，独占一行
+
+`active`类：按钮的`active`类效果是，激活状态，实则是被点击下去
+
+`disabled="disabled"`属性：按钮变为禁用状态
+
+`btn-default`、`btn-primary`、`btn-info`、`btn-warning`、`btn-success`、`btn-danger`六种类，效果为改变按钮颜色样式
+
+`img-rounded`、`img-circle`、`img-thumbnail`类，添加border后，图片分别被增加一些弧度、圆形、边框
+
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -37,6 +51,7 @@ bootstrap按钮
             <div class="thumbnail">
                 <form action="">
                     <div class="form-group">
+                         <!-- 按钮颜色样式-->
                         <button type="button" class="btn btn-default">（默认样式）Default</button>
                         <button type="button" class="btn btn-primary">（首选项）Primary</button>
                         <button type="button" class="btn btn-success">（成功）Success</button>

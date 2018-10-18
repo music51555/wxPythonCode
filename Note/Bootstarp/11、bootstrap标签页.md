@@ -1,5 +1,7 @@
 bootstarp标签页
 
+`nav`类：所有导航组件，都依赖于nav类
+
 ```html
 <!DOCTYPE html>
 <html lang="en">

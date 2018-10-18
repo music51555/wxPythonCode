@@ -1,5 +1,27 @@
 bootstrap辅助类
 
+`text-muted`、柔和的  美 /mjut/，`text-primary`、`text-info`、`text-warning`、`text-success`、`text-danger`类，为改变文字颜色样式
+
+`close`类，关闭按钮类，将按钮放置在盒子右上角
+
+`&times;`是根据HTML特殊字符编码对照表显示为x
+
+`caret`类，放置在`span`标签中，将其变为一个倒三角样式，如果在父盒子添加`dropup`类，那么倒三角将变为正三角样式
+
+`pull-left`类，将盒子设置为左浮动
+
+`pull-right`类，将盒子设置为右浮动
+
+`clearfix`类，在盒子层级清除浮动
+
+`center-block`类，将盒子居中显示
+
+`show`类，显示盒子元素
+
+`hiddent`类，隐藏盒子元素
+
+&times;是根据HTML特殊字符编码对照表显示为
+
 ```html
 <!DOCTYPE html>
 <html lang="en">
