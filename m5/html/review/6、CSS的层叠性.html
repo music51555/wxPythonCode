@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style type="text/css">
+        /* 1、都选中标签层级的 */
+        /* 先看选择器有没有选择当前要美化的标签层级的id、类、tag。如果有，则是选中状态，如果没有，则是继承状态。如下div标签都为被选中状态，此时为都选中状态，应按照id、class、tag的顺序统计权重比例*/
+        /* 如果权重比例一样，则后来者居上 */
+        .box div div{
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+        }
+        .box #wrap div{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+
+        /* 2、一个选中标签层级，一个继承样式 */
+        /* 选中：选择到要美化的那一层级的id、类、标签 */
+        /* 继承：没有选择到要美化的那一层级的id、类、标签 */
+        /* 选中状态的权重 > 继承状态*/
+        .box .wrap{
+            width: 100px;
+            height: 100px;
+            background-color: blue !important;
+        }
+        .box #wrap{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+
+        /* 如下都没有选中标签层级，都为未选中状态,此时看那个选择器对于被选标签的描述更精确，更近，则使用哪个标签 */
+        /* 如果描述都是一样近，那么久重新按照id、class、tag的顺序统计权重比例 */
+        /* .box #wrap  #innerbox{
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+        }
+
+        .box>div #innerbox{
+            width: 100px;
+            height: 100px;
+            background-color: red !important;
+        } */
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div id="wrap" class=".wrap">
+            <div id="innerbox">
+                这是一个盒子
+            </div>
+        </div>
+    </div>
+</body>
+</html>

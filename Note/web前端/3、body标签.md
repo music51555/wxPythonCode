@@ -21,7 +21,7 @@ heading
 </head>
 <body>
     <!-- div标签，盒子标签，在页面中看不到效果，在父级区的div层级中，包含了4个区div，div标签是块级元素，每块独占一行 -->
-    <!-- id和class都是给区域起名字，id在文档中是唯一的，class是可以重名的 -->
+    <!-- id和class都是给区域起名字，id在文档中是唯一的，多用于js，class是可以重名的，多用于CSS -->
     <div id="warp">
         <div class="heading">
             <!-- heading 标题h1-h6 ，没有h7，标题会自动换行，块级元素，独占一行，可以设置宽高，不设置时是浏览器默认宽度，style表示添加样式-->
@@ -36,9 +36,9 @@ heading
         </div>
 
         <div class="p1">
-            <!-- <b>表示加粗字体</b> 而 <strong>表示强调重要性，一般使用stong</strong>-->
+            <!-- <b>表示加粗字体</b> 而 <strong>表示强调重要性，一般使用<strong>...</strong>-->
             <!-- <i>表示斜体显示</i> -->
-            <!-- <u>表示下划线</u> -->
+            <!-- <u>表示下划线</u> -->	
             <!-- <sup>表示上标</sup>，<sub>表示下标</sub> -->
             <p>2<sup>2</sup>黄河路街道的<b>爱琴家政</b>，<strong>大家而熟能详</strong>，<i>今天我们就走进</i>这个家政大家庭自<u>2001年</u>以来，爱琴家政为我社区也<s>添加</s>增添了不少光彩，爱琴大姐秉承服务于民，手爱于民的宗旨，在我社区举办了很多大型的义工工作劳动</p>
             
@@ -95,12 +95,13 @@ heading
         </div>
 
         <!-- 图片标签 img，格式png,jpg,gif，图片可以是本地的，也可以是网络的，可以在style属性中设置宽高，行内快元素，可以设置宽高-->
-        <!-- alt可以设置图片加载失败后显示的图片 -->
+        <!--将图片放置在a标签中，可以达到将图片设置为链接的效果-->
+        <!-- alt可以设置图片加载失败后显示的图片的文字描述信息 -->
         <div class="image">
             <div class="python">
-                    <a href="http://www.baidu.com" target="_blank" title="python">
-                        <img src="./homesmall1.png" alt="" style="width:600px;height:300px"/>
-                    </a>
+                <a href="http://www.baidu.com" target="_blank" title="python">
+                    <img src="./homesmall1.png" alt="" style="width:600px;height:300px"/>
+                </a>
             </div>
             <div class="linux">
             <img src="./homesmall2.png" alt="" style="width:600px;height:300px">
@@ -108,11 +109,13 @@ heading
         </div>
         
         <!-- 表格 table块级元素，由thead，tbody，tfoot三部分组成 -->
-        <!-- 在head中是使用th添加数据，在body是使用td添加数据 -->
         <div class="table">
+        	<!-- 在table标签添加border="1" cellspacing="0"，分别表示边框的粗细，和表格间的空隙 -->
             <table border="1" cellspacing="0">
                 <thead>
                     <tr>
+                  <!-- 在head中是使用th添加数据，这会将该行数据加粗显示-->
+                  <!-- 如果在thead标签中只有一个th，并且在这行数据中使用了colspan，那么会居中显示 -->
                         <th></th>
                         <th>星期一</th>
                         <th>星期二</th>
@@ -125,6 +128,7 @@ heading
                     <tr>
                         <!-- 将行合并，rowspan -->
                         <td rowspan="3">上午</td>
+                        <!-- 在body是使用td添加数据 -->
                         <td>语文</td>
                         <td>数学</td>
                         <td>英语</td>
@@ -164,6 +168,7 @@ heading
                 <tfoot>
                     <tr>
                         <!-- 将列合并，colspan -->
+                        <!-- 在tfoot中也是使用td添加数据 -->
                         <td colspan="6">课程表</td>
                     </tr>
                 </tfoot>

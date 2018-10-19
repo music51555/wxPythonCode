@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./bootstrap-3.3.7/css/bootstrap.css">
+    <style type="text/css">
+        [for~="username"]{
+            color: red;
+        }
+        .panel-body>form>p:last-child{
+            color: red;
+        }
+        .panel-body>form>p:first-child{
+            color: blue;
+        }
+        .panel-body>form>p:nth-child(6){
+            color: blue;
+        }
+        .bing:link{
+            color: red;
+        }
+        .link:visited{
+            color: green;
+        }
+        .link:hover{
+            color: yellow;
+        }
+        .link:active{
+            color: rebeccapurple;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="thumbnail">
+                    <a href="" class="link">这是一个链接</a>
+                    <a href="" class="bing">下载文件</a>
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">注册</div>
+                    </div>
+                    <div class="panel-body">
+                        <form action="https://www.baidu.com" method="get">
+                            <p>这是第一个段落</p>
+                            <p>
+                                <label for="username">用户名：</label>
+                                <input type="text" id="username" name="username" placeholder="请输入用户名">
+                            </p>
+                            <p>
+                                <label for="pwd">密&nbsp&nbsp&nbsp&nbsp码：</label>
+                                <input type="password" id="pwd" name="password" placeholder="请输入密码">
+                            </p>
+                            <p>
+                                <input type="radio" name="sex" value="male" checked>女
+                                <input type="radio" name="sex"value="remale">男
+                            </p>
+                            <p>
+                                <input type="checkbox" name="hobbies" value="lq">篮球
+                                <input type="checkbox" name="hobbies"value="zq">足球
+                                <input type="checkbox" name="hobbies" value="wq" checked>网球
+                                <input type="checkbox" name="hobbies" value="sj">射击
+                            </p>
+                            <p>
+                                <input type="file">
+                            </p>
+                            <p>
+                                <div>
+                                    <label for="introduction">自我介绍</label>
+                                </div>
+                                <textarea name="introduction" id="introduction" cols="30" rows="10" placeholder="自我介绍"></textarea>
+                            </p>
+                            <p>
+                                <div>
+                                    <label for="contury"></label>
+                                </div>
+                                <select name="" id="contury" size="2" multiple="">
+                                    <option value="cn" >中国</option>
+                                    <option value="jp" selected>日本</option>
+                                </select>
+                            </p>
+                            <p>
+                                <input type="button" value="按钮">
+                                <input type="reset" value="重置">
+                                <input type="submit" value="提交">
+                            </p>
+                            <p>这是最后一个段落</p>
+                    </form>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

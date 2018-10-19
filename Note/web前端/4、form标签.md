@@ -6,6 +6,8 @@ action：提交表单，填写服务器的地址，提交给后台
 method
 
 get:最大为2KB，明文提交
+参数都显示在URL中
+https://www.baidu.com/?username=&password=&sex=on&hobbies=on&introduction=
 
 post：隐式提交，无大小限制，安全性高
 
@@ -57,7 +59,7 @@ enctype
             <p>
                 爱好：
                 <!-- 类型为checkbox，多选，name的值设置为一样，在后端取值时会很方便 -->
-                <!-- 写上name值后，就可以在submit后显示在URL中，如&checkfav=吃&checkfav=喝&checkfav=玩 -->
+                <!-- 写上name值后，就可以在submit后显示在URL中作为变量名，value属性则会作为参数值，如&checkfav=吃&checkfav=喝&checkfav=玩 -->
                 <input type="checkbox" name="checkfav" value="吃" checked>吃 
                 <input type="checkbox" name="checkfav" value="喝">喝 
                 <input type="checkbox" name="checkfav" value="玩">玩 
@@ -68,7 +70,8 @@ enctype
                 <input type="file" name="textFile" id="upload">
             </p>
             <p>
-                <!-- 下拉列表，select都是和option配合，添加size后由下拉列表变为滚动列表，如果也添加了multiple表示允许多选 -->
+                <!-- 下拉列表，select都是和option配合，添加size后由下拉列表变为滚动列表，表示同时显示几个下拉菜单选项-->
+                <!--添加multiple表示允许多选,按住ctrl后点击选项，被多选 -->
                 <select name="address" size="3" multiple="">
                     <!-- selected表示默认被选中 -->
                     <option value="深圳" selected>深圳</option>
