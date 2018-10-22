@@ -11,6 +11,7 @@ math内置对象
 </head>
 <body>
     <script type="text/javascript">
+        // 都是使用Math.开头
         // 1、向上取整，天花板函数，无论小数点是多少，直接向整数位进位
         var x = 1.2315;
         var a = Math.ceil(x);

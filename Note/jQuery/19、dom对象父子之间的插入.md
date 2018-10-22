@@ -76,7 +76,7 @@ dom对象之间的插入
 
 **父.prepend(子)**
 
-**子.prepengTo(父)**
+**子.prependTo(父)**
 
 ```html
 <!DOCTYPE html>

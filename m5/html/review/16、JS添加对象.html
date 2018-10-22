@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style type="text/css">
+		.box{
+			width: 100px;
+			height: 100px;
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+	<div class='box'>
+		<p class="kedou">我是一个小蝌蚪</p>
+	</div>
+	<button class="add">添加</button>
+	<button class="rem">删除</button>
+</body>
+<script type="text/javascript">
+	window.onload = function(){
+		var newp = document.createElement('p');
+		newp.innerText = 'hello world';
+		var addbtn = document.getElementsByClassName('add')[0];
+		var rembtn = document.getElementsByClassName('rem')[0];
+		var box = document.getElementsByClassName('box')[0];
+		var p = document.getElementsByClassName('kedou')[0];
+		console.log(addbtn);
+		console.log(box);
+		addbtn.onclick = function(){
+			box.insertBefore(newp,p);
+		}
+		rembtn.onclick = function(){
+			box.removeChild(p);
+		}
+		console.log(p.parentNode);
+		console.log(box.children[0]);
+	}
+</script>
+</html>

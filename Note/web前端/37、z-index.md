@@ -44,7 +44,7 @@
 
 
 
-2、只有使用了相对定位、绝对定位、还是固定定位都可以使用z-index，**浮动元素不能使用**
+2、只有使用了相对定位、绝对定位、还是固定定位都可以使用z-index，**float属性的浮动元素不能使用**
 
 3、z-index没有单位，就是一个正整数，默认为0
 
@@ -92,7 +92,7 @@
 
 5、定位了元素永远压着没有定位的元素
 
-![定位压着没定位](E:\workspace\wxPythonCode\Note\web框架\images\定位压着没定位.png)
+![定位压着没定位](.\images\定位压着没定位.png)
 
 ```html
 <!DOCTYPE html>
@@ -146,11 +146,11 @@
 
 **z-index的用途**
 
-![z-index覆盖](E:\workspace\wxPythonCode\Note\web框架\images\z-index覆盖.png)
+![z-index覆盖](.\images\z-index覆盖.png)
 
 例如导航栏设置了固定定位，下方的某个盒子也设置了定位，那么他们的默认z-index的值都是0，所以后面的盒子会在浏览网页时，会覆盖掉固定的导航栏，出现如上图的现象，所以就需要使用z-index设置值
 
-![z-index从父现象](E:\workspace\wxPythonCode\Note\web框架\images\z-index从父现象.png)
+![z-index从父现象](.\images\z-index从父现象.png)
 
 ```html
 <!DOCTYPE html>

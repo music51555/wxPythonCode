@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style type="text/css">
+		.active{
+			width: 500px;
+		}
+	</style>
+</head>
+<body>
+	<div class="box"  style="width: 100px;height:100px;background-color:red;" id="wrap">haha</div>
+	<div class="box" id="wrap1">hehe</div>
+	<div class="box" id="wrap2">gaga</div>
+	<label for="">用户名</label>
+	<input type="text" id="username" placeholder="请输入用户名" value="lelevipforever@sina.com">
+	<img id="img" src="./images/cart.png" alt="">
+</body>
+<script type="text/javascript">
+	window.onload = function(){
+		console.log(document.getElementById('wrap'));
+		console.log(document.getElementsByClassName('box'));
+		console.log(document.getElementsByTagName('div'));
+		var hahadiv = document.getElementsByClassName('box')[0];
+		hahadiv.onclick = function(){
+			alert(this.innerText);
+		}
+		console.log(hahadiv.style);
+		hahadiv.innerHTML = '<div>add</div>';
+		var ipt = document.getElementById('username');
+		ipt.value = 'music51555';
+		console.log(ipt.value);
+		var cart = document.getElementById('img');
+		cart.onmouseover = function(){
+			console.log(cart.getAttribute('src'));
+			cart.setAttribute('src','./images/cart_hover.png');
+		}
+		cart.onmouseout = function(){
+			cart.src = './images/cart.png';
+			cart.className += 'active';
+		}
+	}
+</script>
+
+</html>

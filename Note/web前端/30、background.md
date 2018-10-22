@@ -2,7 +2,7 @@
 
 **平铺设置背景图**
 
-添加背景图，使用url参数名，才能正确获取到图片，当盒子的宽度和高度大于图片的宽高时，图片会平铺重复显示。repeat表示默认重复，norepeat表示不重复显示背景图，repeat-x表示x轴重复，y表示y轴重复
+添加背景图，使用url参数名，才能正确获取到图片，**当盒子的宽度和高度大于图片的宽高时，图片会平铺重复显示**。repeat表示默认重复，no-repeat表示不重复显示背景图，repeat-x表示x轴重复，y表示y轴重复
 
 **在为网站设置背景图时，在body标签中使用background-image: url(xxx)即可**
 
@@ -43,7 +43,7 @@
 
 **位移图片**
 
-如果有一张雪碧图，我们可以使用background-image：url(xxxx)添加图片后，设置background-repeat：no-repeat设置为不重复显示，通过background-position(xxpx xxpx)来调整图片的位置，图片所在盒子的高度要设置为图片的高度，在完整获取图片
+如果有一张雪碧图，我们可以使用background-image：url(xxxx)添加图片后，设置background-repeat：no-repeat设置为不重复显示，通过background-position(x轴距离 y轴距离)来调整图片的位置，图片所在盒子的高度要设置为图片的高度，在完整获取图片
 
 ```html
 <!DOCTYPE html>

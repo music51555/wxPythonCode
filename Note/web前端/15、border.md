@@ -63,6 +63,8 @@
 
 transparent   美 /træns'pærənt/    透明的；显然的；易懂的
 
+原理是设置盒子的宽高位0px，并设置top、left、right的border为30px，左右border颜色为transparent
+
 ```html
 <!DOCTYPE html>
 <html lang="en">

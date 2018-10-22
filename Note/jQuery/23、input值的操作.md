@@ -8,9 +8,13 @@ Jquery：**change**
 
 
 
-主要的思想是添加**“:selected”**，表示拥有某个属性的标签
+主要的思想是在选择器中添加**“:selected”,":checked"**，表示当前被选中的元素对象
 
 $('select').find('option:selected')
+
+$('[type = radio]:checked')
+
+$('option:selected')
 
 
 

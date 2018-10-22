@@ -34,7 +34,7 @@
 
 window.location方法提供了很多属性
 
-![location](E:\workspace\wxPythonCode\Note\Javascript\images\location.png)
+![location](.\location.png)
 
 
 

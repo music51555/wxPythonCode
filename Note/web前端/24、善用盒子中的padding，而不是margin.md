@@ -1,6 +1,6 @@
 **善用盒子中的padding，而不是margin**
 
-![善用padding](E:\workspace\wxPythonCode\Note\web框架\images\善用padding.png)
+![善用padding](.\images\善用padding.png)
 
 当要实现这种效果时，可能会设置子盒子的marin-left和margin-top，但是当设置了子盒子的margin-top时，会导致父盒子下移了，是因为子盒子在下移的过程中，没有找到父盒子的边框线，会以标准文档流网页的最上方为边框，形成下移。
 

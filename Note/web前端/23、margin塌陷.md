@@ -2,13 +2,13 @@
 
 当**垂直方向**的盒子分别设置了margin-bottom 30px和margin-top 50px，那么生效的margin以较大值为准，导致上方盒子的margin掉入到了下方盒子的margin中
 
-![margin塌陷效果](E:\workspace\wxPythonCode\Note\web框架\images\margin塌陷效果.png)
+![margin塌陷效果](.\images\margin塌陷效果.png)
 
 
 
-然后将子盒子都设置为浮动状态，后再次查看margin之间的宽度，会发现塌陷效果没有了，所以塌陷效果对于浮动的盒子是无效的
+然后将子盒子都设置为浮动状态，后再次查看margin之间的宽度，会发现塌陷效果没有了，**所以塌陷效果对于浮动的盒子是无效的**
 
-![margin塌陷效果1](E:\workspace\wxPythonCode\Note\web框架\images\margin塌陷效果1.png)
+![margin塌陷效果1](.\images\margin塌陷效果1.png)
 
 
 

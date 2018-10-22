@@ -11,8 +11,8 @@ while 1:
     data = conn.recv(1024)
     print(data)
     # 添加html标签样式后，浏览器会渲染字符串中的标签样式
-    with open('./html/index.html','r',encoding='utf-8') as f:
+    with open('./html/login.html','rb') as f:
         fdata = f.read()
         print(fdata)
-    conn.send(('HTTP1.1 200 OK\r\n\r\n%s'%fdata).encode('utf-8'))
+    conn.send((b'HTTP1.1 200 OK\r\n\r\n')+fdata)
     conn.close()

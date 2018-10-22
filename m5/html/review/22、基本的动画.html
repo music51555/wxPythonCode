@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style type="text/css">
+		.box{
+			width: 100px;
+			height: 100px;
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+	<button class="show">显示</button>
+	<button class="hide">隐藏</button>
+	<button class="toggle">一键</button>
+	<div class="box"></div>
+</body>
+<script type="text/javascript" src="./js/jquery-3.3.1.js"></script>
+<script type="text/javascript">
+	var cssjson = {
+		"width":"50px",
+		"height":"50px",
+		"margin-left":"700px"
+	}
+	$('.show').click(function(){
+		$('.box').animate(cssjson,2000);
+	});
+	$('.hide').click(function(){
+		$('.box').animate(2000);
+	});
+	$('.toggle').click(function(){
+		$('.box').stop().fadeToggle(500);
+	});
+</script>
+</html>
