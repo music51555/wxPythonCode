@@ -37,6 +37,7 @@ accept()：接收链接
 import socket
 
 #1、买手机，准备打电话
+#AF_INET是IPv4 网络协议的套接字类型
 phone = socket.socket(socket.AF_INET,socket.SOCK_STREAM)#流式协议，TCP协议
 
 #2、绑定手机卡（只有服务端需要绑定，客户端只要能联通服务端即可，无需绑定）
