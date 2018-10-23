@@ -41,7 +41,7 @@ jquery：没有
             console.log(event.currentTarget);
             console.log(event.target);
         });
-        $('html').click(function(event){
+        $(temples).click(function(event){
             console.log(event.currentTarget);
             console.log(event.target);
         });

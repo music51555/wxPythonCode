@@ -1,8 +1,8 @@
 from wsgiref.simple_server import make_server
-from wxPythonCode.m6.web_frame2.views import *
+from web_frame2.views import *
 
 def application(environ,start_response):
-    start_response('200 OK',[('Content-Type','text/html')])
+    start_response('200 OK',[('Content-Type','text/temples')])
 
     path = environ.get('PATH_INFO')
 

@@ -8,7 +8,7 @@ def get_url(url):
 
 def parser(url_obj):
     url_dict = url_obj.result()
-    print('%s html text len %s'%(url_dict['url'],len(url_dict['html_text'])))
+    print('%s temples text len %s'%(url_dict['url'],len(url_dict['html_text'])))
 
 if __name__ == '__main__':
     url = ['https://www.baidu.com',

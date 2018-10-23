@@ -22,15 +22,15 @@ def application(environ,start_response):
     path = environ.get('PATH_INFO')
 
     # 在start_response中封装了响应首行和响应头，在此处设置的404状态，是在浏览器的network中请求链接中显示的
-    start_response('200 OK', [('Content-Type', 'text/html')])
+    start_response('200 OK', [('Content-Type', temples)])
 
     if path == '/login':
-        with open('./html/login.html', 'rb') as f:
+        with open(temples, 'rb') as f:
             fdata = f.read()
         # 在return中返回字节响应体
         return [fdata]
     else:
-        with open('./html/index.html','rb') as f:
+        with open(temples,'rb') as f:
             fdata = f.read()
         return  [fdata]
 

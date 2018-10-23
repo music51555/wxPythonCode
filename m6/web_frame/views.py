@@ -2,7 +2,7 @@ import datetime
 
 # 视图函数
 def login():
-    with open('../html/login.html','rb') as f:
+    with open('../temples/login.temples','rb') as f:
         fdata = f.read()
     return fdata
 
@@ -12,7 +12,7 @@ def favicon():
     return fdata
 
 def index():
-    with open('../html/index.html','rb') as f:
+    with open('../temples/index.temples','rb') as f:
         fdata = f.read()
     return fdata
 

@@ -2,14 +2,14 @@ from wsgiref.simple_server import make_server
 
 def application(environ,start_response):
 
-    start_response('200 OK',[('Content-Type','text/html')])
+    start_response('200 OK',[('Content-Type','text/temples')])
     path = environ.get('PATH_INFO')
 
     if path == '/login':
-        with open('./html/login.html','rb') as f:
+        with open('./temples/login.temples','rb') as f:
             fdata = f.read()
     else:
-        with open('./html/index.html','rb') as f:
+        with open('./temples/index.temples','rb') as f:
             fdata = f.read()
     return [fdata]
 

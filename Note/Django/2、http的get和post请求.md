@@ -121,7 +121,7 @@ conn.send((b'HTTP1.1 200 OK\r\n\r\n')+fdata)
 
 ```python
 #其中Content-type:text/html响应头可有可无
-conn.send((b'HTTP1.1 200 OK\r\nContent-type:text/html\r\n\r\n')+fdata)
+conn.send((temples)+fdata)
 ```
 
 添加响应头后，在浏览器接收到响应后，会显示添加的响应头

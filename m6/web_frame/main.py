@@ -1,8 +1,11 @@
+import sys,os
 from wsgiref.simple_server import make_server
+
+sys.path.append(os.path.dirname(__file__))
 from urls import url_patterns
 
 def application(environ,start_response):
-    start_response('200 OK',[('Content-Type','text/html')])
+    start_response('200 OK',[('Content-Type','text/temples')])
 
     path = environ.get('PATH_INFO')
 
