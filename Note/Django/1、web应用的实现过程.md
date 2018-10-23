@@ -21,19 +21,18 @@ while 1:
     conn.send(b'hello world')
     # 如果与web进程通信，则必须按照http协议格式发送数据，固定格式
     # HTTP1.1 200 OK为响应首行
-    # hello world为响应体，为浏览器要加载的内容
+    # hello world为响应体，是浏览器要加载的内容
     conn.send(b'HTTP1.1 200 OK\r\n\r\nhello world')
-    conn.send(b'ok')
     conn.close()
 ```
 
 
 
-**response**：从服务端接收的返回数据
+**preview**：从服务端接收的返回数据
 
 ![Preview](.\images\Preview.png)
 
-**preview**：浏览器加载数据后的效果
+**response**：浏览器加载数据后的效果
 
 ![Response](.\images\Response.png)
 

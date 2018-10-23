@@ -14,5 +14,5 @@ while 1:
     with open('./html/login.html','rb') as f:
         fdata = f.read()
         print(fdata)
-    conn.send((b'HTTP1.1 200 OK\r\n\r\n')+fdata)
+    conn.send((b'HTTP1.1 200 OK\r\nContent-type:text/html\r\n\r\n')+fdata)
     conn.close()
