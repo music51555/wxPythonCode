@@ -1,28 +1,6 @@
-import datetime
-import pymysql
-from urllib.parse import parse_qs
+http连接mysql
 
-# 视图函数
-def login(environ):
-    with open('./temples/login.html','rb') as f:
-        fdata = f.read()
-    return fdata
-
-def favicon(favicon):
-    with open('../images/favicon.ico') as f:
-        fdata = f.read()
-    return fdata
-
-def index(environ):
-    with open('./temples/index.html','rb') as f:
-        fdata = f.read()
-    return fdata
-
-def timer(environ):
-
-    now = datetime.datetime.now().strftime('%Y-%m-%d %X')
-    return now.encode('utf-8')
-
+```python
 def auth(environ):
     # 在请求报文中查看‘REQUEST_METHOD’字典的值，查看HTTP的请求方式
     if environ.get("REQUEST_METHOD") == "POST":
@@ -59,3 +37,5 @@ def auth(environ):
             return b'<h1>welcome</h1>'
         else:
             return b'404'
+```
+
