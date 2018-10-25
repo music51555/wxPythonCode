@@ -13,12 +13,12 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
-from django.urls import path
+from django.urls import path,re_path,include
 from app01 import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('timer/', views.timer),
-    path('login/', views.login),
+    path('login/',views.login),
+    # 表示当在URL路径下遇到app01路径时，被分发到哪个应用下去查找视图函数
+    re_path(r'app01/', include('app01.urls')),
+    # 表示在路径下遇到任何开头时，后面路径被分发到aoo01.urls下去查找视图函数
 ]
