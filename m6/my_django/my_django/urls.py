@@ -17,8 +17,12 @@ from django.urls import path,re_path,include
 from app01 import views
 
 urlpatterns = [
-    path('login/',views.login),
+    path('Log/',views.login,name = 'Log'),
+    path('timer/',views.timer),
     # 表示当在URL路径下遇到app01路径时，被分发到哪个应用下去查找视图函数
-    re_path(r'app01/', include('app01.urls')),
+    re_path(r'app01/', include(('app01.urls','app01'))),
+    re_path(r'app02/', include(('app02.urls','app02'))),
     # 表示在路径下遇到任何开头时，后面路径被分发到aoo01.urls下去查找视图函数
+    # re_path(r'^', include('app01.urls')),
+
 ]

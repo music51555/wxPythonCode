@@ -80,7 +80,7 @@ urlpatterns = [
 from django.urls import path,re_path,include
 
 urlpatterns = [
-    # 表示当在URL路径下遇到app01路径时，被分发到哪个应用下去查找视图函数
+    # 表示当在URL路径下遇到app01路径时，被分发到哪个应用下去继续路由分发，并根据app01后面的路径，去查找视图函数
     # 如http://127.0.0.1:8000/app01/articles/2003/，在路径中遇到app01/,通过项目的urls被分发到app01应用下的urls，通过路径去匹配视图函数
     re_path(r'app01/', include('app01.urls')),
     

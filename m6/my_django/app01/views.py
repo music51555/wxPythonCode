@@ -1,8 +1,16 @@
 from django.shortcuts import render,HttpResponse
+from django.urls import reverse
 import datetime
 
 def timer(request):
     ctime = datetime.datetime.now().strftime('%Y-%m-%d %X')
+
+    url = reverse('Log')
+    url = reverse('s_c_2003')
+    url = reverse('y_a',args=(1999,))
+    print(url)
+
+
     return render(request,'timer.html',{"ctime":ctime})
 
 def login(request):
@@ -25,3 +33,6 @@ def year_archive(request,year):
 
 def year_month_archive(request,year,month):
     return HttpResponse(year+'-'+month)
+
+def index(request):
+    return HttpResponse(reverse('app01:index'))
