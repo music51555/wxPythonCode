@@ -35,4 +35,5 @@ def year_month_archive(request,year,month):
     return HttpResponse(year+'-'+month)
 
 def index(request):
-    return HttpResponse(reverse('app01:index'))
+    print(request.method)
+    return HttpResponse('index')
