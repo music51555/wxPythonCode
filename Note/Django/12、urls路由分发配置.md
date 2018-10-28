@@ -8,7 +8,7 @@ urls路由分发配置
 from django.urls import path,re_path
 
 urlpatterns = [
-    # ^articles/2003/$匹配以articles开头，以2003/结尾的路径，并调用special_case_2003(request)函数
+    # ^articles/2003/$匹配以articles开头，以2003/结尾的路径，并调用special_case_2003(request)函数，只要在路径中匹配到就会执行函数
     # 无需在路径前添加"/"，浏览器会自动在路径结尾添加"/"
     re_path(r'^articles/2003/$', views.special_case_2003),
 ]
@@ -30,6 +30,7 @@ re.search("^articles/2003/$","articles/2003/")
 
 ```python
 #如果使用()分组正则表达式，分组所匹配的数据也会传入视图函数中，如year_chive(request,2003),所以在视图函数中也要对应的接收2个参数，year_chive(request,year)，而不像之前一样，只接收一个request参数
+#所以当需要将路径中的某一段值传入函数中进行处理，就使用分组，不需要传入函数，则直接使用正则表达式
 urlpatterns = [
     re_path(r'^articles/([0-9]{4})/$', views.year_archive),
 ]
@@ -84,7 +85,7 @@ urlpatterns = [
     # 如http://127.0.0.1:8000/app01/articles/2003/，在路径中遇到app01/,通过项目的urls被分发到app01应用下的urls，通过路径去匹配视图函数
     re_path(r'app01/', include('app01.urls')),
     
-    # 表示在路径下遇到任何开头时，后面路径被分发到aoo01.urls下去查找视图函数
+    # 表示在路径下遇到任何开头时，后面路径被分发到app01.urls下去查找视图函数
     # 如http://127.0.0.1:8000/articles/2003/，直接被分发到app01应用下的urls
     re_path(r'^',include('app01.urls')),
 ]

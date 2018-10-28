@@ -33,7 +33,7 @@ urlpatterns = [
 return HttpResponse(reverse('index'))
 ```
 
-由于别名一样导致由于覆盖效果打印的同样的路径，都打印为`/app01/index/`，所以在项目的`urls.py中，为每一个路由分发配置命名空间namespace`
+由于别名一样导致由于覆盖效果打印的同样的路径，都打印为`/app01/index/`，所以在项目的`urls.py`中为每一个路由分发配置命名空间namespace
 
 ```python
 urlpatterns = [
@@ -43,7 +43,7 @@ urlpatterns = [
 ]
 ```
 
-添加别名后，在视图函数中以namespace调用别名，打印路径就正确了
+添加别名后，在视图函数中反向解析时，以namespace调用别名，打印路径就正确了
 
 ```python
 #打印/app01/index/

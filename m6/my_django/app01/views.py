@@ -35,4 +35,23 @@ def year_month_archive(request,year,month):
     return HttpResponse(year+'-'+month)
 
 def index(request):
-    return HttpResponse(reverse('app01:index'))
+    import datetime
+    now = datetime.datetime.now()
+    a = 1015123
+    l = [111,222,333]
+    l = []
+    user = 'alex'
+    str = 'hello world'
+    d = {'name':'yuan','age':22}
+    b = True
+    class Person():
+        def __init__(self,name,age):
+            self.name = name
+            self.age = age
+
+    alex = Person('alex',22)
+    egon = Person('egon',23)
+    person_list = [alex,egon]
+    content = "hello every,good morning,Let's go park play one day!"
+    link = "<a href = 'https://www.baidu.com'>百度一下</a>"
+    return render(request,"index.html",locals())
