@@ -14,16 +14,18 @@ def timer(request):
     return render(request,'timer.html',{"ctime":ctime})
 
 def login(request):
-    if request.method == 'GET':
-        return render(request,"login.html")
-    else:
-        print(request.POST)
-        username = request.POST.get('user')
-        password = request.POST.get('pwd')
-        if username == 'wangxin' and password == '123456':
-            return HttpResponse('登录成功')
-        else:
-            return HttpResponse('用户名或密码错误')
+    # if request.method == 'GET':
+    #     return render(request,"login.html")
+    # else:
+    #     print(request.POST)
+    #     username = request.POST.get('user')
+    #     password = request.POST.get('pwd')
+    #     if username == 'wangxin' and password == '123456':
+    #         return HttpResponse('登录成功')
+    #     else:
+    #         return HttpResponse('用户名或密码错误')
+    i = 3
+    return render(request,'login.html',locals())
 
 def special_case_2003(request):
     return HttpResponse('<h1>hello</h1>')
@@ -55,3 +57,6 @@ def index(request):
     content = "hello every,good morning,Let's go park play one day!"
     link = "<a href = 'https://www.baidu.com'>百度一下</a>"
     return render(request,"index.html",locals())
+
+def order(request):
+    return render(request,'order.html')

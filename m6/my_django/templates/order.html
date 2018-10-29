@@ -1,0 +1,13 @@
+<!--extends写在第一行，如果不写在第一行，那么block将找不到任何位置-->
+<!--继承指定html文件中的所有内容-->
+{% extends 'panel.html' %}
+
+{% block title %}
+<title>order</title>
+<!--为block盒子结束符添加名字-->
+{% endblock title %}
+
+{% block connect %}
+    {{ block.super }}
+    <h3>这是order</h3>
+{% endblock connect %}

@@ -20,8 +20,9 @@ from app01.Rex_Mons import Mons
 register_converter(Mons,'rm')
 
 urlpatterns = [
-    path('Log/',views.login,name = 'Log'),
+    path('login/',views.login,name = 'Log'),
     path('timer/',views.timer),
+    path('order/',views.order),
 
     # 表示当在URL路径下遇到app01路径时，被分发到哪个应用下去查找视图函数
     re_path(r'app01/', include(('app01.urls','app01'))),

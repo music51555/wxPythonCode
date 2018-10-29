@@ -27,7 +27,7 @@ django-admin.py startproject mysites
 
 #### 3、创建应用：
 
-在项目文件夹中创建应用，一个项目可以包含多个应用，一个应用可以放在多个项目中
+在项目文件夹中创建应用，一个项目可以包含多个应用
 
 `manager.py`：控制django启动，创建app
 

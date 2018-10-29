@@ -5,11 +5,20 @@
     <title>Title</title>
 </head>
 <body>
-    <form action='/index/' method="post">
-        {% csrf_token %}
-        用户名：<input type="text" name="user">
-        密码：<input type="password" name="pwd">
-        <input type="submit">
-    </form>
+{#    <form action='{% url 'Log' %}' method="post">#}
+{#        {% csrf_token %}#}
+{#        用户名：<input type="text" name="user">#}
+{#        密码：<input type="password" name="pwd">#}
+{#        <input type="submit">#}
+{#    </form>#}
+
+    {% load my_tag_filter %}
+    {% if i|multi_filter:20 == 200 %}
+    <p>200</p>
+    {% else %}
+    <p>{{ i }}</p>
+    {% endif %}
+
+    <p>{% multi_tag 7 8 %}</p>
 </body>
 </html>
