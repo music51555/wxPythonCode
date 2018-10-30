@@ -32,7 +32,7 @@ while 1:
 
 ![Preview](.\images\Preview.png)
 
-**response**：浏览器加载数据后的效果
+**response**：浏览器加载的数据
 
 ![Response](.\images\Response.png)
 

@@ -1,6 +1,6 @@
 #### 什么是HTTP协议
 
-Hyper Text Transfer Protocol超文本传输协议，基于TCP/IP的应用层协议，就是服务端与客户端传输超文本标记语言HTML的协议，由客户端发送请求，服务端响应请求
+Hyper Text Transfer Protocol**超文本传输协议**，基于TCP/IP的应用层协议，就是服务端与客户端传输超文本标记语言HTML的协议，由客户端发送请求，服务端响应请求
 
 HTTP协议是无状态的协议，即不会保存用户的状态，如登录状态，引入Cookie技术后，实现了状态管理
 
@@ -126,7 +126,7 @@ conn.send((temples)+fdata)
 
 添加响应头后，在浏览器接收到响应后，会显示添加的响应头
 
-![http响应头](E:\workspace\wxPythonCode\Note\Django\images\http响应头.png)
+![http响应头](.\images\http响应头.png)
 
 
 

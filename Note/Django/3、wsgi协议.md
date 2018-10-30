@@ -10,8 +10,6 @@ Web Server Gateway Interface：web应用程序、web服务、web框架之间的�
 
 python基于wsgi协议开发的服务模块 ，可以解析HTTP请求，可以封装HTTP响应
 
-
-
 ```python
 from wsgiref.simple_server import make_server
 

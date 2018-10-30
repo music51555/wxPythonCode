@@ -26,7 +26,7 @@ class Book(models.Model):
 
 
 
-#### 2、settings.py下写配置
+#### 2、settings.py下写数据库连接配置
 
 ```python
 # mysql数据库引擎的配置
@@ -50,22 +50,22 @@ DATABASES = {
 
 
 
-#### 3、Django默认的数据库接口是mysqldb，但对于python3.0以上的版本会有问题，所以在在init.py下添加import
-
-```python
-# 在项目的__init__.py文件中添加
-import pymysql
-pymysql.install_as_MySQLdb()
-```
-
-
-
-#### 4、在settings.put文件中配置INSTALLED_APP应用
+#### 3、在settings.py文件中配置INSTALLED_APP应用
 
 ```python
 INSTALLED_APPS = [
     'app01.apps.App01Config',
 ]
+```
+
+
+
+#### 4、Django默认的数据库接口是mysqldb，但对于python3.0以上的版本会有问题，所以在在init.py下添加import
+
+```python
+# 在项目的__init__.py文件中添加，如果没有填写会报错“django.core.exceptions.ImproperlyConfigured: Error loading MySQLdb module.Did you install mysqlclient?”
+import pymysql
+pymysql.install_as_MySQLdb()
 ```
 
 
@@ -94,15 +94,13 @@ LOGGING = {
 
 
 
-#### 6、在控制台执行语句
+#### 6、在控制台执行语句创建表
 
 ```cmd
 #执行语句后，在控制台输入打印生成的sql语句，执行完毕后，在数据库中查询到book表
 python manage.py makemigrations
 python manage.py migrate
 ```
-
-
 
 
 

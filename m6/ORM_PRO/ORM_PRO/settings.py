@@ -101,14 +101,14 @@ WSGI_APPLICATION = 'ORM_PRO.wsgi.application'
 # }
 
 # mysql数据库引擎的配置
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME':'m6',# 要连接的数据库，连接前需要创建好
-        'USER':'xiaoxin',# 连接数据库的用户名
-        'PASSWORD':'Nishi458_2',# 连接数据库的密码
-        'HOST':'140.143.132.118',# 连接主机，默认本级
-        'PORT': 3306,#  端口 默认3306
+DATABASES={
+    'default':{
+        'ENGINE':'django.db.backends.mysql',
+        'NAME':'m6',
+        'USER':'xiaoxin',
+        'PASSWORD':'Nishi458_2',
+        'HOST':'140.143.132.118',
+        'PORT':3306
     }
 }
 
