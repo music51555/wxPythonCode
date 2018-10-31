@@ -75,3 +75,41 @@ def index(request):
     book_list=Book.objects.all().values('price').distinct()
     print(book_list)
     return HttpResponse('OK')
+
+def filter_search(request):
+    # __gt表示大于，__lt表示小于，也可以结合使用，查询区间范围之内的数据
+    ret=Book.objects.all().filter(price__gt=100,price__lt=150)
+    print(ret)
+
+    # __startswith表示查找以什么开头的数据
+    ret=Book.objects.filter(title__startswith='J')
+    print(ret)
+
+    # contains表示查询包含什么的数据
+    ret=Book.objects.filter(title__contains='入门')
+    print(ret)
+
+    # icontains表示忽略大小写，查找包含什么的数据
+    ret = Book.objects.filter(title__icontains='java')
+    print(ret)
+
+    # in表示在取值返回之内的数据
+    ret=Book.objects.filter(price__in=[90,150])
+    print(ret)
+
+    # 针对日期类型的数据，支持__year,__month等模糊查询
+    ret=Book.objects.filter(pub_date__year=2011,pub_date__month=10)
+    print(ret)
+
+    # 先查询出数据后，再删除，
+    # 返回值是一个字典，存储删除的记录数和表名，调用者queryset，(1, {'app01.Book': 1})
+    ret=Book.objects.filter(title='JAVA高级技术').delete()
+    print(ret)
+
+    # 查询出多条结果后，选出第一条后删除，调用者是models
+    Book.objects.filter(price=100).delete()
+
+    # 修改数据，调用者queryset
+    ret = Book.objects.filter(title='Linux大师').update(title='Linux典范')
+    print(ret)
+    return HttpResponse('OK')
