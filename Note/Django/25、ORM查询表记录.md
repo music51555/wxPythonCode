@@ -1,5 +1,9 @@
 ORM查询表数据
 
+`all()`、`first()`、`last()`、`get()`、`exclude`、`order_by`、`reverse()`、`count()`、`exists()`
+
+`values`、`values_list`、`distinct()`
+
 ```python
 from django.shortcuts import render,HttpResponse
 from app01.models import Book

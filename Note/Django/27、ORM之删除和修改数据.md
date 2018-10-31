@@ -22,4 +22,3 @@ def filter_search(request):
     print(ret)
     return HttpResponse('OK')
 ```
-

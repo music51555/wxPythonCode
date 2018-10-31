@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .father{
+            width: 100%;
+            position: relative;
+            top: 100px;
+            border: 1px solid red;
+        }
+        .tb{
+            position: absolute;
+            top: 25%;
+            left: 50%;
+            margin-left: -308px;
+            border: 1px solid yellowgreen;
+        }
+        td{
+            width: 100px;
+            height: 30px;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="father">
+        <div class="tb">
+            <table border="1" cellspacing="0">
+                <tr>
+                    <td>书籍名称</td>
+                    <td>价格</td>
+                    <td>出版日期</td>
+                    <td>出版社</td>
+                    <td>删除操作</td>
+                    <td>编辑操作</td>
+                </tr>
+                {% for i in books_list %}
+                <tr>
+                    <td>{{ i.title }}</td>
+                    <td>{{ i.price }}</td>
+                    <td>{{ i.pub_date|date:'Y-m-d' }}</td>
+                    <td>{{ i.publish }}</td>
+                    <td><a href="">删除</a></td>
+                    <td><a href="">编辑</a></td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</body>
+</html>

@@ -9,7 +9,7 @@
 ```python
 from django.db import models
 
-#ORM创建表就是定义一个类，继承与models.Model
+#ORM创建表就是定义一个类，继承与models.Model,没有逗号分隔！！！
 class Book(models.Model):
     # AutoField表示自增长，等同于auto_increment,primary_key=True表示是否是主键
     id = models.AutoField(primary_key=True)
