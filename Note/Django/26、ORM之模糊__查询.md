@@ -1,6 +1,6 @@
 ORM之模糊查询
 
-在filter()方法中添加模糊查询，支持`__gt`、`__lt`、`__year`、`__month`、`__startswith`、`contains`、`in`
+**在`filter()`方法中**添加模糊查询，支持`__gt`、`__lt`、`__year`、`__month`、`__startswith`、`contains`、`in`
 
 ```python
 from django.shortcuts import render,HttpResponse

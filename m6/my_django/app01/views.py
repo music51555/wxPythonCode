@@ -60,3 +60,6 @@ def index(request):
 
 def order(request):
     return render(request,'order.html')
+
+def panel(request):
+    return render(request,'panel.html')

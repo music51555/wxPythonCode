@@ -4,7 +4,7 @@ The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.1/topics/http/urls/
 Examples:
 Function views
-    1. Add an import:  from my_app import views
+    1. Add an import:  fro  m my_app import views
     2. Add a URL to urlpatterns:  path('', views.home, name='home')
 Class-based views
     1. Add an import:  from other_app.views import Home
@@ -23,6 +23,7 @@ urlpatterns = [
     path('login/',views.login,name = 'Log'),
     path('timer/',views.timer),
     path('order/',views.order),
+    path('panel/',views.panel),
 
     # 表示当在URL路径下遇到app01路径时，被分发到哪个应用下去查找视图函数
     re_path(r'app01/', include(('app01.urls','app01'))),

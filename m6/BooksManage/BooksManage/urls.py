@@ -20,4 +20,6 @@ from app1 import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('books/', views.books),
+    path('addbook/', views.addbook),
+    path('addbookinfo/', views.addbookinfo),
 ]

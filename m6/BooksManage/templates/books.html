@@ -11,29 +11,63 @@
         .father{
             width: 100%;
             position: relative;
-            top: 100px;
-            border: 1px solid red;
+            top: 150px;
         }
         .tb{
             position: absolute;
             top: 25%;
             left: 50%;
             margin-left: -308px;
-            border: 1px solid yellowgreen;
         }
         td{
             width: 100px;
             height: 30px;
             text-align: center;
         }
-
+        .del{
+            margin: 0 auto;
+            display: block;
+            width: 60px;
+            height: 25px;
+            line-height: 24px;
+            background-color: #ff272a;
+            border-radius:3px;
+            color: #fff;
+            text-decoration: none;
+        }
+        .edit{
+            margin: 0 auto;
+            display: block;
+            width: 60px;
+            height: 25px;
+            line-height: 24px;
+            background-color: #369;
+            border-radius:3px;
+            color: #fff;
+            text-decoration: none;
+        }
+        .add{
+            text-align: center;
+            display: block;
+            width: 80px;
+            height: 25px;
+            line-height: 24px;
+            background-color: green;
+            border-radius:3px;
+            color: #fff;
+            text-decoration: none;
+            margin-bottom: 2px;
+        }
     </style>
 </head>
 <body>
     <div class="father">
         <div class="tb">
             <table border="1" cellspacing="0">
-                <tr>
+                <tr aria-colspan="6" >
+                    <a href="/addbook/" class="add">添加书籍</a>
+                </tr>
+                <tr style="background-color: #d43f3a;color:#fff">
                     <td>书籍名称</td>
                     <td>价格</td>
                     <td>出版日期</td>
@@ -47,8 +81,8 @@
                     <td>{{ i.price }}</td>
                     <td>{{ i.pub_date|date:'Y-m-d' }}</td>
                     <td>{{ i.publish }}</td>
-                    <td><a href="">删除</a></td>
-                    <td><a href="">编辑</a></td>
+                    <td><a href="" class="del">删除</a></td>
+                    <td><a href="" class="edit">编辑</a></td>
                 </tr>
                 {% endfor %}
             </table>

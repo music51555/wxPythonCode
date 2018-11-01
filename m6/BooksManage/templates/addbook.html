@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/static/bootstrap-3.3.7/css/bootstrap.css">
+    <style type="text/css">
+        .box {
+            width: 100%;
+            position: relative;
+            top: 150px;
+        }
+
+        .inner-box {
+            position: absolute;
+            width: 400px;
+            left: 50%;
+            margin-left: -200px;
+            border: 1px solid green;
+            padding: 30px;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <div class="inner-box">
+        <form action="/addbookinfo/" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="book_name">书籍名称</label>
+                <input type="text" class="form-control" name="book_title" id="exampleInputEmail1" placeholder="请填写书籍名称">
+            </div>
+            <div class="form-group">
+                <label for="book_price">发售价格</label>
+                <input type="text" class="form-control" name="book_price" id="exampleInputEmail1" placeholder="请填写发售价格">
+            </div>
+            <div class="form-group">
+                <label for="book_pubdate">出版日期</label>
+                <input type="text" class="form-control" name="book_pubdate" id="exampleInputEmail1" placeholder="请填写出版日期">
+            </div>
+            <div class="form-group">
+                <label for="book_publish">出版社</label>
+                <input type="text" class="form-control" name="book_publish" id="exampleInputEmail1" placeholder="请填写出版社">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>
