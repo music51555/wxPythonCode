@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="/static/bootstrap-3.3.7/css/bootstrap.css">
+    <link rel="stylesheet" href="/static/datetimepicker/css/bootstrap-datetimepicker.css">
     <style type="text/css">
         .box {
             width: 100%;
@@ -24,7 +25,7 @@
 <body>
 <div class="box">
     <div class="inner-box">
-        <form action="/addbookinfo/" method="post">
+        <form action="/books/" method="post">
             {% csrf_token %}
             <div class="form-group">
                 <label for="book_name">书籍名称</label>
@@ -36,15 +37,53 @@
             </div>
             <div class="form-group">
                 <label for="book_pubdate">出版日期</label>
-                <input type="text" class="form-control" name="book_pubdate" id="exampleInputEmail1" placeholder="请填写出版日期">
+                <input type="text" class="form-control form_datetime" id="addtime" name="book_pubdate" value="{{ now }}" placeholder="">
             </div>
             <div class="form-group">
                 <label for="book_publish">出版社</label>
-                <input type="text" class="form-control" name="book_publish" id="exampleInputEmail1" placeholder="请填写出版社">
+                <input type="text" class="form-control" name="book_publish" id="exampleInputEmail1"
+                       placeholder="请填写出版社">
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" id="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
 </div>
 </body>
+<script type="text/javascript" src="/static/jquery-3.3.1.js"></script>
+<script type="text/javascript" src="/static/bootstrap-3.3.7/js/bootstrap.js"></script>
+<script type="text/javascript" src="/static/datetimepicker/js/bootstrap-datetimepicker.js"></script>
+<script type="text/javascript" src="/static/datetimepicker/js/locales/bootstrap-datetimepicker.fr.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $('form').submit(function (event) {
+            if ($("[name=book_title]").val() == '' || $("[name=book_price]").val() == '' || $("[name=book_pubdate]").val() == '' || $("[name=book_publish]").val() == '') {
+                alert('请完整填写表单后再提交')
+                return false
+            }
+            if($('[name=book_title]').val().length>15){
+                alert('请填写15个字以内的书籍名称')
+                return false
+            }
+            if($('[name=book_price]').val()<0 || $('[name=book_price]').val()>1000){
+                alert('请填写0~999价格区间的数字')
+                return false
+            }
+            if($('[name=book_publish]').val().length>15){
+                alert('请填写15个字以内的出版社名称')
+                return false
+            }
+
+        })
+        $('[name=book_price]').click(function(){
+
+        })
+        $('.form_datetime').datetimepicker({
+          minView: "month", //选择日期后，不会再跳转去选择时分秒
+          language: 'zh-CN',
+          format: 'yyyy-mm-dd',
+          todayBtn: 1,
+          autoclose: 1,
+        });
+    })
+</script>
 </html>

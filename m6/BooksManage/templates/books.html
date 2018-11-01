@@ -18,9 +18,11 @@
             top: 25%;
             left: 50%;
             margin-left: -308px;
+            margin-bottom: 150px;
         }
         td{
-            width: 100px;
+            {#width: 100px;#}
+            padding: 4px;
             height: 30px;
             text-align: center;
         }
@@ -81,12 +83,15 @@
                     <td>{{ i.price }}</td>
                     <td>{{ i.pub_date|date:'Y-m-d' }}</td>
                     <td>{{ i.publish }}</td>
-                    <td><a href="" class="del">删除</a></td>
-                    <td><a href="" class="edit">编辑</a></td>
+                    <td style="width: 100px;"><a href="/books/del/{{ i.title }}" class="del">删除</a></td>
+                    <td style="width: 100px;"><a href="" class="edit">编辑</a></td>
                 </tr>
                 {% endfor %}
             </table>
         </div>
     </div>
 </body>
+<script type="text/javascript" src="/static/jquery-3.3.1.js"></script>
+<script type="text/javascript">
+</script>
 </html>
