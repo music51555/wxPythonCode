@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="/static/bootstrap-3.3.7/css/bootstrap.css">
     <style type="text/css">
         * {
             margin: 0;
@@ -26,38 +27,10 @@
             height: 30px;
             text-align: center;
         }
-        .del{
-            margin: 0 auto;
-            display: block;
-            width: 60px;
-            height: 25px;
-            line-height: 24px;
-            background-color: #ff272a;
+        .btn{
             border-radius:3px;
-            color: #fff;
-            text-decoration: none;
-        }
-        .edit{
-            margin: 0 auto;
-            display: block;
-            width: 60px;
-            height: 25px;
-            line-height: 24px;
-            background-color: #369;
-            border-radius:3px;
-            color: #fff;
-            text-decoration: none;
         }
         .add{
-            text-align: center;
-            display: block;
-            width: 80px;
-            height: 25px;
-            line-height: 24px;
-            background-color: green;
-            border-radius:3px;
-            color: #fff;
-            text-decoration: none;
             margin-bottom: 2px;
         }
     </style>
@@ -65,33 +38,44 @@
 <body>
     <div class="father">
         <div class="tb">
-            <table border="1" cellspacing="0">
-                <tr aria-colspan="6" >
-                    <a href="/addbook/" class="add">添加书籍</a>
-                </tr>
-                <tr style="background-color: #d43f3a;color:#fff">
-                    <td>书籍名称</td>
-                    <td>价格</td>
-                    <td>出版日期</td>
-                    <td>出版社</td>
-                    <td>删除操作</td>
-                    <td>编辑操作</td>
-                </tr>
-                {% for i in books_list %}
-                <tr>
-                    <td>{{ i.title }}</td>
-                    <td>{{ i.price }}</td>
-                    <td>{{ i.pub_date|date:'Y-m-d' }}</td>
-                    <td>{{ i.publish }}</td>
-                    <td style="width: 100px;"><a href="/books/del/{{ i.title }}" class="del">删除</a></td>
-                    <td style="width: 100px;"><a href="" class="edit">编辑</a></td>
-                </tr>
-                {% endfor %}
+            <table class="table table-bordered table-striped">
+                <a href="http://127.0.0.1:8000/books/add/" class="btn add btn-success">添加书籍</a>
+                <thead>
+                    <tr style="background-color: #d43f3a;color:#fff;">
+                        <th style="text-align:center">书籍名称</th>
+                        <th style="text-align:center">价格</th>
+                        <th style="text-align:center">出版日期</th>
+                        <th style="text-align:center">出版社</th>
+                        <th style="text-align:center">编辑操作</th>
+                        <th style="text-align:center">删除操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in books_list %}
+                    <tr>
+                        <td>{{ i.title }}</td>
+                        <td>{{ i.price }}</td>
+                        <td>{{ i.pub_date|date:'Y-m-d' }}</td>
+                        <td>{{ i.publish }}</td>
+                        <td style="width: 100px;"><a href="/books/del/{{ i.title }}" class="btn del btn-danger">删除</a></td>
+                        <td style="width: 100px;"><a href="/books/update/{{ i.title }}_{{ i.price }}_{{ i.pub_date|date:'Y-m-d' }}_{{ i.publish }}" class="btn edit btn-primary">编辑</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+
             </table>
         </div>
     </div>
 </body>
 <script type="text/javascript" src="/static/jquery-3.3.1.js"></script>
 <script type="text/javascript">
+    $('.del').click(function(){
+        str=confirm('确认是否删除此条数据？')
+        if(str==true){
+            return true
+        }else{
+            return false
+        }
+    })
 </script>
 </html>

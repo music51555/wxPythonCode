@@ -19,6 +19,10 @@ from app1 import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    re_path(r'books/', views.books),
-    path('addbook/', views.addbook),
+    path('books/',views.books),
+    re_path(r'books/title=<str:old_title>', views.books),
+    re_path(r'books/del/', views.del_book),
+    re_path(r'books/update/', views.update_book),
+    re_path(r'books/add/', views.add_book),
+    path('search',views.search)
 ]
