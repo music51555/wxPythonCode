@@ -31,3 +31,6 @@ $('.form_datetime').datetimepicker({
 });
 ```
 
+
+
+或直接使用input的type=date

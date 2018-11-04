@@ -25,30 +25,34 @@
 <body>
 <div class="box">
     <div class="inner-box">
-        <form action="/books/" method="post">
-            {% csrf_token %}
-            {% if book_title %}
+        {% if book_obj %}
+            <form action="/books/update/{{ book_obj.id }}/" method="post">
+                {% csrf_token %}
                 <div class="form-group">
                     <label for="book_name">书籍名称</label>
                     <input type="text" class="form-control" name="book_title" id="exampleInputEmail1"
-                           value={{ book_title }}>
+                           value={{ book_obj.title }}>
                 </div>
                 <div class="form-group">
                     <label for="book_price">发售价格</label>
                     <input type="text" class="form-control" name="book_price" id="exampleInputEmail1"
-                           value={{ book_price }}>
+                           value={{ book_obj.price }}>
                 </div>
                 <div class="form-group">
                     <label for="book_pubdate">出版日期</label>
                           <input type="text" class="form-control form_datetime" id="addtime" name="book_pubdate"
-                                 value={{ book_pubdate }}>
+                                 value={{ book_obj.pub_date|date:'Y-m-d' }}>
                 </div>
                 <div class="form-group">
                     <label for="book_publish">出版社</label>
                     <input type="text" class="form-control" name="book_publish" id="exampleInputEmail1"
-                           value={{ book_publish }}>
+                           value={{ book_obj.publish }}>
+                    <button type="submit" id="submit" class="btn btn-primary pull-right">Submit</button>
                 </div>
-            {% else %}
+            </form>
+        {% else %}
+            <form action="/books/add/" method="post">
+                {% csrf_token %}
                 <div class="form-group">
                     <label for="book_name">书籍名称</label>
                     <input type="text" class="form-control" name="book_title" id="exampleInputEmail1">
@@ -59,15 +63,16 @@
                 </div>
                 <div class="form-group">
                     <label for="book_pubdate">出版日期</label>
-                    <input type="text" class="form-control form_datetime" id="addtime" name="book_pubdate"
+                          <input type="text" class="form-control form_datetime" id="addtime" name="book_pubdate"
                                  value="{{ now }}">
                 </div>
                 <div class="form-group">
                     <label for="book_publish">出版社</label>
                     <input type="text" class="form-control" name="book_publish" id="exampleInputEmail1">
                 </div>
-            {% endif %}
-            <button type="submit" id="submit" class="btn btn-primary pull-right">Submit</button>
+                <button type="submit" id="submit" class="btn btn-primary pull-right">Submit</button>
+            </form>
+        {% endif %}
         </form>
     </div>
 </div>
@@ -95,7 +100,6 @@
                 alert('请填写15个字以内的出版社名称')
                 return false
             }
-
         })
         $('[name=book_price]').click(function () {
 
