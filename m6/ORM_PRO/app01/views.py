@@ -1,6 +1,5 @@
 from django.shortcuts import render,HttpResponse
-from app01.models import Book
-from app01.models import Publish
+from app01.models import *
 
 def index(request):
     # book_obj=Book(id='1',title='python从入门到精通',pub_date='2014-12-5',state=True,public='人民出版社',price=82.10)
@@ -141,3 +140,36 @@ def add(request):
     print(book_obj.publish.email)
 
     return HttpResponse('OK4')
+
+def addmany(request):
+    book_obj=Book.objects.create(title="金瓶梅",price=198,publishDate="2012-9-8",publish_id=1)
+
+    alex=Author.objects.get(name='alex')
+    egon=Author.objects.get(name='egon')
+
+    # 1、添加绑定关系
+    # book_obj表示金瓶梅这本书，add的API接口表示为这本书籍在关系表中关联查询出来的作者对象alex，egon
+    book_obj.authors.add(alex,egon)
+    # 表示为金瓶梅这本书在关系表中添加作者表中nid为1和2的作者
+    book_obj.authors.add(1,2)
+    # 传入非固定参数也是一样的效果
+    book_obj.authors.add(*[1,2])
+
+    # 2、解除绑定关系，查询出书籍对象，通过remove的API解除绑定关系
+    book_obj=Book.objects.get(title='西游记')
+
+    # 同样也是可以通过作者对象、作者id和非固定参数解除绑定
+    book_obj.authors.remove(alex,egon)
+    book_obj.authors.remove(1,2)
+    book_obj.authors.remove(*[1,2])
+
+    # 3、在关系表中清除所有与这本书关联的作者数据
+    book_obj.authors.clear()
+
+    # 4、在关系表中查询出所有与这本书关联的作者对象，返回是queryset类型的列表
+    print(book_obj.authors.all())
+
+    # queryset类型的values方法：<QuerySet [{'name': 'alex'}, {'name': 'egon'}]>
+    print(book_obj.authors.all().values("name"))
+
+    return HttpResponse('OK')

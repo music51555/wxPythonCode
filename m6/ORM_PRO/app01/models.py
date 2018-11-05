@@ -32,6 +32,8 @@ class Author(models.Model):
     # to="AuthorDetail"也可以写为to=AuthorDetail，不添加双引号，但可能由于代码执行顺序问题，找不到表类名
     # 对比于ForeignKey方法，有唯一约束
     authordetail=models.OneToOneField(to="AuthorDetail",to_field="nid",on_delete=models.CASCADE)
+    def __str__(self):
+        return self.name
 
 class AuthorDetail(models.Model):
     nid=models.AutoField(primary_key=True)

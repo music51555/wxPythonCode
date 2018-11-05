@@ -1,5 +1,7 @@
 ORM多表添加记录
 
+#### 实际是对foreign key字段赋值或赋值对象
+
 ```python
 from django.shortcuts import render,HttpResponse
 from app01.models import Book
