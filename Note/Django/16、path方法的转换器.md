@@ -33,7 +33,7 @@ urlpatterns = [
 转换器一共有5种：
 
 ```python
-#匹配请求网址，http://127.0.0.1:8000/articles/hello/
+#匹配请求路径hello，http://127.0.0.1:8000/articles/hello/
 path('articles/<str:year>/',views.index)
 #匹配整型字符串，http://127.0.0.1:8000/articles/2003/
 path('articles/<int:year>/',views.index)

@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal">
-    <data-source name="" uuid="4821c1d8-0b51-467d-91db-e52fbddfd43a">
-      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
-      <auth-required>false</auth-required>
-      <first-sync>true</first-sync>
+    <data-source name="m6@140.143.132.118" uuid="45784a2f-2c06-465c-9172-1aa1d6068f2f">
+      <database-info product="MySQL" version="5.7.24" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.46 ( Revision: 9cc87a48e75c2d2e87c1a293b2862ce651cb256e )">
+        <extra-name-characters>#@</extra-name-characters>
+        <identifier-quote-string>`</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>xiaoxin</user-name>
+      <introspection-schemas>*:m6</introspection-schemas>
     </data-source>
   </component>
 </project>

@@ -32,10 +32,10 @@ class Book(models.Model):
 # mysql数据库引擎的配置
 DATABASES = {
     'default': {
-         # mysql数据库的引擎配置
+         # 1、mysql数据库的引擎配置
         'ENGINE': 'django.db.backends.mysql',
-         # 数据库名称
-        m6Nishi458_2m6Nishi458_2
+         # 2、数据库名称
+        'NAME':'m6',
          # 用户名
         'USER':'root',
          # 密码

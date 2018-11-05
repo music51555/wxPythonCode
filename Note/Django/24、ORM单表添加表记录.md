@@ -66,12 +66,14 @@ def index(request):
 
 ##### 方式二：创建表类下都有一个objects函数方法，是增删改查的管理器，在管理器下有create、update等方法
 
+**返回值是当前插入的这一条新纪录**
+
 ```python
 from django.shortcuts import render,HttpResponse
 from app01.models import Book
 
 def index(request):
-	#每张表下都有一个增删改查的objects的管理器,create返回值就是当前生成的对象记录
+	#每张表下都有一个增删改查的objects的管理器,create返回值就是当前生成的这一条记录对象
     book_obj = Book.objects.create(title='python从入门到精通',state=True,pub_date='2012-12-10',price=120,publish='人民出版社')
     #可以打印对象下的每一列的属性
     print(book_obj.title)
