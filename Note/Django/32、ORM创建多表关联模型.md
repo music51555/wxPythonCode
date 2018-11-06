@@ -26,7 +26,7 @@ class Book(models.Model):
     # 添加外键时不要加_id，Django会为其自动添加_id，该条语句在创建publish_id列的同时，又与Publish表创建了外键约束
     publish=models.ForeignKey(to="Publish",to_field='nid')
 
-    # 一本书对应多个作者，同时一个作者也对应多本书，所以是多对多的关系，需要创建第三章关系表，使用当前表的主键，与另外一张表的主键，作为外键合并为一张新的关系表
+    # 一本书对应多个作者，同时一个作者也对应多本书，所以是多对多的关系，需要创建第三张关系表，使用当前表的主键，与另外一张表的主键，作为外键合并为一张新的关系表
     authors=models.ManyToManyField(to='Author')
    
     # 执行该行代码时，实则是执行了创建表类

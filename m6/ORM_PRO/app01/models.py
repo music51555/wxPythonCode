@@ -18,11 +18,17 @@ class Book(models.Model):
     #     book = models.ForeignKey(to="Author", to_field="nid")
     #     author = models.ForeignKey(to="Book", to_field='nid')
 
+    def __str__(self):
+        return self.title
+
 class Publish(models.Model):
     nid=models.AutoField(primary_key=True)
     name=models.CharField(max_length=25)
     city=models.CharField(max_length=15)
     email=models.EmailField()
+
+    def __str__(self):
+        return self.name
 
 class Author(models.Model):
     nid=models.AutoField(primary_key=True)
