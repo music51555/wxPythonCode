@@ -187,17 +187,38 @@ def query(request):
 
     # 跨表查询之正向查询：按字段查询
     # 书籍与作者是多对多关系，是通过书籍表models.ManyToManyField()创建的第三张表，所以通过书籍查询作者是正向查询
-    book_obj=Book.objects.get(title='西游记')
-    # 查询出西游记这本书的全部作者，然后进行for循环遍历每一个作者，打印alex,egon
-    author_list=book_obj.authors.all()
-    for author in author_list:
-        print(author.name)
+    # book_obj=Book.objects.get(title='西游记')
+    # # 查询出西游记这本书的全部作者，然后进行for循环遍历每一个作者，打印alex,egon
+    # author_list=book_obj.authors.all()
+    # for author in author_list:
+    #     print(author.name)
+    #
+    # # 跨表查询之反向查询：表名_set.all()
+    # author_obj=Author.objects.get(name='alex')
+    # book_list=author_obj.book_set.all()
+    # # 打印西游记
+    # for book in book_list:
+    #     print(book.title)
 
-    # 跨表查询之反向查询：表名_set.all()
-    author_obj=Author.objects.get(name='alex')
-    book_list=author_obj.book_set.all()
-    # 打印西游记
-    for book in book_list:
-        print(book.title)
+    # # 一对一关系表正向查询：按字段，作者对象.authordetail
+    # author_obj=Author.objects.get(name='alex')
+    # print(author_obj.authordetail.telephone)
+    #
+    # # 一对一关系表反向查询：对象.一对一的表名。没有了_set，因为一对一的关系，返回的不是一个set集合，而是一个独立的对象
+    # alex=AuthorDetail.objects.get(telephone='13809091122')
+    # print(alex.author.name)
+
+    # # 先按照书名查找出书籍对象，通过书籍对象.values(外键列)，相当于得到了外键列的出版社对象，并通过__出版社表的列名得到跨表查询的列值
+    # ret=Book.objects.filter(title='金瓶梅').values('publish__name')
+    # # 打印<QuerySet [{'publish__name': '北京出版社'}]>
+    # print(ret)
+    # # 返回queryset类型，得到第一个字典对象后，通过get方法取值
+    # print(ret[0].get('publish__name'))
+
+    # 一对多关系反向查询，通过出版社反向查询出：出版过金瓶梅这本书的出版社
+    # 反向查询按表名
+    ret=Publish.objects.filter(book__title='金瓶梅').values('name')
+    print(ret)
+
 
     return HttpResponse('OK')
