@@ -46,3 +46,11 @@ class AuthorDetail(models.Model):
     birthday=models.DateField()
     telephone=models.CharField(max_length=11)
     addr=models.CharField(max_length=30)
+
+class Emp(models.Model):
+    id=models.AutoField(primary_key=True)
+    name=models.CharField(max_length=20)
+    age=models.IntegerField()
+    salary=models.DecimalField(max_digits=8,decimal_places=2)
+    dep=models.CharField(max_length=20)
+    province=models.CharField(max_length=20)

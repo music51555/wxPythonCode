@@ -214,11 +214,79 @@ def query(request):
     # print(ret)
     # # 返回queryset类型，得到第一个字典对象后，通过get方法取值
     # print(ret[0].get('publish__name'))
+    #
+    # # 一对多关系反向查询，通过出版社反向查询出：出版过金瓶梅这本书的出版社
+    # # 反向查询按表名
+    # ret=Publish.objects.filter(book__title='金瓶梅').values('name')
+    # print(ret)
 
-    # 一对多关系反向查询，通过出版社反向查询出：出版过金瓶梅这本书的出版社
-    # 反向查询按表名
-    ret=Publish.objects.filter(book__title='金瓶梅').values('name')
+    # 书籍表和作者表示多对多的关系，创建书籍表时有authors关联字段
+    # 正向查询：按字段，SQL语句是书籍表join关系表book_author表，再join作者表查询出结果
+    # <QuerySet [{'authors__name': 'alex'}, {'authors__name': 'egon'}]>
+    # ret=Book.objects.filter(title='西游记').values('authors__name')
+    # print(ret)
+    # select t2.name from app01_book inner join app01_book_authors as t1
+    # on app01_book.nid = t1.book_id
+    # inner join app01_author as t2 on t1.author_id = t2.nid
+    # where app01_book.title='西游记'
+
+    # 反向查询按表名小写，作者表join关系表book_author，在join书籍表查询出结果
+    # <QuerySet [{'name': 'alex'}, {'name': 'egon'}]>
+    # ret=Author.objects.filter(book__title='西游记').values('name')
+    # print(ret)
+    #
+    # # 查询人民出版社出版过的所有书籍的名字以及作者的姓名
+    # ret=Book.objects.filter(publish__name='北京出版社').values('title','authors__name')
+    # print(ret)
+    #
+    from django.db.models import Avg,Max,Min,Count
+    #
+    # # {'price__avg': 175.4, 'price__max': Decimal('199.00'), 'price__min': Decimal('82.00'), 'price__count': 5}
+    # ret=Book.objects.all().aggregate(Avg('price'),Max('price'),Min('price'),Count('price'))
+    # print(ret)
+
+    # Emp.objects.create(name='alex',age=22,salary=1000,dep='市场部',province='北京市')
+    # Emp.objects.create(name='egon',age=32,salary=1500,dep='研发部',province='上海市')
+    # Emp.objects.create(name='wxx',age=26,salary=1200,dep='运营部',province='杭州市')
+
+    # 单表模型.objects.values(分组的依据).annotate(聚合函数)，annotate表示统计什么
+    # 在以什么为分组的依据时，也会打印该列值
+    # 返回值是<QuerySet [{'dep': '市场部', 'salary__avg': 1000.0}, {'dep': '研发部', 'salary__avg': 1500.0}, {'dep': '运营部', 'salary__avg': 1200.0}]>
+    # ret=Emp.objects.values('dep').annotate(Avg('salary'))
+    # print(ret)
+
+    # 查询出每个出版社的名称，并统计每个出版社的出版的书籍总数
+    # 在出版社表中按出版社表的的主键nid进行分组，就取到了每个出版社，在annotate的统计中，跨表统计书籍的数量。以什么分组就会打印该列的内容，所以使用values(),打印要展示的列
+    # SELECT `app01_publish`.`name`, COUNT(`app01_book`.`title`) AS `book_count` FROM `app01_publish`
+    # LEFT OUTER JOIN `app01_book`
+    # ON (`app01_publish`.`nid` = `app01_book`.`publish_id`)
+    # GROUP BY `app01_publish`.`nid`
+    # ret=Publish.objects.values('nid').annotate(book_count=Count('book__title')).values('name','book_count')
+    # print(ret)
+
+    # <QuerySet [{'name': '北京出版社', 'book__title__count': 5}]>
+    # SELECT `app01_publish`.`name`, COUNT(`app01_book`.`title`) AS `book__title__count` FROM `app01_publish`
+    # LEFT OUTER JOIN `app01_book`
+    # ON (`app01_publish`.`nid` = `app01_book`.`publish_id`)
+    # GROUP BY `app01_publish`.`name`
+    # ret=Publish.objects.values('name').annotate(Count('book__title'))
+    # print(ret)
+
+    # 查询每一个作者的名字以及出版过的书籍的最高价格
+    # <QuerySet [{'name': 'alex', 'max_price': Decimal('199.00')}, {'name': 'egon', 'max_price': Decimal('199.00')}]>
+    ret=Book.objects.values('authors__nid').annotate(max_price=Max('price')).values('authors__name','max_price')
     print(ret)
 
+    ret=Author.objects.values('nid').annotate(max_price=Max('book__price')).values('name','max_price')
+    print(ret)
+
+    # 查询每一个书籍名称以及对应的作者个数
+    # <QuerySet [{'title': '西游记', 'max_author': 2}, {'title': '红楼梦', 'max_author': 0}, {'title': '三国演义', 'max_author': 1}, {'title': '水浒传', 'max_author': 0}, {'title': '金瓶梅', 'max_author': 0}]>
+    # select app01_book.title,count(app01_author.nid) from app01_book
+    # inner join app01_book_authors on app01_book.nid = book_id
+    # inner join app01_author on app01_book_authors.author_id = app01_author.nid
+    # group by app01_book.nid
+    ret=Book.objects.values('pk').annotate(max_author=Count('authors__nid')).values('title','max_author')
+    print(ret)
 
     return HttpResponse('OK')
