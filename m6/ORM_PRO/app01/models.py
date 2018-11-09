@@ -5,6 +5,10 @@ class Book(models.Model):
     title=models.CharField(max_length=20)
     publishDate=models.DateField()
     price=models.DecimalField(max_digits=5,decimal_places=2)
+
+    read_num=models.IntegerField(default=0)
+    comment_num=models.IntegerField(default=0)
+
     # 一本书对应多个出版社，不；一个出版社对应多本书，是的。所以是一对多的关系，在多的表中创建关联列
     # 添加外键时不要加_id，Django会为其自动添加_id，该条语句在创建publish_id的同时，又与Publish表创建了外键约束
     # 如果没有写to_field，那么就是直接对应表的主键

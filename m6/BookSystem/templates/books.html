@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <table class="table table-bordered">
+                    <tr>
+                        <th>序号</th>
+                        <th>书籍名称</th>
+                        <th>价格</th>
+                        <th>出版日期</th>
+                        <th>出版社</th>
+                        <th>作者</th>
+                        <th>编辑操作</th>
+                        <th>删除操作</th>
+                    </tr>
+                    {% if ret %}
+                        {% for i in ret %}
+                            <tr>
+                                <td>{{ i.pk }}</td>
+                                <td>{{ i.title }}</td>
+                                <td>{{ i.price }}</td>
+                                <td>{{ i.pubdate }}</td>
+                            </tr>
+                        {% endfor %}
+
+                    {% endif %}
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

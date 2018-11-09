@@ -239,7 +239,7 @@ def query(request):
     # ret=Book.objects.filter(publish__name='北京出版社').values('title','authors__name')
     # print(ret)
     #
-    from django.db.models import Avg,Max,Min,Count
+    from django.db.models import Avg,Max,Min,Count,Sum
     #
     # # {'price__avg': 175.4, 'price__max': Decimal('199.00'), 'price__min': Decimal('82.00'), 'price__count': 5}
     # ret=Book.objects.all().aggregate(Avg('price'),Max('price'),Min('price'),Count('price'))
@@ -274,19 +274,98 @@ def query(request):
 
     # 查询每一个作者的名字以及出版过的书籍的最高价格
     # <QuerySet [{'name': 'alex', 'max_price': Decimal('199.00')}, {'name': 'egon', 'max_price': Decimal('199.00')}]>
-    ret=Book.objects.values('authors__nid').annotate(max_price=Max('price')).values('authors__name','max_price')
-    print(ret)
-
-    ret=Author.objects.values('nid').annotate(max_price=Max('book__price')).values('name','max_price')
-    print(ret)
+    # ret=Book.objects.values('authors__nid').annotate(max_price=Max('price')).values('authors__name','max_price')
+    # print(ret)
+    #
+    # ret=Author.objects.values('nid').annotate(max_price=Max('book__price')).values('name','max_price')
+    # print(ret)
 
     # 查询每一个书籍名称以及对应的作者个数
     # <QuerySet [{'title': '西游记', 'max_author': 2}, {'title': '红楼梦', 'max_author': 0}, {'title': '三国演义', 'max_author': 1}, {'title': '水浒传', 'max_author': 0}, {'title': '金瓶梅', 'max_author': 0}]>
     # select app01_book.title,count(app01_author.nid) from app01_book
     # inner join app01_book_authors on app01_book.nid = book_id
     # inner join app01_author on app01_book_authors.author_id = app01_author.nid
-    # group by app01_book.nid
-    ret=Book.objects.values('pk').annotate(max_author=Count('authors__nid')).values('title','max_author')
+    # # group by app01_book.nid
+    # ret=Book.objects.values('pk').annotate(max_author=Count('authors__nid')).values('title','max_author')
+    # print(ret)
+
+    # ret = Book.objects.all().annotate(max_author=Count('authors__nid')).values('title', 'max_author')
+    # print(ret)
+
+    # 1、统计每一个出版社的最便宜的书
+    # < QuerySet[{'name': '北京出版社', 'min_price': Decimal('82.00')}, {'name': '天津出版社', 'min_price': Decimal('162.00')}] >
+    # ret=Publish.objects.values('pk').annotate(min_price=Min('book__price')).values('name','min_price')
+    # print(ret)
+
+    # 2、统计每一本书的作者个数
+    # <QuerySet [{'title': '西游记', 'author_count': 2}, {'title': '红楼梦', 'author_count': 0}, {'title': '三国演义', 'author_count': 1}, {'title': '水浒传', 'author_count': 0}, {'title': '金瓶梅', 'author_count': 0}, {'title': 'python', 'author_count': 1}, {'title': 'pycharm', 'author_count': 1}]>
+    # ret=Book.objects.values('pk').annotate(author_count=Count('authors__pk')).values('title','author_count')
+    # print(ret)
+
+    # 3、统计每一本以py开头的书籍的作者个数
+    # < QuerySet[{'title': 'python', 'count_author': 1}, {'title': 'pycharm', 'count_author': 1}] >
+    # ret=Book.objects.values('nid').filter(title__startswith='py').annotate(count_author=Count('authors__pk')).values('title','count_author')
+    # print(ret)
+
+    # ret=Book.objects.filter(title__startswith='py').values('pk').annotate(author_count=Count('authors__pk')).values('title','author_count')
+    # print(ret)
+
+    # 4、统计不止一个作者的图书、
+    # 先统计没一本书的作者个数，此时author_count变量已经存储在了Book对象中，在filter方法中调用该变量__gt，查找出大于1的内容
+    # SQL：
+    # ret=Book.objects.annotate(author_count=Count('authors__pk')).filter(author_count__gt=1)
+    # print(ret)
+
+    # 5、根据一本图书作者数量的多少对查询集 QuerySet进行排序
+    # ret=Book.objects.annotate(author_count=Count('authors__pk')).order_by('author_count').values('title','author_count')
+    # print(ret)
+
+    # 6、查询各个作者出的书的总价格
+    # 从from django.db.models import Sum引入Sum方法，计算列值的和
+    # SELECT `app01_author`.`name`, SUM(`app01_book`.`price`) AS `count_price` FROM `app01_author`
+    # LEFT OUTER JOIN `app01_book_authors`
+    # ON (`app01_author`.`nid` = `app01_book_authors`.`author_id`)
+    # LEFT OUTER JOIN `app01_book`
+    # ON (`app01_book_authors`.`book_id` = `app01_book`.`nid`)
+    # GROUP BY `app01_author`.`nid`
+    # ret=Author.objects.values('nid').annotate(count_price=Sum('book__price')).values('name','count_price')
+    # print(ret)
+    from django.db.models import F,Q
+
+    # 如果使用ret=Book.objects.filter(comment_num__gt=read_num)则语法不支持
+    # ret=Book.objects.filter(comment_num__gt=F('read_num'))
+    # print(ret)
+
+
+    # Book.objects.update(price+1)
+    # ret=Book.objects.update(price=F('price')+1)
+    # print(ret)
+
+    # 普通查询：在filter方法中添加多个查询条件
+    ret=Book.objects.filter(title='西游记',price=200)
     print(ret)
+
+    # Q查询|查询：
+    # 查询书籍名称是西游记或书籍名称是红楼梦的书籍
+    ret=Book.objects.filter(Q(title='西游记')|Q(title='红楼梦'))
+    print(ret)
+
+    # Q查询之&查询：
+    # 查询书籍名称是西游记且价格为200的书籍
+    ret = Book.objects.filter(Q(title='西游记') & Q(price=200))
+    print(ret)
+
+    # Q查询之~查询
+    # 查询书籍名称是西游记以外的其他书籍
+    ret=Book.objects.filter(~Q(title='西游记'))
+    print(ret)
+
+    # Q查询之嵌套查询
+    ret=Book.objects.filter(Q(title='西游记')&Q(price='200')|Q(title='红楼梦'))
+    print(ret)
+
+    # Q查询连接字段查询
+    # 在filter方法中必须先写Q查询条件，最后写列值的条件
+    Book.objects.filter(Q(title='西游记'),price=200)
 
     return HttpResponse('OK')
