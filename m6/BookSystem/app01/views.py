@@ -2,8 +2,20 @@ from django.shortcuts import render,HttpResponse,redirect
 from app01.models import *
 
 def books(request):
-    ret=Book.objects.values_list('title')
-    print(ret)
+    title_list=[]
+    author_list=[]
+    book_objs=Book.objects.values('title').values('title','authors__name')
+    print(book_objs)
+    for item in book_objs:
+        title=item.get('title')
+        author=item.get('authors__name')
+        author_list.append(author)
+        if title in title_list:
+            author_list.append(author)
+            continue
+        title_list.append(title)
+    print(title_list)
+    print(author_list)
     return render(request,'books.html',locals())
 
 def addbook(request):
