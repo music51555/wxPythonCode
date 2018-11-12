@@ -4,34 +4,62 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.css">
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .wrap{
+            position: absolute;
+            top: 200px;
+        }
+        td{
+            padding: 4px;
+            height: 30px;
+            text-align: center;
+        }
+        .table{
+            line-height: 30px;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
-                <table class="table table-bordered">
-                    <tr>
-                        <th>序号</th>
-                        <th>书籍名称</th>
-                        <th>价格</th>
-                        <th>出版日期</th>
-                        <th>出版社</th>
-                        <th>作者</th>
-                        <th>编辑操作</th>
-                        <th>删除操作</th>
-                    </tr>
-                    {% if ret %}
-                        {% for i in ret %}
-                            <tr>
-                                <td>{{ i.pk }}</td>
-                                <td>{{ i.title }}</td>
-                                <td>{{ i.price }}</td>
-                                <td>{{ i.pubdate }}</td>
+                <div class="wrap">
+                    <a href="/addbook/" class="btn btn-primary">添加书籍</a>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr bgcolor="#adff2f">
+                                <th>序号</th>
+                                <th>书籍名称</th>
+                                <th>价格</th>
+                                <th>出版日期</th>
+                                <th>出版社</th>
+                                <th>作者</th>
+                                <th>编辑操作</th>
+                                <th>删除操作</th>
                             </tr>
-                        {% endfor %}
-
-                    {% endif %}
-                </table>
+                        </thead>
+                        <tbody>
+                        {% if ret %}
+                            {% for i in ret %}
+                                <tr>
+                                    <td>{{ i.nid }}</td>
+                                    <td>{{ i.title }}</td>
+                                    <td>{{ i.price }}</td>
+                                    <td>{{ i.publish__name }}</td>
+                                    <td>{{ i.pubdate | date:'Y-m-d' }}</td>
+                                    <td>{{ i.authors__name }}</td>
+                                    <td><a href="" class="btn btn-warning">编辑</a></td>
+                                    <td><a href="" class="btn btn-danger">删除</a></td>
+                                </tr>
+                            {% endfor %}
+                        {% endif %}
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
