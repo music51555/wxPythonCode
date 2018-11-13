@@ -20,5 +20,7 @@ from app01 import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('books/',views.books),
-    re_path(r'addbook/',views.addbook)
+    re_path(r'addbook/',views.addbook),
+    re_path(r'delbook/(\d+)',views.delbook)
+
 ]

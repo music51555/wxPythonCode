@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="/static/bootstrap-3.3.7/css/bootstrap.css">
     <style type="text/css">
         *{
             margin: 0;
@@ -13,17 +13,11 @@
             position: absolute;
             top: 200px;
         }
+        .table{
+            width: 650px;
+        }
         th{
             text-align: center;
-        }
-        td{
-            padding: 4px;
-            height: 30px;
-            text-align: center;
-        }
-        .table{
-            line-height: 30px;
-            width: 600px;
         }
         .add{
             margin-bottom: 5px;
@@ -45,26 +39,26 @@
                                 <th>出版日期</th>
                                 <th>出版社</th>
                                 <th>作者</th>
-                                <th>编辑操作</th>
-                                <th>删除操作</th>
+                                <th>编辑</th>
+                                <th>删除</th>
                             </tr>
                         </thead>
                         <tbody>
                         {% if total_book %}
                             {% for foo in total_book %}
                                 <tr>
-                                    <td>{{ foo.num }}</td>
-                                    <td>{{ foo.title }}</td>
+                                    <td style="text-align: center">{{ foo.num }}</td>
+                                    <td style="text-align: center">{{ foo.title }}</td>
                                     <td>{{ foo.price }}</td>
                                     <td>{{ foo.pubdate | date:'Y-m-d'}}</td>
                                     <td>{{ foo.publish }}</td>
                                     <td>
                                         {% for foo in foo.authors %}
-                                            {{ foo }}<br>
+                                            {{ foo }},
                                         {% endfor %}
                                     </td>
                                     <td><a href="" class="btn btn-warning">编辑</a></td>
-                                    <td><a href="" class="btn btn-danger">删除</a></td>
+                                    <td><a href="/delbook/{{ foo.nid }}" class="btn btn-danger">删除</a></td>
                                 </tr>
                             {% endfor %}
                         {% endif %}
