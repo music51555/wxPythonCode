@@ -40,7 +40,7 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="author">作者</label>
+                            <label for="author">作者 <span style="color: orangered">(按住Ctrl可多选)</span></label>
                             <select name="author" id="" size="3" multiple class="form-control">
                                 {% for author in author_objs %}
                                     <option value={{ author.name }}>{{ author.name }}</option>
@@ -48,11 +48,22 @@
                             </select>
                         </div>
                         <div style="text-align: right">
-                           <button type="submit" class="btn btn-default">Submit</button>
+                           <button type="submit" class="btn btn-primary">提交</button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
     </body>
+    <script type="text/javascript" src="/static/jquery/jquery-3.3.1.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $('form').submit(function(event){
+                if($('[name=title]').val()==''){
+                    this.css('border','1px solod red')
+                    return false
+                }
+            })
+        })
+    </script>
 </html>

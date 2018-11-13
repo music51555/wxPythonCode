@@ -13,6 +13,9 @@
             position: absolute;
             top: 200px;
         }
+        th{
+            text-align: center;
+        }
         td{
             padding: 4px;
             height: 30px;
@@ -20,6 +23,10 @@
         }
         .table{
             line-height: 30px;
+            width: 600px;
+        }
+        .add{
+            margin-bottom: 5px;
         }
     </style>
 </head>
@@ -28,7 +35,7 @@
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
                 <div class="wrap">
-                    <a href="/addbook/" class="btn btn-primary">添加书籍</a>
+                    <a href="/addbook/" class="btn btn-primary add">添加书籍</a>
                     <table class="table table-bordered">
                         <thead>
                             <tr bgcolor="#adff2f">
@@ -43,15 +50,19 @@
                             </tr>
                         </thead>
                         <tbody>
-                        {% if book_objs %}
-                            {% for i in book_objs %}
+                        {% if total_book %}
+                            {% for foo in total_book %}
                                 <tr>
-                                    <td>{{ i.nid }}</td>
-                                    <td>{{ i.title }}</td>
-                                    <td>{{ i.price }}</td>
-                                    <td>{{ i.publish__name }}</td>
-                                    <td>{{ i.pubdate | date:'Y-m-d' }}</td>
-                                    <td>{{ i.authors__name }}</td>
+                                    <td>{{ foo.num }}</td>
+                                    <td>{{ foo.title }}</td>
+                                    <td>{{ foo.price }}</td>
+                                    <td>{{ foo.pubdate | date:'Y-m-d'}}</td>
+                                    <td>{{ foo.publish }}</td>
+                                    <td>
+                                        {% for foo in foo.authors %}
+                                            {{ foo }}<br>
+                                        {% endfor %}
+                                    </td>
                                     <td><a href="" class="btn btn-warning">编辑</a></td>
                                     <td><a href="" class="btn btn-danger">删除</a></td>
                                 </tr>
