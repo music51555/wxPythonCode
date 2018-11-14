@@ -1,22 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Title</title>
-        <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.css">
-        <style type="text/css">
-            .thumbnail{
-                width: 500px;
-                margin: 200px auto 0;
-                background-color: #adff2f;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 col-md-offset-2"></div>
-                <div class="thumbnail">
+<head>
+    <meta charset="UTF-8">
+    {% if author_objs %}
+        <title>添加书籍</title>
+    {% else %}
+        <title>编辑书籍</title>
+    {% endif %}
+    <link rel="stylesheet" href="/static/bootstrap-3.3.7/css/bootstrap.css">
+    <style type="text/css">
+        .thumbnail {
+            width: 500px;
+            margin: 200px auto 0;
+            background-color: #adff2f;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-2"></div>
+        <div class="thumbnail">
+                {% if author_objs %}
+                    <h2 style="text-align:center">添加书籍</h2>
                     <form action="/addbook/" method="post">
                         {% csrf_token %}
                         <div class="form-group">
@@ -48,49 +54,124 @@
                             </select>
                         </div>
                         <div style="text-align: right">
-                           <button type="submit" class="btn btn-primary">提交</button>
+                            <button type="submit" class="btn btn-primary">提交</button>
+                            <a href="/books/" class="btn btn-warning" style="font-weight: 700">返回</a>
                         </div>
                     </form>
-                </div>
-            </div>
+                {% else %}
+                    <h2 style="text-align:center">编辑书籍</h2>
+                    <form action="/uptbook/{{ nid }}" method="post">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="title">书籍名称</label>
+                            <input type="text" class="form-control " name="title" value="{{ title }}">
+                        </div>
+                        <div class="form-group">
+                            <label for="price">价格</label>
+                            <input type="text" class="form-control" name="price" value="{{ price }}">
+                        </div>
+                        <div class="form-group">
+                            <label for="pubdate">出版日期</label>
+                            <input type="date" name="pubdate" class="form-control" value="{{ pubdate | date:'Y-m-d' }}">
+                        </div>
+                        <div class="form-group">
+                            <label for="publish">出版社</label>
+                            <select name="publish" id="" class="form-control">
+{#                              <!--循环所有的出版社，如果某一个出版社的名称和当前书籍对象的出版社相等，那么就被selected-->
+                                {% for publish in publish_names %}
+                                    {% if publish == publish_name %}
+                                        <option value="{{ publish_name }}" selected>{{ publish_name }}</option>
+                                    {% else %}
+                                        <option value="{{ publish.name }}">{{ publish.name }}</option>
+                                    {% endif %}
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="author">作者 <span style="color: orangered">(按住Ctrl可多选)</span></label>
+                            <select name="author" id="" size="3" multiple class="form-control">
+                                {% for author in author_names %}
+                                    {% if author in book_author %}
+                                        <option value="{{ author.name }}" selected>{{ author.name }}</option>
+                                    {% else %}
+                                        <option value="{{ author.name }}">{{ author.name }}</option>
+                                    {% endif %}
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div style="text-align: right">
+                            <button type="submit" class="btn btn-primary">提交</button>
+                            <a href="/books/" class="btn btn-warning">返回</a>
+                        </div>
+                    </form>
+                {% endif %}
+
         </div>
-    </body>
-    <script type="text/javascript" src="/static/jquery/jquery-3.3.1.js"></script>
-    <script type="text/javascript">
-        $(function(){
-            $('form').submit(function(){
-                if($('[name=title]').val()==''){
-                    $('[name=title]').css({'border':'1px solid red','border-radius':'6px'})
-                    alert('请检查表单是否完整填写')
-                    console.log($('[name=author]').val().length)
-                    return false
-                }
-                if($('[name=price]').val()==''){
-                    $('[name=price]').css({'border':'1px solid red','border-radius':'6px'})
-                    alert('请检查表单是否完整填写')
-                    return false
-                }
-                if($('[name=title]').val()==''){
-                    $('[name=title]').css({'border':'1px solid red','border-radius':'6px'})
-                    alert('请检查表单是否完整填写')
-                    return false
-                }
-                if($('[name=pubdate]').val()==''){
-                    $('[name=pubdate]').css({'border':'1px solid red','border-radius':'6px'})
-                    alert('请检查表单是否完整填写')
-                    return false
-                }
-                if($('[name=publish]').val()==''){
-                    $('[name=publish]').css({'border':'1px solid red','border-radius':'6px'})
-                    alert('请检查表单是否完整填写')
-                    return false
-                }
-                if($('[name=author]').val().length==0){
-                    $('[name=author]').css({'border':'1px solid red','border-radius':'6px'})
-                    alert('请检查表单是否完整填写')
-                    return false
-                }
-            })
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="/static/jquery/jquery-3.3.1.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $('form').submit(function () {
+            if ($('[name=title]').val() == '') {
+                $('[name=title]').css({'border': '1px solid red', 'border-radius': '6px'})
+                alert('请检查表单是否完整填写')
+                return false
+            }else{
+                $('[name=title]').css({'border': ''})
+            }
+
+            if ($('[name=title]').val().length > 9) {
+                $('[name=title]').css({'border': '1px solid red', 'border-radius': '6px'})
+                alert('您输入的书籍名称过长，请重新输入')
+                return false
+            }else{
+                $('[name=title]').css({'border': ''})
+            }
+
+            if ($('[name=price]').val() == '') {
+                $('[name=price]').css({'border': '1px solid red', 'border-radius': '6px'})
+                alert('请检查表单是否完整填写')
+                return false
+            }else{
+                $('[name=price]').css({'border': ''})
+            }
+
+            if ($('[name=price]').val()<0 || $('[name=price]').val()>1000) {
+                $('[name=price]').css({'border': '1px solid red', 'border-radius': '6px'})
+                alert('请输入0~999之间的价格')
+                return false
+            }else{
+                $('[name=title]').css({'border': ''})
+            }
+
+            if ($('[name=pubdate]').val() == '') {
+                $('[name=pubdate]').css({'border': '1px solid red', 'border-radius': '6px'})
+                alert('请检查表单是否完整填写')
+                return false
+            }else{
+                $('[name=pubdate]').css({'border': ''})
+            }
+
+            if ($('[name=publish]').val() == '') {
+                $('[name=publish]').css({'border': '1px solid red', 'border-radius': '6px'})
+                alert('请检查表单是否完整填写')
+                return false
+            }else{
+                $('[name=publish]').css({'border': ''})
+            }
+
+            if ($('[name=author]').val().length == 0) {
+                $('[name=author]').css({'border': '1px solid red', 'border-radius': '6px'})
+                alert('请检查表单是否完整填写')
+                return false
+            }else{
+                $('[name=author]').css({'border': ''})
+            }
+
+
         })
-    </script>
+    })
+</script>
 </html>

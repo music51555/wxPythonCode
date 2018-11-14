@@ -21,6 +21,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('books/',views.books),
     re_path(r'addbook/',views.addbook),
-    re_path(r'delbook/(\d+)',views.delbook)
-
+    re_path(r'delbook/(\d+)',views.delbook),
+    re_path(r'uptbook/(\d+)',views.uptbook),
+    re_path(r'^$',views.books)
 ]
