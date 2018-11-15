@@ -98,8 +98,8 @@ LOGGING = {
 
 ```cmd
 #执行语句后，在控制台输入打印生成的sql语句，执行完毕后，在数据库中查询到book表
-python manage.py makemigrations
-python manage.py migrate
+python3 manage.py makemigrations
+python3 manage.py migrate
 ```
 
 

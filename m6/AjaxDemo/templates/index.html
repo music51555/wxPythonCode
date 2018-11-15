@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+用户名：<input type="text" id="username">
+密码：<input type="password" id="password">
+<input type="button" value="登录" id="login">
+<p id="error"></p>
+</body>
+<script type="text/javascript" src="/static/jquery-3.3.1.js"></script>
+<script type="text/javascript">
+    $(function(){
+        $('#login').click(function(){
+            $.ajax({
+                url:'/login/',
+                type:'post',
+                data:{
+                    'username':$('#username').val(),
+                    'password':$('#password').val()
+                },
+                success:function(data) {
+                    ret=JSON.parse(data)
+                    if(ret.username){
+                        $('#error').html('<p id="status">登录成功</p>').css({'color':'green','margin-left':'5px'})
+                    }else{
+                        $('#error').html(ret.message).css({'color':'red','margin-left':'5px'})
+                    }
+                }
+            })
+        })
+    })
+</script>
+</html>
