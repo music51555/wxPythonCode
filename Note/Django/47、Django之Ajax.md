@@ -51,7 +51,7 @@ Asynchronous Javascript And XML：异步Javascript和XML
         {#通过Ajax向服务器发送请求，根据访问路径，得到了服务器该路径视图函数中的return数据，通过jquery将其添加到页面中，实现了局部刷新#}
         $('.Ajaxbtn').click(function () {
             $.ajax({
-                {#如果没有写路径和端口，就以根路径为准,变为http://127.0.0.1:8000/test_ajax/#}
+                {#填写跳转路径，如果没有写路径和端口，就以当前浏览器路径为准#}
                 url: /test_ajax/,
                 type: 'get',
                 {#data是服务器返回的数据，也就是访问路径视图函数中return的内容#}

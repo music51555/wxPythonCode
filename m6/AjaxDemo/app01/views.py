@@ -1,9 +1,12 @@
 from django.shortcuts import render,HttpResponse
 from django.db.models import Q
 from app01.models import *
+import json
 
 def index(request):
-
+    if request.method == 'POST':
+        print(request.POST)
+        print(request.FILES)
     return render(request,'index.html')
 
 def login(request):
