@@ -111,7 +111,7 @@ def cal(request):
 
 
 
-通过Ajax登录验证的Demo
+**通过Ajax登录验证的Demo**
 
 ```javascript
 #jquery

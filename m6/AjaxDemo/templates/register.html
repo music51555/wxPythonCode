@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="" method="post">
+    <p>
+        用户名：<input type="text" name="username">
+    </p>
+    <p>
+        密码：<input type="text" name="password">
+    </p>
+    <p>
+        邮箱：<input type="text" name="email">
+    </p>
+    <p>
+        <input type="submit">
+    </p>
+</form>
+
+<hr>
+<h3>渲染方式一</h3>
+<form action="">
+    {% csrf_token %}
+    <p>{{ form.username.label }}：{{ form.username }}</p>
+    <p>{{ form.password.label }}：{{ form.password }}</p>
+    <p>{{ form.email.label }}：{{ form.email }}</p>
+    <p>
+        <input type="submit">
+    </p>
+</form>
+
+<hr>
+<h3>渲染方式二</h3>
+<from action="">
+    {% for field in form %}
+        <p>{{ field.label }}:{{ field }}</p>
+    {% endfor %}
+</from>
+
+<hr>
+<h3>渲染方式三</h3>
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit">
+</form>
+</body>
+</html>
