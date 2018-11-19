@@ -27,7 +27,7 @@ Ajax传递Json数据
 
 
 
-`request.body`得到：
+AJax发送的json类型数据，在视图函数中是接收在`request.body`中的：
 
 ```python
 # 得到的是bytes类型，如果想要使用，将其反序列化为json类型

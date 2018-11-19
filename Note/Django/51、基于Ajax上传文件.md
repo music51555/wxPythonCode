@@ -35,3 +35,19 @@
 <MultiValueDict: {'pic': [<InMemoryUploadedFile: 吹头.jpg (image/jpeg)>]}>
 ```
 
+
+
+```python
+def upload(request):
+
+    if request.method == 'POST':
+        print(request.POST)
+        # 通过request.FILES.get(HTML中上传文件的name)获取文件对象
+        file_obj=request.FILES.get('pic')
+        with open(file_obj.name,'wb') as f:
+            for line in file_obj:
+                f.write(line)
+
+    return render(request,'upload.html')
+```
+
