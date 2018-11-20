@@ -5,8 +5,9 @@ forms组件的作用是，引入`from django import forms`后，创建校验类�
 ```python
 class UserForm(forms.Form):
     # 定义的所有变量必须和HTML的form表单中的name匹配，才会去进行验证，如username匹配form表单中name=username的用户名字段;min_length表示最小长度
-    username=forms.CharField(min_length=4)
-    password=forms.CharField(min_length=4)
+    # 添加label参数，可在form表单中通过form对象.变量名.label读取出字段的名称
+    username=forms.CharField(min_length=4,label='用户名')
+    password=forms.CharField(min_length=4,label='密码')
     email=forms.EmailField()
 ```
 

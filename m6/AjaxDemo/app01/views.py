@@ -2,6 +2,7 @@ from django.shortcuts import render,HttpResponse
 from app01.models import *
 from django.core.paginator import Paginator
 from django import forms
+from django.forms import widgets
 
 def upload(request):
 
@@ -35,19 +36,30 @@ def index(request):
     return render(request,'book_list.html',locals())
 
 class UserForm(forms.Form):
-    username=forms.CharField(min_length=4,label='用户名')
-    password=forms.CharField(min_length=4,label='密码')
-    email=forms.EmailField(label='邮箱')
+    username=forms.CharField(
+        min_length=4,label='用户名',
+        error_messages={'required':'字段不能为空'},
+        widget=widgets.TextInput(attrs={'class':'form-control'})
+    )
+    password=forms.CharField(min_length=4,label='密码',
+                             widget=widgets.PasswordInput(attrs={'class':'form-control'}))
+    email=forms.EmailField(label='邮箱',error_messages={'invalid':'请填写有效的邮箱地址'},
+                           widget=widgets.TextInput(attrs={'class':'form-control'}))
 
 def register(request):
-    form=UserForm(request.POST)
+    if request.method=='POST':
+        form=UserForm(request.POST)
 
-    if form.is_valid():
-        print(form.cleaned_data)
-    else:
-        print(form.cleaned_data)
-        print(form.errors)
-        print(form.errors.get('password')[0])
-        print(form.errors.get('email')[0])
+        if form.is_valid():
+            print(form.cleaned_data)
+        else:
+            print(form.cleaned_data)
+            print(form.errors)
+            print(form.errors.get('password')[0])
+            print(form.errors.get('email')[0])
 
+        return render(request, 'register.html', locals())
+
+    # 在get请求时，创建的form对象没有传入任何参数，传入HTML网页中后渲染标签
+    form=UserForm()
     return render(request,'register.html',locals())
