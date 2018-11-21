@@ -5,47 +5,32 @@
     <title>Title</title>
 </head>
 <body>
-<form action="" method="post">
-    <p>
-        用户名：<input type="text" name="username">
-    </p>
-    <p>
-        密码：<input type="text" name="password">
-    </p>
-    <p>
-        邮箱：<input type="text" name="email">
-    </p>
-    <p>
+    <form action="" method="post" novalidate>
+        <!--在get请求时传入的form对象没有传入任何参数,但是通过该对象可以渲染标签，且当没有错误信息form.errors时，也不会显示span标签中的错误描述-->
+        <!--在post请求时传入的form对象传入了request.POST参数，也可以达到渲染标签的目的-->
+        <!--区别是：post请求后如果填写了大量字段，只有一个出错，那么刷新页面后已填写的内容会丢失，但是由于post请求中传入了request.POST参数，导致已填写的内容不会丢失，并且根据错误内容会显示span标签中的错误描述-->
+        <p>{{ form.username.label }}:{{ form.username }}
+            <span>{{ form.username.errors.0 }}</span>
+        </p>
+        <p>{{ form.password.label }}:{{ form.password }}
+            <span>{{ form.password.errors.0 }}</span>
+        </p>
+        <p>{{ form.email.label }}:{{ form.email }}
+            <span>{{ form.email.errors.0 }}</span>
+        </p>
         <input type="submit">
-    </p>
-</form>
-
-<hr>
-<h3>渲染方式一</h3>
-<form action="">
-    {% csrf_token %}
-    <p>{{ form.username.label }}：{{ form.username }}</p>
-    <p>{{ form.password.label }}：{{ form.password }}</p>
-    <p>{{ form.email.label }}：{{ form.email }}</p>
-    <p>
-        <input type="submit">
-    </p>
-</form>
-
-<hr>
-<h3>渲染方式二</h3>
-<from action="">
-    {% for field in form %}
-        <p>{{ field.label }}:{{ field }}</p>
-    {% endfor %}
-</from>
-
-<hr>
-<h3>渲染方式三</h3>
-<form action="" method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit">
-</form>
+    </form>
+    <hr>
+    <form action="" method="post">
+        {% for field in form %}
+            <p>{{ field.label }}:{{ field }}</p>
+        {% endfor %}
+        <p><input type="submit"></p>
+    </form>
+    <hr>
+    <form action="" method="post">
+        {{ form.as_p }}
+        <p><input type="submit"></p>
+    </form>
 </body>
 </html>

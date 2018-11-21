@@ -40,14 +40,18 @@ class UserForm(forms.Form):
     email=forms.EmailField(label='邮箱')
 
 def register(request):
-    form=UserForm(request.POST)
 
-    if form.is_valid():
-        print(form.cleaned_data)
-    else:
-        print(form.cleaned_data)
-        print(form.errors)
-        print(form.errors.get('password')[0])
-        print(form.errors.get('email')[0])
+    if request.method=='POST':
+        form=UserForm(request.POST)
 
+        if form.is_valid():
+            print(form.cleaned_data)
+        else:
+            print(form.cleaned_data)
+            print(form.errors)
+
+        return render(request, 'register.html', locals())
+
+    # 创建空的form对象，传入HTML网页，实现渲染标签的功能
+    form=UserForm()
     return render(request,'register.html',locals())
