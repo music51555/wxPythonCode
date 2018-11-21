@@ -3,6 +3,7 @@ from app01.models import *
 from django.core.paginator import Paginator
 from django import forms
 from django.forms import widgets
+from django.core.exceptions import ValidationError
 
 def upload(request):
 
@@ -42,6 +43,18 @@ class UserForm(forms.Form):
                              error_messages={'required': '字段为必填项'})
     email=forms.EmailField(label='邮箱',widget=widgets.TextInput(attrs={'class':'form-control'}),
                            error_messages={'invalid':'格式错误','required':'字段为必填项'})
+
+    def clean_username(self):
+
+        val=self.cleaned_data.get('username')
+
+        user_obj=User.objects.filter(username=val)
+
+        if not user_obj:
+            return val
+        else:
+            raise ValidationError('用户已存在')
+
 
 def register(request):
     if request.method=='POST':
