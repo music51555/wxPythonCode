@@ -2,6 +2,7 @@ from django.shortcuts import render,HttpResponse
 from app01.models import *
 from django.core.paginator import Paginator
 from django import forms
+from django.forms import widgets
 
 def upload(request):
 
@@ -35,15 +36,16 @@ def index(request):
     return render(request,'book_list.html',locals())
 
 class UserForm(forms.Form):
-    username=forms.CharField(min_length=4,label='用户名')
-    password=forms.CharField(min_length=4,label='密码')
-    email=forms.EmailField(label='邮箱')
+    username=forms.CharField(min_length=4,label='用户名',widget=widgets.TextInput({'class':'form-control'}),
+                             error_messages={'required':'字段为必填项'})
+    password=forms.CharField(label='密码',widget=widgets.PasswordInput(attrs={'class':'form-control'}),
+                             error_messages={'required': '字段为必填项'})
+    email=forms.EmailField(label='邮箱',widget=widgets.TextInput(attrs={'class':'form-control'}),
+                           error_messages={'invalid':'格式错误','required':'字段为必填项'})
 
 def register(request):
-
     if request.method=='POST':
         form=UserForm(request.POST)
-
         if form.is_valid():
             print(form.cleaned_data)
         else:
@@ -51,7 +53,5 @@ def register(request):
             print(form.errors)
 
         return render(request, 'register.html', locals())
-
-    # 创建空的form对象，传入HTML网页，实现渲染标签的功能
     form=UserForm()
     return render(request,'register.html',locals())

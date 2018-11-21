@@ -3,34 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
 <body>
-    <form action="" method="post" novalidate>
-        <!--在get请求时传入的form对象没有传入任何参数,但是通过该对象可以渲染标签，且当没有错误信息form.errors时，也不会显示span标签中的错误描述-->
-        <!--在post请求时传入的form对象传入了request.POST参数，也可以达到渲染标签的目的-->
-        <!--区别是：post请求后如果填写了大量字段，只有一个出错，那么刷新页面后已填写的内容会丢失，但是由于post请求中传入了request.POST参数，导致已填写的内容不会丢失，并且根据错误内容会显示span标签中的错误描述-->
-        <p>{{ form.username.label }}:{{ form.username }}
-            <span>{{ form.username.errors.0 }}</span>
-        </p>
-        <p>{{ form.password.label }}:{{ form.password }}
-            <span>{{ form.password.errors.0 }}</span>
-        </p>
-        <p>{{ form.email.label }}:{{ form.email }}
-            <span>{{ form.email.errors.0 }}</span>
-        </p>
-        <input type="submit">
-    </form>
-    <hr>
-    <form action="" method="post">
-        {% for field in form %}
-            <p>{{ field.label }}:{{ field }}</p>
-        {% endfor %}
-        <p><input type="submit"></p>
-    </form>
-    <hr>
-    <form action="" method="post">
-        {{ form.as_p }}
-        <p><input type="submit"></p>
-    </form>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3" >
+            <form action="" method="post" novalidate>
+                <p>{{ form.username.label }}:{{ form.username }}
+                    <span class='pull-right' style="color:red;">{{ form.username.errors.0 }}</span>
+                </p>
+                <p>{{ form.password.label }}:{{ form.password }}
+                    <span class='pull-right' style="color:red;">{{ form.password.errors.0 }}</span>
+                </p>
+                <p>{{ form.email.label }}:{{ form.email }}
+                    <span class='pull-right' style="color:red;">{{ form.email.errors.0 }}</span>
+                </p>
+                <p><input type="submit"></p>
+            </form>
+        </div>
+    </div>
+</div>
 </body>
 </html>
