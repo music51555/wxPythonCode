@@ -20,4 +20,6 @@ from setCookie import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('login/', views.login),
+    path('index/', views.index),
+    path('order/', views.order),
 ]

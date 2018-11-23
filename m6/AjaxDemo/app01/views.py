@@ -1,70 +1,36 @@
-from django.shortcuts import render,HttpResponse
-from app01.models import *
-from django.core.paginator import Paginator
-from django import forms
-from django.forms import widgets
-from django.core.exceptions import ValidationError
+from django.shortcuts import render,HttpResponse,redirect
+from app01.myforms import *
 
-def upload(request):
+def login(request):
 
-    if request.method == 'POST':
-        print(request.POST)
-        file_obj=request.FILES.get('upload')
-        with open(file_obj.name,'wb') as f:
-            for line in file_obj:
-                f.write(line)
-
-    return render(request,'upload.html')
-
-def index(request):
-
-    book_list=Book.objects.all()
-
-    paginator=Paginator(book_list,8)
-    current_page_num=int(request.GET.get('page'))
-    current_page=paginator.page(current_page_num)
-    page_range=paginator.page_range
-
-    if paginator.num_pages<11:
-        page_range=paginator.page_range
-    elif current_page_num-5<=0:
-        page_range=range(1,12)
-    elif current_page_num+5>paginator.num_pages:
-        page_range=range(paginator.num_pages-10,paginator.num_pages+1)
-    else:
-        page_range=range(current_page_num-5,current_page_num+6)
-
-    return render(request,'book_list.html',locals())
-
-class UserForm(forms.Form):
-    username=forms.CharField(min_length=4,label='用户名',widget=widgets.TextInput({'class':'form-control'}),
-                             error_messages={'required':'字段为必填项'})
-    password=forms.CharField(label='密码',widget=widgets.PasswordInput(attrs={'class':'form-control'}),
-                             error_messages={'required': '字段为必填项'})
-    email=forms.EmailField(label='邮箱',widget=widgets.TextInput(attrs={'class':'form-control'}),
-                           error_messages={'invalid':'格式错误','required':'字段为必填项'})
-
-    def clean_username(self):
-
-        val=self.cleaned_data.get('username')
-
-        user_obj=User.objects.filter(username=val)
-
-        if not user_obj:
-            return val
-        else:
-            raise ValidationError('用户已存在')
-
-
-def register(request):
     if request.method=='POST':
         form=UserForm(request.POST)
-        if form.is_valid():
-            print(form.cleaned_data)
-        else:
-            print(form.cleaned_data)
-            print(form.errors)
 
-        return render(request, 'register.html', locals())
+        username=request.POST.get('username')
+        password=request.POST.get('password')
+
+        user_obj=User.objects.filter(username=username,password=password).first()
+
+        if user_obj:
+            response=HttpResponse('登录成功')
+            response.set_cookie('is_login',True)
+            response.set_cookie('username',user_obj.username)
+            return response
+
+        return render(request,'login.html',locals())
+
     form=UserForm()
-    return render(request,'register.html',locals())
+
+    return render(request,'login.html',locals())
+
+def index(request):
+    # {'is_login': 'True'}
+    print(request.COOKIES)
+
+    is_login=request.COOKIES.get('is_login')
+
+    if is_login:
+        username = request.COOKIES.get('username')
+        return render(request,'index.html',locals())
+    else:
+        return redirect('/login/')

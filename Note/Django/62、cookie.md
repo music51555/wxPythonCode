@@ -27,19 +27,5 @@ return render()
 return redirect()
 ```
 
-cookie是由服务器设置的，是由服务器的响应体设置的
-
-```
-respone=HttpResponse('xx')
-respone=render(xxx)
-respone=redirect()
-respone.setCookie
-```
-
-每一次请求时，cookie是存放在请求头request中的
-
-request.COOKIE.get('login')
 
 
-
-hi,yuan

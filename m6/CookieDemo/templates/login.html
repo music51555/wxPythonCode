@@ -9,11 +9,11 @@
     {% csrf_token %}
     <p>
         {{ form.username.label }}:{{ form.username }}
-        <span>{{ form.username.errors }}</span>
+        <span>{{ form.username.errors.0 }}</span>
     </p>
     <p>
         {{ form.password.label }}:{{ form.password }}
-        <span>{{ form.password.errors }}</span>
+        <span>{{ form.password.errors.0 }}</span>
         <span>{{ error.0 }}</span>
     </p>
     <input type="submit">
