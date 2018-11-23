@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container" >
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <form action="" method="post" novalidate>
+                    {% csrf_token %}
+                    <p>{{ form.username.label }}:{{ form.username }}
+                       <span class="pull-right" style="color: red">{{ form.username.errors.0 }}</span>
+                    </p>
+                    <p>{{ form.password.label }}:{{ form.password }}
+                       <span class="pull-right" style="color: red">{{ form.password.errors.0 }}</span>
+                    </p>
+                    <p>{{ form.r_password.label }}:{{ form.r_password }}
+                       <span class="pull-right" style="color: red">{{ form.r_password.errors.0 }}</span>
+                        <span class="pull-right" style="color: red">{{ error.0 }}</span>
+                    </p>
+                    <p>{{ form.email.label }}:{{ form.email }}
+                       <span  class="pull-right" style="color: red">{{ form.email.errors.0 }}</span>
+                    </p>
+                    <input type="submit">
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

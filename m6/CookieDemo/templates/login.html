@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="" method="post" novalidate>
+    {% csrf_token %}
+    <p>
+        {{ form.username.label }}:{{ form.username }}
+        <span>{{ form.username.errors }}</span>
+    </p>
+    <p>
+        {{ form.password.label }}:{{ form.password }}
+        <span>{{ form.password.errors }}</span>
+        <span>{{ error.0 }}</span>
+    </p>
+    <input type="submit">
+</form>
+</body>
+</html>
