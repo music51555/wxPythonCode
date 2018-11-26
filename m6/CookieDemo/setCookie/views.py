@@ -1,5 +1,6 @@
 from django.shortcuts import render,redirect,HttpResponse
 from setCookie.myforms import *
+import datetime
 
 def login(request):
     if request.method=='POST':
@@ -28,8 +29,18 @@ def login(request):
 
 def index(request):
 
-    login_status=request.COOKIES.get('login')
-    username=request.COOKIES.get('username')
+    # 底层通过request.COOKIES.get('sessionid')读取session_key
+    # 在django_session表中过滤数据，取出session_data字典
+    # 在字典中取出数据
+    login_status=request.session.get('is_login')
+    username=request.session.get('username')
+    last_time=request.session.get('last_time')
+    if last_time:
+        last_login=last_time
+    else:
+        now=datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+        request.session['last_time']=now
+
     if login_status:
         return render(request,'index.html',locals())
     else:
@@ -39,3 +50,30 @@ def order(request):
     print(request.COOKIES)
 
     return HttpResponse('order')
+
+def login_session(request):
+
+    if request.method=='POST':
+        username=request.POST.get('username')
+        password=request.POST.get('password')
+
+        form=UserForm(request.POST)
+
+        user_obj=User.objects.filter(username=username,password=password).first()
+
+        if user_obj:
+            request.session['is_login']=True
+            request.session['username']=user_obj.username
+
+            return redirect('/index/')
+
+    form = UserForm()
+    return render(request,'login.html',locals())
+
+def logout(request):
+    # 删除session_data字典中的某个键值
+    # del request.session['last_time']
+
+    request.session.flush()
+
+    return redirect('/login/')

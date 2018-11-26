@@ -6,5 +6,11 @@
 </head>
 <body>
     <h3>Hi,{{ username }}</h3>
+    {% if last_login %}
+        <p>上次登录时间：{{ last_login }}</p>
+    {% else %}
+        <p>上次登录时间：欢迎您第一次登录</p>
+    {% endif %}
+    <a href="/logout">注销</a>
 </body>
 </html>

@@ -67,7 +67,7 @@ class Form(BaseForm, metaclass=DeclarativeFieldsMetaclass):
         try:
             cleaned_data = self.clean()
         except ValidationError as e:
-            # 在源码中将错误描述添加到了一个None中
+            # 在源码中将错误描述添加到了一个None中，实际获取错误描述的key是__all__
             self.add_error(None, e)
 ```
 
