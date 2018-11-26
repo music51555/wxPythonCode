@@ -74,6 +74,7 @@ def logout(request):
     # 删除session_data字典中的某个键值
     # del request.session['last_time']
 
+    #
     request.session.flush()
 
-    return redirect('/login/')
+    return redirect('/login_session/')

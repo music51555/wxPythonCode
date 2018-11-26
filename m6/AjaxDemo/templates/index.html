@@ -6,5 +6,34 @@
 </head>
 <body>
 <h3>HI,{{ username }}</h3>
+<p>上次登录时间:{{ last_time }}</p>
+<form action="" method="post" >
+    <select name="fruit" id="" multiple size="5">
+        <option value="xj">香蕉</option>
+        <option value="pg">苹果</option>
+        <option value="pt">葡萄</option>
+        <option value="xhs">西红柿</option>
+        <option value="hmg">哈密瓜</option>
+        <option value="tz">桃子</option>
+        <option value="lb">萝卜</option>
+        <option value="szj">柿子椒</option>
+    </select>
+    <input type="submit">
+</form>
+<p>您上次购买的商品是：
+{% if fruit %}
+    {% for foo in fruit %}
+        {% if fruit.last %}
+            {{ foo }}
+        {% else %}
+            {{ foo }},
+        {% endif %}
+    {% endfor %}
+{% else %}
+    您还没有购买过任何商品
+{% endif %}
+
+
+</p>
 </body>
 </html>

@@ -29,3 +29,8 @@ return redirect()
 
 
 
+cookie的大小上限4KB
+
+一个服务器最多在浏览器客户端保存20个cookie
+
+一个浏览器最多保存300个cookie
