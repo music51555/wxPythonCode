@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect,HttpResponse
 from django.contrib import auth
 from setCookie.myforms import *
 from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
 
 def login(request):
 
@@ -9,18 +10,25 @@ def login(request):
         user=request.POST.get('username')
         pwd=request.POST.get('password')
 
-        # 从auth_user表中验证用户名和密码，如果验证成功返回user对象，如果不成功返回None
         user_obj=auth.authenticate(username=user,password=pwd)
 
-        # 如果验证成功，那么login接口最终源码实现逻辑是，得到了request.user=user，request.user这个对象将永远等于当前登录对象，如果没有调用login接口，如果没有登录成功，那么request.user默认是一个匿名对象AnonymousUser，也就是在auth_user中数据字段都为空的一条记录
+
         if user_obj:
             auth.login(request,user_obj)
 
-        return redirect('/index/')
+        # 捕获装饰器跳转路径中的get请求参数next
+        next_url = request.GET.get('next')
+
+        # 如果通过装饰器捕获到next参数，则跳转到next地址，如果直接通过login地址登录，则跳转至index页面
+        if next_url:
+            return redirect(next_url)
+        else:
+            return redirect('/index/')
 
     form=UserForm()
     return render(request,'login.html',locals())
 
+@login_required
 def index(request):
 
     # 输出用户对象的用户名和密码
@@ -31,12 +39,9 @@ def index(request):
 
     print('User',User)
 
-    # 如果执行了auth.login()函数了，那么request.user=user_obj，所以如果在直接访问index页面时，如果是非匿名函数则跳转index页，如果是匿名函数则跳转login页
-    if request.user.is_authenticated:
-        return render(request,'index.html',locals())
-    else:
-        return redirect('/login/')
+    return render(request,'index.html')
 
+@login_required
 def order(request):
     print(request.COOKIES)
 
@@ -67,11 +72,11 @@ def register(request):
 def forget_pwd(request):
     if request.method=='POST':
         username=request.POST.get('username')
-        new_password=request.POST.get('new_username')
+        new_password=request.POST.get('new_password')
 
         user_obj=User.objects.get(username=username)
         print('user_obj',user_obj)
-        user_obj.set_password(password=new_password)
+        user_obj.set_password(new_password)
         user_obj.save()
 
         return redirect('/login/')
