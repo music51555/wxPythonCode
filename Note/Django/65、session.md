@@ -59,11 +59,11 @@ def login_session(request):
 
 **使用过程：**
 
-1、request.session['sessionid']的过程是request.COOKIES.get(sessionid)，得到session_key
+1、`request.session.get('is_login')`的过程是，先通过`request.COOKIES.get('sessionid')`，得到`session_key`
 
-2、django_session表中按照session_key的值cwii0iigbkihz83yw7yvf2wrlfgw5p5x过滤session_data
+2、`django_session`表中按照`session_key`的值`cwii0iigbkihz83yw7yvf2wrlfgw5p5x`过滤`session_data`
 
-3、通过session_data.get（’is_login‘）取出session数据
+3、通过`session_data.get（'is_login'）`取出`session`数据
 
 **代码逻辑：**
 
