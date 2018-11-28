@@ -16,7 +16,7 @@ def login(request):
         username=request.POST.get('username')
         password=request.POST.get('password')
 		
-        # 只要编写了form.is_valid()就会调用forms的校验类，执行UserForm中的代码，进行规则对象的校验，以及局部钩子和全局钩子的校验，此时会判断是否校验成功，校验成功，也就是登录成功后，才会返回指index页面，并设置cookie
+        # 只要编写了form.is_valid()就会调用forms的校验类，执行UserForm中的代码，进行规则对象的校验，以及局部钩子和全局钩子的校验，且会对form(request.POST)中传入的数据进行校验，如果不存在定义的字段如username、password等is_valid()方法就会变为false！！！此时会判断是否校验成功，校验成功，也就是登录成功后，才会返回指index页面，并设置cookie
         if form.is_valid():
             user_obj = User.objects.filter(username=username, password=password).first()
 

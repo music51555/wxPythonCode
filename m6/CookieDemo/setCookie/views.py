@@ -25,6 +25,7 @@ def login(request):
         else:
             return redirect('/index/')
 
+    print('login')
     form=UserForm()
     return render(request,'login.html',locals())
 
@@ -72,13 +73,28 @@ def register(request):
 def forget_pwd(request):
     if request.method=='POST':
         username=request.POST.get('username')
+        old_password=request.POST.get('password')
         new_password=request.POST.get('new_password')
 
-        user_obj=User.objects.get(username=username)
-        print('user_obj',user_obj)
-        user_obj.set_password(new_password)
-        user_obj.save()
+        form=UserForm(request.POST)
+        print('post')
+        if form.is_valid():
+            user_obj=User.objects.get(username=username)
 
-        return redirect('/login/')
+            # check_password方法在用户修改密码时，传入旧密码参数，来校验是否与旧密码相匹配，如果相匹配再允许用户去修改密码，否则不允许修改密码
+            if user_obj.check_password(old_password):
+                print('旧密码验证正确')
 
-    return render(request,'forget_pwd.html')
+                print('user_obj', user_obj)
+                user_obj.set_password(new_password)
+                user_obj.save()
+
+                return redirect('/login/')
+            else:
+                print('旧密码验证失败')
+        else:
+            print('error',form.errors)
+            return render(request,'forget_pwd.html',locals())
+
+    form=UserForm()
+    return render(request,'forget_pwd.html',locals())

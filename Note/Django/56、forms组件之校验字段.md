@@ -17,6 +17,11 @@ class UserForm(forms.Form):
 
 - 如果校验成功，那么所有的字段以字典的形式存储在`form.cleaned_data`中
 - 如果校验失败，那么正确的内容依然会存储在`form.cleaned_data`中，但是校验错误的字段会存储在`form.errors`中，形式为`key:[错误信息]`
+
+**重点：**
+
+**只要编写了form.is_valid()就会调用forms的校验类，执行UserForm中的代码，进行规则对象的校验，以及局部钩子和全局钩子的校验，且会对form(request.POST)中传入的数据进行校验，如果不存在定义的字段如username、password等is_valid()方法就会变为false！！！**
+
 ```python
 def register(request):
 

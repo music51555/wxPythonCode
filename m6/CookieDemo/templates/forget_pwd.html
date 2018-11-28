@@ -8,7 +8,11 @@
 <form action="" method="post" novalidate>
     {% csrf_token %}
     <p>
-        用户名：<input type="text" name="username">
+        {{ form.username.label }}：{{ form.username }}
+        {{ form.username.errors }}
+    </p>
+    <p>
+        旧密码：<input type="password" name="password">
     </p>
     <p>
         密码：<input type="password" name="new_password">
