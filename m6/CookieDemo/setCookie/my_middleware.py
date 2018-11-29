@@ -10,7 +10,9 @@ class MiddleWare_1(MiddlewareMixin):
         # callback(request)
         print('MiddleWare_1 to view')
 
-        return HttpResponse('OK')
+    def process_exception(self,request,exception):
+
+        print('MiddleWare_1 to exception')
 
     def process_response(self,request,response):
         print('MiddleWare_1 to response')
@@ -24,6 +26,9 @@ class MiddleWare_2(MiddlewareMixin):
 
     def process_view(self,request, callback, callback_args, callback_kwargs):
         print('MiddleWare_2 to view')
+
+    def process_exception(self, request, exception):
+        print('MiddleWare_1 to exception')
 
     def process_response(self,request,response):
         print('MiddleWare_2 to response')

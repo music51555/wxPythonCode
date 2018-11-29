@@ -38,4 +38,4 @@ class SecurityMiddleware(MiddlewareMixin):
 
 **中间件的工作过程：**
 
-客户端发送请求后，首先由`wsgiref`解析客户端请求的数据，解析为`request`对象，然后依次执行每一个中间件的`process_request`，到达路由分发的`url.py`，执行视图函数后返回响应体，再次经过中间件，依次执行每一个中间件的`process_response`，回到`wsgiref`中，封装响应体（包含响应首行、响应体），发送会浏览器客户端解析为`HTML`页面
+客户端发送请求后，首先由`wsgiref`解析客户端请求的数据，解析为`request`对象，然后依次执行每一个中间件的`process_request`，到达路由分发的`url.py`，执行视图函数后返回响应体，再次经过中间件，依次执行每一个中间件的`process_response`，回到`wsgiref`中，封装响应体（包含响应首行、响应体），发送回浏览器客户端解析为`HTML`页面
