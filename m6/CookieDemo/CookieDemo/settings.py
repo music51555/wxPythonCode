@@ -51,8 +51,8 @@ MIDDLEWARE = [
     'setCookie.my_middleware.MiddleWare_1',
     'setCookie.my_middleware.MiddleWare_2',
     'setCookie.my_middleware.AuthMiddleWare',
+    'setCookie.my_middleware.IPViewCount',
 ]
-
 
 ROOT_URLCONF = 'CookieDemo.urls'
 
@@ -132,3 +132,5 @@ STATIC_URL = '/static/'
 LOGIN_URL = '/login/'
 
 WHITE_LIST=['/login/','/register/','/logout/']
+
+TIME_ZONE='Asia/Shanghai'

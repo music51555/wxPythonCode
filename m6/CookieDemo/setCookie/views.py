@@ -3,6 +3,8 @@ from django.contrib import auth
 from setCookie.myforms import *
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
+import datetime
+import time
 
 def login(request):
 
@@ -15,6 +17,7 @@ def login(request):
 
         if user_obj:
             auth.login(request,user_obj)
+            request.session['last_time']=time.time()
 
         # 捕获装饰器跳转路径中的get请求参数next
         next_url = request.GET.get('next')
@@ -29,20 +32,12 @@ def login(request):
     form=UserForm()
     return render(request,'login.html',locals())
 
-@login_required
 def index(request):
 
-    # 输出用户对象的用户名和密码
-    print(request.user.username)
-    print(request.user.id)
-    # 是否是匿名用户，执行了auth.login()后，就相当于执行request.user=user_obj，输出False，如果没有登录成功，则是匿名用户，输出True
-    print(request.user.is_authenticated)
-
-    print('User',User)
+    request.get_host()
 
     return render(request,'index.html')
 
-@login_required
 def order(request):
     print(request.COOKIES)
 
