@@ -50,6 +50,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'setCookie.my_middleware.MiddleWare_1',
     'setCookie.my_middleware.MiddleWare_2',
+    'setCookie.my_middleware.AuthMiddleWare',
 ]
 
 
@@ -129,3 +130,5 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 LOGIN_URL = '/login/'
+
+WHITE_LIST=['/login/','/register/','/logout/']
