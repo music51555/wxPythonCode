@@ -1,4 +1,4 @@
-socketserver是如何实现的
+`socketserver`是如何实现的
 
 先看一下我们编写的代码：
 
@@ -6,26 +6,62 @@ socketserver是如何实现的
 import socketserver
 
 #继承于BaseRequestHandler类的目的是，调用该类中的通过下方代码server.forever()获取到的self.client_address和self.request
-class Server(socketserver.BaseRequestHandler):
+class MyServer(socketserver.BaseRequestHandler):
 
-    #重写父类的handle方法，因为handle是BaseRequestHandler父类中用于处理请求客户端请求的，所以重写handle方法
+    #重写父类的handle方法，因为handle是BaseRequestHandler父类中用于处理请求客户端请求的，所以重写handle方法，编写并发的处理逻辑
     def handle(self):
         print('new conn:',self.client_address)
         while True:
             try:
+                # self.request表示接收的客户端套接字对象conn
                 data = self.request.recv(1024)
+                # ('127.0.0.1', 57195)可以通过索引打印IP和端口
                 print('new conn',self.client_address[0])
                 self.request.send(data.upper())
             except ConnectionResetError:
                 break
+            self.request.close()
 
 if __name__ == '__main__':
-    server = socketserver.ThreadingTCPServer(('127.0.0.1',8087),Server)
-    print(server)
+    # ThreadingTCPServer传入ip和端口，以及自定义的socket类
+    server = socketserver.ThreadingTCPServer(('127.0.0.1',8087),MyServer)
     server.serve_forever()
 ```
 
 
+
+**socketserver使用模式：**
+
+1、自定义`socket`类
+
+```python
+class MyServer(socketserver,BaseRequestHandle):
+	def handle():
+		# 在里面填写socket服务端的代码
+```
+
+
+
+2、调用`socketserver`对象
+
+```python
+# ThreadingTCPServer表示利用多线程方式实现并发
+server = socketserver.ThreadingTCPServer(('127.0.0.1',8087),MyServer)
+```
+
+
+
+3、启动`socketserver`服务
+
+```
+server.serve_forever()
+```
+
+
+
+**源代码分析：**
+
+**提问：**为什么执行`server.serve_forever()`后，会执行自定义类中的`handler()`函数？
 
 从运行的第一行代码开始分析
 
@@ -58,13 +94,38 @@ class ThreadingMixIn:
 
 
 
-继续查看TCPServer类，在该类下顺利的找到了**init**方法，检查与我们传入的参数相符
+继续查看TCPServer类，在该类下顺利的找到了**init**方法，检查与我们传入的参数相符，包含`server_address`和`RequestHandlerClass`，分别表示**连接地址('127.0.0.1',8087)**   和   **自定义的功能类MyServer**
 
 ```python
-    def __init__(self, server_address, RequestHandlerClass, bind_and_activate=True):
-        #通过传入的('127.0.0.1',8086),Serve参数实例化对象
+class TCPServer(BaseServer):
+	def __init__(self, server_address, RequestHandlerClass, bind_and_activate=True):
+        #调用了父类BaseServer的__init__方法
         BaseServer.__init__(self, server_address, RequestHandlerClass)
-        
+
+```
+
+
+
+其中又发现了` BaseServer.__init__(self, server_address, RequestHandlerClass)`，调用了父类的实例化`__init__`方法，父类的`__init__`方法又做了什么事情呢？
+
+```python
+    def __init__(self, server_address, RequestHandlerClass):
+        """Constructor.  May be extended, do not override."""
+        # 进行了实例化变量赋值的操作，将传入IP和端口赋值为server_address变量
+        # 将自定义的功能类赋值为RequestHandlerClass变量
+        self.server_address = server_address
+        self.RequestHandlerClass = RequestHandlerClass
+        self.__is_shut_down = threading.Event()
+        self.__shutdown_request = False
+```
+
+
+
+继续又创建了套接字对象socket
+
+```python
+ def __init__(self, server_address, RequestHandlerClass, bind_and_activate=True):
+      
         #address_family = socket.AF_INET
         #socket_type = socket.SOCK_STREAM
         #实例化socket对象
@@ -81,7 +142,32 @@ class ThreadingMixIn:
                 raise
 ```
 
-所以现在看来，server就是通过TCPServer类实例化得到的套接字对象，实例化后，其实就已经完成了服务端的套接字设置
+
+
+继续又执行了server_bind()方法，为服务端建立连接绑定IP和端口
+
+```python
+ def __init__(self, server_address, RequestHandlerClass, bind_and_activate=True):
+        if bind_and_activate:
+            try:
+                # 执行的是self.socket.bind(self.server_address)，绑定IP和端口
+                self.server_bind()
+                # 执行的是self.socket.listen(self.request_queue_size)，创建等待队列数
+                self.server_activate()
+            except:
+                self.server_close()
+                raise
+```
+
+
+
+所以现在看来，`server`对象就是通过`TCPServer`类实例化得到的对象，其中做了：
+
+`1、实例化socket对象`
+
+`2、绑定server.bind()`
+
+`3、设置了server.listen(5)`
 
 
 
