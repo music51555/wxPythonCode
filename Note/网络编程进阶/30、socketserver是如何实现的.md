@@ -5,7 +5,7 @@
 ```python
 import socketserver
 
-#继承于BaseRequestHandler类的目的是，调用该类中的通过下方代码server.forever()获取到的self.client_address和self.request
+#继承于BaseRequestHandler类 /'hændlɚ/ 处理
 class MyServer(socketserver.BaseRequestHandler):
 
     #重写父类的handle方法，因为handle是BaseRequestHandler父类中用于处理请求客户端请求的，所以重写handle方法，编写并发的处理逻辑
@@ -69,17 +69,17 @@ server.serve_forever()
 server = socketserver.ThreadingTCPServer(('127.0.0.1',8086),Server)
 ```
 
-server是通过socketserver.ThreadingTCPServer类的实例化得到的对象，**那么server是什么呢？**
+`server`是通过`socketserver.ThreadingTCPServer`类的实例化得到的对象，**那么`server`是什么呢？**
 
-ThreadingTCPServer的源码显示为，发现没有__init__方法，所以就无法实例化对象
+`ThreadingTCPServer`的源码显示为，发现没有`__init__`方法，所以就无法实例化对象
 
 ```python
 class ThreadingTCPServer(ThreadingMixIn, TCPServer): pass
 ```
 
-ThreadingTCPServer类继承于**ThreadingMixIn**类和**TCPServer**类，所有从左至右依次查找
+`ThreadingTCPServer`类继承于`ThreadingMixIn`类和`TCPServer`类，所有从左至右依次查找
 
-ThreadingMixIn类显示为，也没有找到__init__方法
+`ThreadingMixIn`类显示为，也没有找到`__init__`方法
 
 ```python
 class ThreadingMixIn:
@@ -89,12 +89,12 @@ class ThreadingMixIn:
     	pass
 
     def process_request(self, request, client_address):
-    pass
+    	pass
 ```
 
 
 
-继续查看TCPServer类，在该类下顺利的找到了**init**方法，检查与我们传入的参数相符，包含`server_address`和`RequestHandlerClass`，分别表示**连接地址('127.0.0.1',8087)**   和   **自定义的功能类MyServer**
+继续查看`TCPServer`类，在该类下顺利的找到了`__init__`方法，检查与我们传入的参数相符，包含`server_address`和`RequestHandlerClass`，分别表示**连接地址`('127.0.0.1',8087)**`   和自定义的功能类``MyServer`
 
 ```python
 class TCPServer(BaseServer):
@@ -177,6 +177,12 @@ class TCPServer(BaseServer):
 server.serve_forever()
 ```
 
+
+
+首先`serve_forever`是在`BaseServer`类下，也就是`TCPServer`类的父类
+
+
+
 这句代码的含义是接收客户端连接
 
 ```python
@@ -202,10 +208,13 @@ server.serve_forever()
 
 
 
+在`BaseServer`下查看`_handle_request_noblock`函数：
+
 ```python
-    def _handle_request_noblock(self):
+class BaseServer:
+	def _handle_request_noblock(self):
         try:
-            #首先通过get_request方法获取客户端的conn连接（这里用quest表示）和连接地址，也就是执行了accept()方法
+            #表示通过get_request方法获取客户端的conn连接（这里用request表示）和连接地址。self.get_request()，self表示哪个对象？向上查找到当前函数_handle_request_noblock，再继续向上查找，又查找到了serve_forever()函数下的self._handle_request_noblock()，又是谁调用了serve_forever()，是通过ThreadingTCPServer类，继承的TCPServer下的get_request方法，其中return了 self.socket.accept()方法，等待客户端连接
             request, client_address = self.get_request()
         except OSError:
             return
