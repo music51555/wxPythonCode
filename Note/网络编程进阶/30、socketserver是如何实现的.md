@@ -7,15 +7,14 @@ import socketserver
 
 #继承于BaseRequestHandler类 /'hændlɚ/ 处理
 class MyServer(socketserver.BaseRequestHandler):
-
-    #重写父类的handle方法，因为handle是BaseRequestHandler父类中用于处理请求客户端请求的，所以重写handle方法，编写并发的处理逻辑
+	# 有一个handle方法
     def handle(self):
         print('new conn:',self.client_address)
         while True:
             try:
                 # self.request表示接收的客户端套接字对象conn
                 data = self.request.recv(1024)
-                # ('127.0.0.1', 57195)可以通过索引打印IP和端口
+                # self.client_address[0]可以通过索引打印IP和端口('127.0.0.1', 57195)
                 print('new conn',self.client_address[0])
                 self.request.send(data.upper())
             except ConnectionResetError:
@@ -23,8 +22,10 @@ class MyServer(socketserver.BaseRequestHandler):
             self.request.close()
 
 if __name__ == '__main__':
-    # ThreadingTCPServer传入ip和端口，以及自定义的socket类
+    # ThreadingTCPServer传入ip和端口，以及自定义的socket类，开启多线程
     server = socketserver.ThreadingTCPServer(('127.0.0.1',8087),MyServer)
+    # 开启多进程
+    server = socketserver.ForkingTCPServer(('127.0.0.1',8087),MyServer)
     server.serve_forever()
 ```
 
@@ -94,7 +95,7 @@ class ThreadingMixIn:
 
 
 
-继续查看`TCPServer`类，在该类下顺利的找到了`__init__`方法，检查与我们传入的参数相符，包含`server_address`和`RequestHandlerClass`，分别表示**连接地址`('127.0.0.1',8087)**`   和自定义的功能类``MyServer`
+继续查看`TCPServer`类，在该类下顺利的找到了`__init__`方法，检查与我们传入的参数相符，包含`server_address`和`RequestHandlerClass`，分别表示**连接地址`('127.0.0.1',8087)`** 和自定义的功能类`MyServer`
 
 ```python
 class TCPServer(BaseServer):
@@ -106,12 +107,12 @@ class TCPServer(BaseServer):
 
 
 
-其中又发现了` BaseServer.__init__(self, server_address, RequestHandlerClass)`，调用了父类的实例化`__init__`方法，父类的`__init__`方法又做了什么事情呢？
+那么父类的`__init__`方法又做了什么事情呢？
 
 ```python
     def __init__(self, server_address, RequestHandlerClass):
-        """Constructor.  May be extended, do not override."""
-        # 进行了实例化变量赋值的操作，将传入IP和端口赋值为server_address变量
+        # 进行了实例化变量赋值的操作：
+        # 将传入IP和端口赋值为server_address变量
         # 将自定义的功能类赋值为RequestHandlerClass变量
         self.server_address = server_address
         self.RequestHandlerClass = RequestHandlerClass
@@ -133,8 +134,8 @@ class TCPServer(BaseServer):
         if bind_and_activate:
             try:
                 #建立服务端链接:
-                #server_bind执行的是socket.setsockopt、socket.bind、以及通过socket.getsockname()得到服务端的IP地址
-                #server_activate的方法是设置server.listen()
+                # server_bind执行的是socket.setsockopt、socket.bind
+                # server_activate的方法是设置server.listen()
                 self.server_bind()
                 self.server_activate()
             except:
@@ -218,10 +219,9 @@ class BaseServer:
             request, client_address = self.get_request()
         except OSError:
             return
-        #然后马上通过verify_request验证用户的请求，这个方法可以重写，主要是验证客户端的IP端等需求
         if self.verify_request(request, client_address):
             try:
-                #接下来通过在process_request调用finish_request方法中处理用户的请求
+                #接下执行process_request方法，首先确定是哪个类下的process_request方法，要从头查找，self表示通过ThreadingTCPServer类实例化出的对象server，所以从该类下从头查找process_request方法，继续从该类继承的ThreadingMixIn类下查找，发现了该方法
                 self.process_request(request, client_address)
             except Exception:
                 self.handle_error(request, client_address)
@@ -235,45 +235,45 @@ class BaseServer:
 
 
 
+`ThreadingMinIn`类下的`process_request`方法
+
 ```python
-    #在process_request中分别执行了finish_request和shutdown_request
-    def process_request(self, request, client_address):
-        self.finish_request(request, client_address)
-        self.shutdown_request(request)
+def process_request(self, request, client_address):
+    # 每当有一个客户端连接后，就会开启一个线程执行self.process_request_thread
+    t = threading.Thread(target = self.process_request_thread,
+                         args = (request, client_address))
+    t.daemon = self.daemon_threads
+    if not t.daemon and self._block_on_close:
+        if self._threads is None:
+            self._threads = []
+        self._threads.append(t)
+    t.start()
 ```
 
 
 
-首先看finish_request方法
+`process_request_thread`方法
+
+```python
+    def process_request_thread(self, request, client_address):
+        # 该函数执行了self.finish_request(request, client_address)，继续查找该方法
+        try:
+            self.finish_request(request, client_address)
+        except Exception:
+            self.handle_error(request, client_address)
+        finally:
+            self.shutdown_request(request)
+```
+
+在`ThreadingTCPServer`继承的`TCPServerTCPServer`的父类`BaseServer`中找到了`finish_request`方法
 
 ```python
 def finish_request(self, request, client_address):
-    """Finish one request by instantiating RequestHandlerClass."""
-    self.RequestHandlerClass(request, client_address, self)
-```
-代码中的RequestHandlerClass就是表示我们通过这行代码
-
-```python
-socketserver.ThreadingTCPServer(('127.0.0.1',8086),Server)
+	# RequestHandlerClass就是最初传入的自定义功能类，也就是去执行自定义功能类的实例化方法__init__，但是我们自定义的功能类中没有__init__方法，于是去继承的父类中查找
+	self.RequestHandlerClass(request, client_address, self)
 ```
 
-传入的Server参数类
-
-
-
-也就是表示把参数request, client_address, self传入到我们自己编写的代码中，而我们的代码是继承于socketserver中的三个Handler类
-
-socketserver模块提供了三个Handler类：
-
-1、BaseRequestHandler
-
-2、StreamRequestHandler
-
-3、DatagramRequestHandler 
-
-后两个是第一个的子类。直接使用BaseRequestHandler就行，但StreamRequestHandler、DatagramRequestHandler分别适合处理流式数据和数据报数据 
-
-首先看BaseRequestHandler类
+在继承的父类`BaseRequestHandler`查找到
 
 ```python
 class BaseRequestHandler:
@@ -284,41 +284,14 @@ class BaseRequestHandler:
         self.server = server
         self.setup()
         try:
+            # 这是的self表示自定义功能类，在我们自定义的功能类中重写父类中的handle方法，如果我们没有重写handle方法，就会执行父类中自己的handle方法
             self.handle()
         finally:
             self.finish()
-
-    def setup(self):
-        pass
-
+            
     def handle(self):
         pass
-
-    def finish(self):
-        pass
 ```
-
-其中包含了setup()是处理前的初始化操作，handle()是处理请求，finish()是清理操作三个方法，但是实现方法都是空的，所以直接使用BaseRequestHandler，你至少得重写handle()，然后根据需要决定是否重写setup()、finish()。于是我们的代码继承的是BaseRequestHandler，直接重写handle方法，用于处理请求
-
-
-
-执行完process_request下的finish_request方法后，继续执行了shutdown_request方法
-
-```python
-    #该方法在完成了客户端请求后，调用close_request来关闭了客户端的连接
-    def shutdown_request(self, request):
-        """Called to shutdown and close an individual request."""
-        self.close_request(request)
-```
-
-在执行完成serve_forever函数中的_handle_request_noblock方法后又继续执行了self.service_actions方法
-
-```python
-    def service_actions(self):
-        pass
-```
-
-但是源码中的这个方法为空，可以用于当你执行完每一个客户端请求后，想要执行的逻辑操作，如计数+1等
 
 
 
