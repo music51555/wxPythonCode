@@ -90,3 +90,13 @@ class ArticleUpDown(models.Model):
             # 联合唯一，不允许同一用户对同一篇文章重复点赞
             ('user','article'),
         ]
+
+class Comment(models.Model):
+    # 基础字段
+    nid=models.CharField(primary_key=True)
+    user=models.ForeignKey(to='UserInfo',to_field='nid')
+    article=models.ForeignKey(to='Article',to_field='nid')
+    content=models.CharField(verbose_name='评论内容',null=True)
+
+    # 如果只定义基础字段存储每一条评论，那么当有子级评论时，就无法确定父级评论是谁，所以添加parent_comment字段存储父级字段，为了起到约束的作用，使用ForeignKey，对于子级表中的字段，可以使用Comment，也可以是self，null=True表示评论为根评论，也是就是对文章的评论，而不是对评论的评论
+    parent_comment=models.ForeignKey('self',null=True)
