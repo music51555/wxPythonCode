@@ -62,6 +62,10 @@
                     }else{
                         $('.error').text(data.msg)
                         $('.error').css({'color':'red','margin-left':'10px'})
+
+                        setTimeout(function(){
+                            $('.error').text('')
+                        },2000)
                     }
                 }
             })
