@@ -2,6 +2,7 @@ from django.shortcuts import render,HttpResponse
 import os
 from django.http import JsonResponse
 from django.contrib import auth
+from blog import myForms
 
 BASE_DIR=os.path.dirname(os.path.dirname(__file__))
 valid_img_bgc=os.path.join(BASE_DIR,'static','valid_img_bgc','valid_bgc.png')
@@ -44,3 +45,22 @@ def get_validCode_img(request):
     data=get_valid_code.get_valid_code_img(request)
 
     return HttpResponse(data)
+
+def register(request):
+
+    response={'user':None,'msg':None}
+
+    if request.is_ajax():
+        form=myForms.UserForm(request.POST)
+
+        if form.is_valid():
+            response['user']=request.POST.get('username')
+
+            return JsonResponse(response)
+        else:
+            response['msg']=form.errors
+
+            return JsonResponse(response)
+
+    form=myForms.UserForm()
+    return render(request,'register.html',locals())

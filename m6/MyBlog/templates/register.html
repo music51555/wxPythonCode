@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/static/bootstrap-3.3.7/css/bootstrap.css">
+    <style type="text/css">
+        #avatar{
+            display: none;
+        }
+        #avatar_img{
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h3>注册</h3>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                {% csrf_token %}
+                {% for field in form %}
+                    <div class="form-group">
+                        <label for="{{ field.auto_id }}">{{ field.label }}</label>
+                        {{ field }}
+                        {{ field.errors }}
+                    </div>
+                {% endfor %}
+                <label for="avatar">头像
+                    <img width="80" height="80" id="avatar_img" src="/static/img/default.jpg" alt="">
+                </label>
+                <input type="file" id="avatar">
+                <div>
+                    <button class="btn btn-default register-btn">登录</button>
+                </div>
+                <span class="error"></span>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="/static/jquery/jquery-3.3.1.js"></script>
+<script type="text/javascript">
+    $(function(){
+        $('#avatar').change(function(){
+            var file=$(this)[0].files[0]
+            console.log(file)
+
+            var reader=new FileReader()
+
+            reader.readAsDataURL(file)
+
+            reader.onload=function(){
+                $('#avatar_img').attr('src',reader.result)
+            }
+        })
+        $('.register-btn').click(function(){
+            // 之所以用formdata，是因为要通过Ajax发送上传的文件信息
+            var formdata = new FormData()
+            formdata.append('username',$('#id_username').val())
+            formdata.append('password',$('#id_password').val())
+            formdata.append('r_password',$('#id_r_password').val())
+            formdata.append('email',$('#id_email').val())
+            formdata.append('avatar',$('#avatar')[0].files[0])
+            // 不紧要传递csrfmiddlewaretoken的值，还要在html代码中添加csrf_token的标识
+            formdata.append('csrfmiddlewaretoken',$('[name=csrfmiddlewaretoken]').val())
+
+            $.ajax({
+                url:'',
+                type:'post',
+                contentType:false,
+                processData:false,
+                data:formdata,
+                success:function(data){
+                    console.log(data)
+                }
+            })
+        })
+    })
+</script>
+</html>

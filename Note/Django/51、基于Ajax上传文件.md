@@ -5,6 +5,7 @@
     $(function(){
         $('#register').click(function(){
             {#写在JS事件中，如果写在外面视图函数将接收不到任何参数#}
+            {#之所以用formdata，是因为要发送文件数据#}
             var formdata = new FormData();
             {#将发送的数据和文件以formdata.append(key，value)的形式添加#}
             formdata.append("username",$('[name=username]').val());
