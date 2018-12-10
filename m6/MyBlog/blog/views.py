@@ -54,11 +54,12 @@ def register(request):
         form=myForms.UserForm(request.POST)
 
         if form.is_valid():
-            response['user']=request.POST.get('username')
+            response['user']=form.cleaned_data.get('username')
 
             return JsonResponse(response)
         else:
             response['msg']=form.errors
+            print(response)
 
             return JsonResponse(response)
 

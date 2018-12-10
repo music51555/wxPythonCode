@@ -11,6 +11,9 @@
         #avatar_img{
             margin-left: 10px;
         }
+        .error{
+            color:red;
+        }
     </style>
 </head>
 <body>
@@ -18,14 +21,16 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
-                {% csrf_token %}
-                {% for field in form %}
-                    <div class="form-group">
-                        <label for="{{ field.auto_id }}">{{ field.label }}</label>
-                        {{ field }}
-                        {{ field.errors }}
-                    </div>
-                {% endfor %}
+                <form id="form">
+                    {% csrf_token %}
+                    {% for field in form %}
+                        <div class="form-group">
+                            <label for="{{ field.auto_id }}">{{ field.label }}</label>
+                            {{ field }}
+                            <span class="error pull-right"></span>
+                        </div>
+                    {% endfor %}
+                </form>
                 <label for="avatar">头像
                     <img width="80" height="80" id="avatar_img" src="/static/img/default.jpg" alt="">
                 </label>
@@ -56,13 +61,16 @@
         $('.register-btn').click(function(){
             // 之所以用formdata，是因为要通过Ajax发送上传的文件信息
             var formdata = new FormData()
-            formdata.append('username',$('#id_username').val())
-            formdata.append('password',$('#id_password').val())
-            formdata.append('r_password',$('#id_r_password').val())
-            formdata.append('email',$('#id_email').val())
+
+            // serializeArray方法只能在form标签下使用，获取form标签下的每一个字段，形成一个列表[{name:username,value:alex},{name:password,value:xxx},{...}]
+            var form_key=$('#form').serializeArray()
+
+            // 通过$.each(循环元素，function)方法循环列表，并执行function函数，data返回一个字典{name:username,value:alex...}
+            $.each(form_key,function(index,data){
+                formdata.append(data.name,data.value)
+            })
+            // 除去特殊的头像值
             formdata.append('avatar',$('#avatar')[0].files[0])
-            // 不紧要传递csrfmiddlewaretoken的值，还要在html代码中添加csrf_token的标识
-            formdata.append('csrfmiddlewaretoken',$('[name=csrfmiddlewaretoken]').val())
 
             $.ajax({
                 url:'',
@@ -71,7 +79,13 @@
                 processData:false,
                 data:formdata,
                 success:function(data){
-                    console.log(data)
+                    $('.error').text('')
+                    $('.error').parent().removeClass('has-error')
+                    //data.msg是字典形式，key为username，value为["This field is required."]是列表
+                    $.each(data.msg,function(key,value){
+                        $('#id_'+key).next().text(value[0])
+                        $('#id_'+key).next().parent().addClass('has-error')
+                    })
                 }
             })
         })

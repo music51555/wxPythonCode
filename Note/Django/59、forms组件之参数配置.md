@@ -46,10 +46,3 @@ class UserForm(forms.Form):
 错误描述展示：
 
 ![image-20181120222221291](./images/image-20181120222221291.png)
-
-
-
-```
-
-```
-
