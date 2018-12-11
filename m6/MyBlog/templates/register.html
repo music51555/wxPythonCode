@@ -79,13 +79,22 @@
                 processData:false,
                 data:formdata,
                 success:function(data){
-                    $('.error').text('')
-                    $('.error').parent().removeClass('has-error')
-                    //data.msg是字典形式，key为username，value为["This field is required."]是列表
-                    $.each(data.msg,function(key,value){
-                        $('#id_'+key).next().text(value[0])
-                        $('#id_'+key).next().parent().addClass('has-error')
-                    })
+                    if(data.user){
+                        location.href='/login'
+                    }else{
+                        $('.error').text('')
+                        $('.error').parent().removeClass('has-error')
+
+                        //data.msg是字典形式，key为username，value为["This field is required."]是列表
+                        $.each(data.msg,function(key,value){
+                            if(key=='__all__'){
+                                $('#id_'+'r_password').next().text(value)
+                            }
+
+                            $('#id_'+key).next().text(value[0])
+                            $('#id_'+key).next().parent().addClass('has-error')
+                        })
+                    }
                 }
             })
         })
