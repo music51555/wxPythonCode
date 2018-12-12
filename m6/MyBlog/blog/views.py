@@ -38,7 +38,26 @@ def login(request):
 
 def index(request):
 
+    article_list = Article.objects.all()
+
     return render(request, 'index.html', locals())
+
+def home_site(request, username):
+
+    user=UserInfo.objects.filter(username=username).first()
+
+    if not user:
+        return render(request, 'not_found.html')
+    else:
+        # 正向查询按字段，是因为在定义表结构时，该表中就有与另一个表相关的外键列，所以通过有另一个表中字段的表去查询另一个表，就是正向查询，正向查询按字段。反之就是反向查询，以对象的形式查询时，反向查询按表名_set，如user_obj.article_set.all()
+        # 输出<QuerySet [<Article: selenium之表格的定位>, <Article: 异步编程之使用yield from>]>
+        article_list = user.article_set.all()
+
+        # 基于双下划线的跨表查询
+        # 输出<QuerySet [<Article: selenium之表格的定位>, <Article: 异步编程之使用yield from>]>
+        article_list = Article.objects.filter(user=user)
+
+        return HttpResponse('OK')
 
 
 def logout(request):

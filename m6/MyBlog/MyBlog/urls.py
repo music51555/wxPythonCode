@@ -24,6 +24,9 @@ urlpatterns = [
     path('login/', views.login),
     path('index/', views.index),
     path('logout/', views.logout),
+    # 以^开头，就表示以根路径开头，分组后，就会得到用户输入的内容，存储到别名username上
+    re_path(r'^(?P<username>\w+)$', views.home_site),
+    re_path('^$', views.index),
     path('register/', views.register),
     path('get_validCode_img/', views.get_valid_code_img),
 

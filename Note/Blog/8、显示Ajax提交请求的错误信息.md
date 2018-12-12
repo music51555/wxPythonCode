@@ -13,9 +13,10 @@
 ```javascript
 $('.register-btn').click(function(){
     var formdata = new FormData()
-
+	
+    // serializeArray方法只能在form标签下使用，获取form标签下的每一个字段，形成一个列表[{name:username,value:alex},{name:password,value:xxx},{...}]
     var form_key=$('#form').serializeArray()
-
+	
     $.each(form_key,function(index,data){
         formdata.append(data.name,data.value)
     })
@@ -92,7 +93,7 @@ email=forms.EmailField(
 
         if not user:
            # 如果校验数据正确，就返回数据即可
-           return user
+           return username
         else:
             # 当前字段报出异常后，就会存储在error字典中，当在ajax中循环时，就会将其根据id_+key.next.text存储为标签值
             raise ValidationError('用户已存在')

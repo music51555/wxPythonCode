@@ -2,14 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>博客园</title>
     <link rel="stylesheet" href="/static/bootstrap-3.3.7/css/bootstrap.css">
     <script type="text/javascript" src="/static/jquery/jquery-3.3.1.js"></script>
     <script type="text/javascript" src="/static/bootstrap-3.3.7/js/bootstrap.js"></script>
     <style type="text/css">
-        .glyphicon{
-            {#设置元素的垂直对齐方式，上下适当调整位置#}
-            vertical-align: -1px;
+        .glyphicon {
+        {#设置元素的垂直对齐方式，上下适当调整位置#} vertical-align: -1px;
+        }
+        .article-info{
+            margin-top: 10px;
+        }
+        .article-info a{
+            text-decoration: none;
         }
     </style>
 </head>
@@ -20,7 +25,6 @@
             <a class="navbar-brand" href="#">博客园</a>
         </div>
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li><a href="#">文章</a></li>
@@ -35,7 +39,6 @@
             </form>
             {% if request.user.is_authenticated %}
                 <ul class="nav navbar-nav navbar-right">
-
                     <li>
                         <a href="#">
                             <span class="glyphicon glyphicon-user"></span>
@@ -60,9 +63,83 @@
                     </li>
                 </ul>
             {% endif %}
-
-        </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
+        </div>
+    </div>
 </nav>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="panel panel-warning">
+                <div class="panel-heading">Panel heading without title</div>
+                <div class="panel-body">
+                    Panel content
+                </div>
+            </div>
+            <div class="panel panel-info">
+                <div class="panel-heading">Panel heading without title</div>
+                <div class="panel-body">
+                    Panel content
+                </div>
+            </div>
+            <div class="panel panel-danger">
+                <div class="panel-heading">Panel heading without title</div>
+                <div class="panel-body">
+                    Panel content
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="article_list">
+                {% for article in article_list %}
+                    <div class="article-item">
+                        <h5><a href="">{{ article.title }}</a></h5>
+                        <div class="user-avatar media-left">
+                            <img width="65" height="65" src="/media/{{ article.user.avatar }}" alt="">
+                        </div>
+                        <div class="article-desc media-right">
+                            <span>{{ article.desc }}</span>
+                        </div>
+                        <div class="article-info small">
+                            <span>
+                                <a href="">{{ article.user.username }}</a>
+                                发布于&nbsp{{ article.create_time | date:'Y-m-d H:i:s' }}
+                                <span>
+                                    <img src="/static/img/icon_comment.gif" alt="">
+                                    <a href="">评论({{ article.comment_count }})</a>
+
+                                </span>
+                                <span>
+                                    <img src="/static/img/icon_arrow.gif" alt="">
+                                    <a href="">点赞({{ article.up_count }})</a>
+                                </span>
+                            </span>
+                        </div>
+                        <hr>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="panel panel-success">
+                <div class="panel-heading">Panel heading without title</div>
+                <div class="panel-body">
+                    Panel content
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">Panel heading without title</div>
+                <div class="panel-body">
+                    Panel content
+                </div>
+            </div>
+            <div class="panel panel-primary">
+                <div class="panel-heading">Panel heading without title</div>
+                <div class="panel-body">
+                    Panel content
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>

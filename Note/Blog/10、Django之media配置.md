@@ -10,7 +10,7 @@
 
 **知识点1：**`MEDIA_ROOT`表示用户通过表中`FileField`、`ImageField`上传文件保存的路径，一般叫做`media`文件夹
 
-**知识点2：**发现不填写`MEDIA_URL`就可以访问通过路由配置的media下的图片，且网上说设置了`MEDIA_URL`后可以在HTML网页中通过`{{ MEDIA_URL }}`访问该路径
+**知识点2：**发现不填写`MEDIA_URL`就可以访问通过路由配置的`media`下的图片，且网上说设置了`MEDIA_URL`后可以在HTML网页中通过`{{ MEDIA_URL }}`访问该路径
 
 
 

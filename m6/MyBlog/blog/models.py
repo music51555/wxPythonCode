@@ -49,7 +49,7 @@ class Article(models.Model):
     title=models.CharField(verbose_name='文章标题',max_length=50)
     desc=models.CharField(verbose_name='文章描述',max_length=255)
     create_time=models.DateTimeField(verbose_name='创建时间',auto_now_add=True)
-    content=models.TextField()
+    content=models.TextField(verbose_name='文章详情')
 
     # 增加三个字段，用来存储评论数、点赞数和踩赞数。以后在查询某篇文章的评论数时，就会涉及到跨表查询，相比于添加操作和查询操作，跨表查询的效率会很低，所以每有一个新评论时，就在文章表中评论数列中+1
     comment_count=models.IntegerField(default=0)
@@ -68,6 +68,9 @@ class Article(models.Model):
         # 设置多对多的关系列，article列和tag列相互约束
         through_fields=('article','tag')
     )
+
+    def __str__(self):
+        return self.title
 
 class Article2Tag(models.Model):
     nid=models.AutoField(primary_key=True)
