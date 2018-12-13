@@ -4,6 +4,7 @@ from django.http import JsonResponse
 from django.contrib import auth
 from blog import myForms
 from blog.models import *
+from django.db.models import Count
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 valid_img_bgc = os.path.join(BASE_DIR, 'static', 'valid_img_bgc', 'valid_bgc.png')
@@ -42,20 +43,27 @@ def index(request):
 
     return render(request, 'index.html', locals())
 
+
 def home_site(request, username):
 
-    user=UserInfo.objects.filter(username=username).first()
+    # 首先判断是否有当前在URL中访问的用户
+    user = UserInfo.objects.filter(username=username).first()
 
     if not user:
+        # 如果用户不存在，那么返回not_found.html页面
         return render(request, 'not_found.html')
     else:
-        # 正向查询按字段，是因为在定义表结构时，该表中就有与另一个表相关的外键列，所以通过有另一个表中字段的表去查询另一个表，就是正向查询，正向查询按字段。反之就是反向查询，以对象的形式查询时，反向查询按表名_set，如user_obj.article_set.all()
-        # 输出<QuerySet [<Article: selenium之表格的定位>, <Article: 异步编程之使用yield from>]>
         article_list = user.article_set.all()
 
-        # 基于双下划线的跨表查询
-        # 输出<QuerySet [<Article: selenium之表格的定位>, <Article: 异步编程之使用yield from>]>
         article_list = Article.objects.filter(user=user)
+
+        # 查询当前站点每一个分类下的文章数，Category分类表中有blog字段，是外键列一对多关系，利用当前user按对象跨表查询出站点对象，并给予主键分组，通过聚合函数跨表统计查询文章总数，展示出分类名和对应的文章总数
+        cate_arti_coutn=Category.objects.filter(blog=user.blog).values('pk').annotate(article_count=Count('article__nid')).values('title','article_count')
+        print(cate_arti_coutn)
+
+        # 查询当前站点每一个标签下的文章数，Article文章表中有tags字段，是多对多关系，反向查询按表名，写为article__nid
+        tag_arti_count=Tag.objects.filter(blog=user.blog).values('nid').annotate(c=Count('article__nid')).values('title', 'c')
+        print(tag_arti_count)
 
         return HttpResponse('OK')
 
