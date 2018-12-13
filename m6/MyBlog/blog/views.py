@@ -58,12 +58,13 @@ def home_site(request, username):
         article_list = Article.objects.filter(user=user)
 
         # 查询当前站点每一个分类下的文章数，Category分类表中有blog字段，是外键列一对多关系，利用当前user按对象跨表查询出站点对象，并给予主键分组，通过聚合函数跨表统计查询文章总数，展示出分类名和对应的文章总数
-        cate_arti_coutn=Category.objects.filter(blog=user.blog).values('pk').annotate(article_count=Count('article__nid')).values('title','article_count')
-        print(cate_arti_coutn)
+        cate_list=Category.objects.values('pk').filter(blog=user.blog).annotate(c=Count('article__nid')).values('title','c')
+        print(cate_list)
+
 
         # 查询当前站点每一个标签下的文章数，Article文章表中有tags字段，是多对多关系，反向查询按表名，写为article__nid
-        tag_arti_count=Tag.objects.filter(blog=user.blog).values('nid').annotate(c=Count('article__nid')).values('title', 'c')
-        print(tag_arti_count)
+        tag_list=Tag.objects.filter(blog=user.blog).values('pk').annotate(c=Count('article__nid')).values('title','c')
+        print(tag_list)
 
         return HttpResponse('OK')
 
