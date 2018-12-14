@@ -109,7 +109,7 @@ MEDIA_URL = '/media/'
 from django.views.static import serve
 from MyBlog import settings
 
-# (?P<path>.*)分组后起别名path+固定格式
+# (?P<path>.*)分组后起别名path+固定格式，^表示匹配开头，之所以给分组设置path变量，是因为serve方法需要一个path变量，不设置会报serve() missing 1 required positional argument: 'path'
 re_path(r'media/(?P<path>.*)$',serve,{'document_root':settings.MEDIA_ROOT})
 ```
 

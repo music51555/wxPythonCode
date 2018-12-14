@@ -25,11 +25,12 @@ urlpatterns = [
     path('index/', views.index),
     path('logout/', views.logout),
     # 以^开头，就表示以根路径开头，分组后，就会得到用户输入的内容，存储到别名username上
-    re_path('^(?P<username>\w+)$', views.home_site),
+    re_path('^(?P<username>\w+)/$', views.home_site),
     re_path('^$', views.index),
     path('register/', views.register),
     path('get_validCode_img/', views.get_valid_code_img),
 
     # (?P<path>.*)分组后起别名path+固定格式
-    re_path(r'media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT})
+    re_path(r'media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),
+    re_path(r'^(?P<username>\w+)/(?P<condition>tag|category|archive)/(?P<param>.*)$', views.home_site)
 ]
