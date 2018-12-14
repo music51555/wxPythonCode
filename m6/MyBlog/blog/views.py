@@ -79,7 +79,6 @@ def home_site(request, username, **kwargs):
             article_list = Article.objects.filter(user=user)
 
         # 查询当前站点每一个分类下的文章数，Category分类表中有blog字段，是外键列一对多关系，利用当前user按对象跨表查询出站点对象，并给予主键分组，通过聚合函数跨表统计查询文章总数，展示出分类名和对应的文章总数
-<<<<<<< HEAD
         cate_list=Category.objects.values('nid').filter(article__user=user).annotate(article_count=Count('article__nid')).values('title','article_count')
 
         # 查询当前站点每一个标签下的文章数，Article文章表中有tags字段，是多对多关系，反向查询按表名，写为article__nid
@@ -96,15 +95,14 @@ def home_site(request, username, **kwargs):
 
         # 在annotate中使用TruncMonth方法，还包含TruncYear、TruncHour等
         date_list_2 = Article.objects.filter(user=user).annotate(month=TruncMonth('create_time')).values('month').annotate(article_count=Count('nid')).values('month', 'article_count')
-=======
-        cate_list=Category.objects.values('pk').filter(blog=user.blog).annotate(c=Count('article__nid')).values('title','c')
+
+        cate_list=Category.objects.values('pk').filter(blog=user.blog).annotate(article_count=Count('article__nid')).values('title', 'article_count')
         print(cate_list)
 
 
         # 查询当前站点每一个标签下的文章数，Article文章表中有tags字段，是多对多关系，反向查询按表名，写为article__nid
-        tag_list=Tag.objects.filter(blog=user.blog).values('pk').annotate(c=Count('article__nid')).values('title','c')
+        tag_list=Tag.objects.filter(blog=user.blog).values('pk').annotate(article_count=Count('article__nid')).values('title', 'article_count')
         print(tag_list)
->>>>>>> 88e506bd19475d4b647ce5ece2f06ad7c5b74a9e
 
         return render(request, 'home_site.html', locals())
 
