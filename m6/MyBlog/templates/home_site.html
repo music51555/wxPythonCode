@@ -1,128 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <style type="text/css">
-        * {
-            margin: 0;
-            padding: 0;
-        }
-
-        .nav-top {
-            background-color: #369;
-            width: 100%;
-            height: 60px;
-        }
-
-        .blog-title {
-            color: #fff;
-            line-height: 60px;
-            font-weight: 100;
-            margin-left: 10px;
-            float: left;
-        }
-
-        .blog-title a{
-            text-decoration: none;
-            color: #fff;
-        }
-        .nav-btn a:hover{
-            text-decoration: none;
-            color: #fff;
-        }
-
-        .nav-btn a {
-            float: right;
-            line-height: 60px;
-            text-decoration: none;
-            color: #fff;
-            margin-right: 10px;
-            margin-top: 10px;
-        }
-        .blog-title a:hover{
-            text-decoration: none;
-            color: #fff;
-        }
-        .article-info {
-            color: darkgrey;
-            margin-top: 15px;
-            float: right;
-        }
-
-        .article-item {
-            overflow: hidden;
-        }
-        .panel{
-            margin-top: 10px;
-        }
-    </style>
-    <link rel="stylesheet" href="/static/bootstrap-3.3.7/css/bootstrap.css">
-</head>
-<body>
-<div class="nav-top">
-    <div class="blog-title">
-        <a href="">{{ blog.title }}</a>
-    </div>
-    <div class="nav-btn">
-        <a href="/admin/">管理</a>
-    </div>
-</div>
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-md-3">
-            <div class="panel panel-info">
-                <div class="panel-heading">我的标签</div>
-                <div class="panel-body">
-                    {% for tag in tag_list %}
-                        <p><a href="/{{ username }}/tag/{{ tag.title }}">{{ tag.title }}({{ tag.article_count }})</a></p>
-                    {% endfor %}
-                </div>
+{% extends 'base_platform.html' %}
+{% block article_info %}
+    {% for article in article_list %}
+        <div class="article-item">
+            <h5><a href="/{{ username }}/article/{{ article.nid }}">{{ article.title }}</a></h5>
+            <div class="article-desc media-right">
+                <span>{{ article.desc }}</span>
             </div>
-            <div class="panel panel-warning">
-                <div class="panel-heading">随笔分类</div>
-                <div class="panel-body">
-                    {% for cate in cate_list %}
-                        <p><a href="/{{ username }}/category/{{ cate.title }}">{{ cate.title }}({{ cate.article_count }})</a></p>
-                    {% endfor %}
-
-                </div>
-            </div>
-            <div class="panel panel-danger">
-                <div class="panel-heading">随笔档案</div>
-                <div class="panel-body">
-                    {% for date in date_list_2 %}
-                        <p><a href="/{{ username }}/archive/{{ date.month | date:'Y' }}/{{ date.month | date:'m' }}">{{ date.month | date:'Y-m' }}({{ date.article_count }})</a></p>
-                    {% endfor %}
-
-                </div>
+            <div class="article-info small">
+                <span>
+                    发布于&nbsp{{ article.create_time | date:'Y-m-d H:i:s' }}
+                    <span>
+                        <img src="/static/img/icon_comment.gif" alt="">
+                        <a href="">评论({{ article.comment_count }})</a>
+                    </span>
+                    <span>
+                        <img src="/static/img/icon_arrow.gif" alt="">
+                        <a href="">点赞({{ article.up_count }})</a>
+                    </span>
+                </span>
             </div>
         </div>
-        <div class="col-md-9 ">
-            {% for article in article_list %}
-                <div class="article-item">
-                    <h5><a href="">{{ article.title }}</a></h5>
-                    <div class="article-desc media-right">
-                        <span>{{ article.desc }}</span>
-                    </div>
-                    <div class="article-info small">
-                            <span>
-                                发布于&nbsp{{ article.create_time | date:'Y-m-d H:i:s' }}
-                                <span>
-                                    <img src="/static/img/icon_comment.gif" alt="">
-                                    <a href="">评论({{ article.comment_count }})</a>
-                                </span>
-                                <span>
-                                    <img src="/static/img/icon_arrow.gif" alt="">
-                                    <a href="">点赞({{ article.up_count }})</a>
-                                </span>
-                            </span>
-                    </div>
-                </div>
-                <hr>
-            {% endfor %}
-        </div>
-    </div>
-</div>
-</body>
-</html>
+        <hr>
+    {% endfor %}
+{% endblock %}

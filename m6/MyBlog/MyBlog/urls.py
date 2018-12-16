@@ -29,6 +29,7 @@ urlpatterns = [
     re_path('^$', views.index),
     path('register/', views.register),
     path('get_validCode_img/', views.get_valid_code_img),
+    re_path('^(?P<username>\w+)/article/(?P<article_id>\d+)/$',views.article_detail),
 
     # (?P<path>.*)分组后起别名path+固定格式
     re_path(r'media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),

@@ -1,18 +1,20 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 
+
 # 用户信息表。继承的AbstractUser类，本身就已经包含了username、password、email等字段，再额外的添加一些自定义的字段，实现自定义用户表，作为用户的接口表
 class UserInfo(AbstractUser):
     nid=models.AutoField(primary_key=True)
     telephone=models.CharField(max_length=11,null=True,unique=True)
-    avatar=models.FileField(upload_to='avatars/',default='/avatars/default.png')
+    avatar=models.FileField(upload_to='avatars/', default='/avatars/default.png')
     # verbose_name指明一个易于理解和表述的对象名称, /vɝ'bos/  冗长的；啰嗦的
-    create_time=models.DateTimeField(verbose_name='创建时间',auto_now_add=True)
+    create_time=models.DateTimeField(verbose_name='创建时间', auto_now_add=True)
     # 与Blog表是一对一的关系，一对一关系在哪张表中建立关系都是可以的，看更倾向于通过哪张表作为源头去查找
     blog=models.OneToOneField(to='Blog',to_field='nid',null=True,on_delete=True)
 
     def __str__(self):
         return self.username
+
 
 class Blog(models.Model):
     # 博客信息表也是站点表，一个用户对应一个博客，这三个属性也可以放在用户表中，但是为了解耦，可以单独存放
@@ -23,6 +25,7 @@ class Blog(models.Model):
 
     def __str__(self):
         return self.title
+
 
 class Category(models.Model):
     # 文章分类表
@@ -35,6 +38,7 @@ class Category(models.Model):
     def __str__(self):
         return self.title
 
+
 class Tag(models.Model):
     nid=models.AutoField(primary_key=True)
     title=models.CharField(verbose_name='标签名称',max_length=32)
@@ -42,6 +46,7 @@ class Tag(models.Model):
 
     def __str__(self):
         return self.title
+
 
 class Article(models.Model):
     # 基础字段
@@ -72,6 +77,7 @@ class Article(models.Model):
     def __str__(self):
         return self.title
 
+
 class Article2Tag(models.Model):
     nid=models.AutoField(primary_key=True)
     article=models.ForeignKey(to='Article', to_field='nid', on_delete=True)
@@ -88,6 +94,7 @@ class Article2Tag(models.Model):
         # 返回article对象的title属性
         return self.article.title+'--'+self.tag.title
 
+
 class ArticleUpDown(models.Model):
     nid=models.AutoField(primary_key=True)
     user=models.ForeignKey(to='UserInfo',to_field='nid',null=True,on_delete=True)
@@ -99,6 +106,7 @@ class ArticleUpDown(models.Model):
             # 联合唯一，不允许同一用户对同一篇文章重复点赞
             ('user','article'),
         ]
+
 
 class Comment(models.Model):
     # 基础字段
