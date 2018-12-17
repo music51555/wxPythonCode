@@ -1,5 +1,6 @@
 {% extends 'base_platform.html' %}
 {% block article_info %}
+    {% csrf_token %}
     <div class="article_top">
         <div class="article_count">
             随笔-133&nbsp&nbsp文章-160&nbsp&nbsp评论-500
@@ -9,7 +10,18 @@
         </div>
     </div>
     <div class="content">
-        {{ article_obj.content }}
-
+        {{ article_obj.content | safe }}
+    </div>
+    <div id="div_digg">
+        <div class="diggit">
+            <span class="diggnum" id="digg_count">{{ article_obj.up_count }}</span>
+        </div>
+        <div class="buryit">
+            <span class="burynum" id="bury_count">{{ article_obj.down_count }}</span>
+        </div>
+        <div class="clear"></div>
+        <div class="diggword" id="digg_tips" style="color: red;"></div>
+        <div class="diggword" id="digg_tips">
+        </div>
     </div>
 {% endblock %}

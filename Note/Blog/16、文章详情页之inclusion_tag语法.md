@@ -1,16 +1,28 @@
 文章详情页之`inclusion_tag`语法
 
-用于将数据和样式结合为一个整体时使用
+**用于将数据和样式结合为一个整体时使用**
 
 
 
-在展示博客个人主页`(home_site)`函数和文章详情`(article_detail)`函数页时，返回了不同的`HTML`网页，在页面中都使用了同一套分类框架面板，所以可以通过`extends`模板标签语法，继承于同一套基类模板
+在展示博客个人主页`(home_site)`函数和文章详情`(article_detail)`函数页时，返回了不同的`HTML`网页，但在页面中都使用了同一套分类框架面板，所以可以通过`extends`模板标签语法，继承于同一套基类模板
 
-![image-20181216121606120](/Users/mac/Documents/wxPythonCode/Note/Blog/image/基类模板.png)
+![image-20181216121606120](./image/基类模板.png)
 
 **文章详情页HTML模板**
 
+包含博客站点页的`top`栏，以及分类栏
+
 ```html
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--在此加载所有要继承基类的js文件-->
+    <link rel="stylesheet" href="/static/css/base.css">
+    <link rel="stylesheet" href="/static/css/article_detail.css">
+    <link rel="stylesheet" href="/static/bootstrap-3.3.7/css/bootstrap.css">
+    <script type="text/javascript" src="/static/jquery/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="/static/js/recommend.js"></script>
+</head>
 <body>
 <div class="nav-top">
     <div class="blog-title">
@@ -61,6 +73,7 @@
             
         </div>
         <div class="col-md-9 ">
+            <!--预留的文章列表block，继承后在内编写显示文章列表-->
             {% block article_info %}
 
             {% endblock %}
@@ -72,12 +85,12 @@
 
 
 
-但是展示样式的时候，没有显示分类数据，是因为在视图函数中没有返回cate_list、tag_list、date_list，所以无法循环取出分类数据，需要再次执行个人站点(home_site)视图函数中的ORM语句
+但是展示样式的时候，没有显示分类数据，是因为在视图函数中没有返回`cate_list、tag_list、date_list`，所以无法循环取出分类数据，需要再次执行个人站点`(home_site)`视图函数中的`ORM`语句
 
 ```python
 cate_list=Category.objects.values('nid').filter(blog=user.blog).annotate(article_count=Count('article__nid')).values('title','article_count')
 
-        tag_list=Tag.objects.filter(blog=user.blog).values('nid').annotate(article_count=Count('article__nid')).values('title', 'article_count')
+       tag_list=Tag.objects.filter(blog=user.blog).values('nid').annotate(article_count=Count('article__nid')).values('title', 'article_count')
 
     
 date_list = Article.objects.filter(user=user).annotate(month=TruncMonth('create_time')).values('month').annotate(article_count=Count('nid')).values('month', 'article_count')
@@ -140,7 +153,7 @@ def get_classification(username):
 
 #### 2、调用自定义标签
 
-调用自定义标签时，传入函数中的username变量，得到的就一个封装好html样式和渲染完毕数据的模板文件
+调用自定义标签时，传入函数中的`username`变量，得到的就一个封装好`html`样式和渲染完毕数据的模板文件
 
 ```html
 <div class="container-fluid">
