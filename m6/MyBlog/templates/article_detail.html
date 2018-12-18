@@ -12,16 +12,119 @@
     <div class="content">
         {{ article_obj.content | safe }}
     </div>
-    <div id="div_digg">
-        <div class="diggit">
-            <span class="diggnum" id="digg_count">{{ article_obj.up_count }}</span>
-        </div>
-        <div class="buryit">
-            <span class="burynum" id="bury_count">{{ article_obj.down_count }}</span>
-        </div>
-        <div class="clear"></div>
-        <div class="diggword" id="digg_tips" style="color: red;"></div>
-        <div class="diggword" id="digg_tips">
+    <div class="digg-box">
+        <div id="div_digg">
+            <div class="diggit">
+                <span class="diggnum" id="digg_count">{{ article_obj.up_count }}</span>
+            </div>
+            <div class="buryit">
+                <span class="burynum" id="bury_count">{{ article_obj.down_count }}</span>
+            </div>
+            <div class="clear"></div>
+            <div class="diggword" id="digg_tips" style="color: red;"></div>
         </div>
     </div>
+{% endblock %}
+{% block comment_info %}
+    <div class="comment-area">
+            {% if comment_obj %}
+                <div class="comment-list">
+                    评论列表
+                </div>
+                {% for comment in comment_obj %}
+                    <div class="main">
+                    <div class="comment-item">
+                        <div class="floor-info">
+                            <div class="comment-info">
+                                <span>#{{ forloop.counter }}楼</span>
+                                <span>{{ comment.create_time | date:'Y-m-d H:i:s' }}</span>
+                                <span><a href="/{{ comment.user.username }}">{{ comment.user.username }}</a></span>
+                            </div>
+                            <div class="edit-comment">
+                                <a href="">修改</a>
+                                <a href="">删除</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="comment-content">
+                        {{ comment.content }}
+                        <div class="anwser">
+                            <a href="">回复</a>
+                        </div>
+                        <div class="digg_bury">
+                            <a href="">支持</a>
+                            <a href="">反对</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            {% endif %}
+
+        <div style="display: none" class="dis-comment">
+            <div class="new-comment">
+                <img src="/static/img/icon_comment.gif" alt="">
+                <p id="peo">
+                    <span class="comment-person">{{ request.user.username }}</span>
+                    <span class="comment-time"></span>
+                </p>
+            </div>
+            <div class="new-comment-content">
+
+            </div>
+        </div>
+        <div class="article-comment">
+            <div class="comment-btn">
+                <ul>
+                    <li><a href="">刷新评论</a></li>
+                    <li><a href="">刷新页面</a></li>
+                    <li><a href="">返回顶部</a></li>
+                </ul>
+            </div>
+            <div class="comment-title">
+                <img src="/static/img/icon_addcomment.gif" alt="">
+                <p>发表评论</p>
+            </div>
+            <div class="comment-box">
+                <div class="comment-peo">
+                    <label style="color: darkgrey;font-size: 16px" for="">昵称：</label>
+                    <input class="current_user" type="text" value="{{ request.user.username }}" disabled>
+                </div>
+                <div class="conment-content">
+                    <div>
+                        <label style="color: darkgrey;font-size: 16px" for="">评论内容：</label>
+                    </div>
+                    <textarea name="" id="comment-text" cols="80" rows="10"></textarea>
+                </div>
+                <button class="btn btn-success commit-btn">提交评论</button>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(function () {
+            $('.commit-btn').click(function () {
+                $.ajax({
+                    url: '/comment/',
+                    type: 'post',
+                    data: {
+                        "article_id": '{{ article_obj.pk }}',
+                        'comment_content': $('.conment-content textarea').val(),
+                        'parent_comment': '',
+                        'csrfmiddlewaretoken': $('[name=csrfmiddlewaretoken]').val()
+                    },
+                    success: function (data) {
+                        console.log(data);
+                        // 点击提交按钮后，将已评论的内容清空
+                        $('#comment-text').val('')
+
+                        // 提交评论成功后，将隐藏的显示刚发表的评论框显示出来，并添加评论内容
+                        $('.dis-comment').css('display', 'block')
+                        $('.new-comment-content').text(data.comment_content)
+
+                        // 在新评论框中显示评论时间
+                        $('.comment-time').text(data.create_time)
+                    }
+                })
+            })
+        })
+    </script>
 {% endblock %}

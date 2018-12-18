@@ -2,8 +2,9 @@
     <div class="panel-heading">我的标签</div>
     <div class="panel-body">
         {% for tag in tag_list %}
-            <p><a href="/{{ username }}/tag/{{ tag.title }}">{{ tag.title }}({{ tag.article_count }})</a>
-            </p>
+            <div>
+                <a href="/{{ username }}/tag/{{ tag.title }}">{{ tag.title }}({{ tag.article_count }})</a>
+            </div>
         {% endfor %}
     </div>
 </div>
@@ -11,8 +12,9 @@
     <div class="panel-heading">随笔分类</div>
     <div class="panel-body">
         {% for cate in cate_list %}
-            <p><a href="/{{ username }}/category/{{ cate.title }}">{{ cate.title }}({{ cate.article_count }})</a>
-            </p>
+            <div>
+                <a href="/{{ username }}/category/{{ cate.title }}">{{ cate.title }}({{ cate.article_count }})</a>
+            </div>
         {% endfor %}
     </div>
 </div>
@@ -20,9 +22,9 @@
     <div class="panel-heading">随笔档案</div>
     <div class="panel-body">
         {% for date in date_list_2 %}
-            <p>
+            <div>
                 <a href="/{{ username }}/archive/{{ date.month | date:'Y' }}/{{ date.month | date:'m' }}">{{ date.month | date:'Y-m' }}({{ date.article_count }})</a>
-            </p>
+            </div>
         {% endfor %}
     </div>
 </div>

@@ -89,7 +89,7 @@ def get_valid_code_img(request):
 
 def article_detail(request, username, article_id):
     user = UserInfo.objects.filter(username=username).first()
-    article_obj = Article.objects.filter(nid=article_id).first()
+    article_obj = Article.objects.filter(nid=article_id, user_id=user.nid).first()
 
     blog = user.blog
 
@@ -100,7 +100,7 @@ def article_detail(request, username, article_id):
         article_title = request.POST.get('article_title')
         tag = request.POST.get('tag')
 
-        article_obj = Article.objects.filter(title=article_title).first()
+        article_obj = Article.objects.filter(title=article_title,user_id=user.nid).first()
         # 先在点赞和踩灭表中判断用户是否针对当前文章做过点赞或踩灭操作，用于在后面判断是否允许用户再对该篇文章再进行点赞或踩灭操作
         digg_bury_record = ArticleUpDown.objects.filter(
             article_id=article_obj.nid, user_id=request.user.nid).exists()
@@ -133,6 +133,11 @@ def article_detail(request, username, article_id):
                 ret['msg'] = '您已经反对过了'
 
         return JsonResponse(ret)
+    else:
+        print(article_obj.pk, user.pk)
+        comment_obj=Comment.objects.filter(article_id=article_obj.pk)
+
+    print(comment_obj)
 
     return render(request, 'article_detail.html', locals())
 
@@ -165,3 +170,21 @@ def register(request):
 
     form = myForms.UserForm()
     return render(request, 'register.html', locals())
+
+
+def comment(request):
+    ret = {'comment_content': None}
+    if request.method == 'POST':
+
+        article_id = request.POST.get('article_id')
+        comment_content = request.POST.get('comment_content')
+        parent_comment = request.POST.get('parent_comment')
+
+        comment_obj=Comment.objects.create(
+            # 根据article_id取出当前这篇文章的所有评论
+            article_id=article_id, content=comment_content, user_id=request.user.pk, parent_comment_id=parent_comment)
+
+        ret['comment_content'] = comment_content
+        ret['create_time'] = comment_obj.create_time.strftime('%Y-%m-%d %X')
+
+        return JsonResponse(ret)
