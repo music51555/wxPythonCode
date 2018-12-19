@@ -23,3 +23,12 @@ def get_classification(username):
         article_count=Count('nid')).values('month', 'article_count')
 
     return {'cate_list': cate_list, 'tag_list': tag_list, 'date_list_2': date_list, 'username': username}
+
+
+@register.filter
+def to_replace(comment):
+    if '@' in comment:
+        comment = comment.replace('@', '<a href>@</a>')
+        print(comment)
+
+    return comment

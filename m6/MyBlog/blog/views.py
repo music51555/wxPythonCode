@@ -178,13 +178,21 @@ def comment(request):
 
         article_id = request.POST.get('article_id')
         comment_content = request.POST.get('comment_content')
-        parent_comment = request.POST.get('parent_comment')
+        parent_pid = request.POST.get('parent_pid')
+
+        # 如果评论有父评论，那么久判断parent_pid是否是数字，进行转换
+        if parent_pid.isdigit():
+            parent_pid = int(parent_pid)
+        else:
+            print(parent_pid)
 
         comment_obj=Comment.objects.create(
             # 根据article_id取出当前这篇文章的所有评论
-            article_id=article_id, content=comment_content, user_id=request.user.pk, parent_comment_id=parent_comment)
+            article_id=article_id, content=comment_content, user_id=request.user.pk, parent_comment_id=parent_pid)
 
         ret['comment_content'] = comment_content
         ret['create_time'] = comment_obj.create_time.strftime('%Y-%m-%d %X')
+
+        print(ret)
 
         return JsonResponse(ret)

@@ -125,7 +125,7 @@ ul{
 
 .digg_bury{
     position: absolute;
-    top: 10px;
+    bottom: -10px;
     right: 10px;
 }
 
@@ -133,6 +133,7 @@ ul{
     position: absolute;
     top: -10px;
     right: 10px;
+    cursor: pointer;
 }
 
 .digg_bury a{
@@ -160,4 +161,8 @@ ul{
 .comment-list{
     font-size: 18px;
     font-weight: 700;
+}
+
+#comment-text{
+    padding: 5px;
 }

@@ -36,7 +36,8 @@
                     <div class="comment-item">
                         <div class="floor-info">
                             <div class="comment-info">
-                                <span>#{{ forloop.counter }}楼</span>
+                                #<span>{{ forloop.counter }}</span>楼
+                                <a name="{{ comment.pk }}"></a>
                                 <span>{{ comment.create_time | date:'Y-m-d H:i:s' }}</span>
                                 <span><a href="/{{ comment.user.username }}">{{ comment.user.username }}</a></span>
                             </div>
@@ -47,9 +48,15 @@
                         </div>
                     </div>
                     <div class="comment-content">
+                        {% if comment.parent_comment %}
+                            <div class="parent-info">
+                                <a href="#{{ comment.parent_comment_id }}">@</a>
+                                <span>{{ comment.user.username }}</span>
+                            </div>
+                        {% endif %}
                         {{ comment.content }}
                         <div class="anwser">
-                            <a href="">回复</a>
+                            回复
                         </div>
                         <div class="digg_bury">
                             <a href="">支持</a>
@@ -60,18 +67,7 @@
                 {% endfor %}
             {% endif %}
 
-        <div style="display: none" class="dis-comment">
-            <div class="new-comment">
-                <img src="/static/img/icon_comment.gif" alt="">
-                <p id="peo">
-                    <span class="comment-person">{{ request.user.username }}</span>
-                    <span class="comment-time"></span>
-                </p>
-            </div>
-            <div class="new-comment-content">
 
-            </div>
-        </div>
         <div class="article-comment">
             <div class="comment-btn">
                 <ul>
@@ -101,29 +97,53 @@
     </div>
     <script type="text/javascript">
         $(function () {
+            // 设置parent_pid默认为空，就是根评论，只有点击了回复按钮后，才会对该变量重新赋值，变为当前评论的主键值
+            var parent_pid = ''
             $('.commit-btn').click(function () {
+                var comment_content = $('.conment-content textarea').val()
+
+                if(parent_pid){
+                    console.log('come in')
+                    var index = $('.conment-content textarea').val().indexOf('\n')
+                    comment_content = $('.conment-content textarea').val().slice(index+1,)
+                }
+
                 $.ajax({
                     url: '/comment/',
                     type: 'post',
                     data: {
                         "article_id": '{{ article_obj.pk }}',
-                        'comment_content': $('.conment-content textarea').val(),
-                        'parent_comment': '',
+                        'comment_content': comment_content,
+                        'parent_pid': parent_pid,
                         'csrfmiddlewaretoken': $('[name=csrfmiddlewaretoken]').val()
                     },
                     success: function (data) {
+                        var s = `<div class="dis-comment">
+                                    <div class="new-comment">
+                                        <img src="/static/img/icon_comment.gif" alt="">
+                                        <p id="peo">
+                                            <span class="comment-person">{{ request.user.username }}</span>
+                                            <span class="comment-time">${data.create_time}</span>
+                                        </p>
+                                    </div>
+                                    <div class="new-comment-content">${data.comment_content}</div>
+                                </div>`
                         console.log(data);
+                        //提交子评论后，parent_pid的值变为父评论的pk值，导致再次提交评论时，还是带有父评论的，所以执行清空操作
+                        parent_pid = ''
                         // 点击提交按钮后，将已评论的内容清空
                         $('#comment-text').val('')
-
-                        // 提交评论成功后，将隐藏的显示刚发表的评论框显示出来，并添加评论内容
-                        $('.dis-comment').css('display', 'block')
-                        $('.new-comment-content').text(data.comment_content)
-
-                        // 在新评论框中显示评论时间
-                        $('.comment-time').text(data.create_time)
+                        $('.article-comment').before(s)
                     }
                 })
+            })
+
+            $('.anwser').click(function(){
+                parent_pid = $(this).parent().siblings('.comment-item').children().children('.comment-info').children()[1].innerText
+                // 我是通过DOM导航查找到了用户名，但是可以自定义属性，如在回复所在的a标签添加自定义属性username=当前登录用户
+                var target_user = $(this).parent().siblings('.comment-item').children().children('.comment-info').children()[3].innerText
+                // focus不仅会实现光标选中，而且会跳转到目标控件位置
+                $('#comment-text').text('@'+target_user+'\n').focus()
             })
         })
     </script>
