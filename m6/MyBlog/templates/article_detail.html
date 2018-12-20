@@ -1,4 +1,11 @@
 {% extends 'base_platform.html' %}
+{% block blog-title %}
+    <a href="/{{ username }}">{{ blog.title }}</a>
+{% endblock %}
+{% block category %}
+    {% load my_filter %}
+    {% get_classification username %}
+{% endblock %}
 {% block article_info %}
     {% csrf_token %}
     <div class="article_top">
@@ -27,6 +34,12 @@
 {% endblock %}
 {% block comment_info %}
     <div class="comment-area">
+            <div class="comment-tree">
+                评论树
+                <div class="comment-item" comment_id="">
+
+                </div>
+            </div>
             {% if comment_obj %}
                 <div class="comment-list">
                     评论列表
@@ -55,7 +68,7 @@
                             </div>
                         {% endif %}
                         {{ comment.content }}
-                        <div class="anwser">
+                        <div class="anwser" comment_id="{{ comment.pk }}">
                             回复
                         </div>
                         <div class="digg_bury">
@@ -103,7 +116,6 @@
                 var comment_content = $('.conment-content textarea').val()
 
                 if(parent_pid){
-                    console.log('come in')
                     var index = $('.conment-content textarea').val().indexOf('\n')
                     comment_content = $('.conment-content textarea').val().slice(index+1,)
                 }
@@ -139,11 +151,35 @@
             })
 
             $('.anwser').click(function(){
-                parent_pid = $(this).parent().siblings('.comment-item').children().children('.comment-info').children()[1].innerText
+                parent_pid = $(this).attr('comment_id')
                 // 我是通过DOM导航查找到了用户名，但是可以自定义属性，如在回复所在的a标签添加自定义属性username=当前登录用户
                 var target_user = $(this).parent().siblings('.comment-item').children().children('.comment-info').children()[3].innerText
                 // focus不仅会实现光标选中，而且会跳转到目标控件位置
                 $('#comment-text').text('@'+target_user+'\n').focus()
+            })
+
+            $('.comment-tree').click(function(){
+                $.ajax({
+                    url:'/get_comment_tree/',
+                    type:'get',
+                    data:{
+                        'article_id': '{{ article_obj.pk }}',
+                    },
+                    success:function(data){
+                        console.log(data)
+                        $.each(data, function(index, value){
+                            var s = `<div class="comment-item" comment_id="${value.pk}">${value.content}</div>`
+
+                            if(!value.parent_comment){
+                                $('.comment-tree').append(s)
+                            }else{
+                                console.log(123)
+                                var parent_comment = value.parent_comment
+                                $('[comment_id='+parent_comment+']').append(s)
+                            }
+                        })
+                    }
+                })
             })
         })
     </script>

@@ -12,17 +12,20 @@
 <body>
     <div class="nav-top">
         <div class="blog-title">
-            <a href="/{{ username }}">{{ blog.title }}</a>
+            {% block blog-title %}
+
+            {% endblock %}
         </div>
         <div class="nav-btn">
-            <a href="/admin/">管理</a>
+            <a href="/backend/">管理</a>
         </div>
     </div>
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-3">
-                {% load my_filter %}
-                {% get_classification username %}
+                {% block category %}
+
+                {% endblock %}
             </div>
             <div class="col-md-9 ">
                 {% block article_info %}

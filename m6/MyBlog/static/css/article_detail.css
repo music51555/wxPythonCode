@@ -166,3 +166,7 @@ ul{
 #comment-text{
     padding: 5px;
 }
+
+.comment-item{
+    margin-left: 10px;
+}

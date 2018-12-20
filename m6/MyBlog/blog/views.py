@@ -5,6 +5,7 @@ from django.contrib import auth
 from blog import myForms
 from blog.models import *
 from django.db.models import F
+from django.db import transaction
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 valid_img_bgc = os.path.join(BASE_DIR, 'static', 'valid_img_bgc', 'valid_bgc.png')
@@ -71,6 +72,28 @@ def home_site(request, username, **kwargs):
             article_list = Article.objects.filter(user=user)
 
         return render(request, 'home_site.html', locals())
+
+
+def backend(request):
+
+    article_list = Article.objects.filter(user=request.user)
+
+    return render(request, 'backend_manage.html', locals())
+
+
+def add_article(request):
+    if request.method == 'POST':
+        article_title=request.POST.get('article-title')
+        article_desc=request.POST.get('article-desc')
+        article_content=request.POST.get('article-content')
+
+        Article.objects.create(
+            title=article_title, desc=article_desc, content=article_content, user=request.user)
+
+    cate_list = Category.objects.all()
+    tag_list = Tag.objects.all()
+
+    return render(request, 'add_article.html', locals())
 
 
 def logout(request):
@@ -180,19 +203,37 @@ def comment(request):
         comment_content = request.POST.get('comment_content')
         parent_pid = request.POST.get('parent_pid')
 
+        article_obj = Article.objects.filter(pk=article_id).first()
+
         # 如果评论有父评论，那么久判断parent_pid是否是数字，进行转换
         if parent_pid.isdigit():
             parent_pid = int(parent_pid)
         else:
             print(parent_pid)
 
-        comment_obj=Comment.objects.create(
-            # 根据article_id取出当前这篇文章的所有评论
-            article_id=article_id, content=comment_content, user_id=request.user.pk, parent_comment_id=parent_pid)
+        with transaction.atomic():
+            comment_obj = Comment.objects.create(
+                article_id=article_id, content=comment_content, user_id=request.user.pk, parent_comment_id=parent_pid)
+            Article.objects.filter(pk=article_id).update(comment_count=F('comment_count')+1)
 
         ret['comment_content'] = comment_content
         ret['create_time'] = comment_obj.create_time.strftime('%Y-%m-%d %X')
 
-        print(ret)
+        import threading
+        from django.core.mail import send_mail
+        from MyBlog.settings import EMAIL_HOST_USER
+        t = threading.Thread(target=send_mail, args=('您的%s文章收到一条新评论'%article_obj.title,
+                                                  comment_content,
+                                                  EMAIL_HOST_USER,
+                                                  ['452427904@qq.com', ]
+                                                  ))
+        t.start()
 
         return JsonResponse(ret)
+
+
+def get_comment_tree(request):
+    article_id = request.GET.get('article_id')
+    comment_list = list(Comment.objects.filter(article_id=article_id).values('pk', 'content', 'parent_comment'))
+
+    return JsonResponse(comment_list, safe=False)

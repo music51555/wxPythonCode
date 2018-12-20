@@ -151,3 +151,10 @@ STATICFILES_DIRS = [
 MEDIA_ROOT=os.path.join(BASE_DIR,'media')
 
 MEDIA_URL = '/media/'
+
+EMAIL_HOST = 'smtp.qq.com'
+EMAIL_POST = 465
+EMAIL_HOST_USER = '452427904@qq.com'
+EMAIL_HOST_PASSWORD = 'dqccbhjmkjxpbgig'
+# DEFAULT_FROM_EMAIL = ''
+EMAIL_USE_SSL = False

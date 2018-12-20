@@ -1,4 +1,11 @@
 {% extends 'base_platform.html' %}
+{% block blog-title %}
+    <a href="/{{ username }}">{{ blog.title }}</a>
+{% endblock %}
+{% block category %}
+    {% load my_filter %}
+    {% get_classification username %}
+{% endblock %}
 {% block article_info %}
     {% for article in article_list %}
         <div class="article-item">
