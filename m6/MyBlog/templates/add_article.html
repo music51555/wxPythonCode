@@ -1,4 +1,7 @@
 {% extends 'base_platform.html' %}
+{% block blog-title %}
+    <a href="/backend/">后台管理</a>
+{% endblock %}
 
 {% block category %}
     <div class="panel panel-warning">
@@ -12,8 +15,8 @@
 {% endblock %}
 
 {% block article_info %}
-    <form action="" method="post">
-    {% csrf_token %}
+    <form action="" method="post" style="margin-top: 30px">
+        {% csrf_token %}
         <div class="form-group">
             <label for="title">标题</label>
             <input type="text" id="title" name="article-title" class="form-control">
@@ -23,11 +26,68 @@
             <input type="text" id="desc" name="article-desc" class="form-control">
         </div>
         <div class="form-group">
+            <div>
+                <label for="">请选择分类</label>
+            </div>
+            <select class="form-control" name="category">
+                {% for cate in cate_list %}
+                    <option value="{{ cate.nid }}">{{ cate.title }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form-group">
+            <div>
+                <label for="">请选择标签(按住Ctrl键多选)</label>
+            </div>
+            <select multiple class="form-control" name="tag">
+                {% for tag in tag_list %}
+                    <option value="{{ tag.nid }}">{{ tag.title }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form-group">
             <label for="">文章详情</label>
-            <textarea id="" cols="30" name='article-content' rows="10" class="form-control"></textarea>
+            <textarea id="editor_id" cols="30" name='article-content' rows="10" class="form-control"></textarea>
         </div>
         <div class="commit-btn">
             <input type="submit" class="btn btn-success">
         </div>
     </form>
+    <script charset="utf-8" src="/static/kindeditor/kindeditor-all.js"></script>
+    <script type="text/javascript" src="/static/jquery/jquery-3.3.1.js"></script>
+    <script charset="utf-8" src="/static/kindeditor/lang/zh-CN.js"></script>
+    <script>
+        KindEditor.ready(function (K) {
+            window.editor = K.create('#editor_id', {
+                width: '100%',
+                height: '500px',
+                items: [
+                    'source', '|', 'undo', 'redo', '|', 'preview', 'print', 'template', 'code', 'cut', 'copy', 'paste',
+                    'plainpaste', 'wordpaste', '|', 'justifyleft', 'justifycenter', 'justifyright',
+                    'justifyfull', 'insertorderedlist', 'insertunorderedlist', 'indent', 'outdent', 'subscript',
+                    'superscript', 'clearhtml', 'quickformat', 'selectall', '|', 'fullscreen', '/',
+                    'formatblock', 'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold',
+                    'italic', 'underline', 'strikethrough', 'lineheight', 'removeformat', '|', 'image', 'multiimage',
+                    'flash', 'media', 'insertfile', 'table', 'hr', 'emoticons', 'baidumap', 'pagebreak',
+                    'anchor', 'link', 'unlink', '|', 'about'
+                ],
+                uploadJson:'/upload/',
+                extraFileUploadParams:{
+                    'csrfmiddlewaretoken':$('[name="csrfmiddlewaretoken"]').val()
+                },
+                filePostName:'upload_img',
+            });
+        });
+        var formitem = $('form').serializeArray()
+        $('[type = "submit"]').click(function(event){
+            $.each(formitem,function(name,value){
+                if($('[name='+value.name+']').val() == ''){
+                    alert('请完整填写表单')
+                    event.preventDefault()
+                    return false
+                }
+            })
+        })
+
+    </script>
 {% endblock %}

@@ -7,17 +7,23 @@
     <link rel="stylesheet" href="/static/css/article_detail.css">
     <link rel="stylesheet" href="/static/bootstrap-3.3.7/css/bootstrap.css">
     <script type="text/javascript" src="/static/jquery/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="/static/bootstrap-3.3.7/js/bootstrap.js"></script>
     <script type="text/javascript" src="/static/js/recommend.js"></script>
 </head>
 <body>
     <div class="nav-top">
         <div class="blog-title">
             {% block blog-title %}
-
+                <a href="">后台管理</a>
             {% endblock %}
         </div>
         <div class="nav-btn">
-            <a href="/backend/">管理</a>
+            {% if request.user.username == username %}
+                <a href="/backend/" id="backend-manage">管理</a>
+                <a href="/">首页</a>
+            {% else %}
+                <a href="/{{ request.user.username }}/">我的博客</a>
+            {% endif %}
         </div>
     </div>
     <div class="container-fluid">
@@ -39,4 +45,9 @@
         </div>
     </div>
 </body>
+<script type="text/javascript">
+    $('#backend-manage').click(function(){
+
+    })
+</script>
 </html>

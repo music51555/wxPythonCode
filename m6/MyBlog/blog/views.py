@@ -6,6 +6,8 @@ from blog import myForms
 from blog.models import *
 from django.db.models import F
 from django.db import transaction
+from django.contrib.auth.decorators import login_required
+from MyBlog import settings
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 valid_img_bgc = os.path.join(BASE_DIR, 'static', 'valid_img_bgc', 'valid_bgc.png')
@@ -74,6 +76,7 @@ def home_site(request, username, **kwargs):
         return render(request, 'home_site.html', locals())
 
 
+@login_required
 def backend(request):
 
     article_list = Article.objects.filter(user=request.user)
@@ -82,16 +85,24 @@ def backend(request):
 
 
 def add_article(request):
+    user=UserInfo.objects.filter(username=request.user.username).first()
+
     if request.method == 'POST':
         article_title=request.POST.get('article-title')
         article_desc=request.POST.get('article-desc')
         article_content=request.POST.get('article-content')
+        category=request.POST.get('category')
+        tag=request.POST.getlist('tag')
 
-        Article.objects.create(
-            title=article_title, desc=article_desc, content=article_content, user=request.user)
+        print(article_title,article_desc,article_content,category,tag)
 
-    cate_list = Category.objects.all()
-    tag_list = Tag.objects.all()
+        article_obj=Article.objects.create(
+            title=article_title, desc=article_desc, content=article_content, user_id=request.user.pk,category_id=category)
+        for i in tag:
+            Article2Tag.objects.create(article_id=article_obj.pk,tag_id=i)
+
+    cate_list = Category.objects.filter(blog=user.blog)
+    tag_list = Tag.objects.filter(blog=user.blog)
 
     return render(request, 'add_article.html', locals())
 
@@ -237,3 +248,22 @@ def get_comment_tree(request):
     comment_list = list(Comment.objects.filter(article_id=article_id).values('pk', 'content', 'parent_comment'))
 
     return JsonResponse(comment_list, safe=False)
+
+
+def upload(request):
+
+    file_obj=request.FILES.get('upload_img')
+
+    path=os.path.join(settings.MEDIA_ROOT, 'upload', file_obj.name)
+
+    with open(path, 'wb') as f:
+        for line in file_obj:
+            f.write(line)
+
+    # 给编辑器返回一个字典，key-value不能变，可变的是文件名称
+    response = {
+        'error': 0,
+        'url': 'media/upload/'+file_obj.name
+    }
+
+    return JsonResponse(response)
