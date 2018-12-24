@@ -8,6 +8,7 @@ from django.db.models import F
 from django.db import transaction
 from django.contrib.auth.decorators import login_required
 from MyBlog import settings
+from bs4 import BeautifulSoup
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 valid_img_bgc = os.path.join(BASE_DIR, 'static', 'valid_img_bgc', 'valid_bgc.png')
@@ -89,15 +90,24 @@ def add_article(request):
 
     if request.method == 'POST':
         article_title=request.POST.get('article-title')
-        article_desc=request.POST.get('article-desc')
         article_content=request.POST.get('article-content')
         category=request.POST.get('category')
         tag=request.POST.getlist('tag')
 
-        print(article_title,article_desc,article_content,category,tag)
+        # 通过html.parser解析器得到文章内容+标签对象soup
+        soup = BeautifulSoup(article_content, 'html.parser')
 
+        # find_all结果是一个列表，存储每一对标签和标签值[<p>hello</p>, <p>world</p>, <p><br/></p>, <br/>, <script>alert(123)</script>]
+        # 每一个标签对象都有name属性，判断其值是否等于非法标签内容，调用标签对象的decompose方法将其删除，删除后soup对象中就不包含非法内容了
+        for tag in soup.find_all():
+            if tag.name == 'script':
+                tag.decompose()
+
+        desc = soup.text[:150].strip()
+
+        # 存储文章内容时，直接使用去除非法标签后的str(soup)对象内容
         article_obj=Article.objects.create(
-            title=article_title, desc=article_desc, content=article_content, user_id=request.user.pk,category_id=category)
+            title=article_title, desc=desc, content=str(soup), user_id=request.user.pk,category_id=category)
         for i in tag:
             Article2Tag.objects.create(article_id=article_obj.pk,tag_id=i)
 

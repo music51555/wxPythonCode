@@ -7,7 +7,7 @@ web应用程序的请求发送过程
 ```python
 import socket
 
-server = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+server = socket.socket(socket.AF_INET,socket.SOCK_STREAM)#美 /strim/ 溪流；流动
 server.setsockopt(socket.SOL_SOCKET,socket.SO_REUSEADDR,1)
 server.bind(('127.0.0.1',8800))
 server.listen(5)
@@ -24,6 +24,23 @@ while 1:
     # hello world为响应体，是浏览器要加载的内容
     conn.send(b'HTTP1.1 200 OK\r\n\r\nhello world')
     conn.close()
+```
+
+
+
+客户端：
+
+```python
+import socket
+
+client=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+client.connect(('127.0.0.1',8080))
+
+while 1:
+    data=input('>>>')
+    client.send(data.encode('utf-8'))
+    new_data=client.recv(1024)
+    print(new_data.decode('utf-8'))
 ```
 
 

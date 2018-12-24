@@ -94,8 +94,8 @@ User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (
 Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8\r\n
 Referer: http://127.0.0.1:8800/\r\n
 Accept-Encoding: gzip, deflate, br\r\n
-Accept-Language: zh-CN,zh;q=0.9\r\n\r\
-nusername=wangxin&pwd=123456
+Accept-Language: zh-CN,zh;q=0.9\r\n\r\n
+username=wangxin&pwd=123456
 ```
 
 

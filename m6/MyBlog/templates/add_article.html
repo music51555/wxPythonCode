@@ -22,10 +22,6 @@
             <input type="text" id="title" name="article-title" class="form-control">
         </div>
         <div class="form-group">
-            <label for="desc">描述</label>
-            <input type="text" id="desc" name="article-desc" class="form-control">
-        </div>
-        <div class="form-group">
             <div>
                 <label for="">请选择分类</label>
             </div>
@@ -47,7 +43,7 @@
         </div>
         <div class="form-group">
             <label for="">文章详情</label>
-            <textarea id="editor_id" cols="30" name='article-content' rows="10" class="form-control"></textarea>
+            <textarea id="editor_id" cols="30" name="article-content" rows="10" class="form-control"></textarea>
         </div>
         <div class="commit-btn">
             <input type="submit" class="btn btn-success">
@@ -78,16 +74,5 @@
                 filePostName:'upload_img',
             });
         });
-        var formitem = $('form').serializeArray()
-        $('[type = "submit"]').click(function(event){
-            $.each(formitem,function(name,value){
-                if($('[name='+value.name+']').val() == ''){
-                    alert('请完整填写表单')
-                    event.preventDefault()
-                    return false
-                }
-            })
-        })
-
     </script>
 {% endblock %}

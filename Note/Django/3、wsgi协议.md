@@ -20,17 +20,17 @@ def application(environ,start_response):
     path = environ.get('PATH_INFO')
 
     # 在start_response中封装了响应首行和响应头，在此处设置的404状态，是在浏览器的network中请求链接中显示的
-    start_response('200 OK', [('Content-Type', temples)])
-
+    start_response('200 OK', [('Content-Type', 'text/html')])
+	
+    # 同时判断了请求的路径和其他情况，其他情况是favicon.ico图标请求，如果不增加其他判断会报错
     if path == '/login':
         with open(temples, 'rb') as f:
             fdata = f.read()
-        # 在return中返回字节响应体
-        return [fdata]
     else:
         with open(temples,'rb') as f:
             fdata = f.read()
-        return  [fdata]
+    # 在return中返回字节响应体
+    return [fdata]
 
 #封装了socket，省去了创建socket对象，socket.bind，socket.listen等
 httped = make_server("127.0.0.1",8801,application)
