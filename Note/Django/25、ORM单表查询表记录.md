@@ -57,7 +57,7 @@ def index(request):
     b=Book.objects.filter(title='python从入门到精通').exists()
     print(b)
 
-    # 10、values()，查询一列或多列的所有列值，返回结果是queryset类型，但存储的是字典形式，而不是obbk_obj形式，[{查询的列1:列值},{查询的列2:列值}]
+    # 10、values()，查询一列或多列的所有列值，返回结果是queryset类型，但存储的是字典形式，而不是book_obj形式，[{查询的列1:列值},{查询的列2:列值}]
     # 单条查询的结果<QuerySet [{'title': 'python从入门到精通'}, {'title': 'Linux大师'}]>
     # 多条查询的结果<QuerySet [{'title': 'python从入门到精通', 'price': Decimal('82.10')}, {'title': 'Linux大师', 'price': Decimal('96.10')}]>
     book_list=Book.objects.all().values('title','price')

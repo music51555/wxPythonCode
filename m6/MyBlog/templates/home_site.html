@@ -1,6 +1,7 @@
 {% extends 'base_platform.html' %}
 {% block blog-title %}
-    <a href="/{{ username }}">{{ blog.title }}</a>
+{#    <a href="/{{ username }}">{{ blog.title }}</a>#}
+    {{ block.super }}
 {% endblock %}
 {% block category %}
     {% load my_filter %}

@@ -5,53 +5,58 @@
     <title>图书管理系统</title>
     <link rel="stylesheet" href="/static/bootstrap-3.3.7/css/bootstrap.css">
     <style type="text/css">
-        *{
+        * {
             margin: 0;
             padding: 0;
         }
-        .wrap{
+
+        .wrap {
             position: absolute;
             top: 100px;
         }
-        th{
+
+        th {
             text-align: center;
         }
-        td{
+
+        td {
 
         }
-        .add{
+
+        .add {
             margin-bottom: 5px;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8 col-md-offset-3">
-                <div class="wrap">
-                    <h2 style="text-align:center">图书管理系统</h2>
-                    <a href="/addbook/" class="btn btn-primary add">添加书籍</a>
-                    <table class="table table-bordered">
-                        <thead>
-                            <tr bgcolor="#adff2f">
-                                <th>序号</th>
-                                <th>书籍名称</th>
-                                <th>价格</th>
-                                <th>出版日期</th>
-                                <th>出版社</th>
-                                <th>作者</th>
-                                <th>编辑</th>
-                                <th>删除</th>
-                            </tr>
-                        </thead>
-                        <tbody>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-3">
+            <div class="wrap">
+                <h2 style="text-align:center">图书管理系统</h2>
+                <a href="/addbook/" class="btn btn-primary add">添加书籍</a>
+                <table class="table table-bordered">
+                    <thead>
+                    <tr bgcolor="#adff2f">
+                        <th>序号</th>
+                        <th>书籍名称</th>
+                        <th>价格</th>
+                        <th>出版日期</th>
+                        <th>出版社</th>
+                        <th>作者</th>
+                        <th>编辑</th>
+                        <th>删除</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <div>
                         {% if book_list %}
-                            {% for book_obj in book_list %}
+                            {% for book_obj in current_page_obj %}
                                 <tr>
                                     <td style="text-align: center;height: 50px;line-height: 50px">{{ forloop.counter }}</td>
                                     <td style="text-align: center;height: 50px;line-height: 50px">{{ book_obj.title }}</td>
                                     <td style="text-align: center;height: 50px;line-height: 50px">{{ book_obj.price }}</td>
-                                    <td style="text-align: center;height: 50px;line-height: 50px">{{ book_obj.pubdate | date:'Y-m-d'}}</td>
+                                    <td style="text-align: center;height: 50px;line-height: 50px">{{ book_obj.pubdate | date:'Y-m-d' }}</td>
                                     <td style="text-align: center;height: 50px;line-height: 50px">{{ book_obj.publish }}</td>
                                     <td style="text-align: center;height: 50px;line-height: 50px">
                                         {% for author in book_obj.authors.all %}
@@ -62,27 +67,59 @@
                                             {% endif %}
                                         {% endfor %}
                                     </td>
-                                    <td style="line-height: 50px"><a href="/uptbook/{{ book_obj.nid }}" class="btn btn-warning">编辑</a></td>
-                                    <td style="line-height: 50px"><a href="/delbook/{{ book_obj.nid }}" class="btn btn-danger del">删除</a></td>
+                                    <td style="line-height: 50px"><a href="/uptbook/{{ book_obj.nid }}"
+                                                                     class="btn btn-warning">编辑</a></td>
+                                    <td style="line-height: 50px"><a href="/delbook/{{ book_obj.nid }}"
+                                                                     class="btn btn-danger del">删除</a></td>
                                 </tr>
                             {% endfor %}
+                            </div>
+
                         {% endif %}
-                        </tbody>
-                    </table>
+                    </tbody>
+                </table>
+                <div>
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination">
+                            {% if current_page_obj.has_previous %}
+                            <li>
+                                <a href="?page={{ current_page_obj.previous_page_number }}" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                            {% else %}
+                            <li class="disabled">
+                                <a href="" aria-label="Previous" >
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                            {% endif %}
+
+                            {% for page_num in paginator.page_range %}
+                                <li><a href="?page={{ page_num }}">{{ page_num }}</a></li>
+                            {% endfor %}
+                            <li>
+                                <a href="#" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
                 </div>
             </div>
         </div>
     </div>
+</div>
 </body>
 <script type="text/javascript" src="/static/jquery/jquery-3.3.1.js"></script>
 <script type="text/javascript">
-    $(function(){
-        $('.del').click(function(){
-            cf=confirm('确定是否删除该书籍？')
-            if(cf == true){
+    $(function () {
+        $('.del').click(function () {
+            cf = confirm('确定是否删除该书籍？')
+            if (cf == true) {
                 return true
                 alert('删除成功')
-            }else{
+            } else {
                 return false
             }
         })

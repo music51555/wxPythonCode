@@ -1,8 +1,22 @@
 from django.shortcuts import render,HttpResponse,redirect
 from app01.models import *
+from django.core.paginator import Paginator,EmptyPage
 
 def books(request):
-    book_list=Book.objects.all()
+    book_list=Book.objects.all().order_by('nid')
+
+    paginator = Paginator(book_list,20)
+
+    try:
+        current_page_num = int(request.GET.get('page',1))
+        print(current_page_num)
+        current_page_obj = paginator.page(current_page_num)
+        current_page_obj.previous_page_number
+
+    except EmptyPage as e:
+        print(e)
+        current_page_obj = paginator.page(1)
+
     return render(request,'books.html',locals())
 
 def addbook(request):

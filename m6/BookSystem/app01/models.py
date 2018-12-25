@@ -4,7 +4,7 @@ class Book(models.Model):
     nid=models.AutoField(primary_key=True)
     title=models.CharField(max_length=20)
     price=models.DecimalField(max_digits=8,decimal_places=2)
-    pubdate=models.DateField()
+    pubdate=models.DateField(auto_now_add=True)
     publish=models.ForeignKey(to='Publish',to_field='nid',on_delete=models.CASCADE)
     authors=models.ManyToManyField(to='Author')
 
