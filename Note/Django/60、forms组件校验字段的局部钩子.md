@@ -19,6 +19,8 @@ def is_valid(self):
 	return self.is_bound and not self.errors
 ```
 
+
+
 通过注释语句可以看到：
 
 **`errors`中没有错误，返回`True`**

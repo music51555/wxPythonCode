@@ -5,13 +5,18 @@ from django.core.paginator import Paginator,EmptyPage
 def books(request):
     book_list=Book.objects.all().order_by('nid')
 
-    paginator = Paginator(book_list,20)
+    paginator = Paginator(book_list,5)
 
     try:
         current_page_num = int(request.GET.get('page',1))
-        print(current_page_num)
         current_page_obj = paginator.page(current_page_num)
-        current_page_obj.previous_page_number
+
+        if current_page_num-5<=0:
+            page_count=range(1,12)
+        elif current_page_num+5>paginator.num_pages:
+            page_count=range(paginator.num_pages-10,paginator.num_pages+1)
+        else:
+            page_count=range(current_page_num-5,current_page_num+6)
 
     except EmptyPage as e:
         print(e)

@@ -22,7 +22,7 @@ def get_valid_code_img(request):
         valid_code += rand_str
 
         # 在图片上可以写字，可以划线，可以写点，分别传入(坐标，字符，文字颜色，字体对象)
-        draw.text((i * 60, 3), rand_str, fill=get_color(), font=font)
+        draw.text((i*60, 10), rand_str, fill=get_color(), font=font)
 
     # 用户访问login页面所生成的验证码，被存储在当前会话的session中，供在login视图函数中验证正确与否使用
     request.session['valid_code'] = valid_code

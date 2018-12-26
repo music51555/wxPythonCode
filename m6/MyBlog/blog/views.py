@@ -42,7 +42,6 @@ def login(request):
 
 
 def index(request):
-
     article_list = Article.objects.all()
 
     return render(request, 'index.html', locals())
@@ -81,6 +80,7 @@ def home_site(request, username, **kwargs):
 def backend(request):
 
     article_list = Article.objects.filter(user=request.user)
+
 
     return render(request, 'backend_manage.html', locals())
 
