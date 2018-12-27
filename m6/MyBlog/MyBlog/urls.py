@@ -18,6 +18,7 @@ from django.urls import path, re_path
 from blog import views
 from MyBlog import settings
 from django.views.static import serve
+from blog.ClassViews import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -30,6 +31,7 @@ urlpatterns = [
     path('add_article/', views.add_article),
     path('get_validCode_img/', views.get_valid_code_img),
     path('upload/', views.upload),
+    path('my_views', my_views.as_view()),
 
     # 以^开头，就表示以根路径开头，分组后，就会得到用户输入的内容，存储到别名username上
     re_path('^(?P<username>\w+)/$', views.home_site),

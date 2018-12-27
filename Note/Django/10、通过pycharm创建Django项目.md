@@ -14,7 +14,7 @@
 
 ##### 3、在项目的`urls.py`中控制路由分发逻辑
 
-在`urls.py`文件中编辑`urlpatterns`列表，添加路径函数
+在`urls.py`文件中编辑`urlpatterns`列表，添加路径函数。pattern：模式
 
 ```python
 urlpatterns = [
