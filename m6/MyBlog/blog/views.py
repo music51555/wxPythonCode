@@ -9,6 +9,9 @@ from django.db import transaction
 from django.contrib.auth.decorators import login_required
 from MyBlog import settings
 from bs4 import BeautifulSoup
+from django.contrib.auth.models import AbstractUser
+from django.db.models.functions import *
+from django.db.models import Count
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 valid_img_bgc = os.path.join(BASE_DIR, 'static', 'valid_img_bgc', 'valid_bgc.png')
@@ -25,6 +28,7 @@ def login(request):
         if valid_code.lower() == request.session['valid_code'].lower():
             # 通过auth.authenticate来验证用户名和密码是否正确，如果校验正确则返回的对象为当前用户的用户名alex，如果错误则为None
             user = auth.authenticate(username=username, password=password)
+
             if user:
                 # ajax提交的请求如果校验正确，不要想着return一个跳转页面，因为在ajax的success函数中接收的是一个data字段，如果校验正确，在ajax中通过location.href='/index'来跳转
                 auth.login(request, user)
@@ -36,6 +40,8 @@ def login(request):
         else:
             response['msg'] = '验证码错误'
 
+            print(JsonResponse(response).getvalue())
+
             return JsonResponse(response)
 
     return render(request, 'login.html')
@@ -43,6 +49,9 @@ def login(request):
 
 def index(request):
     article_list = Article.objects.all()
+
+    obj=Article.objects.annotate(month=TruncMonth('create_time')).values('month').annotate(count=Count('nid')).values_list('month','count')
+    print(obj)
 
     return render(request, 'index.html', locals())
 

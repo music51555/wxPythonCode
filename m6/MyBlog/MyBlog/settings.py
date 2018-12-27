@@ -152,7 +152,7 @@ STATICFILES_DIRS = [
 
 MEDIA_ROOT=os.path.join(BASE_DIR,'media')
 
-MEDIA_URL = '/media/'
+# MEDIA_URL = '/media/'
 
 EMAIL_HOST = 'smtp.qq.com'
 EMAIL_POST = 465

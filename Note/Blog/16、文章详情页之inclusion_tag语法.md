@@ -98,7 +98,7 @@ date_list = Article.objects.filter(user=user).annotate(month=TruncMonth('create_
 
 
 
-可以再次在article_detail视图函数中执行得到变量，但是编写了重复的代码，我们可以将其封装在一个函数中，调用执行即可
+可以再次在`article_detail`视图函数中执行得到变量，但是编写了重复的代码，我们可以将其封装在一个函数中，调用执行即可
 
 ```python
 def get_classification(user):
