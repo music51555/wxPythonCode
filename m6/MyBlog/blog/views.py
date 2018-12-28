@@ -12,6 +12,7 @@ from bs4 import BeautifulSoup
 from django.contrib.auth.models import AbstractUser
 from django.db.models.functions import *
 from django.db.models import Count
+from blog.My_field import *
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 valid_img_bgc = os.path.join(BASE_DIR, 'static', 'valid_img_bgc', 'valid_bgc.png')
@@ -48,12 +49,24 @@ def login(request):
 
 
 def index(request):
-    article_list = Article.objects.all()
+    # article_list = Article.objects.all()
+    #
+    # obj=Article.objects.annotate(month=TruncMonth('create_time')).values('month').annotate(count=Count('nid')).values_list('month','count')
+    # print(obj)
+    #
+    # return render(request, 'index.html', locals())
 
-    obj=Article.objects.annotate(month=TruncMonth('create_time')).values('month').annotate(count=Count('nid')).values_list('month','count')
-    print(obj)
+    test = ListTest()
+    test.label = ['python', 'django']
+    test.label.append('wangxin')
+    test.save()
 
-    return render(request, 'index.html', locals())
+    ret = ListTest.objects.all()
+
+    for i in ret:
+        print(type(i.label))
+
+    return HttpResponse('OK')
 
 
 def home_site(request, username, **kwargs):
