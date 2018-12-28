@@ -1,11 +1,16 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+from blog.My_field import *
 
 
 # 用户信息表。继承的AbstractUser类，本身就已经包含了username、password、email等字段，再额外的添加一些自定义的字段，实现自定义用户表，作为用户的接口表
 class UserInfo(AbstractUser):
     nid=models.AutoField(primary_key=True)
-    telephone=models.CharField(max_length=11,null=True,unique=True)
+    phone_list = (
+        ('18611223344', 'wangxin de phone'),
+        ('13911223344', 'who de phone'),
+    )
+    telephone=models.CharField(max_length=11,null=True,unique=True,choices=phone_list)
     avatar=models.FileField(upload_to='avatars/', default='/avatars/default.png')
     # verbose_name指明一个易于理解和表述的对象名称, /vɝ'bos/  冗长的；啰嗦的
     create_time=models.DateTimeField(verbose_name='创建时间', auto_now_add=True)
@@ -121,3 +126,10 @@ class Comment(models.Model):
 
     def __str__(self):
         return self.content
+
+
+class ListTest(models.Model):
+    label = ListField()
+
+    def __str__(self):
+        return '%s'%self.label

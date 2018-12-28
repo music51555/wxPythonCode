@@ -17,6 +17,7 @@
             <div class="article-info small">
                 <span>
                     发布于&nbsp{{ article.create_time | date:'Y-m-d H:i:s' }}
+                    <span style="color: #0f0f0f">{{ user.get_telephone_display }}{{ user.telephone }}</span>
                     <span>
                         <img src="/static/img/icon_comment.gif" alt="">
                         <a href="">评论({{ article.comment_count }})</a>
