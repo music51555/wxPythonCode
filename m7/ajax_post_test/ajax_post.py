@@ -2,7 +2,7 @@ import requests
 
 url = 'http://www.kfc.com.cn/kfccda/ashx/GetStoreList.ashx?op=keyword'
 
-params = {
+data = {
     'cname': '',
     'pid': '',
     'keyword': '北京',
@@ -14,7 +14,7 @@ headers = {
     'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36'
 }
 
-response = requests.post(url = url, params = params,headers = headers)
+response = requests.post(url = url, data = data,headers = headers)
 
 print(response.text)
 

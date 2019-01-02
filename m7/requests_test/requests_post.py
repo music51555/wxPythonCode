@@ -1,11 +1,11 @@
 import requests
 
-url = 'https://www.douban.com/accounts/login'
+url = 'http://my.iciba.com/index.php?c=sso&m=web_login'
 
 data = {
-    'source': 'index_nav',
-    'form_email': '18611848257',
-    'form_password': 'nishi458_2',
+    'username': 'music51555',
+    'password': 'nishi458',
+    'remember': '0',
 }
 
 headers = {
@@ -14,5 +14,4 @@ headers = {
 
 response = requests.post(url = url, data = data, headers = headers)
 
-with open('./douban.html', 'w', encoding='utf-8') as f:
-    f.write(response.text)
+print(response.text)
