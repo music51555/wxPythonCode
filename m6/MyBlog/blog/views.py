@@ -73,6 +73,7 @@ def home_site(request, username, **kwargs):
 
     # 首先判断是否有当前在URL中访问的用户
     user = UserInfo.objects.filter(username=username).first()
+    user = UserInfo.objects.get(username = username)
     blog = user.blog
 
     if not user:
