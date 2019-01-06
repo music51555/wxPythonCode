@@ -43,7 +43,7 @@ systemctl enable docker
 
 
 
-输出hello-world，如果没有镜像会下载
+测试输出hello-world，如果没有镜像会下载
 
 ```shell
 docker run hello-world
@@ -84,7 +84,7 @@ docker ps
 
 
 
-查看容器ip
+检查容器，可以查看容器ip ，美  [ɪn'spɛkt]  检查
 
 ```
 docker inspect 容器id
