@@ -1,6 +1,6 @@
 BeautifulSoup模块详解
 
-在使用bs4模块前需要安装依赖模块lxml
+在使用`bs4`模块前需要安装依赖模块`lxml`
 
 `from bs4 import BeautifulSoup`
 
@@ -10,15 +10,17 @@ BeautifulSoup模块详解
 
 ##### 1、打开本地图片：
 
-BeautifulSoup(文件对象, 'lxml')
+`f = open('xxx')`
+
+`BeautifulSoup(文件对象, 'lxml')`
 
 ##### 2、获取网络请求
 
-BeautifulSoup('网络请求数据', 'lxml')
+`BeautifulSoup('网络请求数据', 'lxml')`
 
 
 
-#### 调用BeautifulSoup对象的方法：
+#### 调用`BeautifulSoup`对象的方法：
 
 #### 1、查找到第一个符合要求的标签对象
 
@@ -88,7 +90,7 @@ BeautifulSoup('网络请求数据', 'lxml')
 
 
 
-#### 3.3、get_test()方法：
+#### 3.3、get_text()方法：
 
 ##### `soup.p.get_text()`:
 
@@ -111,8 +113,6 @@ BeautifulSoup('网络请求数据', 'lxml')
 <a href="/"><h1>糗事百科</h1></a>
 </div>
 ```
-
-
 
 
 
@@ -143,6 +143,10 @@ BeautifulSoup('网络请求数据', 'lxml')
 #### 6、根据选择器查找到指定标签
 
 标签选择器、类选择器，id选择器、层级选择器、后代选择器…，返回的结果永远是列表
+
+得到结果是`bs4.Element.Tag`类型，可以继续使用`bs4`对象的方法
+
+##### `soup.select(选择器)`
 
 
 

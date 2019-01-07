@@ -26,7 +26,7 @@
 
 ##### 4.2、层级索引定位，[2]表示查找到第2个索引位置的li标签
 
-`//*[@id='index_header' and @class='index-head']`
+`//div[@class = 'song']/p[2]`
 
 
 

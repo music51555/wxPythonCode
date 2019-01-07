@@ -2,30 +2,32 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5e4543a9-080d-447a-b3ef-d7c96a7fe32d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../Note/docker/2、docker镜像.md" beforeDir="false" afterPath="$PROJECT_DIR$/../Note/docker/2、docker镜像.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Note/docker/安装docker.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Note/爬虫/18、爬虫中的xpath应用.md" beforeDir="false" afterPath="$PROJECT_DIR$/../Note/爬虫/18、爬虫中的xpath应用.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Note/爬虫/20、BeautifulSoup模块详解.md" beforeDir="false" afterPath="$PROJECT_DIR$/../Note/爬虫/20、BeautifulSoup模块详解.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/m7$ajax_post.coverage" NAME="ajax_post Coverage Results" MODIFIED="1546393128933" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ajax_post_test" />
-    <SUITE FILE_PATH="coverage/m7$ajax_get.coverage" NAME="ajax_get Coverage Results" MODIFIED="1546330573334" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/requests_ajax_get" />
-    <SUITE FILE_PATH="coverage/m7$urllibtest.coverage" NAME="urllibtest Coverage Results" MODIFIED="1546313309924" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/m7$beautifulsoup_test.coverage" NAME="beautifulsoup_test Coverage Results" MODIFIED="1546768455669" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/beautifulsoup_test" />
     <SUITE FILE_PATH="coverage/m7$requests_post.coverage" NAME="requests_post Coverage Results" MODIFIED="1546401567604" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/requests_test" />
-    <SUITE FILE_PATH="coverage/m7$get_valicode_img.coverage" NAME="get_valicode_img Coverage Results" MODIFIED="1546422878163" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/get_validcode_img" />
-    <SUITE FILE_PATH="coverage/m7$get_qiushibaike_img.coverage" NAME="get_qiushibaike_img Coverage Results" MODIFIED="1546517613918" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/qiushibaike" />
-    <SUITE FILE_PATH="coverage/m7$YDMPython3_x.coverage" NAME="YDMPython3.x Coverage Results" MODIFIED="1546416207420" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/yundama" />
-    <SUITE FILE_PATH="coverage/m7$proxy_test.coverage" NAME="proxy_test Coverage Results" MODIFIED="1546399148242" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/requests_proxy_ip" />
-    <SUITE FILE_PATH="coverage/m7$request_session_test.coverage" NAME="request_session_test Coverage Results" MODIFIED="1546396286602" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/request_session" />
-    <SUITE FILE_PATH="coverage/m7$qiushibaike_get.coverage" NAME="qiushibaike_get Coverage Results" MODIFIED="1546332842145" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/qiushibaike" />
     <SUITE FILE_PATH="coverage/m7$sogou_pages.coverage" NAME="sogou_pages Coverage Results" MODIFIED="1546332300356" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/requests_test" />
+    <SUITE FILE_PATH="coverage/m7$beautifulsoup_test.coverage" NAME="beautifulsoup_test Coverage Results" MODIFIED="1546768455669" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/beautifulsoup_test" />
+    <SUITE FILE_PATH="coverage/m7$YDMPython3_x.coverage" NAME="YDMPython3.x Coverage Results" MODIFIED="1546416207420" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/yundama" />
+    <SUITE FILE_PATH="coverage/m7$qiushibaike_get.coverage" NAME="qiushibaike_get Coverage Results" MODIFIED="1546332842145" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/qiushibaike" />
+    <SUITE FILE_PATH="coverage/m7$ajax_get.coverage" NAME="ajax_get Coverage Results" MODIFIED="1546330573334" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/requests_ajax_get" />
     <SUITE FILE_PATH="coverage/m7$get_duanzi.coverage" NAME="get_duanzi Coverage Results" MODIFIED="1546765834911" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/duanzi" />
+    <SUITE FILE_PATH="coverage/m7$get_shuihuzhuan.coverage" NAME="get_shuihuzhuan Coverage Results" MODIFIED="1546841860045" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/beautifulsoup_test" />
+    <SUITE FILE_PATH="coverage/m7$ajax_post.coverage" NAME="ajax_post Coverage Results" MODIFIED="1546393128933" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ajax_post_test" />
+    <SUITE FILE_PATH="coverage/m7$request_session_test.coverage" NAME="request_session_test Coverage Results" MODIFIED="1546396286602" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/request_session" />
+    <SUITE FILE_PATH="coverage/m7$selenium_test.coverage" NAME="selenium_test Coverage Results" MODIFIED="1546844505658" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/selenium_test" />
+    <SUITE FILE_PATH="coverage/m7$get_valicode_img.coverage" NAME="get_valicode_img Coverage Results" MODIFIED="1546422878163" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/get_validcode_img" />
+    <SUITE FILE_PATH="coverage/m7$proxy_test.coverage" NAME="proxy_test Coverage Results" MODIFIED="1546399148242" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/requests_proxy_ip" />
+    <SUITE FILE_PATH="coverage/m7$urllibtest.coverage" NAME="urllibtest Coverage Results" MODIFIED="1546313309924" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/m7$get_qiushibaike_img.coverage" NAME="get_qiushibaike_img Coverage Results" MODIFIED="1546517613918" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/qiushibaike" />
   </component>
   <component name="FUSProjectUsageTrigger">
     <session id="1276221222">
@@ -67,11 +69,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file leaf-file-name="beautifulsoup_test.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/beautifulsoup_test/beautifulsoup_test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="322">
-              <caret line="14" column="39" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
+            <state relative-caret-position="120">
+              <caret line="5" selection-start-line="5" selection-end-line="7" selection-end-column="1" />
               <folding>
                 <element signature="e#0#29#0" expanded="true" />
               </folding>
@@ -79,16 +81,33 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/duanzi/get_duanzi.py">
+      <file leaf-file-name="get_shuihuzhuan.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/beautifulsoup_test/get_shuihuzhuan.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="115">
-              <caret line="5" selection-start-line="5" selection-end-line="7" selection-end-column="1" />
+            <state relative-caret-position="230">
+              <caret line="17" column="40" selection-start-line="17" selection-start-column="40" selection-end-line="17" selection-end-column="40" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
             </state>
           </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="selenium_test.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/selenium_test/selenium_test.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+              <folding>
+                <element signature="e#0#30#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="get_duanzi.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/duanzi/get_duanzi.py">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -134,6 +153,11 @@
         <option value="$PROJECT_DIR$/qiushibaike/get_qiushibaike_img.py" />
         <option value="$PROJECT_DIR$/duanzi/get_duanzi.py" />
         <option value="$PROJECT_DIR$/beautifulsoup_test/beautifulsoup_test.py" />
+        <option value="$PROJECT_DIR$/beautifulsoup_test/get_sanguo.py" />
+        <option value="$PROJECT_DIR$/beautifulsoup_test/get_shuihuzhuan.py" />
+        <option value="$PROJECT_DIR$/selenium_test/__init__.py" />
+        <option value="$PROJECT_DIR$/chromedriver_win32/__init__.py" />
+        <option value="$PROJECT_DIR$/selenium_test/selenium_test.py" />
       </list>
     </option>
   </component>
@@ -142,6 +166,9 @@
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds" fullScreen="true">
     <option name="width" value="1440" />
@@ -155,6 +182,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -165,58 +193,17 @@
             <path>
               <item name="m7" type="b2602c69:ProjectViewProjectNode" />
               <item name="m7" type="462c0819:PsiDirectoryNode" />
-              <item name="ajax_post_test" type="462c0819:PsiDirectoryNode" />
+              <item name="chromedriver_win32" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="m7" type="b2602c69:ProjectViewProjectNode" />
               <item name="m7" type="462c0819:PsiDirectoryNode" />
-              <item name="beautifulsoup_test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="m7" type="b2602c69:ProjectViewProjectNode" />
-              <item name="m7" type="462c0819:PsiDirectoryNode" />
-              <item name="duanzi" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="m7" type="b2602c69:ProjectViewProjectNode" />
-              <item name="m7" type="462c0819:PsiDirectoryNode" />
-              <item name="get_validcode_img" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="m7" type="b2602c69:ProjectViewProjectNode" />
-              <item name="m7" type="462c0819:PsiDirectoryNode" />
-              <item name="qiushibaike" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="m7" type="b2602c69:ProjectViewProjectNode" />
-              <item name="m7" type="462c0819:PsiDirectoryNode" />
-              <item name="request_session" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="m7" type="b2602c69:ProjectViewProjectNode" />
-              <item name="m7" type="462c0819:PsiDirectoryNode" />
-              <item name="requests_ajax_get" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="m7" type="b2602c69:ProjectViewProjectNode" />
-              <item name="m7" type="462c0819:PsiDirectoryNode" />
-              <item name="requests_proxy_ip" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="m7" type="b2602c69:ProjectViewProjectNode" />
-              <item name="m7" type="462c0819:PsiDirectoryNode" />
-              <item name="requests_test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="m7" type="b2602c69:ProjectViewProjectNode" />
-              <item name="m7" type="462c0819:PsiDirectoryNode" />
-              <item name="yundama" type="462c0819:PsiDirectoryNode" />
+              <item name="selenium_test" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -227,12 +214,13 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\workspace\wxPythonCode\wxPythonCode\m7\yundama" />
-      <recent name="E:\workspace\wxPythonCode\wxPythonCode\m7\get_validcode_img" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/requests_test" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\workspace\wxPythonCode\wxPythonCode\m7\selenium_test" />
+      <recent name="E:\workspace\wxPythonCode\wxPythonCode\m7\yundama" />
+      <recent name="E:\workspace\wxPythonCode\wxPythonCode\m7\get_validcode_img" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -247,29 +235,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.beautifulsoup_test">
-    <configuration name="YDMPython3.x" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="m7" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/yundama" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="E:\workspace\wxPythonCode\wxPythonCode\m7\yundama\YDM3.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Python.selenium_test">
     <configuration name="beautifulsoup_test" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="m7" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -288,9 +254,6 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
     </configuration>
     <configuration name="get_duanzi" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="m7" />
@@ -310,9 +273,6 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
     </configuration>
     <configuration name="get_qiushibaike_img" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="m7" />
@@ -332,11 +292,8 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
     </configuration>
-    <configuration name="get_valicode_img" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="get_shuihuzhuan" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="m7" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -344,34 +301,50 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/get_validcode_img" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/beautifulsoup_test" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/get_validcode_img/get_valicode_img.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/beautifulsoup_test/get_shuihuzhuan.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
+    </configuration>
+    <configuration name="selenium_test" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="m7" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/selenium_test" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/selenium_test/selenium_test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
     </configuration>
     <list>
-      <item itemvalue="Python.get_valicode_img" />
-      <item itemvalue="Python.YDMPython3.x" />
       <item itemvalue="Python.get_qiushibaike_img" />
       <item itemvalue="Python.get_duanzi" />
       <item itemvalue="Python.beautifulsoup_test" />
+      <item itemvalue="Python.get_shuihuzhuan" />
+      <item itemvalue="Python.selenium_test" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.selenium_test" />
+        <item itemvalue="Python.get_shuihuzhuan" />
         <item itemvalue="Python.beautifulsoup_test" />
         <item itemvalue="Python.get_duanzi" />
         <item itemvalue="Python.get_qiushibaike_img" />
-        <item itemvalue="Python.get_valicode_img" />
-        <item itemvalue="Python.YDMPython3.x" />
       </list>
     </recent_temporary>
   </component>
@@ -398,30 +371,30 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26466382" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.29759037" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32891566" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.32771084" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3361433" />
       <window_info anchor="bottom" id="Version Control" order="11" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.32891566" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.32665965" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26772615" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="right" id="Database" order="4" />
+      <window_info anchor="right" id="SciView" order="3" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="SciView" order="3" />
-      <window_info anchor="right" id="Database" order="4" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -431,6 +404,16 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/beautifulsoup_test/beautifulsoup_test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="14" column="33" lean-forward="true" selection-start-line="14" selection-start-column="33" selection-end-line="14" selection-end-column="33" />
+          <folding>
+            <element signature="e#0#29#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file:///Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/requests/sessions.py" />
     <entry file="file:///Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/requests/api.py" />
     <entry file="file://$PROJECT_DIR$/requests_test/douban.html">
@@ -516,84 +499,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/qiushibaike/img/5KCEC5Z9MBKWMOUR.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/qiushibaike/img/9J4M8MGDXM9OX2KW.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/qiushibaike/img/19I7ZRTGLNBJ3S35.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/qiushibaike/img/96NZ0VCB72UVJ0JJ.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/qiushibaike/img/EPK2TSEF605S5NU3.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/qiushibaike/img/IHSFFOKPJ5BBZW3O.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/qiushibaike/img/ISI2GUJGXFCQPJDT.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/qiushibaike/img/IV3YGB6TUY772Q8C.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/qiushibaike/img/JBCUKZ676LH00587.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/qiushibaike/img/KJ8W68762WZVH7YI.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/qiushibaike/img/MDJ6SOC0AP1V1TPB.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/qiushibaike/img/OKD4G5ZF4WMHJFJE.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/qiushibaike/img/R3A2A952LC5U0144.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/qiushibaike/img/S45TGCRX63XENSW5.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/qiushibaike/img/WW15ML34ST75QMX1.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/qiushibaike/img/XL9IZFE9ZF9X8EL3.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/qiushibaike/img/Y6LFF3GHLZ47AO8K.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/qiushibaike/img/ZD0AIY3BH69T6MEZ.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/qiushibaike/img/NF0TLINCR4FXB94J.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/qiushibaike/img/N71F9NVDF31Y29G7.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/qiushibaike/img/S5YU0DJN8ISYWKB4.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/qiushibaike/img/VHZ7EB2HB52YXT4N.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/qiushibaike/img/YJCBXPCHBIOEBNBW.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/qiushibaike/img/ZOL8M1A1FBB45MF4.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/qiushibaike/img/ZW03MOZUTC4DJP57.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/qiushibaike/img/O91JC3NWEDC3W8QX.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/qiushibaike/get_qiushibaike_img.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="23">
@@ -608,36 +513,76 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/duanzi/duanzi.txt">
+    <entry file="file://$PROJECT_DIR$/duanzi/duanzi.txt" />
+    <entry file="file://$USER_HOME$/Library/Python/3.6/lib/python/site-packages/bs4/element.py" />
+    <entry file="file://$PROJECT_DIR$/duanzi/get_duanzi.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/beautifulsoup_test/beautifulsoup_test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-627">
-          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+        <state relative-caret-position="120">
+          <caret line="5" selection-start-line="5" selection-end-line="7" selection-end-column="1" />
+          <folding>
+            <element signature="e#0#29#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/duanzi/get_duanzi.py">
+    <entry file="file://$PROJECT_DIR$/beautifulsoup_test/第四回 小霸王醉入销金帐 花和尚大闹桃花村.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/beautifulsoup_test/第一百一十七回 睦州城箭射邓元觉 乌龙岭神助宋公明.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/beautifulsoup_test/第一百一十一回 张顺夜伏金山寺 宋江智取润州城.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/beautifulsoup_test/第一回 王教头私走延安府 九纹龙大闹史家村.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/beautifulsoup_test/楔子 张天师祈禳瘟疫 洪太尉误走妖魔.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/beautifulsoup_test/第一百一十三回 混江龙太湖小结义 宋公明苏州大会垓.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/beautifulsoup_test/第一百一十五回 张顺魂捉方天定 宋江智取宁海军.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/beautifulsoup_test/第一百一十四回 宁海军宋江吊孝 涌金门张顺归神.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="5" selection-start-line="5" selection-end-line="7" selection-end-column="1" />
+        <state relative-caret-position="48">
+          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/beautifulsoup_test/shuihu.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-6480" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/beautifulsoup_test/get_shuihuzhuan.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="17" column="40" selection-start-line="17" selection-start-column="40" selection-end-line="17" selection-end-column="40" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Library/Python/3.6/lib/python/site-packages/bs4/element.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="484" column="8" selection-start-line="484" selection-start-column="8" selection-end-line="484" selection-end-column="8" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/selenium_test/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/beautifulsoup_test/beautifulsoup_test.py">
+    <entry file="file://$PROJECT_DIR$/chromedriver_win32/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/selenium_test/selenium_test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="14" column="39" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
+        <state relative-caret-position="360">
+          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
           <folding>
-            <element signature="e#0#29#0" expanded="true" />
+            <element signature="e#0#30#0" expanded="true" />
           </folding>
         </state>
       </provider>
