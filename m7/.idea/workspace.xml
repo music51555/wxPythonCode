@@ -2,32 +2,32 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5e4543a9-080d-447a-b3ef-d7c96a7fe32d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../Note/爬虫/18、爬虫中的xpath应用.md" beforeDir="false" afterPath="$PROJECT_DIR$/../Note/爬虫/18、爬虫中的xpath应用.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Note/爬虫/20、BeautifulSoup模块详解.md" beforeDir="false" afterPath="$PROJECT_DIR$/../Note/爬虫/20、BeautifulSoup模块详解.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
-    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/m7$requests_post.coverage" NAME="requests_post Coverage Results" MODIFIED="1546401567604" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/requests_test" />
-    <SUITE FILE_PATH="coverage/m7$sogou_pages.coverage" NAME="sogou_pages Coverage Results" MODIFIED="1546332300356" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/requests_test" />
-    <SUITE FILE_PATH="coverage/m7$beautifulsoup_test.coverage" NAME="beautifulsoup_test Coverage Results" MODIFIED="1546768455669" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/beautifulsoup_test" />
-    <SUITE FILE_PATH="coverage/m7$YDMPython3_x.coverage" NAME="YDMPython3.x Coverage Results" MODIFIED="1546416207420" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/yundama" />
-    <SUITE FILE_PATH="coverage/m7$qiushibaike_get.coverage" NAME="qiushibaike_get Coverage Results" MODIFIED="1546332842145" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/qiushibaike" />
+    <SUITE FILE_PATH="coverage/m7$ajax_post.coverage" NAME="ajax_post Coverage Results" MODIFIED="1546393128933" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ajax_post_test" />
     <SUITE FILE_PATH="coverage/m7$ajax_get.coverage" NAME="ajax_get Coverage Results" MODIFIED="1546330573334" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/requests_ajax_get" />
+    <SUITE FILE_PATH="coverage/m7$dynamic_douban_movies.coverage" NAME="dynamic_douban_movies Coverage Results" MODIFIED="1546870823439" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/phantomjs" />
+    <SUITE FILE_PATH="coverage/m7$urllibtest.coverage" NAME="urllibtest Coverage Results" MODIFIED="1546313309924" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/m7$beautifulsoup_test.coverage" NAME="beautifulsoup_test Coverage Results" MODIFIED="1546768455669" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/beautifulsoup_test" />
+    <SUITE FILE_PATH="coverage/m7$requests_post.coverage" NAME="requests_post Coverage Results" MODIFIED="1546401567604" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/requests_test" />
+    <SUITE FILE_PATH="coverage/m7$get_valicode_img.coverage" NAME="get_valicode_img Coverage Results" MODIFIED="1546422878163" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/get_validcode_img" />
+    <SUITE FILE_PATH="coverage/m7$selenium_test.coverage" NAME="selenium_test Coverage Results" MODIFIED="1546844505658" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/selenium_test" />
+    <SUITE FILE_PATH="coverage/m7$get_qiushibaike_img.coverage" NAME="get_qiushibaike_img Coverage Results" MODIFIED="1546517613918" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/qiushibaike" />
+    <SUITE FILE_PATH="coverage/m7$YDMPython3_x.coverage" NAME="YDMPython3.x Coverage Results" MODIFIED="1546416207420" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/yundama" />
+    <SUITE FILE_PATH="coverage/m7$proxy_test.coverage" NAME="proxy_test Coverage Results" MODIFIED="1546399148242" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/requests_proxy_ip" />
+    <SUITE FILE_PATH="coverage/m7$phantomjs_test.coverage" NAME="phantomjs_test Coverage Results" MODIFIED="1546867802288" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/phantomjs" />
+    <SUITE FILE_PATH="coverage/m7$request_session_test.coverage" NAME="request_session_test Coverage Results" MODIFIED="1546396286602" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/request_session" />
+    <SUITE FILE_PATH="coverage/m7$qiushibaike_get.coverage" NAME="qiushibaike_get Coverage Results" MODIFIED="1546332842145" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/qiushibaike" />
+    <SUITE FILE_PATH="coverage/m7$sogou_pages.coverage" NAME="sogou_pages Coverage Results" MODIFIED="1546332300356" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/requests_test" />
     <SUITE FILE_PATH="coverage/m7$get_duanzi.coverage" NAME="get_duanzi Coverage Results" MODIFIED="1546765834911" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/duanzi" />
     <SUITE FILE_PATH="coverage/m7$get_shuihuzhuan.coverage" NAME="get_shuihuzhuan Coverage Results" MODIFIED="1546841860045" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/beautifulsoup_test" />
-    <SUITE FILE_PATH="coverage/m7$ajax_post.coverage" NAME="ajax_post Coverage Results" MODIFIED="1546393128933" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ajax_post_test" />
-    <SUITE FILE_PATH="coverage/m7$request_session_test.coverage" NAME="request_session_test Coverage Results" MODIFIED="1546396286602" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/request_session" />
-    <SUITE FILE_PATH="coverage/m7$selenium_test.coverage" NAME="selenium_test Coverage Results" MODIFIED="1546844505658" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/selenium_test" />
-    <SUITE FILE_PATH="coverage/m7$get_valicode_img.coverage" NAME="get_valicode_img Coverage Results" MODIFIED="1546422878163" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/get_validcode_img" />
-    <SUITE FILE_PATH="coverage/m7$proxy_test.coverage" NAME="proxy_test Coverage Results" MODIFIED="1546399148242" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/requests_proxy_ip" />
-    <SUITE FILE_PATH="coverage/m7$urllibtest.coverage" NAME="urllibtest Coverage Results" MODIFIED="1546313309924" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/m7$get_qiushibaike_img.coverage" NAME="get_qiushibaike_img Coverage Results" MODIFIED="1546517613918" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/qiushibaike" />
   </component>
   <component name="FUSProjectUsageTrigger">
     <session id="1276221222">
@@ -36,43 +36,46 @@
           <entry key="project.closed" value="1" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.5" value="2" />
-          <entry key="project.opened" value="3" />
+          <entry key="project.open.time.6" value="1" />
+          <entry key="project.opened" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="html" value="11" />
           <entry key="jpg" value="28" />
-          <entry key="py" value="21" />
+          <entry key="log" value="1" />
+          <entry key="png" value="6" />
+          <entry key="py" value="26" />
           <entry key="txt" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="HTML" value="11" />
-          <entry key="Image" value="28" />
-          <entry key="PLAIN_TEXT" value="1" />
-          <entry key="Python" value="21" />
+          <entry key="Image" value="34" />
+          <entry key="PLAIN_TEXT" value="2" />
+          <entry key="Python" value="26" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="3414" />
+          <entry key="py" value="4232" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="3414" />
+          <entry key="Python" value="4232" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="beautifulsoup_test.py" pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/beautifulsoup_test/beautifulsoup_test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
+            <state relative-caret-position="92">
               <caret line="5" selection-start-line="5" selection-end-line="7" selection-end-column="1" />
               <folding>
                 <element signature="e#0#29#0" expanded="true" />
@@ -81,10 +84,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="get_shuihuzhuan.py" pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/beautifulsoup_test/get_shuihuzhuan.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="230">
+            <state relative-caret-position="368">
               <caret line="17" column="40" selection-start-line="17" selection-start-column="40" selection-end-line="17" selection-end-column="40" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
@@ -93,11 +96,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="selenium_test.py" pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/selenium_test/selenium_test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+            <state relative-caret-position="345">
+              <caret line="15" selection-start-line="15" selection-end-line="15" />
               <folding>
                 <element signature="e#0#30#0" expanded="true" />
               </folding>
@@ -105,7 +108,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="get_duanzi.py" pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/phantomjs/phantomjs_test.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="229">
+              <caret line="14" column="12" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
+              <folding>
+                <element signature="e#0#30#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/phantomjs/dynamic_douban_movies.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="367">
+              <caret line="27" column="32" lean-forward="true" selection-end-line="27" selection-end-column="38" />
+              <folding>
+                <element signature="e#0#15#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/duanzi/get_duanzi.py">
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
@@ -158,6 +185,8 @@
         <option value="$PROJECT_DIR$/selenium_test/__init__.py" />
         <option value="$PROJECT_DIR$/chromedriver_win32/__init__.py" />
         <option value="$PROJECT_DIR$/selenium_test/selenium_test.py" />
+        <option value="$PROJECT_DIR$/phantomjs/phantomjs_test.py" />
+        <option value="$PROJECT_DIR$/phantomjs/dynamic_douban_movies.py" />
       </list>
     </option>
   </component>
@@ -166,9 +195,6 @@
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
-  </component>
-  <component name="NodePackageJsonFileManager">
-    <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds" fullScreen="true">
     <option name="width" value="1440" />
@@ -193,7 +219,7 @@
             <path>
               <item name="m7" type="b2602c69:ProjectViewProjectNode" />
               <item name="m7" type="462c0819:PsiDirectoryNode" />
-              <item name="chromedriver_win32" type="462c0819:PsiDirectoryNode" />
+              <item name="phantomjs" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="m7" type="b2602c69:ProjectViewProjectNode" />
@@ -235,7 +261,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.selenium_test">
+  <component name="RunManager" selected="Python.dynamic_douban_movies">
     <configuration name="beautifulsoup_test" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="m7" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -254,8 +280,11 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
     </configuration>
-    <configuration name="get_duanzi" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="dynamic_douban_movies" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="m7" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -263,35 +292,19 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/duanzi" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/phantomjs" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/duanzi/get_duanzi.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/phantomjs/dynamic_douban_movies.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
-    </configuration>
-    <configuration name="get_qiushibaike_img" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="m7" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/qiushibaike" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/qiushibaike/get_qiushibaike_img.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
     </configuration>
     <configuration name="get_shuihuzhuan" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="m7" />
@@ -311,6 +324,31 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="phantomjs_test" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="m7" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/phantomjs" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/phantomjs/phantomjs_test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
     </configuration>
     <configuration name="selenium_test" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="m7" />
@@ -330,21 +368,24 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.get_qiushibaike_img" />
-      <item itemvalue="Python.get_duanzi" />
       <item itemvalue="Python.beautifulsoup_test" />
       <item itemvalue="Python.get_shuihuzhuan" />
       <item itemvalue="Python.selenium_test" />
+      <item itemvalue="Python.phantomjs_test" />
+      <item itemvalue="Python.dynamic_douban_movies" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.dynamic_douban_movies" />
+        <item itemvalue="Python.phantomjs_test" />
         <item itemvalue="Python.selenium_test" />
         <item itemvalue="Python.get_shuihuzhuan" />
         <item itemvalue="Python.beautifulsoup_test" />
-        <item itemvalue="Python.get_duanzi" />
-        <item itemvalue="Python.get_qiushibaike_img" />
       </list>
     </recent_temporary>
   </component>
@@ -371,30 +412,29 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
-    <editor active="true" />
+    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <layout>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.27110156" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.33493975" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32891566" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3361433" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.32665965" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="11" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.32891566" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.32665965" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26772615" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="right" id="Database" order="4" />
-      <window_info anchor="right" id="SciView" order="3" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="SciView" order="3" />
+      <window_info anchor="right" id="Database" order="4" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -404,16 +444,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/beautifulsoup_test/beautifulsoup_test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="14" column="33" lean-forward="true" selection-start-line="14" selection-start-column="33" selection-end-line="14" selection-end-column="33" />
-          <folding>
-            <element signature="e#0#29#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/requests/sessions.py" />
     <entry file="file:///Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/requests/api.py" />
     <entry file="file://$PROJECT_DIR$/requests_test/douban.html">
@@ -514,61 +544,17 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/duanzi/duanzi.txt" />
-    <entry file="file://$USER_HOME$/Library/Python/3.6/lib/python/site-packages/bs4/element.py" />
-    <entry file="file://$PROJECT_DIR$/duanzi/get_duanzi.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/beautifulsoup_test/beautifulsoup_test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="5" selection-start-line="5" selection-end-line="7" selection-end-column="1" />
-          <folding>
-            <element signature="e#0#29#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/beautifulsoup_test/第四回 小霸王醉入销金帐 花和尚大闹桃花村.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/beautifulsoup_test/第一百一十七回 睦州城箭射邓元觉 乌龙岭神助宋公明.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/beautifulsoup_test/第一百一十一回 张顺夜伏金山寺 宋江智取润州城.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/beautifulsoup_test/第一回 王教头私走延安府 九纹龙大闹史家村.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/beautifulsoup_test/楔子 张天师祈禳瘟疫 洪太尉误走妖魔.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/beautifulsoup_test/第一百一十三回 混江龙太湖小结义 宋公明苏州大会垓.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/beautifulsoup_test/第一百一十五回 张顺魂捉方天定 宋江智取宁海军.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/beautifulsoup_test/第一百一十四回 宁海军宋江吊孝 涌金门张顺归神.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/beautifulsoup_test/第四回 小霸王醉入销金帐 花和尚大闹桃花村.txt" />
+    <entry file="file://$PROJECT_DIR$/beautifulsoup_test/第一百一十七回 睦州城箭射邓元觉 乌龙岭神助宋公明.txt" />
+    <entry file="file://$PROJECT_DIR$/beautifulsoup_test/第一百一十一回 张顺夜伏金山寺 宋江智取润州城.txt" />
+    <entry file="file://$PROJECT_DIR$/beautifulsoup_test/第一回 王教头私走延安府 九纹龙大闹史家村.txt" />
+    <entry file="file://$PROJECT_DIR$/beautifulsoup_test/楔子 张天师祈禳瘟疫 洪太尉误走妖魔.txt" />
+    <entry file="file://$PROJECT_DIR$/beautifulsoup_test/第一百一十三回 混江龙太湖小结义 宋公明苏州大会垓.txt" />
+    <entry file="file://$PROJECT_DIR$/beautifulsoup_test/第一百一十五回 张顺魂捉方天定 宋江智取宁海军.txt" />
+    <entry file="file://$PROJECT_DIR$/beautifulsoup_test/第一百一十四回 宁海军宋江吊孝 涌金门张顺归神.txt" />
     <entry file="file://$PROJECT_DIR$/beautifulsoup_test/shuihu.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-6480" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/beautifulsoup_test/get_shuihuzhuan.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="17" column="40" selection-start-line="17" selection-start-column="40" selection-end-line="17" selection-end-column="40" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/selenium_test/__init__.py">
@@ -577,12 +563,84 @@
     <entry file="file://$PROJECT_DIR$/chromedriver_win32/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/beautifulsoup_test/beautifulsoup_test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="5" selection-start-line="5" selection-end-line="7" selection-end-column="1" />
+          <folding>
+            <element signature="e#0#29#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/beautifulsoup_test/get_shuihuzhuan.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="17" column="40" selection-start-line="17" selection-start-column="40" selection-end-line="17" selection-end-column="40" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/duanzi/get_duanzi.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/selenium_test/selenium_test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+        <state relative-caret-position="345">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
           <folding>
             <element signature="e#0#30#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phantomjs/result.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phantomjs/index.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phantomjs/ghostdriver.log">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phantomjs/phantomjs_test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="14" column="12" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
+          <folding>
+            <element signature="e#0#30#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phantomjs/.1.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$USER_HOME$/Library/Python/3.6/lib/python/site-packages/selenium/webdriver/remote/webdriver.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="671" column="8" selection-start-line="671" selection-start-column="8" selection-end-line="671" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Library/Python/3.6/lib/python/site-packages/bs4/element.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="1527" selection-start-line="1527" selection-end-line="1527" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phantomjs/2.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phantomjs/dynamic_douban_movies.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="367">
+          <caret line="27" column="32" lean-forward="true" selection-end-line="27" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
           </folding>
         </state>
       </provider>

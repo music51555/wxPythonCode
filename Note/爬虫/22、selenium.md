@@ -35,4 +35,3 @@ su.click()
 
 driver.quit()
 ```
-
