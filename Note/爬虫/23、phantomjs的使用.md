@@ -1,8 +1,8 @@
-phantomjs的使用  fanˈtəm/ 幽灵，幻影
+`phantomjs`的使用 ` fanˈtəm/` 幽灵，幻影
 
 无界面的浏览器
 
-下载驱动：`http://phantomjs.org/download.html`
+**下载驱动：**`http://phantomjs.org/download.html`
 
 **知识点1：**调用`driver`对象的`save_screenshot()`方法截图浏览器界面
 
