@@ -1,12 +1,44 @@
 docker镜像
 
-##### 什么是镜像：
 
-分层存储的文件，可以在一个镜像的上层创建多个容器
 
-易于扩展
+**获取镜像：**
 
-优化存储空间，是一个不包含linux内核，而又精简的linux系统
+通过pull命令从docker-hub仓库获取镜像：
+
+知识点1：如果没有指定TAG版本，默认会选择latest标签，下载最新的
+
+```
+docker pull ubuntu:TAG
+```
+
+下载指定版本的ubuntu或latest版本
+
+```
+docker pull ubuntu:18.04
+docker pull ubuntu:latest
+```
+
+
+
+**指定从哪pull获取镜像：**
+
+知识点1：默认使用pull表示从docker-hub下载镜像
+
+```shell
+docker pull ubuntu:18.04
+
+# 完整命令命令
+docker pull registry.hub.docker.com/ubuntu:18.04
+```
+
+
+
+指定从网易蜂巢下载ubuntu镜像
+
+```
+docker pull hub.c.163.com/public/ubuntu:18.04
+```
 
 
 
@@ -16,11 +48,87 @@ docker镜像
 
 
 
-##### 在镜像库中检索镜像
+**列出所有docker镜像：**
 
-命令：docker search nginx 
+以下两种方式均可
 
-图形界面镜像库：
+```shell
+docker images
+
+[root@VM_16_6_centos ~]# docker image ls
+
+#镜像名称             版本信息              镜像ID              镜像的最后更新时间     镜像大小 
+ REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+ hello               latest              fce289e99eb9        8 days ago          1.84kB
+ hello-world         latest              fce289e99eb9        8 days ago          1.84kB
+ nginx               latest              7042885a156a        11 days ago         109MB
+ ubuntu              18.04               1d9c17228a9e        11 days ago         86.7MB
+
+```
+
+
+
+**过滤查询镜像：**
+
+```shell
+# 添加-f参数可以过滤镜像结果，如dangling=true表示列出没有被使用的镜像
+docker images -f dangling=true
+
+docker image ls -f dangling=true
+```
+
+
+
+**为镜像添加标签**
+
+为了日后方便查找，为已存在的镜像添加一个标签，但是新标签镜像和源镜像的id是一样的，也起到了类似链接的作用，把ubuntu:18.04 改名为myubuntu:18.04
+
+
+
+```shell
+docker tag ubuntu:18.04 myubuntu:18.04
+
+[root@VM_16_6_centos ~]# docker image ls
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+myubuntu            18.04               1d9c17228a9e        11 days ago         86.7MB
+ubuntu              18.04               1d9c17228a9e        11 days ago         86.7MB
+```
+
+
+
+**查看镜像的详细信息：**
+
+知识点1：返回的结果是一个JSON格式
+
+知识点2：如果只想查看JSON中的某项数据，通过-f选项过滤数据
+
+```shell
+docker inspect ubuntu:18.04
+
+docker inspect -f {{".Config"}} ubuntu:18.04 
+```
+
+
+
+**通过history查看镜像各层的创建信息**
+
+知识点1：查询出的内容如果过长会被截断，使用--no-trunc参数展示全部内容，不截断
+
+```
+docker history ubuntu:18.04 --no-trunc
+```
+
+
+
+
+
+##### 在`dockerhub`镜像库中检索镜像
+
+命令：
+
+`docker search nginx `
+
+`dockerhub`官网：
 
 `https://hub.docker.com/search/?q=&type=edition&offering=community`
 
@@ -59,6 +167,3 @@ docker images
 
 
 
-创建一个容器，就是在容器上创建一个读写层，如果在容器中修改一个文件，是在读写层copy一份儿镜像中的文件来进行修改的，不是修改原有文件
-
-一个镜像可以创建多个容器，在容器中的改动不会影响镜像

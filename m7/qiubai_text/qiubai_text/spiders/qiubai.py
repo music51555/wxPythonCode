@@ -5,7 +5,6 @@ from .. import items
 
 class QiubaiSpider(scrapy.Spider):
     name = 'qiubai'
-    # allowed_domains = ['www.qiushibaike.com']
     start_urls = ['https://www.qiushibaike.com/text/']
 
     def parse(self, response):

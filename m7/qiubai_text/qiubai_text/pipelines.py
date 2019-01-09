@@ -7,9 +7,14 @@
 
 
 class QiubaiTextPipeline(object):
+    def open_spider(self,spider):
+        self.f = open('qiubai.txt', 'a' , encoding='utf-8')
+
     def process_item(self, item, spider):
         author = item['author']
         duanzi = item['duanzi']
 
-        with open('qiubai.txt', 'w' , encoding='utf-8') as f:
-            f.write(author+':'+duanzi+'\n\n\n')
+        self.f.write(author+':'+duanzi+'\n\n\n')
+
+    def close_spider(self,spider):
+        self.f.close()

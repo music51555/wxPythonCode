@@ -1,6 +1,8 @@
-BeautifulSoup模块详解
+`BeautifulSoup`模块详解
 
 在使用`bs4`模块前需要安装依赖模块`lxml`
+
+`pip3 install lxml`
 
 `from bs4 import BeautifulSoup`
 
