@@ -1,4 +1,4 @@
-安装依赖包
+##### 安装依赖包
 
 ```shell
 yum install -y yum-utils \
@@ -8,7 +8,7 @@ yum install -y yum-utils \
 
 
 
-设置yum源
+##### 设置`yum`源
 
 ```shell
 yum-config-manager \
@@ -18,7 +18,7 @@ yum-config-manager \
 
 
 
-查看yum源
+##### 查看`yum`源
 
 ```shell
 ls /etc/yum.repos.d/docker-ce.repo
@@ -26,7 +26,7 @@ ls /etc/yum.repos.d/docker-ce.repo
 
 
 
-安装docker
+##### 通过`yum`安装`docker`
 
 ```shell
 yum install docker-ce -y
@@ -34,7 +34,7 @@ yum install docker-ce -y
 
 
 
-启动docker，并设置开机启动
+##### 启动`docker`，并设置开机启动
 
 ```shell
 systemctl start docker
@@ -43,7 +43,7 @@ systemctl enable docker
 
 
 
-测试输出hello-world，如果没有镜像会下载
+##### 测试输出`hello-world`，如果没有镜像会下载
 
 ```shell
 docker run hello-world
@@ -51,61 +51,26 @@ docker run hello-world
 
 
 
-查看docker信息
+##### 查看`docker`信息
 
-```
+展示镜像、容器数量等信息、`docker`版本等信息概览
+
+```shell
 docker info
+[root@VM_16_6_centos ~]# docker info
+Containers: 3
+ Running: 1
+ Paused: 0
+ Stopped: 2
+Images: 4
+Server Version: 18.09.0
+Storage Driver: overlay2
 ```
 
 
 
-查看docker版本
+##### 查看`docker`版本
 
 ```shell
 docker version
 ```
-
-
-
-下载并创建容器
-
-```shell
-# -it表示在前台运行
-docker run -it nginx
-```
-
-
-
-查看容器状态
-
-```
-docker ps
-```
-
-
-
-检查容器，可以查看容器ip ，美  [ɪn'spɛkt]  检查
-
-```
-docker inspect 容器id
-```
-
-
-
-访问nginx容器的主页
-
-```
-curl IP
-```
-
-
-
-进入容器
-
-```shell
-docker exec -it 容器ID bash
-root@a55cce2dc36f:/# ls
-bin   dev  home  lib64	mnt  proc  run	 srv  tmp  var
-boot  etc  lib	 media	opt  root  sbin  sys  usr
-```
-
