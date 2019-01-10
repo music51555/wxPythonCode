@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Scrapy settings for qiubai_text project
+# Scrapy settings for scrapy_pro project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -9,10 +9,12 @@
 #     https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://doc.scrapy.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = 'qiubai_text'
+BOT_NAME = 'scrapy_pro'
 
-SPIDER_MODULES = ['qiubai_text.spiders']
-NEWSPIDER_MODULE = 'qiubai_text.spiders'
+SPIDER_MODULES = ['scrapy_pro.spiders']
+NEWSPIDER_MODULE = 'scrapy_pro.spiders'
+
+FEED_EXPORT_ENCODING = 'gbk'
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
@@ -20,8 +22,6 @@ USER_AGENT = 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, lik
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = False
-
-FEED_EXPORT_ENCODING = 'gbk'
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
@@ -49,13 +49,13 @@ FEED_EXPORT_ENCODING = 'gbk'
 # Enable or disable spider middlewares
 # See https://doc.scrapy.org/en/latest/topics/spider-middleware.html
 #SPIDER_MIDDLEWARES = {
-#    'qiubai_text.middlewares.QiubaiTextSpiderMiddleware': 543,
+#    'scrapy_pro.middlewares.ScrapyProSpiderMiddleware': 543,
 #}
 
 # Enable or disable downloader middlewares
 # See https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
 #DOWNLOADER_MIDDLEWARES = {
-#    'qiubai_text.middlewares.QiubaiTextDownloaderMiddleware': 543,
+#    'scrapy_pro.middlewares.ScrapyProDownloaderMiddleware': 543,
 #}
 
 # Enable or disable extensions
@@ -67,7 +67,7 @@ FEED_EXPORT_ENCODING = 'gbk'
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-   'qiubai_text.pipelines.QiubaiTextPipeline': 300,
+   'scrapy_pro.pipelines.ScrapyProPipeline': 300,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
