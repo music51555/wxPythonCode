@@ -8,7 +8,7 @@
 import scrapy
 
 
-class QiubaiForMysqlItem(scrapy.Item):
+class QiubaiPagesItem(scrapy.Item):
     # define the fields for your item here like:
     author = scrapy.Field()
-    duanzi = scrapy.Field()
+    content = scrapy.Field()

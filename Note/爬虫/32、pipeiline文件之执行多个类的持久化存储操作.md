@@ -1,9 +1,22 @@
-# -*- coding: utf-8 -*-
+`pipeiline`文件之执行多个类的持久化存储操作
 
-# Define your item pipelines here
-#
-# Don't forget to add your pipeline to the ITEM_PIPELINES setting
-# See: https://doc.scrapy.org/en/latest/topics/item-pipeline.html
+**知识点1：**如果有多个类需要执行，需要在每一个类的`process_item`函数中返回`return item`，否则下一个类执行时`item`类型显示为`NoneType`
+
+**知识点2：**在`author = item['author']`时，不要写为`author = item('author')`括号的形式
+
+**知识点3：**如果需要执行多个`pipeline`类时，要在`settings.py`中开启多个类，并设置优先级，依次执行
+
+```python
+ITEM_PIPELINES = {
+   'qiubai_for_mysql.pipelines.TxtPipeline': 300,
+   'qiubai_for_mysql.pipelines.MysqlTestPipeline': 400,
+   'qiubai_for_mysql.pipelines.RedisPipeline': 500,
+}
+```
+
+
+
+```python
 import pymysql
 import redis
 
@@ -73,3 +86,6 @@ class RedisPipeline(object):
         self.conn.lpush('qiubai', str(qiushi))
 
         return item
+
+```
+

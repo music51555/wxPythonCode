@@ -1,3 +1,8 @@
+`scrapy`的`cookie`操作
+
+**知识点1：**`scrapy`发起`post`请求后，再次发起`get`请求，此次请求中是携带`cookie`信息的，所以可以不做任何`cookie`设置直接访问个人主页
+
+```python
 # -*- coding: utf-8 -*-
 import scrapy
 
@@ -27,5 +32,5 @@ class ScrapyDemoSpider(scrapy.Spider):
         self_page = 'https://www.douban.com/people/143360064/'
 
         yield scrapy.Request(url = self_page, callback=self.self_page_parse )
-
+```
 

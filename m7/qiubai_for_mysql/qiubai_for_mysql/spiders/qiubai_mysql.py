@@ -19,10 +19,12 @@ class QiubaiMysqlSpider(scrapy.Spider):
 
         for div in div_list:
             author = div.select('.author h2')[0].text
-            content = div.select('.content > span')[0].text
+            duanzi = div.select('.content > span')[0].text
 
             item = QiubaiForMysqlItem()
             item['author'] = author
-            item['content'] = content
+            item['duanzi'] = duanzi
+
+            print('---------item----------',item)
 
             yield item
