@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Scrapy settings for scrapy_pro project
+# Scrapy settings for id97 project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -9,12 +9,10 @@
 #     https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://doc.scrapy.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = 'scrapy_pro'
+BOT_NAME = 'id97'
 
-SPIDER_MODULES = ['scrapy_pro.spiders']
-NEWSPIDER_MODULE = 'scrapy_pro.spiders'
-
-FEED_EXPORT_ENCODING = 'gbk'
+SPIDER_MODULES = ['id97.spiders']
+NEWSPIDER_MODULE = 'id97.spiders'
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
@@ -22,6 +20,8 @@ USER_AGENT = 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, lik
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = False
+
+LOG_LEVEL = 'ERROR'
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
@@ -49,14 +49,14 @@ ROBOTSTXT_OBEY = False
 # Enable or disable spider middlewares
 # See https://doc.scrapy.org/en/latest/topics/spider-middleware.html
 #SPIDER_MIDDLEWARES = {
-#    'scrapy_pro.middlewares.ScrapyProSpiderMiddleware': 543,
+#    'id97.middlewares.Id97SpiderMiddleware': 543,
 #}
 
 # Enable or disable downloader middlewares
 # See https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
-DOWNLOADER_MIDDLEWARES = {
-   'scrapy_pro.middlewares.ScrapyProDownloaderMiddleware': 543,
-}
+#DOWNLOADER_MIDDLEWARES = {
+#    'id97.middlewares.Id97DownloaderMiddleware': 543,
+#}
 
 # Enable or disable extensions
 # See https://doc.scrapy.org/en/latest/topics/extensions.html
@@ -67,11 +67,8 @@ DOWNLOADER_MIDDLEWARES = {
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-   'scrapy_pro.pipelines.ScrapyProPipeline': 300,
+   'id97.pipelines.Id97Pipeline': 300,
 }
-
-LOG_LEVEL = 'ERROR'
-# LOG_FILE = 'log.log'
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://doc.scrapy.org/en/latest/topics/autothrottle.html

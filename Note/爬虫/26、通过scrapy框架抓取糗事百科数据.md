@@ -10,6 +10,8 @@
 
 **知识点5：**在得到的`xpath`结果中的元素，仍然支持`xpath`方法，继续查找时应添加`.//`或`./`查找
 
+**知识点6：**如果要得到标签对象的属性，如`href`，`xpath`方法提供了`//div/a/@href`方法
+
 ```python
 # -*- coding: utf-8 -*-
 import scrapy

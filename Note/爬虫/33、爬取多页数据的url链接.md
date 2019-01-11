@@ -6,7 +6,7 @@
 
 **知识点3：**通过`soup.a['href']`得到标签对象的属性值
 
-**知识点4：**通过`yield scrapy.Request(url,callback)`方法执行`get`请求，并执行当前回调函数
+**知识点4：**通过`yield scrapy.Request(url=,callback=)`方法执行`get`请求，并执行当前回调函数
 
 ```python
 # -*- coding: utf-8 -*-

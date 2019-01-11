@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Scrapy settings for scrapy_pro project
+# Scrapy settings for choutiPro project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -9,12 +9,10 @@
 #     https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://doc.scrapy.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = 'scrapy_pro'
+BOT_NAME = 'choutiPro'
 
-SPIDER_MODULES = ['scrapy_pro.spiders']
-NEWSPIDER_MODULE = 'scrapy_pro.spiders'
-
-FEED_EXPORT_ENCODING = 'gbk'
+SPIDER_MODULES = ['choutiPro.spiders']
+NEWSPIDER_MODULE = 'choutiPro.spiders'
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
@@ -22,6 +20,8 @@ USER_AGENT = 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, lik
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = False
+
+LOG_LEVEL = 'ERROR'
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
@@ -49,14 +49,14 @@ ROBOTSTXT_OBEY = False
 # Enable or disable spider middlewares
 # See https://doc.scrapy.org/en/latest/topics/spider-middleware.html
 #SPIDER_MIDDLEWARES = {
-#    'scrapy_pro.middlewares.ScrapyProSpiderMiddleware': 543,
+#    'choutiPro.middlewares.ChoutiproSpiderMiddleware': 543,
 #}
 
 # Enable or disable downloader middlewares
 # See https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
-DOWNLOADER_MIDDLEWARES = {
-   'scrapy_pro.middlewares.ScrapyProDownloaderMiddleware': 543,
-}
+#DOWNLOADER_MIDDLEWARES = {
+#    'choutiPro.middlewares.ChoutiproDownloaderMiddleware': 543,
+#}
 
 # Enable or disable extensions
 # See https://doc.scrapy.org/en/latest/topics/extensions.html
@@ -66,12 +66,9 @@ DOWNLOADER_MIDDLEWARES = {
 
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
-ITEM_PIPELINES = {
-   'scrapy_pro.pipelines.ScrapyProPipeline': 300,
-}
-
-LOG_LEVEL = 'ERROR'
-# LOG_FILE = 'log.log'
+#ITEM_PIPELINES = {
+#    'choutiPro.pipelines.ChoutiproPipeline': 300,
+#}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://doc.scrapy.org/en/latest/topics/autothrottle.html
