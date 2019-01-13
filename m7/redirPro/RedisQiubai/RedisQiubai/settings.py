@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Scrapy settings for choutiPro project
+# Scrapy settings for RedisQiubai project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -9,15 +9,15 @@
 #     https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://doc.scrapy.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = 'choutiPro'
+BOT_NAME = 'RedisQiubai'
 
-SPIDER_MODULES = ['choutiPro.spiders']
-NEWSPIDER_MODULE = 'choutiPro.spiders'
+SPIDER_MODULES = ['RedisQiubai.spiders']
+NEWSPIDER_MODULE = 'RedisQiubai.spiders'
 
-LOG_LEVEL = 'ERROR'
+
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = 'choutiPro (+http://www.yourdomain.com)'
-USER_AGENT = 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36'
+#USER_AGENT = 'RedisQiubai (+http://www.yourdomain.com)'
+USER_AGENT = 'User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36'
 
 
 # Obey robots.txt rules
@@ -49,13 +49,13 @@ ROBOTSTXT_OBEY = False
 # Enable or disable spider middlewares
 # See https://doc.scrapy.org/en/latest/topics/spider-middleware.html
 #SPIDER_MIDDLEWARES = {
-#    'choutiPro.middlewares.ChoutiproSpiderMiddleware': 543,
+#    'RedisQiubai.middlewares.RedisqiubaiSpiderMiddleware': 543,
 #}
 
 # Enable or disable downloader middlewares
 # See https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
 #DOWNLOADER_MIDDLEWARES = {
-#    'choutiPro.middlewares.ChoutiproDownloaderMiddleware': 543,
+#    'RedisQiubai.middlewares.RedisqiubaiDownloaderMiddleware': 543,
 #}
 
 # Enable or disable extensions
@@ -66,9 +66,9 @@ ROBOTSTXT_OBEY = False
 
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    'choutiPro.pipelines.ChoutiproPipeline': 300,
-#}
+ITEM_PIPELINES = {
+   'scrapy_redis.pipelines.RedisPipeline': 300,
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://doc.scrapy.org/en/latest/topics/autothrottle.html
@@ -90,3 +90,10 @@ ROBOTSTXT_OBEY = False
 #HTTPCACHE_DIR = 'httpcache'
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
+
+SCHEDULER = 'scrapy_redis.scheduler.Scheduler'
+DUPEFILTER_CLASS = 'scrapy_redis.dupefilter.RFPDupeFilter'
+SCHEDULER_PERSIST = True
+
+REDIS_HOST = '192.168.3.82'
+REDIS_PORT = 6379
