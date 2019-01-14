@@ -1,6 +1,6 @@
 `scrapy`抓取电影列表页和详情页数据
 
-**知识点1：**通过创建`item`对象，来存储页面解析的数据，在`parse`函数中跳转页面继续解析时，要通过`scrapy.Request`方法中的meta参数传入变量，如`yield scrapy.Request(url= , callback=, meta = {'item':item })`
+**知识点1：**通过创建`item`对象，来存储页面解析的数据，在`parse`函数中跳转页面继续解析时，要通过`scrapy.Request`方法中的`meta`参数传入变量，如`yield scrapy.Request(url= , callback=, meta = {'item':item })`
 
 **知识点2：**当传递了`meta`字典参数后，在其他函数中通过`response`获取，如`response.meta['item']`
 

@@ -6,7 +6,7 @@
 
 ##### 配置文件中的修改：
 
-开启pipeline.py，使用redis提供的管道文件，而不是使用项目中默认的pipeline文件：
+开启`pipeline.py`，使用`redis`提供的管道文件，而不是使用项目中默认的`pipeline`文件：
 
 ```python
 # 开启pipeline.py，使用redis提供的管道文件，而不是使用项目中默认的pipeline文件
@@ -25,6 +25,48 @@ SCHEDULER_PERSIST = True
 REDIS_HOST = '192.168.3.82'
 REDIS_PORT = 6379
 ```
+
+
+
+##### 爬虫程序：
+
+**知识点1：`yield item`**是将`item`对象返回到`RedisPipeline`类中，而不是项目自带的`pipeline`中，做将数据按照`redis_key`存储到`redis`数据库的列表中
+
+```python
+# -*- coding: utf-8 -*-
+import scrapy
+import sys
+import os
+from scrapy.linkextractors import LinkExtractor
+from scrapy.spiders import CrawlSpider, Rule
+from scrapy_redis.spiders import RedisCrawlSpider
+sys.path.append(os.path.dirname(os.path.dirname(__file__)))
+from items import RedisqiubaiItem
+
+class QiubaiSpider(RedisCrawlSpider):
+    name = 'qiubai'
+
+    redis_key = 'qiubai_key'
+
+    link = LinkExtractor(allow=r'/pic/page/\d+')
+
+    rules = (
+        Rule(link, callback='parse_item', follow=True),
+    )
+
+    def parse_item(self, response):
+        qiushi_list = response.xpath('//div[@id = "content-left"]/div')
+
+        for qiushi in qiushi_list:
+            img_url = 'https:' + qiushi.xpath('.//div[@class = "thumb"]/a/img/@src').extract_first()
+
+            item = RedisqiubaiItem()
+            item['img_url'] = img_url
+
+            yield item
+```
+
+
 
 
 
