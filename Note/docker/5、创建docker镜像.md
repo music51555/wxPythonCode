@@ -4,7 +4,7 @@ docker创建镜像
 
 **知识点1：**创建容器命令`docker run -it ubuntu:18.04 /bin/bash`，表示创建一个容器，并打开`bash`会话
 
-**知识点2：**根据当前容器创建一个新镜像`docker commit -m "xxx" -a "xxx" 容器 或 容器名称 新NAME：新TAG`
+**知识点2：**根据当前容器创建新镜像`docker commit -m "xxx" -a "xxx" 容器ID 或 容器名称 新NAME：新TAG`
 
 **知识点3：**-m参数表示提交进项的信息，-a表示镜像的作者信息
 

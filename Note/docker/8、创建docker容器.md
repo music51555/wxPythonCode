@@ -10,6 +10,10 @@
 
 **知识点5：**`docker run`和`docker create`的区别是一个创建容器并启动，一个只创建不启动
 
+**知识点6：**当执行`docker run -it xxxx`来创建容器时，容器的状态显示为`Existed`退出状态，所以使用`docker run -itd xxxx`来创建容器，其中`-d`表示在后台运行
+
+**知识点7**：`docker run -d -P nginx:latest`启动`nginx`镜像,并通过`-P`指定随机端口，`-p 8001`设置指定端口，通过`docker ps -a`查询进程后，使用`curl 127.0.0.1:xxxx`通过指定端口访问页面
+
 ```shell
 docker create -it --name ubuntu-test ubuntu:18.04
 
