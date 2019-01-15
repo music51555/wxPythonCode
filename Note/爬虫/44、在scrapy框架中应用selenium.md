@@ -12,7 +12,7 @@
 
 **知识点6：**在一个标签对象下有多个`p`标签存放文本时，`xpath`可以写为`//div[@class=xxx]/p/text()`获取每一个`p`标签下的文本，通过`xpath().extract()`获取成一个列表结果，再次通过`''.join(列表)`得到一个字符串结果
 
-**知识点7：**通过`from  selenium import webdriver`导入包
+**知识点7：**通过`from selenium import webdriver`导入包
 
 ```python
 # -*- coding: utf-8 -*-
@@ -93,9 +93,13 @@ class WangyiSpider(scrapy.Spider):
 
 **知识点5：**`from scrapy.http import HtmlResponse`类似`Django`的`HttpResponse`方法，当在中间件中准备返回页面源码时，就需要借助该方法了，`HtmlResponse(url = spider.driver.current_url, body = page_text, encoding = 'utf-8')`，封装为响应对象后返回
 
-**知识点6：**下载器时依次返回下载页面的，所以会依次执行下载中间件，依次使用`selenium`重新发起请求
+**知识点6：**下载器下载是依次返回下载页面的，所以会依次执行下载中间件，依次使用`selenium`重新发起请求
 
 **知识点7：**`request`参数表示`scrapy`引擎交给调度器的请求对象，`request.url`表示当前请求的网址
+
+**知识点8：**调用`window.scrollTo(0,document,body.scrollHeight)`方法加载底部动态数据后，需要停留几秒后在获取页面源码，否则无法加载出最新的源码
+
+**知识点9：**`str.strip('  \n  \t')`中支持加入`\n、\t`等，针对性的去除空白数据
 
 ```python
 from scrapy.http import HtmlResponse
