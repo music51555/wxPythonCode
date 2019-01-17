@@ -1,3 +1,20 @@
+基于`RedisSpider`的分布式爬虫
+
+**知识点1：**基于`RedisSpider`的分布式爬虫是在`Spider`爬虫的基础之上修改的代码，所以先编写普通的`Spider`爬虫代码即可
+
+**知识点2：**如果想修改为分布式的`RedisSpider`爬虫程序，需要先从`from scrapy_redis.spiders import RedisSpider`，然后使爬虫程序继承于这个父类
+
+**知识点3：**如果想修改为分布式的`RedisSpider`爬虫程序，分别需要配置`redis.conf`和项目的`settings.py`文件的调度、`pipeline、redis`数据库连接信息等
+
+**知识点4：**如果创建时`def __init__`方法，在其中要编写`super(WangyiSpider,self).__init__()`
+
+**知识点5：**使用`redis_key`代替`start_urls`
+
+**知识点6：**在爬虫程序的最后要`yield item`，将他返回给`pipeline`文件
+
+**知识点7：**启动程序后开始监听爬虫网址，在`redis`中通过`lpush`和`lrange`输入网址和读取结果
+
+```python
 # -*- coding: utf-8 -*-
 import scrapy
 import sys
@@ -11,7 +28,6 @@ from items import WangyiproItem
 class WangyiSpider(RedisSpider):
     name = 'wangyi'
 
-    redis_encoding = 'utf-8'
     redis_key = 'wangyi'
 
     tag_url = []
@@ -60,3 +76,5 @@ class WangyiSpider(RedisSpider):
         print(content)
 
         yield item
+
+```

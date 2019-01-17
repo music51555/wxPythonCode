@@ -57,6 +57,8 @@ ROBOTSTXT_OBEY = False
 # See https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
 DOWNLOADER_MIDDLEWARES = {
    'wangyiPro.middlewares.WangyiproDownloaderMiddleware': 543,
+   'wangyiPro.middlewares.MyUserAgentMiddleware': 542,
+   'wangyiPro.middlewares.ProxyMiddleware': 541,
 }
 
 # Enable or disable extensions
@@ -68,7 +70,7 @@ DOWNLOADER_MIDDLEWARES = {
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-   'wangyiPro.pipelines.WangyiproPipeline': 300,
+   'scrapy_redis.pipelines.RedisPipeline':300
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
@@ -91,3 +93,11 @@ ITEM_PIPELINES = {
 #HTTPCACHE_DIR = 'httpcache'
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
+
+REDIS_HOST = '192.168.0.61'
+REDIS_PORT = 6379
+# REDIS_PARAMS = {'password':'123456'}
+
+SCHEDULER = 'scrapy_redis.scheduler.Scheduler'
+DUPEFILTER_CLASS = 'scrapy_redis.dupefilter.RFPDupeFilter'
+

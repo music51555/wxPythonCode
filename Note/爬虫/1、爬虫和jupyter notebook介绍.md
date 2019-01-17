@@ -14,6 +14,76 @@
 
 网站规定了哪些数据可以爬取，哪些数据不可以爬取，访问`https://www.taobao.com/robots.txt`
 
+其中定义了可使用哪些`User-Agent`信息
+
+```python
+User-agent:  Baiduspider
+Allow:  /article
+Allow:  /oshtml
+Allow:  /ershou
+Allow: /$
+Disallow:  /product/
+Disallow:  /
+
+User-Agent:  Googlebot
+Allow:  /article
+Allow:  /oshtml
+Allow:  /product
+Allow:  /spu
+Allow:  /dianpu
+Allow:  /oversea
+Allow:  /list
+Allow:  /ershou
+Allow: /$
+Disallow:  /
+
+User-agent:  Bingbot
+Allow:  /article
+Allow:  /oshtml
+Allow:  /product
+Allow:  /spu
+Allow:  /dianpu
+Allow:  /oversea
+Allow:  /list
+Allow:  /ershou
+Allow: /$
+Disallow:  /
+
+User-Agent:  360Spider
+Allow:  /article
+Allow:  /oshtml
+Allow:  /ershou
+Disallow:  /
+
+User-Agent:  Yisouspider
+Allow:  /article
+Allow:  /oshtml
+Allow:  /ershou
+Disallow:  /
+
+User-Agent:  Sogouspider
+Allow:  /article
+Allow:  /oshtml
+Allow:  /product
+Allow:  /ershou
+Disallow:  /
+
+User-Agent:  Yahoo!  Slurp
+Allow:  /product
+Allow:  /spu
+Allow:  /dianpu
+Allow:  /oversea
+Allow:  /list
+Allow:  /ershou
+Allow: /$
+Disallow:  /
+
+User-Agent:  *
+Disallow:  /
+```
+
+
+
 
 
 **Anaconda：**
