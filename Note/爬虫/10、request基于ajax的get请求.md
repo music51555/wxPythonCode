@@ -4,6 +4,8 @@
 
 浏览豆瓣网电影排行时，下拉加载电影数据的`ajax`请求，方式和`get`请求是一致的
 
+**知识点1(重要)：**当通过`request`或`session`的`get`方法，获取到`ajax`的`json`数据时，不要调用text方法，而是调用`json`方法将其转换为`json`数据，并使用`list()`强制转换为`list`类型
+
 ```python
 import requests
 
@@ -22,7 +24,7 @@ headers = {
     'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36'
 }
 
-response = requests.get(url = url, params = params, headers = headers)
+response = list(requests.get(url = url, params = params, headers = headers).json())
 
 print(response.text)
 ```
