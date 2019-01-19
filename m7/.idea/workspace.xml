@@ -2,16 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5e4543a9-080d-447a-b3ef-d7c96a7fe32d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../Note/docker/20、搭建本地私有仓库.md" beforeDir="false" afterPath="$PROJECT_DIR$/../Note/docker/20、搭建本地私有仓库.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Note/爬虫/41、什么是分布式爬虫.md" beforeDir="false" afterPath="$PROJECT_DIR$/../Note/爬虫/41、什么是分布式爬虫.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Note/爬虫/43、各爬虫程序的编写流程.md" beforeDir="false" afterPath="$PROJECT_DIR$/../Note/爬虫/43、各爬虫程序的编写流程.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Note/爬虫/43、基于RedisSpider实现爬虫程序.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Note/爬虫/44、在scrapy框架中应用selenium.md" beforeDir="false" afterPath="$PROJECT_DIR$/../Note/爬虫/44、在scrapy框架中应用selenium.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/redirPro/RedisQiubai/RedisQiubai/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/redirPro/RedisQiubai/RedisQiubai/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wangyiPro/wangyiPro/middlewares.py" beforeDir="false" afterPath="$PROJECT_DIR$/wangyiPro/wangyiPro/middlewares.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wangyiPro/wangyiPro/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/wangyiPro/wangyiPro/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wangyiPro/wangyiPro/spiders/wangyi.py" beforeDir="false" afterPath="$PROJECT_DIR$/wangyiPro/wangyiPro/spiders/wangyi.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scrapy_pro/scrapy_pro/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/scrapy_pro/scrapy_pro/settings.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -34,6 +26,7 @@
     <SUITE FILE_PATH="coverage/m7$dynamic_douban_movies.coverage" NAME="dynamic_douban_movies Coverage Results" MODIFIED="1546870823439" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/phantomjs" />
     <SUITE FILE_PATH="coverage/m7$request_session_test.coverage" NAME="request_session_test Coverage Results" MODIFIED="1546396286602" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/request_session" />
     <SUITE FILE_PATH="coverage/m7$selenium_test.coverage" NAME="selenium_test Coverage Results" MODIFIED="1546844505658" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/selenium_test" />
+    <SUITE FILE_PATH="coverage/m7$douban_spider.coverage" NAME="douban_spider Coverage Results" MODIFIED="1547797027312" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/homework/douban" />
     <SUITE FILE_PATH="coverage/m7$get_valicode_img.coverage" NAME="get_valicode_img Coverage Results" MODIFIED="1546422878163" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/get_validcode_img" />
     <SUITE FILE_PATH="coverage/m7$phantomjs_test.coverage" NAME="phantomjs_test Coverage Results" MODIFIED="1546867802288" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/phantomjs" />
     <SUITE FILE_PATH="coverage/m7$qiubai.coverage" NAME="qiubai Coverage Results" MODIFIED="1546939124433" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/qiubai_text/qiubai_text/spiders" />
@@ -84,35 +77,32 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/wangyiPro/wangyiPro/settings.py">
+      <file leaf-file-name="tc58_spider.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/tc58/tc58/spiders/tc58_spider.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2041">
-              <caret line="98" column="32" lean-forward="true" selection-start-line="98" selection-start-column="32" selection-end-line="98" selection-end-column="32" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="middlewares.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wangyiPro/wangyiPro/middlewares.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-168">
-              <caret line="37" lean-forward="true" selection-start-line="37" selection-end-line="37" />
-              <folding>
-                <element signature="e#169#195#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="wangyi.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wangyiPro/wangyiPro/spiders/wangyi.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1321">
-              <caret line="60" lean-forward="true" selection-start-line="60" selection-end-line="60" />
+            <state relative-caret-position="238">
+              <caret line="12" column="50" selection-start-line="12" selection-start-column="50" selection-end-line="12" selection-end-column="50" />
               <folding>
                 <element signature="e#24#37#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tc58/tc58/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="248">
+              <caret line="69" column="62" selection-start-line="69" selection-start-column="62" selection-end-line="69" selection-end-column="62" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="YDMHTTP_UTILS.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/homework/utils/YDMHTTP_UTILS.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="24">
+              <caret line="4" column="13" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -144,6 +134,7 @@
       <find>clos</find>
       <find>pipeline</find>
       <find>print</find>
+      <find>憨豆</find>
       <find>pipe</find>
     </findStrings>
   </component>
@@ -153,10 +144,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/requests_proxy_ip/proxy_test.py" />
-        <option value="$PROJECT_DIR$/yundama/YDMPython3.x.py" />
-        <option value="$PROJECT_DIR$/get_validcode_img/__init__.py" />
-        <option value="$PROJECT_DIR$/get_validcode_img/YDM3.py" />
         <option value="$PROJECT_DIR$/yundama/YDM3.py" />
         <option value="$PROJECT_DIR$/yundama/YDMHTTPDemo3.x.py" />
         <option value="$PROJECT_DIR$/yundama/__init__.py" />
@@ -189,7 +176,6 @@
         <option value="$PROJECT_DIR$/qiubai_pages/qiubai_pages/pipelines.py" />
         <option value="$PROJECT_DIR$/scrapy_pro/scrapy_pro/middlewares.py" />
         <option value="$PROJECT_DIR$/scrapy_pro/scrapy_pro/spiders/scrapy_demo.py" />
-        <option value="$PROJECT_DIR$/scrapy_pro/scrapy_pro/settings.py" />
         <option value="$PROJECT_DIR$/id97/id97/items.py" />
         <option value="$PROJECT_DIR$/id97/id97/settings.py" />
         <option value="$PROJECT_DIR$/id97/id97/pipelines.py" />
@@ -203,7 +189,12 @@
         <option value="$PROJECT_DIR$/redirPro/RedisQiubai/RedisQiubai/settings.py" />
         <option value="$PROJECT_DIR$/wangyiPro/wangyiPro/settings.py" />
         <option value="$PROJECT_DIR$/wangyiPro/wangyiPro/middlewares.py" />
+        <option value="$PROJECT_DIR$/homework/utils/YDMHTTPDemo3.x.py" />
         <option value="$PROJECT_DIR$/wangyiPro/wangyiPro/spiders/wangyi.py" />
+        <option value="$PROJECT_DIR$/homework/douban/douban_spider.py" />
+        <option value="$PROJECT_DIR$/scrapy_pro/scrapy_pro/settings.py" />
+        <option value="$PROJECT_DIR$/tc58/tc58/settings.py" />
+        <option value="$PROJECT_DIR$/tc58/tc58/spiders/tc58_spider.py" />
       </list>
     </option>
   </component>
@@ -228,6 +219,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -235,11 +227,28 @@
               <item name="m7" type="b2602c69:ProjectViewProjectNode" />
               <item name="m7" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="m7" type="b2602c69:ProjectViewProjectNode" />
+              <item name="m7" type="462c0819:PsiDirectoryNode" />
+              <item name="tc58" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="m7" type="b2602c69:ProjectViewProjectNode" />
+              <item name="m7" type="462c0819:PsiDirectoryNode" />
+              <item name="tc58" type="462c0819:PsiDirectoryNode" />
+              <item name="tc58" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="m7" type="b2602c69:ProjectViewProjectNode" />
+              <item name="m7" type="462c0819:PsiDirectoryNode" />
+              <item name="tc58" type="462c0819:PsiDirectoryNode" />
+              <item name="tc58" type="462c0819:PsiDirectoryNode" />
+              <item name="spiders" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -250,13 +259,14 @@
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/requests_test" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\workspace\wxPythonCode\wxPythonCode\m7\homework\utils" />
       <recent name="E:\workspace\wxPythonCode\wxPythonCode\m7\selenium_test" />
       <recent name="E:\workspace\wxPythonCode\wxPythonCode\m7\yundama" />
       <recent name="E:\workspace\wxPythonCode\wxPythonCode\m7\get_validcode_img" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/requests_test" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -271,7 +281,26 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.qiubai">
+  <component name="RunManager" selected="Python.douban_spider">
+    <configuration name="douban_spider" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="m7" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/homework/douban" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/homework/douban/douban_spider.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
     <configuration name="dynamic_douban_movies" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="m7" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -348,39 +377,20 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
-    <configuration name="selenium_test" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="m7" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/selenium_test" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/selenium_test/selenium_test.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-    </configuration>
     <list>
-      <item itemvalue="Python.selenium_test" />
       <item itemvalue="Python.phantomjs_test" />
       <item itemvalue="Python.dynamic_douban_movies" />
       <item itemvalue="Python.scrapy_for_qiubai" />
       <item itemvalue="Python.qiubai" />
+      <item itemvalue="Python.douban_spider" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.douban_spider" />
         <item itemvalue="Python.qiubai" />
         <item itemvalue="Python.scrapy_for_qiubai" />
         <item itemvalue="Python.dynamic_douban_movies" />
         <item itemvalue="Python.phantomjs_test" />
-        <item itemvalue="Python.selenium_test" />
       </list>
     </recent_temporary>
   </component>
@@ -415,9 +425,9 @@
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="11" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.32891566" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3340358" />
-      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.3414352" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18276283" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3923611" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.39930555" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18765281" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="4" />
       <window_info anchor="right" id="SciView" order="3" />
@@ -445,28 +455,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/wangyiPro/wangyiPro/middlewares.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="11" selection-start-line="11" selection-end-line="60" selection-end-column="54" />
-          <folding>
-            <element signature="e#169#195#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/phantomjs/dynamic_douban_movies.py" />
-    <entry file="file://$PROJECT_DIR$/beautifulsoup_test/get_shuihuzhuan.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="17" column="40" selection-start-line="17" selection-start-column="40" selection-end-line="17" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myscrapy/scrapy.cfg" />
-    <entry file="file://$PROJECT_DIR$/myscrapy/myscrapy/middlewares.py" />
-    <entry file="file://$PROJECT_DIR$/myscrapy/myscrapy/settings.py" />
-    <entry file="file://$PROJECT_DIR$/myscrapy/myscrapy/spiders/scrapy_for_qiubai.py" />
     <entry file="file://$PROJECT_DIR$/beautifulsoup_test/beautifulsoup_test.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="192">
@@ -679,13 +667,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scrapy_pro/scrapy_pro/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1404">
-          <caret line="20" selection-start-line="20" selection-end-line="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/redirPro/RedisQiubai/RedisQiubai/settings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="406">
@@ -700,30 +681,83 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wangyiPro/wangyiPro/middlewares.py">
+    <entry file="file://$PROJECT_DIR$/homework/douban/detail.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-168">
-          <caret line="37" lean-forward="true" selection-start-line="37" selection-end-line="37" />
-          <folding>
-            <element signature="e#169#195#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="72">
+          <caret line="3" column="45" lean-forward="true" selection-start-line="3" selection-start-column="45" selection-end-line="3" selection-end-column="45" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wangyiPro/wangyiPro/spiders/wangyi.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1321">
-          <caret line="60" lean-forward="true" selection-start-line="60" selection-end-line="60" />
-          <folding>
-            <element signature="e#24#37#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="1056">
+          <caret line="44" lean-forward="true" selection-start-line="44" selection-end-line="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wangyiPro/wangyiPro/middlewares.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="24">
+          <caret line="37" selection-start-line="37" selection-end-line="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homework/douban/self_index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="104" column="43" selection-start-line="104" selection-start-column="43" selection-end-line="104" selection-end-column="43" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wangyiPro/wangyiPro/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2041">
-          <caret line="98" column="32" lean-forward="true" selection-start-line="98" selection-start-column="32" selection-end-line="98" selection-end-column="32" />
+        <state relative-caret-position="262">
+          <caret line="98" column="32" selection-start-line="98" selection-start-column="32" selection-end-line="98" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scrapy_pro/scrapy_pro/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homework/douban/douban_spider.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1262">
+          <caret line="135" column="29" selection-start-line="135" selection-start-column="29" selection-end-line="135" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36/Lib/site-packages/scrapy/crawler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="81" selection-start-line="81" selection-end-line="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homework/utils/YDMHTTP_UTILS.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="24">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tc58/tc58/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="69" column="62" selection-start-line="69" selection-start-column="62" selection-end-line="69" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tc58/tc58/spiders/tc58_spider.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="12" column="50" selection-start-line="12" selection-start-column="50" selection-end-line="12" selection-end-column="50" />
+          <folding>
+            <element signature="e#24#37#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
