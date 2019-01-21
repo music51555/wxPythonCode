@@ -58,7 +58,7 @@ ROBOTSTXT_OBEY = False
 DOWNLOADER_MIDDLEWARES = {
    'wangyiPro.middlewares.WangyiproDownloaderMiddleware': 543,
    'wangyiPro.middlewares.MyUserAgentMiddleware': 542,
-   'wangyiPro.middlewares.ProxyMiddleware': 541,
+   # 'wangyiPro.middlewares.ProxyMiddleware': 541,
 }
 
 # Enable or disable extensions

@@ -33,27 +33,33 @@ class UAPool(UserAgentMiddleware):
     def process_request(self, request, spider):
         request.headers.setdefault('User-Agent',random.choice(self.user_agents))
 
-class ProxyPool(object):
-    http_proxy = [
-        '5.135.164.72:3128',
-        '59.44.247.194:9797',
-        '117.2.155.29:47228'
-    ]
-
-    https_proxy = [
-        '39.105.171.101:3128',
-        '151.106.58.37:1080',
-        '151.106.58.141:1080',
-        '221.6.201.18:9999',
-        '151.106.58.38:1080'
-    ]
-
-    def process_request(self, request, spider):
-        protocol = request.url.split(':')[0]
-        if protocol == 'http':
-            request.meta['proxy'] = random.choice(self.http_proxy)
-        else:
-            request.meta['proxy'] = random.choice(self.https_proxy)
+# class ProxyPool(object):
+#     http_proxy = [
+#         '5.135.164.72:3128',
+#         '59.44.247.194:9797',
+#         '212.90.162.54:8781',
+#         '140.227.198.242:8894',
+#         '117.2.155.29:47228'
+#     ]
+#
+#     https_proxy = [
+#         '185.136.166.247:1080',
+#         '194.88.105.19:1080',
+#         '119.101.114.95:9999',
+#         '185.136.166.253:1080',
+#         '119.101.118.171:9999',
+#     ]
+#
+#     ip = ''
+#
+#     def process_request(self, request, spider):
+#         protocol = request.url.split(':')[0]
+#         if protocol == 'http':
+#             request.meta['proxy'] = 'http://'+random.choice(self.http_proxy)
+#         else:
+#             request.meta['proxy'] = 'https://'+random.choice(self.https_proxy)
+#         self.ip = request.meta['proxy']
+#         print('-----------ip-----------',self.ip)
 
 class TongchengproSpiderMiddleware(object):
     # Not all methods need to be defined. If a method is not defined,
@@ -116,6 +122,7 @@ class TongchengproDownloaderMiddleware(object):
         return s
 
     def process_request(self, request, spider):
+        print('---------'+str(request.meta)+'---------------')
         # Called for each request that goes through the downloader
         # middleware.
 
