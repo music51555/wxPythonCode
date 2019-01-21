@@ -20,11 +20,8 @@ class Tc58SpiderSpider(RedisCrawlSpider):
         print(response.text)
         house_info_list = response.xpath('//ul[@class = "house-list-wrap"]/li')
 
-        print(house_info_list)
-
         for house_info in house_info_list:
-            lease_title = house_info.xpath('.//div[@class = "title"]/a/text()').extract_first().strip()
+            lease_title = house_info.xpath('.//h2[@class = "title"]/a/text()').extract_first().strip()
 
             print(lease_title)
-
 

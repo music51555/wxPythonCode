@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Scrapy settings for tc58 project
+# Scrapy settings for tongchengPro project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -9,21 +9,17 @@
 #     https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://doc.scrapy.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = 'tc58'
+BOT_NAME = 'tongchengPro'
 
-SPIDER_MODULES = ['tc58.spiders']
-NEWSPIDER_MODULE = 'tc58.spiders'
+SPIDER_MODULES = ['tongchengPro.spiders']
+NEWSPIDER_MODULE = 'tongchengPro.spiders'
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = 'tc58 (+http://www.yourdomain.com)'
-# USER_AGENT = 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36'
-
+#USER_AGENT = 'tongchengPro (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = False
-
-# LOG_LEVEL = 'ERROR'
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
@@ -50,17 +46,17 @@ ROBOTSTXT_OBEY = False
 
 # Enable or disable spider middlewares
 # See https://doc.scrapy.org/en/latest/topics/spider-middleware.html
-SPIDER_MIDDLEWARES = {
-   'tc58.middlewares.Tc58SpiderMiddleware': 543,
-   'tc58.middlewares.UAPool': 542,
-   'tc58.middlewares.ProxyPool': 541,
-}
+#SPIDER_MIDDLEWARES = {
+#    'tongchengPro.middlewares.TongchengproSpiderMiddleware': 543,
+#}
 
 # Enable or disable downloader middlewares
 # See https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
-#DOWNLOADER_MIDDLEWARES = {
-#    'tc58.middlewares.Tc58DownloaderMiddleware': 543,
-#}
+DOWNLOADER_MIDDLEWARES = {
+   'tongchengPro.middlewares.TongchengproDownloaderMiddleware': 543,
+   'tongchengPro.middlewares.UAPool': 542,
+   'tongchengPro.middlewares.ProxyPool': 541,
+}
 
 # Enable or disable extensions
 # See https://doc.scrapy.org/en/latest/topics/extensions.html
@@ -71,7 +67,7 @@ SPIDER_MIDDLEWARES = {
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-   'scrapy_redis.pipelines.RedisPipeline': 300,
+    'scrapy_redis.pipelines.RedisPipeline': 300,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
