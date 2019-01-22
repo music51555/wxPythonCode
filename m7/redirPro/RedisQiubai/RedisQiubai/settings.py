@@ -95,6 +95,6 @@ SCHEDULER = 'scrapy_redis.scheduler.Scheduler'
 DUPEFILTER_CLASS = 'scrapy_redis.dupefilter.RFPDupeFilter'
 SCHEDULER_PERSIST = True
 
-REDIS_HOST = '192.168.3.82'
+REDIS_HOST = '192.168.0.61'
 REDIS_PORT = 6379
-REDIS_PARAMS = {'password':'123456'}
+# REDIS_PARAMS = {'password':'123456'}

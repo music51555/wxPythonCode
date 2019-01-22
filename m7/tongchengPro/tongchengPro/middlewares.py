@@ -8,9 +8,9 @@
 from scrapy import signals
 import random
 from scrapy.contrib.downloadermiddleware.useragent import UserAgentMiddleware
+import requests
 
-class UAPool(UserAgentMiddleware):
-    user_agents = [
+user_agents = [
         'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36 OPR/26.0.1656.60',
         'Opera/8.0 (Windows NT 5.1; U; en)',
         'Mozilla/5.0 (Windows NT 5.1; U; en; rv:1.8.1) Gecko/20061208 Firefox/2.0.0 Opera 9.50',
@@ -30,36 +30,23 @@ class UAPool(UserAgentMiddleware):
         'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; Trident/4.0; SV1; QQDownload 732; .NET4.0C; .NET4.0E; SE 2.X MetaSr 1.0) ',
     ]
 
-    def process_request(self, request, spider):
-        request.headers.setdefault('User-Agent',random.choice(self.user_agents))
+class UAPool(UserAgentMiddleware):
 
-# class ProxyPool(object):
-#     http_proxy = [
-#         '5.135.164.72:3128',
-#         '59.44.247.194:9797',
-#         '212.90.162.54:8781',
-#         '140.227.198.242:8894',
-#         '117.2.155.29:47228'
-#     ]
-#
-#     https_proxy = [
-#         '185.136.166.247:1080',
-#         '194.88.105.19:1080',
-#         '119.101.114.95:9999',
-#         '185.136.166.253:1080',
-#         '119.101.118.171:9999',
-#     ]
-#
-#     ip = ''
-#
-#     def process_request(self, request, spider):
-#         protocol = request.url.split(':')[0]
-#         if protocol == 'http':
-#             request.meta['proxy'] = 'http://'+random.choice(self.http_proxy)
-#         else:
-#             request.meta['proxy'] = 'https://'+random.choice(self.https_proxy)
-#         self.ip = request.meta['proxy']
-#         print('-----------ip-----------',self.ip)
+
+    def process_request(self, request, spider):
+        request.headers.setdefault('User-Agent',random.choice(user_agents))
+
+class ProxyPool(object):
+    ippool_url = 'http://api.goubanjia.com/api/get.shtml?order=2bee2378690d7f39abf376a808db545c&num=100&carrier=0&protocol=0&an1=1&an2=2&an3=3&sp1=1&sp2=2&sp3=3&sort=1&system=1&rettype=1&seprator=%0D%0A'
+    ip_list = requests.get(url = ippool_url, headers = {'User-Agent': random.choice(user_agents)}).text.split('\n')
+
+    def process_request(self, request, spider):
+        protocol = request.url.split(':')[0]
+        if protocol == 'http':
+            request.meta['proxy'] = 'http://'+random.choice(self.ip_list)
+        else:
+            request.meta['proxy'] = 'https://'+random.choice(self.ip_list)
+        self.ip = request.meta['proxy']
 
 class TongchengproSpiderMiddleware(object):
     # Not all methods need to be defined. If a method is not defined,
@@ -122,7 +109,6 @@ class TongchengproDownloaderMiddleware(object):
         return s
 
     def process_request(self, request, spider):
-        print('---------'+str(request.meta)+'---------------')
         # Called for each request that goes through the downloader
         # middleware.
 

@@ -11,4 +11,8 @@ import scrapy
 class TongchengproItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
-    pass
+    house_info = scrapy.Field()
+    address = scrapy.Field()
+    price = scrapy.Field()
+    public_time = scrapy.Field()
+    detail = scrapy.Field()
