@@ -172,7 +172,9 @@ wangxiaoxin
 
 
 
+##### 11、停止容器
 
+**知识点1：**通过`docker stop xxx`和`docker kill xxx`来停止容器，区别是一个是发送`SIGTERM`信号，一个是发送`SIGKILL`信号
 
 
 
