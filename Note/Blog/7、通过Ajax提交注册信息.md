@@ -34,9 +34,9 @@ $(function(){
                 data:formdata,
            	 // 如果校验正确，返回的data是{'user':alex,'msg':None}
         	// 如果校验错误，返回的data是{'user':None,'msg':{'username': ['This field is required.'], 'password': ['This field is required.'], 'r_password': ['This field is required.']}}，实际存储的就是form.errors字典
-        success:function(data){
-            console.log(data)
-        }
+                success:function(data){
+                    console.log(data)
+                }
             })
         })
     })
