@@ -2,7 +2,14 @@
 
 `Django`提供了一个后台管理页面，使用超级用户访问`http://127.0.0.1:8001/admin`页面，用于管理所有已创建的表，可以对表数据进行管理，前期是必须要先注册各个表
 
-![1544581812525](C:\Users\ADMINI~1\AppData\Local\Temp\1544581812525.png)
+```python
+from django.contrib import admin
+ 
+# Register your models here.
+from app01 import models
+admin.site.register(models.userinfo)
+admin.site.register(models.UserType)
+```
 
 
 

@@ -56,15 +56,20 @@ def index(request):
     #
     # return render(request, 'index.html', locals())
 
-    test = ListTest()
-    test.label = ['python', 'django']
-    test.label.append('wangxin')
-    test.save()
+    # test = ListTest()
+    # test.label = ['python', 'django']
+    # test.label.append('wangxin')
+    # test.save()
+    #
+    # ret = ListTest.objects.all()
+    #
+    # for i in ret:
+    #     print(type(i.label))
+    #
+    # return HttpResponse('OK')
 
-    ret = ListTest.objects.all()
-
-    for i in ret:
-        print(type(i.label))
+    ret = Blog.objects.all().values_list()
+    print(ret)
 
     return HttpResponse('OK')
 
