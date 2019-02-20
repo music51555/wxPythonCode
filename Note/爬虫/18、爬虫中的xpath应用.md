@@ -66,4 +66,4 @@
 
 ##### 4.6、获取属性值
 
-`//div[@class='song']//li[2]/a/@href`
+`//div[@class='song']//li[2]/a/@href`	
