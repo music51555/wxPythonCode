@@ -22,7 +22,7 @@
 
 **1、**`pip3 install wheel`，和`egg`一样，是一种打包格式
 
-**2、**下载`twisted`,`Twisted`是用`python`实现的基于事件驱动的网络引擎框架 
+**2、**下载`Twisted`,`Twisted`是用`python`实现的基于事件驱动的网络引擎框架 
 
 首先通过`python3 -V`命令查询出`python`版本后选择对应的内容下载
 

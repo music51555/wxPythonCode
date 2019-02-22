@@ -27,9 +27,11 @@ item['duanzi'] = duanzi
 `items`文件用于存储页面解析到的数据，内容为：
 
 ```python
-class QiubaiTextItem(scrapy.Item):
+import scrapy
+
+class MyscrapyItem(scrapy.Item):
     author = scrapy.Field()
-    duanzi = scrapy.Field()
+    content = scrapy.Field()
 ```
 
 

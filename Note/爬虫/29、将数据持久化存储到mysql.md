@@ -1,6 +1,6 @@
 将数据持久化存储到`mysql`
 
-**知识点1：**在`soup.select()`方法中如果要使用`ntg-child(2)`，要写为`nth-of-type(2)`
+**知识点1：**在`soup.select()`方法中如果要使用`nth-child(2)`，要写为`nth-of-type(2)`
 
 **知识点2：**一定要记住如果想做持久化存储，那么一定要使用`yield item`关键，和在`settings.py`中开启`pipeline`设置
 
