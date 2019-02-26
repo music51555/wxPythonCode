@@ -8,19 +8,19 @@
 
 ##### 安装docker
 
-在清华大学docker镜像站中找到docker-ce
+在清华大学`docker`镜像站中找到`docker-ce`
 
 ```
 https://mirrors.tuna.tsinghua.edu.cn/
 ```
 
-依次在路径`docker-ce/linux/centos/`下拷贝`docker-ce.repo`的链接地址，使用`wget`命令下载
+依次在路径`docker-ce/linux/centos/`下拷贝`docker-ce.repo`的链接地址，使用`wget`命令下载`docker-ce`仓库
 
 ```
 wget https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/centos/docker-ce.repo
 ```
 
-使用vim命令查看，修改配置文件的下载路径
+使用`vim`命令查看，修改配置文件的下载路径
 
 ```
 :%s@https://download.docker.com/@https://mirrors.tuna.tsinghua.edu.cn/docker-ce/
@@ -40,7 +40,7 @@ yum install docker-ce
 
 
 
-##### 创建配置文件
+##### 创建配置文件，配置镜像加速器
 
 在`/etc/docker/`下创建`daemon.json`文件，配置镜像加速器，写入配置
 
