@@ -29,6 +29,7 @@ wget https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/centos/docker-ce.repo
 查看可用的仓库中是否有`!docker-ce-stable/x86_64`
 
 ```
+yum-config-manager --add-repo docker-ce.repo
 yum repolist
 ```
 
@@ -44,7 +45,7 @@ yum install docker-ce
 
 在`/etc/docker/`下创建`daemon.json`文件，配置镜像加速器，写入配置
 
-```
+```python
 {
 	"registry-mirrors": ["https://registry.docker-cn.com"]
 }
@@ -77,6 +78,18 @@ Server: Docker Engine - Community
   Built:            Sun Feb 10 03:47:25 2019
   OS/Arch:          linux/amd64
   Experimental:     false
+```
+
+
+
+卸载`docker`
+
+```shell
+yum remove docker
+rm -rf /etc/systemd/system/docker.service.d
+rm -rf /var/lib/docker
+rm -rf /var/run/docker		
+sudo yum erase docker-common-2:1.12.6-68.gitec8512b.el7.centos.x86_64
 ```
 
 
