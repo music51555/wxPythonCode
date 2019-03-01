@@ -6,7 +6,7 @@
 
 
 
-##### 安装docker
+##### 安装`docker`
 
 在清华大学`docker`镜像站中找到`docker-ce`
 

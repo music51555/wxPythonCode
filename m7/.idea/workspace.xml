@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5e4543a9-080d-447a-b3ef-d7c96a7fe32d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../Note/爬虫/爬虫知识点总结.md" beforeDir="false" afterPath="$PROJECT_DIR$/../Note/爬虫/爬虫知识点总结.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myscrapy/myscrapy/items.py" beforeDir="false" afterPath="$PROJECT_DIR$/myscrapy/myscrapy/items.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myscrapy/myscrapy/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/myscrapy/myscrapy/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Note/docker/马哥docker/1、安装dockjer.md" beforeDir="false" afterPath="$PROJECT_DIR$/../Note/docker/马哥docker/1、安装dockjer.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -82,8 +79,8 @@
       <file leaf-file-name="redisspider.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/myscrapy/myscrapy/spiders/redisspider.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="356">
-              <caret line="18" column="39" lean-forward="true" selection-start-line="18" selection-start-column="39" selection-end-line="18" selection-end-column="39" />
+            <state relative-caret-position="384">
+              <caret line="18" column="39" selection-start-line="18" selection-start-column="39" selection-end-line="18" selection-end-column="39" />
               <folding>
                 <element signature="e#24#37#0" expanded="true" />
               </folding>
@@ -95,7 +92,7 @@
         <entry file="file://$PROJECT_DIR$/myscrapy/myscrapy/middlewares.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="240">
-              <caret line="76" column="23" lean-forward="true" selection-start-line="75" selection-start-column="4" selection-end-line="76" selection-end-column="23" />
+              <caret line="76" column="23" selection-start-line="75" selection-start-column="4" selection-end-line="76" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -103,7 +100,7 @@
       <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/myscrapy/myscrapy/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-714">
+            <state relative-caret-position="264">
               <caret line="11" column="21" lean-forward="true" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
             </state>
           </provider>
@@ -231,37 +228,6 @@
             <path>
               <item name="m7" type="b2602c69:ProjectViewProjectNode" />
               <item name="m7" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="m7" type="b2602c69:ProjectViewProjectNode" />
-              <item name="m7" type="462c0819:PsiDirectoryNode" />
-              <item name="myscrapy" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="m7" type="b2602c69:ProjectViewProjectNode" />
-              <item name="m7" type="462c0819:PsiDirectoryNode" />
-              <item name="myscrapy" type="462c0819:PsiDirectoryNode" />
-              <item name="crawlspider" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="m7" type="b2602c69:ProjectViewProjectNode" />
-              <item name="m7" type="462c0819:PsiDirectoryNode" />
-              <item name="myscrapy" type="462c0819:PsiDirectoryNode" />
-              <item name="crawlspider" type="462c0819:PsiDirectoryNode" />
-              <item name="crawlspider" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="m7" type="b2602c69:ProjectViewProjectNode" />
-              <item name="m7" type="462c0819:PsiDirectoryNode" />
-              <item name="myscrapy" type="462c0819:PsiDirectoryNode" />
-              <item name="myscrapy" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="m7" type="b2602c69:ProjectViewProjectNode" />
-              <item name="m7" type="462c0819:PsiDirectoryNode" />
-              <item name="myscrapy" type="462c0819:PsiDirectoryNode" />
-              <item name="myscrapy" type="462c0819:PsiDirectoryNode" />
-              <item name="spiders" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -437,7 +403,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32891566" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
@@ -446,7 +411,7 @@
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.32891566" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3923611" />
       <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.33564815" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20660147" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20904645" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="4" />
       <window_info anchor="right" id="SciView" order="3" />
@@ -745,9 +710,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="5" selection-start-line="5" selection-end-line="5" />
-          <folding>
-            <element signature="e#24#37#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -767,7 +729,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/myscrapy/myscrapy/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-714">
+        <state relative-caret-position="264">
           <caret line="11" column="21" lean-forward="true" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
         </state>
       </provider>
@@ -781,8 +743,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/myscrapy/myscrapy/spiders/redisspider.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="356">
-          <caret line="18" column="39" lean-forward="true" selection-start-line="18" selection-start-column="39" selection-end-line="18" selection-end-column="39" />
+        <state relative-caret-position="384">
+          <caret line="18" column="39" selection-start-line="18" selection-start-column="39" selection-end-line="18" selection-end-column="39" />
           <folding>
             <element signature="e#24#37#0" expanded="true" />
           </folding>
@@ -792,7 +754,7 @@
     <entry file="file://$PROJECT_DIR$/myscrapy/myscrapy/middlewares.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
-          <caret line="76" column="23" lean-forward="true" selection-start-line="75" selection-start-column="4" selection-end-line="76" selection-end-column="23" />
+          <caret line="76" column="23" selection-start-line="75" selection-start-column="4" selection-end-line="76" selection-end-column="23" />
         </state>
       </provider>
     </entry>
