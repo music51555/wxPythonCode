@@ -49,29 +49,12 @@ def login(request):
 
 
 def index(request):
-    # article_list = Article.objects.all()
-    #
-    # obj=Article.objects.annotate(month=TruncMonth('create_time')).values('month').annotate(count=Count('nid')).values_list('month','count')
-    # print(obj)
-    #
-    # return render(request, 'index.html', locals())
+    article_list = Article.objects.all()
 
-    # test = ListTest()
-    # test.label = ['python', 'django']
-    # test.label.append('wangxin')
-    # test.save()
-    #
-    # ret = ListTest.objects.all()
-    #
-    # for i in ret:
-    #     print(type(i.label))
-    #
-    # return HttpResponse('OK')
+    obj=Article.objects.annotate(month=TruncMonth('create_time')).values('month').annotate(count=Count('nid')).values_list('month','count')
+    print(obj)
 
-    ret = Blog.objects.all().values_list()
-    print(ret)
-
-    return HttpResponse('OK')
+    return render(request, 'index.html', locals())
 
 
 def home_site(request, username, **kwargs):
@@ -108,7 +91,6 @@ def home_site(request, username, **kwargs):
 def backend(request):
 
     article_list = Article.objects.filter(user=request.user)
-
 
     return render(request, 'backend_manage.html', locals())
 

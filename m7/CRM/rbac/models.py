@@ -20,7 +20,7 @@ class Role(models.Model):
     permissions = models.ManyToManyField(
         verbose_name='拥有的所有权限',
         to='Permission',
-        blank=True
+        blank=True,
     )
 
     def __str__(self):
@@ -37,7 +37,7 @@ class UserInfo(AbstractUser):
     roles = models.ManyToManyField(
         verbose_name='拥有的所有角色',
         to='Role',
-        blank=True
+        blank=True,
     )
 
     def __str__(self):

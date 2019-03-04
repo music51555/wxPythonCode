@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'crmapp.apps.CrmappConfig',
+    'rbac',
+    'web'
 ]
 
 MIDDLEWARE = [
@@ -77,8 +78,12 @@ WSGI_APPLICATION = 'CRM.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'HOST':'140.143.132.118',
+        'PORT':3306,
+        'USER':'xiaoxin',
+        'PASSWORD':'Nishi458_2',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'crm',
     }
 }
 
@@ -101,6 +106,10 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTH_USER_MODEL = 'rbac.UserInfo'
+
+STATIC_URLS = 'static'
+STATIC_FILES = os.path.join(BASE_DIR,'static')
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
