@@ -2,231 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ac47a565-c427-44c3-b1eb-c75e7766b336" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/../../Note/CRM/1、设计用户表和权限表.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../Note/CRM/1、设计用户表和权限表.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../m6/MyBlog/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../m6/MyBlog/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/.idea/CRM.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/.idea/dataSources.local.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/.idea/dataSources.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/.idea/dataSources/a406a6bc-749e-49ec-87f6-991bc7321a54.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/.idea/dataSources/a406a6bc-749e-49ec-87f6-991bc7321a54/storage_v2/_src_/schema/main.uQUzAA.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/.idea/dictionaries/wupeiqi.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/.idea/luffy_permission.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/CRM/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/CRM/settings.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/CRM/urls.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/CRM/wsgi.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/__MACOSX/luffy_permission/web/._.DS_Store" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/__MACOSX/luffy_permission/web/files/._批量导入客户模板.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/__MACOSX/luffy_permission/web/static/._.DS_Store" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/__MACOSX/luffy_permission/web/static/imgs/._.DS_Store" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/.idea/dataSources.local.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/.idea/dataSources.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/.idea/dataSources/a406a6bc-749e-49ec-87f6-991bc7321a54.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/.idea/dataSources/a406a6bc-749e-49ec-87f6-991bc7321a54/storage_v2/_src_/schema/main.uQUzAA.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/.idea/dictionaries/wupeiqi.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/.idea/luffy_permission.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/db.sqlite3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/luffy_permission/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/luffy_permission/settings.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/luffy_permission/urls.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/luffy_permission/wsgi.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/manage.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/rbac/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/rbac/admin.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/rbac/apps.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/rbac/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/rbac/migrations/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/rbac/models.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/rbac/tests.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/rbac/views.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/web/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/web/admin.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/web/apps.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/web/files/批量导入客户模板.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/web/forms/customer.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/web/forms/payment.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/web/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/web/migrations/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/web/models.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/web/static/css/commons.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/web/static/css/nav.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/web/static/imgs/default.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/web/static/imgs/logo.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/web/static/imgs/luffy-study-logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/web/static/imgs/luffy.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/web/static/js/jquery-3.3.1.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/web/static/plugins/bootstrap/css/bootstrap-theme.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/web/static/plugins/bootstrap/css/bootstrap-theme.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/web/static/plugins/bootstrap/css/bootstrap-theme.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/web/static/plugins/bootstrap/css/bootstrap-theme.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/web/static/plugins/bootstrap/css/bootstrap.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/web/static/plugins/bootstrap/css/bootstrap.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/web/static/plugins/bootstrap/css/bootstrap.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/web/static/plugins/bootstrap/css/bootstrap.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/web/static/plugins/bootstrap/fonts/glyphicons-halflings-regular.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/web/static/plugins/bootstrap/fonts/glyphicons-halflings-regular.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/web/static/plugins/bootstrap/fonts/glyphicons-halflings-regular.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/web/static/plugins/bootstrap/fonts/glyphicons-halflings-regular.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/web/static/plugins/bootstrap/fonts/glyphicons-halflings-regular.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/web/static/plugins/bootstrap/js/bootstrap.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/web/static/plugins/bootstrap/js/bootstrap.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/web/static/plugins/bootstrap/js/npm.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/web/static/plugins/font-awesome/HELP-US-OUT.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/web/static/plugins/font-awesome/css/font-awesome.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/web/static/plugins/font-awesome/css/font-awesome.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/web/static/plugins/font-awesome/fonts/FontAwesome.otf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/web/static/plugins/font-awesome/fonts/fontawesome-webfont.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/web/static/plugins/font-awesome/fonts/fontawesome-webfont.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/web/static/plugins/font-awesome/fonts/fontawesome-webfont.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/web/static/plugins/font-awesome/fonts/fontawesome-webfont.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/web/static/plugins/font-awesome/fonts/fontawesome-webfont.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/web/static/plugins/font-awesome/less/animated.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/web/static/plugins/font-awesome/less/bordered-pulled.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/web/static/plugins/font-awesome/less/core.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/web/static/plugins/font-awesome/less/fixed-width.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/web/static/plugins/font-awesome/less/font-awesome.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/web/static/plugins/font-awesome/less/icons.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/web/static/plugins/font-awesome/less/larger.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/web/static/plugins/font-awesome/less/list.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/web/static/plugins/font-awesome/less/mixins.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/web/static/plugins/font-awesome/less/path.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/web/static/plugins/font-awesome/less/rotated-flipped.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/web/static/plugins/font-awesome/less/screen-reader.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/web/static/plugins/font-awesome/less/stacked.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/web/static/plugins/font-awesome/less/variables.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/web/static/plugins/font-awesome/scss/_animated.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/web/static/plugins/font-awesome/scss/_bordered-pulled.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/web/static/plugins/font-awesome/scss/_core.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/web/static/plugins/font-awesome/scss/_fixed-width.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/web/static/plugins/font-awesome/scss/_icons.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/web/static/plugins/font-awesome/scss/_larger.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/web/static/plugins/font-awesome/scss/_list.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/web/static/plugins/font-awesome/scss/_mixins.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/web/static/plugins/font-awesome/scss/_path.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/web/static/plugins/font-awesome/scss/_rotated-flipped.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/web/static/plugins/font-awesome/scss/_screen-reader.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/web/static/plugins/font-awesome/scss/_stacked.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/web/static/plugins/font-awesome/scss/_variables.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/web/static/plugins/font-awesome/scss/font-awesome.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/web/templates/customer_add.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/web/templates/customer_edit.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/web/templates/customer_import.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/web/templates/customer_list.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/web/templates/layout.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/web/templates/payment_add.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/web/templates/payment_edit.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/web/templates/payment_list.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/web/tests.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/web/urls.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/web/views/customer.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/luffy_permission（示例三）/luffy_permission/web/views/payment.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/manage.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/rbac/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/rbac/admin.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/rbac/apps.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/rbac/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/rbac/migrations/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/rbac/models.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/rbac/tests.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/rbac/views.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/web/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/web/admin.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/web/apps.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/web/files/批量导入客户模板.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/web/forms/customer.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/web/forms/payment.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/web/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/web/migrations/0002_auto_20190304_1131.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/web/migrations/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/web/models.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/web/static/css/commons.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/web/static/css/nav.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/web/static/imgs/default.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/web/static/imgs/logo.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/web/static/imgs/luffy-study-logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/web/static/imgs/luffy.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/web/static/js/jquery-3.3.1.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/web/static/plugins/bootstrap/css/bootstrap-theme.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/web/static/plugins/bootstrap/css/bootstrap-theme.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/web/static/plugins/bootstrap/css/bootstrap-theme.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/web/static/plugins/bootstrap/css/bootstrap-theme.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/web/static/plugins/bootstrap/css/bootstrap.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/web/static/plugins/bootstrap/css/bootstrap.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/web/static/plugins/bootstrap/css/bootstrap.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/web/static/plugins/bootstrap/css/bootstrap.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/web/static/plugins/bootstrap/fonts/glyphicons-halflings-regular.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/web/static/plugins/bootstrap/fonts/glyphicons-halflings-regular.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/web/static/plugins/bootstrap/fonts/glyphicons-halflings-regular.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/web/static/plugins/bootstrap/fonts/glyphicons-halflings-regular.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/web/static/plugins/bootstrap/fonts/glyphicons-halflings-regular.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/web/static/plugins/bootstrap/js/bootstrap.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/web/static/plugins/bootstrap/js/bootstrap.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/web/static/plugins/bootstrap/js/npm.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/web/static/plugins/font-awesome/HELP-US-OUT.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/web/static/plugins/font-awesome/css/font-awesome.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/web/static/plugins/font-awesome/css/font-awesome.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/web/static/plugins/font-awesome/fonts/FontAwesome.otf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/web/static/plugins/font-awesome/fonts/fontawesome-webfont.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/web/static/plugins/font-awesome/fonts/fontawesome-webfont.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/web/static/plugins/font-awesome/fonts/fontawesome-webfont.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/web/static/plugins/font-awesome/fonts/fontawesome-webfont.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/web/static/plugins/font-awesome/fonts/fontawesome-webfont.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/web/static/plugins/font-awesome/less/animated.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/web/static/plugins/font-awesome/less/bordered-pulled.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/web/static/plugins/font-awesome/less/core.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/web/static/plugins/font-awesome/less/fixed-width.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/web/static/plugins/font-awesome/less/font-awesome.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/web/static/plugins/font-awesome/less/icons.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/web/static/plugins/font-awesome/less/larger.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/web/static/plugins/font-awesome/less/list.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/web/static/plugins/font-awesome/less/mixins.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/web/static/plugins/font-awesome/less/path.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/web/static/plugins/font-awesome/less/rotated-flipped.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/web/static/plugins/font-awesome/less/screen-reader.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/web/static/plugins/font-awesome/less/stacked.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/web/static/plugins/font-awesome/less/variables.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/web/static/plugins/font-awesome/scss/_animated.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/web/static/plugins/font-awesome/scss/_bordered-pulled.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/web/static/plugins/font-awesome/scss/_core.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/web/static/plugins/font-awesome/scss/_fixed-width.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/web/static/plugins/font-awesome/scss/_icons.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/web/static/plugins/font-awesome/scss/_larger.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/web/static/plugins/font-awesome/scss/_list.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/web/static/plugins/font-awesome/scss/_mixins.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/web/static/plugins/font-awesome/scss/_path.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/web/static/plugins/font-awesome/scss/_rotated-flipped.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/web/static/plugins/font-awesome/scss/_screen-reader.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/web/static/plugins/font-awesome/scss/_stacked.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/web/static/plugins/font-awesome/scss/_variables.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/web/static/plugins/font-awesome/scss/font-awesome.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/web/templates/customer_add.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/web/templates/customer_edit.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/web/templates/customer_import.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/web/templates/customer_list.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/web/templates/layout.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/web/templates/payment_add.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/web/templates/payment_edit.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/web/templates/payment_list.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/web/tests.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/web/urls.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/web/views.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/web/views/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/web/views/customer.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRM/web/views/payment.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a406a6bc-749e-49ec-87f6-991bc7321a54.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/luffy_permission/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/luffy_permission/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/web/urls.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -247,17 +30,6 @@
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
         <item name="crm@140.143.132.118" type="feb32156:DbDataSourceImpl" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="crm@140.143.132.118" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="crm@140.143.132.118" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="crm: schema" type="c314c289:MysqlImplModel$Schema" />
       </path>
     </expand>
     <select />
@@ -304,13 +76,55 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="115">
-              <caret line="5" selection-start-line="5" selection-end-line="5" />
+            <state relative-caret-position="480">
+              <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
               <folding>
-                <element signature="e#0#32#0" expanded="true" />
+                <element signature="e#0#36#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="account.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/views/account.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="456">
+              <caret line="19" column="62" lean-forward="true" selection-start-line="19" selection-start-column="62" selection-end-line="19" selection-end-column="62" />
+              <folding>
+                <element signature="e#0#29#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="login.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/templates/login.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="366">
+              <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/luffy_permission/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="317">
+              <caret line="127" column="23" lean-forward="true" selection-start-line="127" selection-start-column="23" selection-end-line="127" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MyForms.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/web/forms/MyForms.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="408">
+              <caret line="17" selection-start-line="17" selection-end-line="17" />
+              <folding>
+                <element signature="e#0#24#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -321,9 +135,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="CSS File" />
         <option value="HTML File" />
         <option value="Python Script" />
-        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -370,12 +184,16 @@
         <option value="$PROJECT_DIR$/web/templates/customer_add.html" />
         <option value="$PROJECT_DIR$/web/templates/payment_add.html" />
         <option value="$PROJECT_DIR$/web/templates/payment_edit.html" />
-        <option value="$PROJECT_DIR$/web/urls.py" />
         <option value="$PROJECT_DIR$/web/models.py" />
         <option value="$PROJECT_DIR$/web/admin.py" />
         <option value="$PROJECT_DIR$/rbac/admin.py" />
-        <option value="$PROJECT_DIR$/luffy_permission/settings.py" />
         <option value="$PROJECT_DIR$/luffy_permission/__init__.py" />
+        <option value="$PROJECT_DIR$/web/urls.py" />
+        <option value="$PROJECT_DIR$/web/forms/UserForm.py" />
+        <option value="$PROJECT_DIR$/luffy_permission/settings.py" />
+        <option value="$PROJECT_DIR$/web/templates/login.html" />
+        <option value="$PROJECT_DIR$/web/views/account.py" />
+        <option value="$PROJECT_DIR$/web/forms/MyForms.py" />
       </list>
     </option>
   </component>
@@ -385,11 +203,12 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="x" value="658" />
-    <option name="y" value="23" />
-    <option name="width" value="605" />
-    <option name="height" value="725" />
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths />
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="width" value="1680" />
+    <option name="height" value="1050" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -530,7 +349,70 @@
             <path>
               <item name="luffy_permission" type="b2602c69:ProjectViewProjectNode" />
               <item name="luffy_permission" type="462c0819:PsiDirectoryNode" />
+              <item name="luffy_permission" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="luffy_permission" type="b2602c69:ProjectViewProjectNode" />
+              <item name="luffy_permission" type="462c0819:PsiDirectoryNode" />
               <item name="web" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="luffy_permission" type="b2602c69:ProjectViewProjectNode" />
+              <item name="luffy_permission" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="forms" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="luffy_permission" type="b2602c69:ProjectViewProjectNode" />
+              <item name="luffy_permission" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="luffy_permission" type="b2602c69:ProjectViewProjectNode" />
+              <item name="luffy_permission" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="plugins" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="luffy_permission" type="b2602c69:ProjectViewProjectNode" />
+              <item name="luffy_permission" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="plugins" type="462c0819:PsiDirectoryNode" />
+              <item name="bootstrap" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="luffy_permission" type="b2602c69:ProjectViewProjectNode" />
+              <item name="luffy_permission" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="plugins" type="462c0819:PsiDirectoryNode" />
+              <item name="bootstrap" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="luffy_permission" type="b2602c69:ProjectViewProjectNode" />
+              <item name="luffy_permission" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="plugins" type="462c0819:PsiDirectoryNode" />
+              <item name="bootstrap" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+              <item name="bootstrap.css" type="620a8d5e:NestingTreeNode" />
+            </path>
+            <path>
+              <item name="luffy_permission" type="b2602c69:ProjectViewProjectNode" />
+              <item name="luffy_permission" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="luffy_permission" type="b2602c69:ProjectViewProjectNode" />
+              <item name="luffy_permission" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -609,7 +491,6 @@
       <option name="runNoReload" value="false" />
       <option name="useCustomRunCommand" value="false" />
       <option name="customRunCommand" value="" />
-      <method v="2" />
     </configuration>
   </component>
   <component name="SvnConfiguration">
@@ -635,31 +516,32 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15736766" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Database Console" weight="0.32891566" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.44602272" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32891566" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="manage.py@luffy_permission" order="8" weight="0.16666667" />
-      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.26987952" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="11" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Python Console" order="12" />
       <window_info anchor="bottom" id="Database Changes" order="13" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.44602272" />
+      <window_info anchor="bottom" id="Version Control" order="11" />
+      <window_info anchor="bottom" id="Python Console" order="12" />
+      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.28716215" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16049382" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="right" id="Database" order="4" visible="true" weight="0.18148148" />
+      <window_info anchor="right" id="SciView" order="3" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Database Console" order="7" weight="0.32891566" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="manage.py@luffy_permission" order="8" weight="0.16666667" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="SciView" order="3" />
-      <window_info anchor="right" id="Database" order="4" visible="true" weight="0.18025751" />
+      <window_info anchor="bottom" id="Find" order="1" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -669,18 +551,18 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/rbac/tests.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/static/imgs/log.png" />
-    <entry file="das://table:/2a3573c/a406a6bc-749e-49ec-87f6-991bc7321a54/main.web_customer" />
-    <entry file="file://$PROJECT_DIR$/luffy_permission/urls.py">
+    <entry file="file://$PROJECT_DIR$/web/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="30" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
+        <state relative-caret-position="120">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+          <folding>
+            <element signature="e#0#36#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/web/static/imgs/log.png" />
+    <entry file="das://table:/2a3573c/a406a6bc-749e-49ec-87f6-991bc7321a54/main.web_customer" />
     <entry file="file:///Library/Frameworks/Python.framework/Versions/3.5/lib/python3.5/mimetypes.py" />
     <entry file="file:///Library/Frameworks/Python.framework/Versions/3.5/lib/python3.5/site-packages/django/http/response.py" />
     <entry file="file:///Library/Frameworks/Python.framework/Versions/3.5/lib/python3.5/site-packages/django/core/files/base.py" />
@@ -708,13 +590,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/templates/payment_user_add.html" />
-    <entry file="file://$PROJECT_DIR$/web/forms/payment.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="30" column="59" selection-start-line="30" selection-start-column="59" selection-end-line="30" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/templates/payment_user_edit.html" />
     <entry file="file://$PROJECT_DIR$/web/templates/payment_user_list.html" />
     <entry file="file://$PROJECT_DIR$/web/views/payment.py">
@@ -723,16 +598,6 @@
           <caret line="58" lean-forward="true" selection-start-line="58" selection-end-line="58" />
           <folding>
             <element signature="e#45#90#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/views/customer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="18" column="38" selection-start-line="18" selection-start-column="38" selection-end-line="18" selection-end-column="38" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -749,15 +614,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-153" />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/static/imgs/luffy.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/static/imgs/default.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/static/imgs/luffy-study-logo.png">
-      <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/web/static/css/nav.css">
       <provider selected="true" editor-type-id="text-editor">
@@ -836,22 +692,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://a406a6bc-749e-49ec-87f6-991bc7321a54/schema/main/table/rbac_permission">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="das://a406a6bc-749e-49ec-87f6-991bc7321a54/schema/main/table/rbac_permission" />
     <entry file="file://$PROJECT_DIR$/luffy_permission/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="23">
           <caret line="1" column="28" selection-start-line="1" selection-start-column="28" selection-end-line="1" selection-end-column="28" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/ef446b6a-4e04-4c1b-b5ed-ccb1ce7074fc/console.sql">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="das://ef446b6a-4e04-4c1b-b5ed-ccb1ce7074fc/schema/crm/table/django_session">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
@@ -860,29 +707,80 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/luffy_permission/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1587">
-          <caret line="89" column="20" selection-start-line="89" selection-start-column="20" selection-end-line="89" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/rbac/admin.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="115">
           <caret line="5" column="32" lean-forward="true" selection-start-line="5" selection-start-column="32" selection-end-line="5" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/luffy_permission/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="20" column="30" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/views/customer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="239">
+          <caret line="18" column="38" selection-start-line="18" selection-start-column="38" selection-end-line="18" selection-end-column="38" />
           <folding>
-            <element signature="e#0#32#0" expanded="true" />
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/forms/payment.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="12" column="58" lean-forward="true" selection-start-line="12" selection-start-column="58" selection-end-line="12" selection-end-column="58" />
+          <folding>
+            <element signature="e#45#85#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        <state relative-caret-position="480">
+          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
           <folding>
-            <element signature="e#0#32#0" expanded="true" />
+            <element signature="e#0#36#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/luffy_permission/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="317">
+          <caret line="127" column="23" lean-forward="true" selection-start-line="127" selection-start-column="23" selection-end-line="127" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/templates/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="366">
+          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/views/account.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="19" column="62" lean-forward="true" selection-start-line="19" selection-start-column="62" selection-end-line="19" selection-end-column="62" />
+          <folding>
+            <element signature="e#0#29#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/forms/MyForms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+          <folding>
+            <element signature="e#0#24#0" expanded="true" />
           </folding>
         </state>
       </provider>
