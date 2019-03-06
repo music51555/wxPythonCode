@@ -10,15 +10,23 @@ def login(request):
 
         if form.is_valid():
 
-            username = request.POST.get('name')
-            password = request.POST.get('password')
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password')
+
+            print(len(username))
+            print(len(password))
 
             user_obj = auth.authenticate(username=username, password=password)
+            print(user_obj)
 
-            auth.login(request, user_obj)
+            if user_obj:
+                auth.login(request, user_obj)
+            else:
+                wrong_err = '用户名或密码错误'
+                return render(request, 'login.html', locals())
 
             url_queryset = UserInfo.objects.filter(
-                name=request.POST.get('name'),roles__permissions__isnull=False).values('roles__permissions__url').distinct()
+                username=username,roles__permissions__isnull=False).values('roles__permissions__url').distinct()
 
             url_list = [ item['roles__permissions__url'] for item in url_queryset ]
 
@@ -34,3 +42,20 @@ def login(request):
     form = MyForms.UserForms()
 
     return render(request, 'login.html', locals())
+
+def register(request):
+
+    if request.method == 'POST':
+        form = MyForms.UserForms(request.POST)
+
+        if form.is_valid():
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password')
+
+            UserInfo.objects.create_user(username=username,password=password)
+
+            return redirect('/login/')
+
+    form = MyForms.UserForms()
+
+    return render(request, 'register.html', locals())

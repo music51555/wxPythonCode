@@ -5,7 +5,19 @@ import re
 
 class VerifyPermission(MiddlewareMixin):
 
+    white_list = ['/register/','/login/']
+
     def process_request(self, request):
-        if 'login' not in request.path_info and 'admin' not in request.path_info:
-            if request.path_info not in request.session['user_permission_url']:
-                return HttpResponse('没有权限访问')
+        print('111111111111')
+        permission_list = request.session.get('user_permission_url')
+        if not permission_list:
+            if request.path_info not in self.white_list:
+                return HttpResponse('请先登录')
+        else:
+            for url in permission_list:
+                ret = re.search(url,request.path_info)
+
+                print('222222222222222',request.path_infoc)
+                if not ret:
+                    return HttpResponse('没有权限访问')
+

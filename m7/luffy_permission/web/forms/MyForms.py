@@ -1,7 +1,7 @@
 from django import forms
 from django.forms import widgets
 from rbac.models import *
-from django.core.exceptions import NON_FIELD_ERRORS, ValidationError
+from django.core.exceptions import ValidationError
 
 
 class UserForms(forms.Form):
@@ -26,13 +26,13 @@ class UserForms(forms.Form):
         else:
             return username
 
-    def clean(self):
-        username = self.cleaned_data.get('username')
-        password = self.cleaned_data.get('password')
-
-        if username and password:
-            user_obj = UserInfo.objects.filter(username=username, password=password)
-            if user_obj:
-                return self.cleaned_data
-            else:
-                raise ValidationError('用户名或密码错误')
+    # def clean(self):
+    #     username = self.cleaned_data.get('username')
+    #     password = self.cleaned_data.get('password')
+    #
+    #     if username and password:
+    #         user_obj = UserInfo.objects.filter(username=username,password=password).first()
+    #         if user_obj:
+    #             return self.cleaned_data
+    #         else:
+    #             raise ValidationError('用户名或密码错误')
