@@ -47,6 +47,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'luffy_permission.middleware.verify_permission.VerifyPermission',
 ]
 
 ROOT_URLCONF = 'luffy_permission.urls'
@@ -90,6 +91,8 @@ DATABASES = {
         'NAME': 'crm',
     }
 }
+
+AUTH_USER_MODEL = 'rbac.UserInfo'
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators

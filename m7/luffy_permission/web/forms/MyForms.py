@@ -5,7 +5,7 @@ from django.core.exceptions import NON_FIELD_ERRORS, ValidationError
 
 
 class UserForms(forms.Form):
-    name = forms.CharField(
+    username = forms.CharField(
         label='用户名', widget = widgets.TextInput(attrs = {'class':'form-control'}),
         error_messages={'required':'请填写必填项'}
     )
@@ -19,19 +19,19 @@ class UserForms(forms.Form):
     )
 
     def clean_name(self):
-        username = self.cleaned_data.get('name')
-        user_obj = UserInfo.objects.filter(name = username)
+        username = self.cleaned_data.get('username')
+        user_obj = UserInfo.objects.filter(username = username)
         if not user_obj:
             raise ValidationError('用户不存在')
         else:
             return username
 
     def clean(self):
-        username = self.cleaned_data.get('name')
-        pwd = self.cleaned_data.get('password')
+        username = self.cleaned_data.get('username')
+        password = self.cleaned_data.get('password')
 
-        if username and pwd:
-            user_obj = UserInfo.objects.filter(name=username, password=pwd)
+        if username and password:
+            user_obj = UserInfo.objects.filter(username=username, password=password)
             if user_obj:
                 return self.cleaned_data
             else:
