@@ -19,5 +19,5 @@ urlpatterns = [
     re_path('^login/$', account.login),
     re_path('^register/$', account.register),
     re_path('^logout/$', account.logout),
-    # re_path('^$', account.login)
+    re_path('^$', account.login)
 ]
