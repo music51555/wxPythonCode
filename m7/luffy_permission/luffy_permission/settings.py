@@ -24,7 +24,7 @@ SECRET_KEY = '-t5hehq#zmk=_m)!6pm(c8_s-ycack)$dpppm7ws!&0#eljwzs'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1']
 
 # Application definition
 
@@ -47,7 +47,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'luffy_permission.middleware.verify_permission.VerifyPermission',
+    'rbac.middleware.verify_permission.VerifyPermission',
 ]
 
 ROOT_URLCONF = 'luffy_permission.urls'
@@ -73,13 +73,6 @@ WSGI_APPLICATION = 'luffy_permission.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
 
 DATABASES = {
     'default': {
@@ -175,3 +168,7 @@ FILE_UPLOAD_PERMISSIONS = None
 # see https://docs.python.org/3/library/os.html#files-and-directories.
 # 文件夹权限
 FILE_UPLOAD_DIRECTORY_PERMISSIONS = None
+
+PERMISSION_SESSION_KEY = 'roles__permissions__url'
+
+WHITE_LIST = ['/register/','/login/','/admin/','/logout/']

@@ -2,6 +2,7 @@ from web.forms import MyForms
 from django.shortcuts import render,redirect
 from rbac.models import *
 from django.contrib import auth
+from rbac.service.init_permission import init_permission
 
 def login(request):
 
@@ -13,11 +14,7 @@ def login(request):
             username = form.cleaned_data.get('username')
             password = form.cleaned_data.get('password')
 
-            print(len(username))
-            print(len(password))
-
             user_obj = auth.authenticate(username=username, password=password)
-            print(user_obj)
 
             if user_obj:
                 auth.login(request, user_obj)
@@ -25,12 +22,7 @@ def login(request):
                 wrong_err = '用户名或密码错误'
                 return render(request, 'login.html', locals())
 
-            url_queryset = UserInfo.objects.filter(
-                username=username,roles__permissions__isnull=False).values('roles__permissions__url').distinct()
-
-            url_list = [ item['roles__permissions__url'] for item in url_queryset ]
-
-            request.session['user_permission_url'] = url_list
+            init_permission(request, username)
 
             return redirect('/customer/list/')
 
@@ -59,3 +51,8 @@ def register(request):
     form = MyForms.UserForms()
 
     return render(request, 'register.html', locals())
+
+def logout(request):
+    auth.logout(request)
+
+    return redirect('/login/')

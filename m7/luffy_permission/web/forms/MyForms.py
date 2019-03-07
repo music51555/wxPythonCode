@@ -25,14 +25,3 @@ class UserForms(forms.Form):
             raise ValidationError('用户不存在')
         else:
             return username
-
-    # def clean(self):
-    #     username = self.cleaned_data.get('username')
-    #     password = self.cleaned_data.get('password')
-    #
-    #     if username and password:
-    #         user_obj = UserInfo.objects.filter(username=username,password=password).first()
-    #         if user_obj:
-    #             return self.cleaned_data
-    #         else:
-    #             raise ValidationError('用户名或密码错误')

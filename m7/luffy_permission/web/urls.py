@@ -4,7 +4,6 @@ from web.views import payment
 from web.views import account
 
 urlpatterns = [
-
     re_path(r'^customer/list/$', customer.customer_list),
     re_path(r'^customer/add/$', customer.customer_add),
     re_path(r'^customer/edit/(?P<cid>\d+)/$', customer.customer_edit),
@@ -18,6 +17,7 @@ urlpatterns = [
     re_path(r'^payment/del/(?P<pid>\d+)/$', payment.payment_del),
 
     re_path('^login/$', account.login),
-    re_path('^register/$', account.register)
-
+    re_path('^register/$', account.register),
+    re_path('^logout/$', account.logout),
+    # re_path('^$', account.login)
 ]
