@@ -5,18 +5,20 @@ from django.http import FileResponse
 from django.conf import settings
 import xlrd
 
-from web import models
 from web.forms.customer import CustomerForm
+from rbac.service import loadmenu
+from web.models import *
 
 
 def customer_list(request):
     """
     客户列表
-    :return:
     """
-    data_list = models.Customer.objects.all()
+    menu_list = loadmenu.load_menu(request)
 
-    return render(request, 'customer_list.html', {'data_list': data_list})
+    data_list = Customer.objects.all()
+
+    return render(request, 'customer_list.html', locals())
 
 
 def customer_add(request):
@@ -39,7 +41,7 @@ def customer_edit(request, cid):
     新增客户
     :return:
     """
-    obj = models.Customer.objects.get(id=cid)
+    obj = Customer.objects.get(id=cid)
     if request.method == 'GET':
         form = CustomerForm(instance=obj)
         return render(request, 'customer_add.html', {'form': form})
@@ -57,7 +59,7 @@ def customer_del(request, cid):
     :param cid:
     :return:
     """
-    models.Customer.objects.filter(id=cid).delete()
+    Customer.objects.filter(id=cid).delete()
     return redirect('/customer/list/')
 
 
@@ -94,9 +96,9 @@ def customer_import(request):
             row_dict = {}
             for col_num, name_text in row_map.items():
                 row_dict[name_text['name']] = row[col_num].value
-            object_list.append(models.Customer(**row_dict))
+            object_list.append(Customer(**row_dict))
 
-        models.Customer.objects.bulk_create(object_list, batch_size=20)
+        Customer.objects.bulk_create(object_list, batch_size=20)
     except Exception as e:
         context['status'] = False
         context['msg'] = '导入失败'

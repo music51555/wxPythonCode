@@ -8,6 +8,7 @@ class Permission(models.Model):
     """
     title = models.CharField(verbose_name='标题', max_length=32)
     url = models.CharField(verbose_name='含正则的URL', max_length=128)
+    is_menu = models.BooleanField(verbose_name='是否一级菜单',default=True)
 
     def __str__(self):
         return self.title

@@ -19,9 +19,8 @@ class VerifyPermission(MiddlewareMixin):
 
         # 循环session中的权限列表，如果匹配成功那么就让用户访问对应页面，如果没有匹配上就继续循环，最终没有匹配上则返回响应体没有权限访问
         if permission_list:
-            for url in permission_list:
-                url = '^%s$'%url
-                per_ret = re.match(url, request.path_info)
+            for permission in permission_list:
+                per_ret = re.match('^'+permission['url']+'$', request.path_info)
                 if not per_ret:
                     continue
                 else:
