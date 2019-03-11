@@ -2,7 +2,7 @@
 {{ request.path_info }}
     {% for menu in menu_list %}
         {% if menu.url == request.path_info %}
-            <a href="{{ menu.url }}" class="active">
+            <a href="{{ menu.url }}" class="selected">
                 <span class="icon-wrap"><i class="fa fa-connectdevelop"></i></span>{{ menu.title }}
             </a>
         {% else %}

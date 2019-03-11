@@ -1,6 +1,16 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 
+class Menu(models.Model):
+    '''
+    一级菜单
+    '''
+    title = models.CharField(verbose_name='菜单名称',max_length=20)
+    icon = models.CharField(verbose_name='图标',max_length=20)
+
+    def __str__(self):
+        return self.title
+
 
 class Permission(models.Model):
     """
@@ -8,7 +18,12 @@ class Permission(models.Model):
     """
     title = models.CharField(verbose_name='标题', max_length=32)
     url = models.CharField(verbose_name='含正则的URL', max_length=128)
-    is_menu = models.BooleanField(verbose_name='是否一级菜单',default=True)
+    icon = models.CharField(verbose_name='图标',max_length=20)
+
+    menu = models.ForeignKey(
+        verbose_name='父级菜单',to='Menu',to_field='id',null=True,blank=True,help_text='如果非空，表示父节点序号，如果为空表示不是二级菜单',
+        on_delete=True
+    )
 
     def __str__(self):
         return self.title
