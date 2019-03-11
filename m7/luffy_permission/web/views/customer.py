@@ -6,7 +6,6 @@ from django.conf import settings
 import xlrd
 
 from web.forms.customer import CustomerForm
-from rbac.service import loadmenu
 from web.models import *
 
 
@@ -14,8 +13,6 @@ def customer_list(request):
     """
     客户列表
     """
-    menu_list = loadmenu.load_menu(request)
-
     data_list = Customer.objects.all()
 
     return render(request, 'customer_list.html', locals())

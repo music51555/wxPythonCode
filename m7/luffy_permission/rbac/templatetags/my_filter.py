@@ -1,8 +1,10 @@
+from django import template
 from luffy_permission.settings import PERMISSION_SESSION_KEY
-from web.models import *
 
+register = template.Library()
 
-def load_menu(request):
+@register.inclusion_tag('static_menu.html')
+def static_menu(request):
     customer_menu_info = request.session.get(PERMISSION_SESSION_KEY)
     menu_list = []
 
@@ -10,5 +12,4 @@ def load_menu(request):
         if permission['is_menu'] == True:
             menu_list.append(permission)
 
-    return menu_list
-
+    return {'menu_list': menu_list,'request':request}

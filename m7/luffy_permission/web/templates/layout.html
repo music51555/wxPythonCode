@@ -86,14 +86,13 @@
             border-left: 2px solid #2F72AB;
         }
 
-        .left-menu .menu-body .static-menu a.active {
+        .left-menu .menu-body .static-menu a:active {
             color: #2F72AB;
             border-left: 2px solid #2F72AB;
         }
     </style>
 </head>
 <body>
-
 <div class="pg-header">
     <div class="nav">
         <div class="logo-area left">
@@ -155,24 +154,15 @@
 <div class="pg-body">
     <div class="left-menu">
         <div class="menu-body">
-            <div class="static-menu">
-                {% if menu_list %}
-                    {% for menu in menu_list %}
-                        <a href="{{ menu.url }}" class="menu-first active">
-                            <span class="icon-wrap"><i class="fa fa-connectdevelop"></i></span>{{ menu.title }}
-                        </a>
-                    {% endfor %}
-                {% endif %}
-            </div>
+            {% load my_filter %}
+            {% static_menu request %}
         </div>
     </div>
     <div class="right-body">
         <div>
             <ol class="breadcrumb no-radius no-margin" style="border-bottom: 1px solid #ddd;">
-
                 <li><a href="#">首页</a></li>
                 <li class="active">客户管理</li>
-
             </ol>
         </div>
         {% block content %} {% endblock %}

@@ -4,7 +4,6 @@ from django.shortcuts import render, redirect
 
 from web import models
 from web.forms.payment import PaymentForm, PaymentUserForm
-from rbac.service import loadmenu
 
 
 def payment_list(request):
@@ -12,8 +11,6 @@ def payment_list(request):
     付费列表
     :return:
     """
-    menu_list = loadmenu.load_menu(request)
-
     data_list = models.Payment.objects.all()
 
     return render(request, 'payment_list.html', locals())
