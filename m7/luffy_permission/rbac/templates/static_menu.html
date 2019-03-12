@@ -1,14 +1,20 @@
 <div class="static-menu">
-{{ request.path_info }}
-    {% for menu in menu_list %}
-        {% if menu.url == request.path_info %}
-            <a href="{{ menu.url }}" class="selected">
-                <span class="icon-wrap"><i class="fa fa-connectdevelop"></i></span>{{ menu.title }}
-            </a>
-        {% else %}
-            <a href="{{ menu.url }}">
-                <span class="icon-wrap"><i class="fa fa-connectdevelop"></i></span>{{ menu.title }}
-            </a>
-        {% endif %}
+    {% for menu_key,menu_value in menu_info.items %}
+        <a href='' class="father-child">
+            <span class="icon-wrap"><i class="fa {{ menu_value.0.menu__icon }}"></i></span>{{ menu_key }}
+        </a>
+        <div class="child-menu">
+            {% for child_menu in menu_value %}
+                {% if child_menu.url == request.path_info %}
+                    <a href='' class="child-menu selected">
+                        <span class="icon-wrap"><span class="fa {{ child_menu.icon }}"></span></span>{{ child_menu.title }}
+                    </a>
+                {% else %}
+                    <a href='' class="child-menu">
+                        <span class="icon-wrap"><span class="fa {{ child_menu.icon }}"></span></span>{{ child_menu.title }}
+                    </a>
+                {% endif %}
+            {% endfor %}
+        </div>
     {% endfor %}
 </div>

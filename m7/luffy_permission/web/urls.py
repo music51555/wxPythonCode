@@ -1,7 +1,7 @@
-from django.urls import path,re_path
+from django.urls import re_path
 from web.views import customer
 from web.views import payment
-from web.views import account
+from rbac.views import account
 
 urlpatterns = [
     re_path(r'^customer/list/$', customer.customer_list),
