@@ -18,11 +18,9 @@ class VerifyPermission(MiddlewareMixin):
                 return
 
         # 循环session中的权限列表，如果匹配成功那么就让用户访问对应页面，如果没有匹配上就继续循环，最终没有匹配上则返回响应体没有权限访问
-        print('menu_info',menu_info)
         if menu_info:
             for menu_key in menu_info:
                 for permission in menu_info[menu_key]:
-                    print('permission',permission)
                     per_ret = re.match('^'+permission['url']+'$', request.path_info)
                     if not per_ret:
                         continue
@@ -36,10 +34,3 @@ class VerifyPermission(MiddlewareMixin):
 
             # 如果用户访问的不是白名单的路径，访问的是需要权限的路径，让其先登录
             return HttpResponse('请先登录')
-
-
-
-
-
-
-

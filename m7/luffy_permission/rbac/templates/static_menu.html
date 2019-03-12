@@ -6,11 +6,11 @@
         <div class="child-menu">
             {% for child_menu in menu_value %}
                 {% if child_menu.url == request.path_info %}
-                    <a href='' class="child-menu selected">
+                    <a href='{{ child_menu.url }}' class="child-menu selected">
                         <span class="icon-wrap"><span class="fa {{ child_menu.icon }}"></span></span>{{ child_menu.title }}
                     </a>
                 {% else %}
-                    <a href='' class="child-menu">
+                    <a href='{{ child_menu.url }}' class="child-menu">
                         <span class="icon-wrap"><span class="fa {{ child_menu.icon }}"></span></span>{{ child_menu.title }}
                     </a>
                 {% endif %}
@@ -18,3 +18,6 @@
         </div>
     {% endfor %}
 </div>
+{% block js %}
+
+{% endblock %}

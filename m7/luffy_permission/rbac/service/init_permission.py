@@ -6,8 +6,7 @@ def init_permission(request, username):
     # 查询出所有的一级菜单
     menu_queryset = Menu.objects.all().values('title')
 
-    # 在权限表中查询出所有的二级菜单信息和跨表他们的父级菜单信息menu__title
-    permission_query = Permission.objects.filter(role__userinfo__username=username).values('title','url','icon','menu__title','menu__icon')
+    permission_query = Permission.objects.filter(role__userinfo__username=username,menu__isnull=False).values('title','url','icon','menu__title','menu__icon')
 
     permission_menu_info = {}
 
