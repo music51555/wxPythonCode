@@ -5,6 +5,6 @@ register = template.Library()
 
 @register.inclusion_tag('static_menu.html')
 def static_menu(request):
-    menu_info = request.session.get(PERMISSION_SESSION_KEY)
+    permission_list = request.session.get(PERMISSION_SESSION_KEY)
 
-    return {'menu_info': menu_info,'request':request}
+    return {'permission_list': permission_list,'request':request}

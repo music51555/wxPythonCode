@@ -7,7 +7,7 @@ class VerifyPermission(MiddlewareMixin):
 
     def process_request(self, request):
         # 通过字典的get(key)方法获取value不会报错
-        menu_info = request.session.get(PERMISSION_SESSION_KEY)
+        menu_list = request.session.get(PERMISSION_SESSION_KEY)
 
         # 循环白名单，如果匹配白名单中的路径成功，那么就在中间件中return，直接去执行视图函数
         for url in WHITE_LIST:
@@ -18,14 +18,14 @@ class VerifyPermission(MiddlewareMixin):
                 return
 
         # 循环session中的权限列表，如果匹配成功那么就让用户访问对应页面，如果没有匹配上就继续循环，最终没有匹配上则返回响应体没有权限访问
-        if menu_info:
-            for menu_key in menu_info:
-                for permission in menu_info[menu_key]:
-                    per_ret = re.match('^'+permission['url']+'$', request.path_info)
-                    if not per_ret:
-                        continue
-                    else:
-                        return
+        if menu_list:
+            for menu_info in menu_list:
+                # for permission in menu_info[menu_key]:
+                per_ret = re.match('^'+menu_info['url']+'$', request.path_info)
+                if not per_ret:
+                    continue
+                else:
+                    return
             return HttpResponse('没有权限访问')
         else:
             # 如果登录的用户有角色，但是角色内没有分配权限，所以permission_list就会为空，没有访问任何页面的权限
