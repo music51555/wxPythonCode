@@ -172,6 +172,7 @@ FILE_UPLOAD_PERMISSIONS = None
 # 文件夹权限
 FILE_UPLOAD_DIRECTORY_PERMISSIONS = None
 
-PERMISSION_SESSION_KEY = 'roles__permissions__url'
+PERMISSION_LIST_SESSION_KEY = 'permission_list_session_key'
+MENU_LIST_SESSION_KEY = 'menu_list_session_key'
 
 WHITE_LIST = ['/register/','/login/','/admin/','/logout/']

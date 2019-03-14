@@ -1,11 +1,16 @@
 var is_show = true
-$('.father-child').click(function (event) {
+$('.father-menu-item').click(function (event) {
     event.preventDefault()
     if (is_show) {
-        $(this).next($('.child-menu')).slideUp(500)
+        $(this).siblings($('.child-menu')).slideUp(500)
         is_show = false
     } else {
-        $(this).next($('.child-menu')).slideDown(500)
+        $(this).siblings($('.child-menu')).slideDown(500)
         is_show = true
     }
+})
+$('.child-menu-item').click(function (event) {
+    event.preventDefault()
+    $(this).parent().parent().siblings($('.father-menu')).children('.child-menu').slideUp(500)
+    is_show = false
 })
