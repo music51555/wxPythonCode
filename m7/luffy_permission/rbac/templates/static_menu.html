@@ -5,13 +5,13 @@
                 <a href='' class="father-menu-item">
                     <span class="icon-wrap"><i class="fa {{ permission.menu__icon }}"></i></span>{{ menu_title }}
                 </a>
-                <div class="child-menu">
-                    {% for permission_dict in permission_list %}
-                        {% if permission_dict.menu__title == menu_title %}
+                {% for permission_dict in permission_list %}
+                    {% if permission_dict.menu__title == menu_title %}
+                        <div class="child-menu">
                             {% if permission_dict.url == request.path_info %}
                                 <a href='{{ permission_dict.url }}' class="child-menu-item selected">
-                            <span class="icon-wrap"><span
-                                    class="fa {{ permission_dict.icon }}"></span></span>{{ permission_dict.title }}
+                        <span class="icon-wrap"><span
+                                class="fa {{ permission_dict.icon }}"></span></span>{{ permission_dict.title }}
                                 </a>
                             {% else %}
                                 <a href='{{ permission_dict.url }}' class="child-menu-item">
@@ -19,12 +19,12 @@
                                     class="fa {{ permission_dict.icon }}"></span></span>{{ permission_dict.title }}
                                 </a>
                             {% endif %}
-                        {% endif %}
-                    {% endfor %}
-                </div>
+                        </div>
+                    {% else %}
+                    {% endif %}
+                {% endfor %}
+                {% endif %}
             </div>
-
-
         {% endfor %}
     {% endfor %}
 </div>
