@@ -1,6 +1,6 @@
 from django.utils.deprecation import MiddlewareMixin
 from django.shortcuts import HttpResponse
-from luffy_permission.settings import PERMISSION_LIST_SESSION_KEY,WHITE_LIST
+from luffy_permission.settings import PERMISSION_LIST_SESSION_KEY,WHITE_LIST,MENU_DICT_SESSION_KEY
 import re
 
 class VerifyPermission(MiddlewareMixin):
@@ -8,6 +8,7 @@ class VerifyPermission(MiddlewareMixin):
     def process_request(self, request):
         # 通过字典的get(key)方法获取value不会报错，得到的是一个列表，里面存放着每一个权限的字典，如[{权限1},{权限2},{权限3}]
         permission_list = request.session.get(PERMISSION_LIST_SESSION_KEY)
+        sorted_dict = request.session.get(MENU_DICT_SESSION_KEY)
 
         # 循环白名单，如果匹配白名单中的路径成功，那么就在中间件中return，直接去执行视图函数
         for url in WHITE_LIST:
@@ -16,6 +17,15 @@ class VerifyPermission(MiddlewareMixin):
                 continue
             else:
                 return
+
+        if sorted_dict:
+            for menu_title, menu_info in sorted_dict.items():
+                for permission_dict in menu_info['permission_list']:
+                    if permission_dict['url'] == request.path_info:
+                        menu_info['class'] = ''
+                    else:
+                        menu_info['class'] = 'show'
+
 
         # 循环权限列表，用每一个权限字典中的url和当前请求的路径相匹配，判断其是否可以访问
         if permission_list:

@@ -173,6 +173,6 @@ FILE_UPLOAD_PERMISSIONS = None
 FILE_UPLOAD_DIRECTORY_PERMISSIONS = None
 
 PERMISSION_LIST_SESSION_KEY = 'permission_list_session_key'
-MENU_LIST_SESSION_KEY = 'menu_list_session_key'
+MENU_DICT_SESSION_KEY = 'menu_dict_session_key'
 
 WHITE_LIST = ['/register/','/login/','/admin/','/logout/']
