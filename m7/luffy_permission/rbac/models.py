@@ -19,6 +19,9 @@ class Permission(models.Model):
     title = models.CharField(verbose_name='标题', max_length=32)
     url = models.CharField(verbose_name='含正则的URL', max_length=128)
     icon = models.CharField(verbose_name='图标',max_length=20)
+    pid = models.ForeignKey(verbose_name='父类菜单ID',to='self',to_field='id',blank=True,null=True,
+                            help_text='父类菜单的ID，如果ID为None，那么就是菜单，如果不为None那么就是按钮',
+                            on_delete=True)
 
     menu = models.ForeignKey(
         verbose_name='父级菜单',to='Menu',to_field='id',null=True,blank=True,help_text='如果非空，表示父节点序号，如果为空表示不是二级菜单',

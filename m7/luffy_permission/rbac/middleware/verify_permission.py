@@ -18,13 +18,24 @@ class VerifyPermission(MiddlewareMixin):
             else:
                 return
 
+        parent_node = None
+
         if sorted_dict:
             for menu_title, menu_info in sorted_dict.items():
-                for permission_dict in menu_info['permission_list']:
-                    if permission_dict['url'] == request.path_info:
-                        menu_info['class'] = ''
-                    else:
-                        menu_info['class'] = 'show'
+                for permission in permission_list:
+                    if not request.path_info == permission['url']:
+                        continue
+                    # 此时在权限列表中找到了访问的路径的那一条数据，这时候开始循环菜单，验证那一条数据的pid是否等于
+                    # 循环中的菜单的id，
+                    for permission_dict in menu_info['permission_list']:
+                        if permission['pid']:
+                            if not permission['pid'] == permission_dict['id']:
+                                continue
+                            permission_dict['class'] = 'selected'
+                        else:
+                            if permission_dict['url'] == request.path_info:
+                                permission_dict['class'] = 'selected'
+
 
 
         # 循环权限列表，用每一个权限字典中的url和当前请求的路径相匹配，判断其是否可以访问
