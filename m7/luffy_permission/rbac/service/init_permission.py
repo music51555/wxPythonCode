@@ -5,7 +5,7 @@ def init_permission(request, username):
 
     menu_queryset = Menu.objects.values('id','title','icon')
     permission_query = Permission.objects.filter(role__userinfo__username=username).\
-        values('id','title','icon','url','menu__title','menu__icon','pid')
+        values('id','title','icon','url','menu__title','menu__icon','pid','pid__title','pid__url')
 
     permission_list = []
     menu_dict = {}

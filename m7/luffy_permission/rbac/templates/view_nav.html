@@ -1,0 +1,7 @@
+<ol class="breadcrumb no-radius no-margin" style="border-bottom: 1px solid #ddd;">
+    <li><a href="#">首页</a></li>
+    {% if p_title %}
+        <li class="active"><a href="{{ p_url }}">{{ p_title }}</a></li>
+    {% endif %}
+    <li class="active"><a href="{{ current_url }}">{{ current_title }}</a></li>
+</ol>

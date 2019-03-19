@@ -6,21 +6,21 @@
             </a>
             <div class="child-menu {{ menu_info.class }}">
                 {% for permission in menu_info.permission_list %}
-                        {% if permission.url == request.path_info %}
-                            <a href='{{ permission.url }}' class="child-menu-item {{ permission.class }}">
-                                <span class="icon-wrap">
-                                    <span class="fa {{ permission.icon }}"></span>
-                                </span>
-                                {{ permission.title }}
-                            </a>
-                        {% else %}
-                           <a href='{{ permission.url }}' class="child-menu-item {{ permission.class }}">
-                                <span class="icon-wrap">
-                                    <span class="fa {{ permission.icon }}"></span>
-                                </span>
-                               {{ permission.title }}
-                            </a>
-                        {% endif %}
+{#                        {% if permission.url == request.path_info %}#}
+                    <a href='{{ permission.url }}' class="child-menu-item {{ permission.class }}">
+                        <span class="icon-wrap">
+                            <span class="fa {{ permission.icon }}"></span>
+                        </span>
+                        {{ permission.title }}
+                    </a>
+{#                        {% else %}#}
+{#                           <a href='{{ permission.url }}' class="child-menu-item {{ permission.class }}">#}
+{#                                <span class="icon-wrap">#}
+{#                                    <span class="fa {{ permission.icon }}"></span>#}
+{#                                </span>#}
+{#                               {{ permission.title }}#}
+{#                            </a>#}
+{#                        {% endif %}#}
                 {% endfor %}
             </div>
         </div>
