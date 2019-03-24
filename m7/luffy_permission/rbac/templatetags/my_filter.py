@@ -1,6 +1,5 @@
 from django import template
 from luffy_permission.settings import MENU_DICT_SESSION_KEY,PERMISSION_LIST_SESSION_KEY
-import re
 
 register = template.Library()
 
