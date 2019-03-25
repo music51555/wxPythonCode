@@ -16,20 +16,13 @@ class QCDLoadTestCases:
         self.loader = unittest.TestLoader()
 
     def login_testcases(self):
-        case_list = DoExcel('util/testcase_data.xlsx','login').get_case_list()
-        for case in case_list:
-            self.suite.addTest(LoginTestCase(case['case_name'],
-                                             login_url,
-                                             eval(case['case_data']),
-                                             getattr(GetCookies,'cookies'),
-                                             case['case_expected']
-                                             ))
+        self.suite.addTest(self.loader.loadTestsFromTestCase(LoginTestCase))
 
     def start(self):
         self.get_suite()
         self.get_loader()
         self.login_testcases()
-        with open('login.html','wb') as f:
+        with open('result.html','wb') as f:
             runner = HTMLTestRunner.HTMLTestRunner(stream=f,verbosity=2,
                                                    description='登录测试用例集',
                                                    title='登录模块测试报告')

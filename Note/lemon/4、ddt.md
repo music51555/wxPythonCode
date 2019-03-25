@@ -18,7 +18,7 @@ from ddt import ddt,data,unpack
 
 **`@data`装饰器**
 
-**`@data`装饰器的作用是脱掉传递参数的外套，逐一接收列表内的每一个元素**
+**`@data`装饰器的作用是脱掉传递参数的外套，逐一接收列表内的每一个元素，但是必须添加"*"**
 
 1、测试类必须添加`@ddt`装饰器
 
@@ -139,3 +139,41 @@ male
 mary
 female
 ```
+
+
+
+
+
+**`ddt`和`unittest`结合使用**
+
+如果是依次将测试数据传入测试用例中，那么只需要写一个登录的测试用例即可，因为有多少条测试数据，就会执行多少次测试用例，且传入的测试数据是不同的
+
+```python
+# 引入DoExcel类执行get_case_list方法得到所有的测试用例数据
+case_list = DoExcel('util/testcase_data.xlsx', 'login').get_case_list()
+
+# 在测试用例类上添加ddt装饰器
+@ddt
+class LoginTestCase(unittest.TestCase):
+
+    login_url = 'http://120.78.128.25:8765/Frontend/Index/login'
+
+    def setUp(self):
+        print('开始测试')
+
+    # 在测试用例方法上添加@data装饰器，接收参数
+    @data(*case_list)
+    def test_login_api(self,testcase):
+        response = HTTPRequest(url=self.login_url,data=eval(testcase['case_data'])).request_post()
+        if response.cookies:
+            setattr(get_cookies.GetCookies,'cookies',response.cookies)
+        try:
+            really = re.search(testcase['case_expected'],response.text).group()
+        except AttributeError as e:
+            # 如果程序捕获了异常，那么就打印当前用例的方法名，并报出异常，用于在测试报告中查看输出日志
+            print(testcase['case_desc'])
+            raise e
+        else:
+            self.assertEqual(testcase['case_expected'],really)
+```
+

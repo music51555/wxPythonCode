@@ -2,45 +2,31 @@ import unittest
 from qianchengdai.http_request import HTTPRequest
 import re
 from qianchengdai import get_cookies
+from qianchengdai.util.openpyxl_tools import DoExcel
+from ddt import ddt,data,unpack
 
+case_list = DoExcel('util/testcase_data.xlsx', 'login',[1,3]).get_case_list()
+
+@ddt
 class LoginTestCase(unittest.TestCase):
-    def __init__(self,methodName,url,data,cookie,expect):
-        super().__init__(methodName)
-        self.url = url
-        self.data = data
-        self.cookie = cookie
-        self.expect = expect
 
-    def test_right_u_right_p(self):
-        response = HTTPRequest(url=self.url,data=self.data).request_post()
+    login_url = 'http://120.78.128.25:8765/Frontend/Index/login'
+
+    def setUp(self):
+        print('开始测试')
+
+    @data(*case_list)
+    def test_login_api(self,testcase):
+        print(testcase['case_desc'])
+        response = HTTPRequest(url=self.login_url,data=eval(testcase['case_data'])).request_post()
         if response.cookies:
             setattr(get_cookies.GetCookies,'cookies',response.cookies)
-        self.assertEqual(self.expect,re.search('登录成功',response.text).group())
-
-    def test_right_u_error_p(self):
-
-        response = HTTPRequest(url=self.url,data=self.data).request_post()
-        self.assertEqual(self.expect,re.search('帐号或密码错误!',response.text).group())
-
-    def test_empty_u_have_p(self):
-
-        response = HTTPRequest(url=self.url,data=self.data).request_post()
-        self.assertEqual(self.expect,re.search('此账号没有经过授权，请联系管理员!',response.text).group())
-
-    def test_have_u_empty_p(self):
-        data = {
-            'phone':'18611848257',
-            'password':'',
-            'vcode':'',
-            'remember_me':'1',
-            'notify_url':''
-        }
-
-        response = HTTPRequest(url=self.url,data=data).request_post()
-        # try:
-        self.assertEqual('请输入密码!1',re.search('请输入密码!',response.text).group())
-        # except AssertionError as e:
-        #     raise ValueError(e)
+        try:
+            really = re.search(testcase['case_expected'],response.text).group()
+        except AttributeError as e:
+            raise e
+        else:
+            self.assertEqual(testcase['case_expected'],really)
 
 
 class AddBankCard(unittest.TestCase):
