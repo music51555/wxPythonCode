@@ -1,0 +1,141 @@
+**ddt**
+
+`ddt`模块的作用是向继承于`unittest.TestCase`类中的测试用例传递参数
+
+
+
+**`@ddt`装饰器**
+
+**`@ddt`装饰器必须添加在测试用例的类之上，且类必须继承于`unittest.TestCase`**
+
+`pip3 install ddt`
+
+```
+from ddt import ddt,data,unpack
+```
+
+
+
+**`@data`装饰器**
+
+**`@data`装饰器的作用是脱掉传递参数的外套，逐一接收列表内的每一个元素**
+
+1、测试类必须添加`@ddt`装饰器
+
+2、如果要传递参数，测试用例函数必须添加`@data`
+
+3、如果要原封不动传递参数，直接写对应的参数名
+
+4、如果使用非固定参数接收` @data(*num_list)`，那么**接收几个元素，测试用例就会被执行几次**
+
+```python
+import unittest
+from ddt import ddt,data,unpack
+
+
+num_list = [[3,4],[1,2],[5,6]]
+
+@ddt
+class TestDDT(unittest.TestCase):
+
+    @data(*num_list)
+    def test_data(self,num):
+        print('%s\n'%num)
+
+
+if __name__ == '__main__':
+    unittest.main()
+
+# 得到的结果是：
+[3, 4]
+[1, 2]
+[5, 6]
+```
+
+
+
+**如果列表中存放的是字典数据**
+
+**得到的结果也是列表中的每一个字典，有几个字典测试用例就会被执行几次**
+
+```python
+name_list = [{'name':'alex','sex':'male'},{'name':'mary','sex':'female'}]
+
+@ddt
+class TestDDT(unittest.TestCase):
+
+    @data(*name_list)
+    def test_data(self,info):
+        print('%s\n'%info)
+
+if __name__ == '__main__':
+    unittest.main()
+    
+# 得到的结果是：
+{'name': 'alex', 'sex': 'male'}
+{'name': 'mary', 'sex': 'female'}
+```
+
+
+
+
+
+**`@unpack`装饰器**
+
+**`@unpack`装饰器的作用是：在`@data`脱掉最外层外套后，将列表中的其一元素继续拆包为单个元素，且测试用例函数接收的参数必须与列表中元素的个数匹配**
+
+```python
+import unittest
+from ddt import ddt,data,unpack
+
+
+num_list = [[1,2],[3,4],[5,6]]
+
+@ddt
+class TestDDT(unittest.TestCase):
+
+    @data(*num_list)
+    @unpack
+    def test_data(self,num1,num2):
+        print('%s,%s\n'%(num1,num2))
+
+if __name__ == '__main__':
+    unittest.main()
+
+# 得到的结果是：
+1,2
+3,4
+5,6
+```
+
+
+
+**如果列表中存放的是字典数据**
+
+脱掉外套后，列表中的元素如果是字典，那么测试用例接收的参数是每一个字典的`key`值，有几个字典就被执行几次，分别打印出每一个字典的`value`值
+
+```python
+import unittest
+from ddt import ddt,data,unpack
+
+
+name_list = [{'name':'alex','sex':'male'},{'name':'mary','sex':'female'}]
+
+@ddt
+class TestDDT(unittest.TestCase):
+
+    @data(*name_list)
+    @unpack
+    def test_data(self,name,sex):
+        print('%s\n'%name)
+        print('%s\n'%sex)
+
+if __name__ == '__main__':
+    unittest.main()
+
+# 得到的结果是：
+alex
+male
+mary
+female
+```

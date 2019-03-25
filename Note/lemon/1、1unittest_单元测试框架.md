@@ -27,6 +27,8 @@ class Calc:
 
 
 
+**通过`unittest`类编写测试用例**
+
 ```python
 # 先引入自己编写的类，也就是要测试的类
 import unittest
@@ -67,7 +69,7 @@ OK
 
 
 
-通过测试套件执行测试用例
+**通过测试套件执行测试用例**
 
 ```python
 import unittest
@@ -113,7 +115,7 @@ runner.run(suite)
 
 
 
-`setUp`和`tearDown`
+**`setUp`和`tearDown`**
 
 继承于`unittest.TestCase`夹心饼干
 
@@ -152,6 +154,41 @@ if __name__ == '__main__':
 准备开始执行用例
 当前测试用例执行完毕
 ```
+
+
+
+**在测试用例中初始化属性，供每一条测试用例执行**
+
+```python
+class LoginTestCase(unittest.TestCase):
+    # 继承了TestCase类后，可以在类中调用__init__方法初始化属性，但是父类的super__init__()方法也必须必不可少，因为要传入测试用例的方法名
+    def __init__(self,methodName,url,data,cookie,expect):
+        super().__init__(methodName)
+        self.url = url
+        self.data = data
+        self.cookie = cookie
+        self.expect = expect
+
+    def test_right_u_right_p(self):
+        response = HTTPRequest(url=self.url,data=self.data).request_post()
+        if response.cookies:
+            setattr(get_cookies.GetCookies,'cookies',response.cookies)
+        self.assertEqual(self.expect,re.search('登录成功',response.text).group())
+
+    def test_right_u_error_p(self):
+
+        response = HTTPRequest(url=self.url,data=self.data).request_post()
+        self.assertEqual(self.expect,re.search('帐号或密码错误!',response.text).group())
+
+    def test_empty_u_have_p(self):
+
+        response = HTTPRequest(url=self.url,data=self.data).request_post()
+        self.assertEqual(self.expect,re.search('此账号没有经过授权，请联系管理员!',response.text).group())
+```
+
+
+
+
 
 
 

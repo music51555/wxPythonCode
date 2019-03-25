@@ -3,6 +3,6 @@ test_right_u_error_p (qianchengdai.app_test_cases.LoginTestCase) ... ok
 test_empty_u_have_p (qianchengdai.app_test_cases.LoginTestCase) ... ok
 
 ----------------------------------------------------------------------
-Ran 3 tests in 0.448s
+Ran 3 tests in 0.440s
 
 OK
