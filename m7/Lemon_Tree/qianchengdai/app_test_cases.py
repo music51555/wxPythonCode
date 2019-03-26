@@ -4,8 +4,10 @@ import re
 from qianchengdai import get_cookies
 from qianchengdai.util.openpyxl_tools import DoExcel
 from ddt import ddt,data,unpack
+from qianchengdai.util.get_conf import GetConf
 
-case_list = DoExcel('util/testcase_data.xlsx', 'login',[1,3]).get_case_list()
+button = GetConf('util/conf.ini','BUTTON','button').get_conf()
+case_list = DoExcel('util/testcase_data.xlsx', 'login',button).get_case_list()
 
 @ddt
 class LoginTestCase(unittest.TestCase):

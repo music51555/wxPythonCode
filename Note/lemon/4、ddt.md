@@ -20,18 +20,19 @@ from ddt import ddt,data,unpack
 
 **`@data`装饰器的作用是脱掉传递参数的外套，逐一接收列表内的每一个元素，但是必须添加"*"**
 
+如`num_list = [[3,4],[1,2],[5,6]]`
+
 1、测试类必须添加`@ddt`装饰器
 
 2、如果要传递参数，测试用例函数必须添加`@data`
 
-3、如果要原封不动传递参数，直接写对应的参数名
+3、如果要原封不动传递参数，直接写对应的参数名即可
 
-4、如果使用非固定参数接收` @data(*num_list)`，那么**接收几个元素，测试用例就会被执行几次**
+4、如果使用非固定参数接收` @data(*num_list)`，那么**逃掉外套后接收几个元素，测试用例就会被执行几次**
 
 ```python
 import unittest
 from ddt import ddt,data,unpack
-
 
 num_list = [[3,4],[1,2],[5,6]]
 
@@ -82,12 +83,11 @@ if __name__ == '__main__':
 
 **`@unpack`装饰器**
 
-**`@unpack`装饰器的作用是：在`@data`脱掉最外层外套后，将列表中的其一元素继续拆包为单个元素，且测试用例函数接收的参数必须与列表中元素的个数匹配**
+**`@unpack`装饰器的作用是：在`@data`脱掉最外层外套后，将列表中的其一元素继续拆包为单个元素，且测试用例函数接收的参数必须与拆包后元素的个数匹配**
 
 ```python
 import unittest
 from ddt import ddt,data,unpack
-
 
 num_list = [[1,2],[3,4],[5,6]]
 
@@ -117,7 +117,6 @@ if __name__ == '__main__':
 ```python
 import unittest
 from ddt import ddt,data,unpack
-
 
 name_list = [{'name':'alex','sex':'male'},{'name':'mary','sex':'female'}]
 
@@ -149,7 +148,7 @@ female
 如果是依次将测试数据传入测试用例中，那么只需要写一个登录的测试用例即可，因为有多少条测试数据，就会执行多少次测试用例，且传入的测试数据是不同的
 
 ```python
-# 引入DoExcel类执行get_case_list方法得到所有的测试用例数据
+# 在类外引入DoExcel类执行get_case_list方法得到所有的测试用例数据
 case_list = DoExcel('util/testcase_data.xlsx', 'login').get_case_list()
 
 # 在测试用例类上添加ddt装饰器

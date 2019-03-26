@@ -22,7 +22,7 @@ class DoExcel:
         if self.button == 'all':
             final_case_list = case_list
         else:
-            for id in self.button:
+            for id in eval(self.button):
                 for case in case_list:
                     if case['case_id'] == id:
                         final_case_list.append(case)

@@ -1,19 +1,14 @@
 import configparser
 
-conf = configparser.ConfigParser()
-conf.read('conf.ini',encoding='utf-8')
+class GetConf:
 
-res = conf.get('INFO','name')
-print(res)
+    def __init__(self,file_name,section,option):
+        self.file_name = file_name
+        self.section = section
+        self.option = option
+        self.conf = configparser.ConfigParser()
+        self.conf.read(self.file_name)
 
-res = conf['SCHOOL']['class']
-print(res)
-
-print(conf.sections())
-# 打印所有的section名称['INFO', 'SCHOOL', 'LEMON']
-
-print(conf.options('INFO'))
-# 通过section得到section下的option['name', 'age']
-
-print(conf.items('INFO'))
-# 通过items得到sections下的key-value键值对[('name', 'alex'), ('age', '30')]
+    def get_conf(self):
+        value = self.conf.get(self.section,self.option)
+        return value

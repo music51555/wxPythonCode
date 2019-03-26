@@ -6,7 +6,7 @@ TestLoad：加载用例后存储到TestSuite
 
 Assert：断言
 
-TextTestRunner：出具测试报告
+TextTestRunner/HTMLTestRunner：出具测试报告
 
 
 
@@ -28,6 +28,8 @@ class Calc:
 
 
 **通过`unittest`类编写测试用例**
+
+**测试用例函数不能传入任何参数**
 
 ```python
 # 先引入自己编写的类，也就是要测试的类
@@ -190,7 +192,13 @@ class LoginTestCase(unittest.TestCase):
 
 
 
+**哪里需要`init`初始化函数**
 
+**被测试的类：**需要有`init`初始化函数，因为要将传入参数到测试类中的每个方法，如`httprequest`中的`get`和`post`方法都需要传入`url`和`data`
+
+**测试用例类：**，可以有`init`初始化函数，传入到每一个测试用例的方法中，因为测试用例方法中不能传入任何参数，**但在测试套件suite中，只能通过`suite.addTest(测试用例类(初始化函数).测试方法)`来执行测试用例**，且测试数据时在测试套件suite类中加载
+
+**结论：**以后使用`ddt`装饰器后，**只需要在被测试类**中加载`init`初始化函数就行了，测试用例类，测试套件类，都不需要`init`初始化函数
 
 
 

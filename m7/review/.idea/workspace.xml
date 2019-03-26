@@ -13,14 +13,19 @@
     <SUITE FILE_PATH="coverage/review$openpyxl_tools.coverage" NAME="openpyxl_tools Coverage Results" MODIFIED="1553495948066" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../Lemon_Tree/qianchengdai/util" />
     <SUITE FILE_PATH="coverage/review$Twisted_Trial_for_ddt_test_TestDDT.coverage" NAME="Twisted Trial for ddt_test.TestDDT Coverage Results" MODIFIED="1553504434305" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../Lemon_Tree/ddt_test" />
     <SUITE FILE_PATH="coverage/review$Twisted_Trial_in_ddt_test_py.coverage" NAME="Twisted Trial in ddt_test.py Coverage Results" MODIFIED="1553506425207" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../Lemon_Tree/ddt_test" />
-    <SUITE FILE_PATH="coverage/review$qianchengdai_testsuite.coverage" NAME="qianchengdai_testsuite Coverage Results" MODIFIED="1553498602274" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../Lemon_Tree/qianchengdai" />
+    <SUITE FILE_PATH="coverage/review$Twisted_Trial_in_app_test_cases_py.coverage" NAME="Twisted Trial in app_test_cases.py Coverage Results" MODIFIED="1553568172573" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../Lemon_Tree/qianchengdai" />
+    <SUITE FILE_PATH="coverage/review$class_method.coverage" NAME="class_method Coverage Results" MODIFIED="1553581535446" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../Lemon_Tree/class_method" />
+    <SUITE FILE_PATH="coverage/review$Twisted_Trial_for_app_test_cases_AddBankCard_test_second_full_right_fill.coverage" NAME="Twisted Trial for app_test_cases.AddBankCard.test_second_full_right_fill Coverage Results" MODIFIED="1553567711339" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../Lemon_Tree/qianchengdai" />
+    <SUITE FILE_PATH="coverage/review$qianchengdai_testsuite.coverage" NAME="qianchengdai_testsuite Coverage Results" MODIFIED="1553568240193" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../Lemon_Tree/qianchengdai" />
+    <SUITE FILE_PATH="coverage/review$Twisted_Trial_for_app_test_cases_LoginTestCase_test_login_api.coverage" NAME="Twisted Trial for app_test_cases.LoginTestCase.test_login_api Coverage Results" MODIFIED="1553567826670" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../Lemon_Tree/qianchengdai" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="http_request.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../Lemon_Tree/qianchengdai/http_request.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-432">
+            <state relative-caret-position="228">
+              <caret line="15" column="83" selection-start-line="15" selection-start-column="83" selection-end-line="15" selection-end-column="83" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -28,11 +33,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app_test_cases.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="app_test_cases.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../Lemon_Tree/qianchengdai/app_test_cases.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="20" selection-start-line="20" selection-end-line="20" />
+            <state relative-caret-position="312">
+              <caret line="22" column="58" lean-forward="true" selection-start-line="22" selection-start-column="58" selection-end-line="22" selection-end-column="58" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -40,11 +45,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="openpyxl_tools.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../Lemon_Tree/qianchengdai/util/openpyxl_tools.py">
+      <file leaf-file-name="class_method.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../Lemon_Tree/class_method/class_method.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="7" selection-start-line="7" selection-end-line="7" />
+            <state relative-caret-position="384">
+              <caret line="16" column="26" lean-forward="true" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="get_conf.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../Lemon_Tree/qianchengdai/util/get_conf.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="24">
+              <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
             </state>
           </provider>
         </entry>
@@ -52,20 +66,8 @@
       <file leaf-file-name="qianchengdai_testsuite.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../Lemon_Tree/qianchengdai/qianchengdai_testsuite.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="47">
-              <caret line="13" selection-start-line="13" selection-end-line="13" />
-              <folding>
-                <element signature="e#0#15#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ddt_test.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/../Lemon_Tree/ddt_test/ddt_test.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="12" column="24" lean-forward="true" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
+            <state relative-caret-position="648">
+              <caret line="27" column="36" lean-forward="true" selection-start-line="27" selection-start-column="36" selection-end-line="27" selection-end-column="36" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -85,9 +87,13 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/../Lemon_Tree/ddt_test/ddt_test.py" />
+        <option value="$PROJECT_DIR$/../Lemon_Tree/qianchengdai/util/get_conf.py" />
+        <option value="$PROJECT_DIR$/../Lemon_Tree/qianchengdai/util/conf.ini" />
         <option value="$PROJECT_DIR$/../Lemon_Tree/qianchengdai/util/openpyxl_tools.py" />
         <option value="$PROJECT_DIR$/../Lemon_Tree/qianchengdai/qianchengdai_testsuite.py" />
-        <option value="$PROJECT_DIR$/../Lemon_Tree/ddt_test/ddt_test.py" />
+        <option value="$PROJECT_DIR$/../Lemon_Tree/qianchengdai/app_test_cases.py" />
+        <option value="$PROJECT_DIR$/../Lemon_Tree/class_method/class_method.py" />
       </list>
     </option>
   </component>
@@ -119,7 +125,18 @@
             <path>
               <item name="review" type="b2602c69:ProjectViewProjectNode" />
               <item name="Lemon_Tree" type="462c0819:PsiDirectoryNode" />
-              <item name="ddt_test" type="462c0819:PsiDirectoryNode" />
+              <item name="class_method" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="review" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Lemon_Tree" type="462c0819:PsiDirectoryNode" />
+              <item name="qianchengdai" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="review" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Lemon_Tree" type="462c0819:PsiDirectoryNode" />
+              <item name="qianchengdai" type="462c0819:PsiDirectoryNode" />
+              <item name="util" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -144,8 +161,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python tests.Twisted Trial in ddt_test.py">
-    <configuration name="openpyxl_tools" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.class_method">
+    <configuration name="class_method" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Lemon_Tree" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -153,12 +170,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../Lemon_Tree/qianchengdai/util" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../Lemon_Tree/class_method" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../Lemon_Tree/qianchengdai/util/openpyxl_tools.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../Lemon_Tree/class_method/class_method.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -183,46 +200,62 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
-    <configuration name="Twisted Trial for ddt_test.TestDDT" type="tests" factoryName="Twisted Trial" temporary="true" nameIsGenerated="true">
+    <configuration name="Twisted Trial for app_test_cases.AddBankCard.test_second_full_right_fill" type="tests" factoryName="Twisted Trial" temporary="true" nameIsGenerated="true">
       <module name="Lemon_Tree" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../Lemon_Tree/ddt_test" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../Lemon_Tree/qianchengdai" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;ddt_test.TestDDT&quot;" />
+      <option name="_new_target" value="&quot;app_test_cases.AddBankCard.test_second_full_right_fill&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
     </configuration>
-    <configuration name="Twisted Trial in ddt_test.py" type="tests" factoryName="Twisted Trial" temporary="true" nameIsGenerated="true">
+    <configuration name="Twisted Trial for app_test_cases.LoginTestCase.test_login_api" type="tests" factoryName="Twisted Trial" temporary="true" nameIsGenerated="true">
       <module name="Lemon_Tree" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../Lemon_Tree/ddt_test" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../Lemon_Tree/qianchengdai" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;$PROJECT_DIR$/../Lemon_Tree/ddt_test/ddt_test.py&quot;" />
+      <option name="_new_target" value="&quot;app_test_cases.LoginTestCase.test_login_api&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+    </configuration>
+    <configuration name="Twisted Trial in app_test_cases.py" type="tests" factoryName="Twisted Trial" temporary="true" nameIsGenerated="true">
+      <module name="Lemon_Tree" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../Lemon_Tree/qianchengdai" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/../Lemon_Tree/qianchengdai/app_test_cases.py&quot;" />
       <option name="_new_targetType" value="&quot;PATH&quot;" />
     </configuration>
     <list>
+      <item itemvalue="Python tests.Twisted Trial for app_test_cases.LoginTestCase.test_login_api" />
+      <item itemvalue="Python tests.Twisted Trial for app_test_cases.AddBankCard.test_second_full_right_fill" />
+      <item itemvalue="Python tests.Twisted Trial in app_test_cases.py" />
       <item itemvalue="Python.qianchengdai_testsuite" />
-      <item itemvalue="Python.openpyxl_tools" />
-      <item itemvalue="Python tests.Twisted Trial in ddt_test.py" />
-      <item itemvalue="Python tests.Twisted Trial for ddt_test.TestDDT" />
+      <item itemvalue="Python.class_method" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python tests.Twisted Trial in ddt_test.py" />
-        <item itemvalue="Python tests.Twisted Trial for ddt_test.TestDDT" />
+        <item itemvalue="Python.class_method" />
         <item itemvalue="Python.qianchengdai_testsuite" />
-        <item itemvalue="Python.openpyxl_tools" />
+        <item itemvalue="Python tests.Twisted Trial in app_test_cases.py" />
+        <item itemvalue="Python tests.Twisted Trial for app_test_cases.LoginTestCase.test_login_api" />
+        <item itemvalue="Python tests.Twisted Trial for app_test_cases.AddBankCard.test_second_full_right_fill" />
       </list>
     </recent_temporary>
   </component>
@@ -237,35 +270,35 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Twisted_Trial_in_ddt_test_py - 2019.03.25 at 17h 24m 35s.xml">
-      <configuration name="Twisted Trial in ddt_test.py" configurationId="tests" />
+    <history-entry file="Twisted_Trial_for_app_test_cases_LoginTestCase_test_login_api - 2019.03.26 at 10h 21m 52s.xml">
+      <configuration name="Twisted Trial for app_test_cases.LoginTestCase.test_login_api" configurationId="tests" />
     </history-entry>
-    <history-entry file="Twisted_Trial_in_ddt_test_py - 2019.03.25 at 17h 25m 01s.xml">
-      <configuration name="Twisted Trial in ddt_test.py" configurationId="tests" />
+    <history-entry file="Twisted_Trial_for_app_test_cases_LoginTestCase_test_login_api - 2019.03.26 at 10h 22m 25s.xml">
+      <configuration name="Twisted Trial for app_test_cases.LoginTestCase.test_login_api" configurationId="tests" />
     </history-entry>
-    <history-entry file="Twisted_Trial_in_ddt_test_py - 2019.03.25 at 17h 26m 25s.xml">
-      <configuration name="Twisted Trial in ddt_test.py" configurationId="tests" />
+    <history-entry file="Twisted_Trial_for_app_test_cases_LoginTestCase_test_login_api - 2019.03.26 at 10h 24m 06s.xml">
+      <configuration name="Twisted Trial for app_test_cases.LoginTestCase.test_login_api" configurationId="tests" />
     </history-entry>
-    <history-entry file="Twisted_Trial_in_ddt_test_py - 2019.03.25 at 17h 26m 29s.xml">
-      <configuration name="Twisted Trial in ddt_test.py" configurationId="tests" />
+    <history-entry file="Twisted_Trial_for_app_test_cases_LoginTestCase_test_login_api - 2019.03.26 at 10h 29m 03s.xml">
+      <configuration name="Twisted Trial for app_test_cases.LoginTestCase.test_login_api" configurationId="tests" />
     </history-entry>
-    <history-entry file="Twisted_Trial_in_ddt_test_py - 2019.03.25 at 17h 28m 55s.xml">
-      <configuration name="Twisted Trial in ddt_test.py" configurationId="tests" />
+    <history-entry file="Twisted_Trial_for_app_test_cases_LoginTestCase_test_login_api - 2019.03.26 at 10h 30m 23s.xml">
+      <configuration name="Twisted Trial for app_test_cases.LoginTestCase.test_login_api" configurationId="tests" />
     </history-entry>
-    <history-entry file="Twisted_Trial_in_ddt_test_py - 2019.03.25 at 17h 29m 13s.xml">
-      <configuration name="Twisted Trial in ddt_test.py" configurationId="tests" />
+    <history-entry file="Twisted_Trial_for_app_test_cases_LoginTestCase_test_login_api - 2019.03.26 at 10h 30m 49s.xml">
+      <configuration name="Twisted Trial for app_test_cases.LoginTestCase.test_login_api" configurationId="tests" />
     </history-entry>
-    <history-entry file="Twisted_Trial_in_ddt_test_py - 2019.03.25 at 17h 29m 21s.xml">
-      <configuration name="Twisted Trial in ddt_test.py" configurationId="tests" />
+    <history-entry file="Twisted_Trial_for_app_test_cases_AddBankCard_test_second_full_right_fill - 2019.03.26 at 10h 35m 13s.xml">
+      <configuration name="Twisted Trial for app_test_cases.AddBankCard.test_second_full_right_fill" configurationId="tests" />
     </history-entry>
-    <history-entry file="Twisted_Trial_in_ddt_test_py - 2019.03.25 at 17h 31m 47s.xml">
-      <configuration name="Twisted Trial in ddt_test.py" configurationId="tests" />
+    <history-entry file="Twisted_Trial_for_app_test_cases_LoginTestCase_test_login_api - 2019.03.26 at 10h 37m 08s.xml">
+      <configuration name="Twisted Trial for app_test_cases.LoginTestCase.test_login_api" configurationId="tests" />
     </history-entry>
-    <history-entry file="Twisted_Trial_in_ddt_test_py - 2019.03.25 at 17h 33m 33s.xml">
-      <configuration name="Twisted Trial in ddt_test.py" configurationId="tests" />
+    <history-entry file="Twisted_Trial_in_app_test_cases_py - 2019.03.26 at 10h 37m 26s.xml">
+      <configuration name="Twisted Trial in app_test_cases.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Twisted_Trial_in_ddt_test_py - 2019.03.25 at 17h 33m 45s.xml">
-      <configuration name="Twisted Trial in ddt_test.py" configurationId="tests" />
+    <history-entry file="Twisted_Trial_in_app_test_cases_py - 2019.03.26 at 10h 42m 55s.xml">
+      <configuration name="Twisted Trial in app_test_cases.py" configurationId="tests" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
@@ -273,26 +306,26 @@
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
-      <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Python Console" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.31560692" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
-      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
-      <window_info anchor="right" id="Database" />
-      <window_info anchor="right" id="SciView" />
+      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Python Console" order="7" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.4682081" />
+      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25305623" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="right" id="Database" order="3" />
+      <window_info anchor="right" id="SciView" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" side_tool="true" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -302,16 +335,46 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/.PyCharm2018.1/system/python_stubs/1099968596/builtins.py">
+    <entry file="file://$PROJECT_DIR$/../Lemon_Tree/qianchengdai/http_request.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="132" column="4" selection-start-line="132" selection-start-column="4" selection-end-line="132" selection-end-column="4" />
+        <state>
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../Lemon_Tree/qianchengdai/http_request.py">
+    <entry file="file://$PROJECT_DIR$/../Lemon_Tree/qianchengdai/app_test_cases.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-432">
+        <state relative-caret-position="480">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Lemon_Tree/qianchengdai/util/openpyxl_tools.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Lemon_Tree/qianchengdai/qianchengdai_testsuite.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Lemon_Tree/ddt_test/ddt_test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="12" column="24" lean-forward="true" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>
@@ -325,40 +388,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../Lemon_Tree/qianchengdai/util/openpyxl_tools.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Lemon_Tree/qianchengdai/app_test_cases.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36/Lib/site-packages/data/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36/Lib/unittest/case.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="58" selection-start-line="58" selection-end-line="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Lemon_Tree/qianchengdai/qianchengdai_testsuite.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="47">
-          <caret line="13" selection-start-line="13" selection-end-line="13" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -369,10 +402,88 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../Lemon_Tree/qianchengdai/util/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Lemon_Tree/qianchengdai/util/conf.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="24">
+          <caret line="1" column="11" selection-start-line="1" selection-start-column="11" selection-end-line="1" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/../Lemon_Tree/ddt_test/ddt_test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="12" column="24" lean-forward="true" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
+        <state relative-caret-position="216">
+          <caret line="9" column="21" lean-forward="true" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36/Lib/site-packages/twisted/trial/runner.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1080">
+          <caret line="742" selection-start-line="742" selection-end-line="742" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Lemon_Tree/qianchengdai/util/openpyxl_tools.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="11" column="28" lean-forward="true" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36/Lib/site-packages/HTMLTestRunner.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharm2018.1/system/python_stubs/1099968596/builtins.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="279">
+          <caret line="2569" column="8" selection-start-line="2569" selection-start-column="8" selection-end-line="2569" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Lemon_Tree/qianchengdai/http_request.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="15" column="83" selection-start-line="15" selection-start-column="83" selection-end-line="15" selection-end-column="83" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Lemon_Tree/qianchengdai/qianchengdai_testsuite.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="648">
+          <caret line="27" column="36" lean-forward="true" selection-start-line="27" selection-start-column="36" selection-end-line="27" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Lemon_Tree/qianchengdai/util/get_conf.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="24">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Lemon_Tree/class_method/class_method.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="16" column="26" lean-forward="true" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Lemon_Tree/qianchengdai/app_test_cases.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="22" column="58" lean-forward="true" selection-start-line="22" selection-start-column="58" selection-end-line="22" selection-end-column="58" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>

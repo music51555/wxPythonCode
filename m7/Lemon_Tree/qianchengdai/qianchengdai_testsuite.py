@@ -1,6 +1,6 @@
 import unittest
 from qianchengdai.app_test_cases import LoginTestCase
-from qianchengdai.app_test_cases import AddBankCard
+# from qianchengdai.app_test_cases import AddBankCard
 from qianchengdai.get_cookies import GetCookies
 from qianchengdai.util.openpyxl_tools import DoExcel
 import HTMLTestRunner
