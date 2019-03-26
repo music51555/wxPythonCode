@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>注册模块测试用例</title>
+    <meta name="generator" content="HTMLTestRunner 0.8.2"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    
+<style type="text/css" media="screen">
+body        { font-family: verdana, arial, helvetica, sans-serif; font-size: 80%; }
+table       { font-size: 100%; }
+pre         { }
+
+/* -- heading ---------------------------------------------------------------------- */
+h1 {
+	font-size: 16pt;
+	color: gray;
+}
+.heading {
+    margin-top: 0ex;
+    margin-bottom: 1ex;
+}
+
+.heading .attribute {
+    margin-top: 1ex;
+    margin-bottom: 0;
+}
+
+.heading .description {
+    margin-top: 4ex;
+    margin-bottom: 6ex;
+}
+
+/* -- css div popup ------------------------------------------------------------------------ */
+a.popup_link {
+}
+
+a.popup_link:hover {
+    color: red;
+}
+
+.popup_window {
+    display: none;
+    position: relative;
+    left: 0px;
+    top: 0px;
+    /*border: solid #627173 1px; */
+    padding: 10px;
+    background-color: #E6E6D6;
+    font-family: "Lucida Console", "Courier New", Courier, monospace;
+    text-align: left;
+    font-size: 8pt;
+    width: 500px;
+}
+
+}
+/* -- report ------------------------------------------------------------------------ */
+#show_detail_line {
+    margin-top: 3ex;
+    margin-bottom: 1ex;
+}
+#result_table {
+    width: 80%;
+    border-collapse: collapse;
+    border: 1px solid #777;
+}
+#header_row {
+    font-weight: bold;
+    color: white;
+    background-color: #777;
+}
+#result_table td {
+    border: 1px solid #777;
+    padding: 2px;
+}
+#total_row  { font-weight: bold; }
+.passClass  { background-color: #6c6; }
+.failClass  { background-color: #c60; }
+.errorClass { background-color: #c00; }
+.passCase   { color: #6c6; }
+.failCase   { color: #c60; font-weight: bold; }
+.errorCase  { color: #c00; font-weight: bold; }
+.hiddenRow  { display: none; }
+.testcase   { margin-left: 2em; }
+
+
+/* -- ending ---------------------------------------------------------------------- */
+#ending {
+}
+
+</style>
+
+</head>
+<body>
+<script language="javascript" type="text/javascript"><!--
+output_list = Array();
+
+/* level - 0:Summary; 1:Failed; 2:All */
+function showCase(level) {
+    trs = document.getElementsByTagName("tr");
+    for (var i = 0; i < trs.length; i++) {
+        tr = trs[i];
+        id = tr.id;
+        if (id.substr(0,2) == 'ft') {
+            if (level < 1) {
+                tr.className = 'hiddenRow';
+            }
+            else {
+                tr.className = '';
+            }
+        }
+        if (id.substr(0,2) == 'pt') {
+            if (level > 1) {
+                tr.className = '';
+            }
+            else {
+                tr.className = 'hiddenRow';
+            }
+        }
+    }
+}
+
+
+function showClassDetail(cid, count) {
+    var id_list = Array(count);
+    var toHide = 1;
+    for (var i = 0; i < count; i++) {
+        tid0 = 't' + cid.substr(1) + '.' + (i+1);
+        tid = 'f' + tid0;
+        tr = document.getElementById(tid);
+        if (!tr) {
+            tid = 'p' + tid0;
+            tr = document.getElementById(tid);
+        }
+        id_list[i] = tid;
+        if (tr.className) {
+            toHide = 0;
+        }
+    }
+    for (var i = 0; i < count; i++) {
+        tid = id_list[i];
+        if (toHide) {
+            document.getElementById('div_'+tid).style.display = 'none'
+            document.getElementById(tid).className = 'hiddenRow';
+        }
+        else {
+            document.getElementById(tid).className = '';
+        }
+    }
+}
+
+
+function showTestDetail(div_id){
+    var details_div = document.getElementById(div_id)
+    var displayState = details_div.style.display
+    // alert(displayState)
+    if (displayState != 'block' ) {
+        displayState = 'block'
+        details_div.style.display = 'block'
+    }
+    else {
+        details_div.style.display = 'none'
+    }
+}
+
+
+function html_escape(s) {
+    s = s.replace(/&/g,'&amp;');
+    s = s.replace(/</g,'&lt;');
+    s = s.replace(/>/g,'&gt;');
+    return s;
+}
+
+/* obsoleted by detail in <div>
+function showOutput(id, name) {
+    var w = window.open("", //url
+                    name,
+                    "resizable,scrollbars,status,width=800,height=450");
+    d = w.document;
+    d.write("<pre>");
+    d.write(html_escape(output_list[id]));
+    d.write("\n");
+    d.write("<a href='javascript:window.close()'>close</a>\n");
+    d.write("</pre>\n");
+    d.close();
+}
+*/
+--></script>
+
+<div class='heading'>
+<h1>注册模块测试用例</h1>
+<p class='attribute'><strong>Start Time:</strong> 2019-03-26 23:49:40</p>
+<p class='attribute'><strong>Duration:</strong> 0:00:00.198926</p>
+<p class='attribute'><strong>Status:</strong> Error 1</p>
+
+<p class='description'></p>
+</div>
+
+
+
+<p id='show_detail_line'>Show
+<a href='javascript:showCase(0)'>Summary</a>
+<a href='javascript:showCase(1)'>Failed</a>
+<a href='javascript:showCase(2)'>All</a>
+</p>
+<table id='result_table'>
+<colgroup>
+<col align='left' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+</colgroup>
+<tr id='header_row'>
+    <td>Test Group/Test case</td>
+    <td>Count</td>
+    <td>Pass</td>
+    <td>Fail</td>
+    <td>Error</td>
+    <td>View</td>
+</tr>
+
+<tr class='errorClass'>
+    <td>test_cases.login_testcase.RegTestCase</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>1</td>
+    <td><a href="javascript:showClassDetail('c1',1)">Detail</a></td>
+</tr>
+
+<tr id='ft1.1' class='none'>
+    <td class='errorCase'><div class='testcase'>test_reg_api</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.1')" >
+        error</a>
+
+    <div id='div_ft1.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.1: &lt;!DOCTYPE html&gt;
+&lt;html lang="zh-CN"&gt;
+&lt;head&gt;
+  &lt;title&gt;前程贷官网 - 欢迎登录&lt;/title&gt;
+  &lt;meta charset="utf-8"&gt;
+      &lt;meta name="keywords" content="前程贷 前程贷官方网站 社群金融 社群P2P 社群理财 蜂群投资 蜂群理财 网贷理财 网络理财" /&gt;
+    &lt;meta name="description" content="社群P2P信息中介平台，P2P领域的创新平台；采用社群金融理财模式，将投资理财用户交付给具备风险识别能力和理财能力的蜂群群主打理，融汇成千上万个蜂群共同监管P2P投资风险。"&gt;  &lt;meta name="renderer" content="webkit"&gt;
+  &lt;meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"&gt;
+  &lt;meta name="baidu-site-verification" content="ZZA75oMos5" /&gt;
+  &lt;link rel="stylesheet" href="/Public/frontend/styles/vendor.css"&gt;
+  &lt;script type='text/javascript' src='/Public/frontend/scripts/lib/jquery.min.js'&gt;&lt;/script&gt;
+  
+  
+  &lt;script&gt;
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?19dd11b0519f0ce499da125c4156e320";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  &lt;/script&gt;
+&lt;/head&gt;
+  &lt;body&gt;
+    &lt;div class="login-head"&gt;
+      &lt;div class="login-center"&gt;
+        &lt;div class="login-head-logo clearfix"&gt;
+          &lt;!--&lt;a href="/index/index.html" title="前程贷" class="logo left"&gt;&lt;/a&gt;--&gt;
+          &lt;span class="left"&gt;&lt;a href="/Index/index.html" title="前程贷"&gt;&lt;img src="/Public/frontend/images/logo.png" alt="前程贷" height="52px" width="244px"&gt;&lt;/a&gt;&lt;/span&gt;
+          &lt;div&gt;登录&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="login-center login-body"&gt;&lt;a href="javascript:;" style="background: url('/Public/frontend/images/login-banner.png') no-repeat;" class="login-banner"&gt;&lt;/a&gt;
+      &lt;div class="login-form"&gt;
+        &lt;h1&gt;登录前程贷&lt;/h1&gt;
+        &lt;form name="login-form" action="/Frontend/Index/login" method="post"&gt;
+          
+          &lt;div class="form-group"&gt;
+            &lt;input type="text" name="phone" placeholder="手机号" datatype="m" nullmsg="请输入手机号" errormsg="请输入正确的手机号" class="form-control username" value=""&gt;
+          &lt;/div&gt;
+          &lt;div class="form-group"&gt;
+            &lt;input type="password" name="password" placeholder="密码" datatype="*" nullmsg="请输入密码" class="form-control"&gt;
+          &lt;/div&gt;
+          &lt;div style="display:none" class="form-group clearfix verify-form-group"&gt;
+            &lt;input name="vcode" datatype="*4-4" placeholder="图片验证码" nullmsg="请输入验证码" errormsg="请填写4位验证码" class="left verify-input form-control"&gt;&lt;img width="130px" height="43px" src="/Frontend/Index/member_vcode?r=123" class="verify-img"&gt;
+          &lt;/div&gt;
+          &lt;div class="checkbox"&gt;
+            &lt;label&gt;
+              &lt;input name="remember_me" type="checkbox" class="mr-10 rememberme" value="1" checked&gt;记住手机号
+            &lt;/label&gt;
+            &lt;label class="right"&gt;&lt;a href="/Index/find_pwd.html"&gt;忘记密码?&lt;/a&gt;&lt;/label&gt;
+          &lt;/div&gt;
+          &lt;div class="form-group mt-20"&gt;
+            &lt;input type="hidden" name="notify_url" value="L2Z1dHVyZWxvYW4vbXZjL2FwaS9tZW1iZXIvcmVnaXN0ZXI"&gt;
+            &lt;button type="button" class="btn btn-special"&gt;登录&lt;/button&gt;
+                      &lt;/div&gt;
+          &lt;div class="text-center"&gt;还不是前程贷会员?&lt;a href="/Index/reg.html"&gt;&amp;nbsp;免费注册&lt;/a&gt;&lt;/div&gt;
+        &lt;/form&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="login-center login-footer text-center"&gt;&lt;span&gt;
+    &lt;a href="#"&gt;安全保障&lt;/a&gt;&lt;/span&gt;&lt;span&gt;
+    &lt;a href="#"&gt;关于我们&lt;/a&gt;&lt;/span&gt;&lt;span&gt;
+    &lt;a href="#"&gt;联系我们&lt;/a&gt;&lt;/span&gt;&lt;span class="no-border"&gt;
+    &lt;a href="/Announce/announce_list.html"&gt;平台公告&lt;/a&gt;&lt;/span&gt;
+
+      &lt;div&gt;版权所有©深圳市前程互联网金融有限公司 粤ICP备88888888号&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;script src="/Public/frontend/scripts/lib/vendor.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+  seajs.config({
+    base: '/Public/frontend/scripts',
+    alias: {
+      'backbone': 'lib/backbone',
+      'underscore': 'lib/underscore',
+      'handlebars': 'lib/handlebars'
+    },
+    paths: {
+      'controllers': 'app/controllers',
+      'plugins': 'app/plugins',
+      'services': 'app/services',
+      'models': 'app/models',
+      'views': 'app/views',
+      'config': 'app/config',
+      'tpl':'app/tpl'
+    }
+  });
+  _.templateSettings = {
+    evaluate: /\{{(.+?)}\}/g,
+    interpolate: /\{{=(.+?)}\}/g,
+    escape: /\{{-(.+?)}\}/g,
+  };
+  seajs.use('controllers/common', function(){
+      });
+  (function (doc, win) {
+    var u = navigator.userAgent;
+    var mobile = !!u.match(/AppleWebKit.*Mobile.*/) || !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/) || (u.indexOf('Android') &gt; -1);
+    var docEl = doc.documentElement,
+        resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+        recalc = function () {
+          var clientWidth = docEl.clientWidth;
+          if (!clientWidth) return;
+          docEl.style.fontSize = 20 * (clientWidth / 320) + 'px';
+        };
+    if(!mobile) return;
+
+    $('html').css('width','80rem');
+    if (!doc.addEventListener) return;
+    win.addEventListener(resizeEvt, recalc, false);
+    doc.addEventListener('DOMContentLoaded', recalc, false);
+  })(document, window);
+  seajs.use('plugins/calculator');
+
+  $(function(){
+    $(".ios_code_icon").hover(function(){
+      $(".ios_code_box").show();
+    },function(){
+      $(".ios_code_box").hide();
+    })
+    $(".and_code_icon").hover(function(){
+      $(".and_code_box").show();
+    },function(){
+      $(".and_code_box").hide();
+    })
+  });
+
+  $('.develop').click(function(){
+    alert('功能开发中,敬请期待!');
+  });
+&lt;/script&gt;
+
+    &lt;script&gt;
+      $(function() {
+        seajs.use(['lib/layer/layer']);
+        seajs.use(['config/config','lib/validform'], function (config) {
+          $('form').Validform({
+            btnSubmit: '.btn-special',
+            dragonfly: true,
+            ignoreHidden: true,
+            ajaxPost: true,
+            tiptype: config.VALIDFORM_TIPTYPE,
+            callback: function (res) {
+              switch (res.state) {
+                //登录失败
+                case 0:
+                  layer.msg(res.msg, {
+                    offset: '100px'
+                  });
+                  ($('.verify-img').is(':visible') &amp;&amp; $('body').trigger('verifyImg.click'));
+                  break;
+                //登录成功
+                case 1:
+                    console.log(res);
+                  $('.btn-special').append(res.synlogin);
+                  location.href = res.redirect_url;
+                  break;
+                //失败次数超过三次
+                case 3:
+                  layer.msg(res.msg, {
+                    offset: '100px'
+                  });
+                  $('body').trigger('verifyImg.show').trigger('verifyImg.click');
+              }
+            }
+          });
+        });
+      });
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+Traceback (most recent call last):
+  File "/Users/mac/Documents/wxPythonCode/m7/Lemon_Tree/FurureLoan/test_cases/login_testcase.py", line 16, in test_reg_api
+    print(response.json())
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/requests/models.py", line 897, in json
+    return complexjson.loads(self.text, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/json/__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/json/decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/json/decoder.py", line 357, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='total_row'>
+    <td>Total</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>1</td>
+    <td>&nbsp;</td>
+</tr>
+</table>
+
+<div id='ending'>&nbsp;</div>
+
+</body>
+</html>

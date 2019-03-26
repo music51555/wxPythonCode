@@ -16,7 +16,8 @@ class QCDLoadTestCases:
         self.loader = unittest.TestLoader()
 
     def login_testcases(self):
-        self.suite.addTest(self.loader.loadTestsFromTestCase(LoginTestCase))
+        self.suite.addTest(LoginTestCase('test_login_api'))
+        # self.suite.addTest(self.loader.loadTestsFromTestCase(LoginTestCase))
 
     def start(self):
         self.get_suite()

@@ -7,7 +7,7 @@ class GetConf:
         self.section = section
         self.option = option
         self.conf = configparser.ConfigParser()
-        self.conf.read(self.file_name)
+        self.conf.read(self.file_name,encoding='utf-8')
 
     def get_conf(self):
         value = self.conf.get(self.section,self.option)
