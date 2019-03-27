@@ -4,9 +4,10 @@ import settings
 
 class HttpRequest:
 
-    def __init__(self,url,data):
+    def __init__(self,url,data,cookies):
         self.url = url
         self.data = data
+        self.cookies = cookies
 
     def get_headers(self):
         headers = {'UserAgent':random.choice(settings.USER_AGENT)}
@@ -17,5 +18,5 @@ class HttpRequest:
         return response
 
     def request_post(self):
-        response = requests.post(url=self.url, data=self.data, headers = self.get_headers())
+        response = requests.post(url=self.url, data=self.data, cookies = self.cookies, headers = self.get_headers())
         return response

@@ -130,6 +130,22 @@ eval(s)
 
 
 
+**将数据回写到Excel中**
+
+```python
+def set_value(self):
+    # 可以通过sheet.cell(row.column).value取到值
+    # 也可以通过sheet.cell(row,column).value = xxxxx来写入值
+    self.sheet.cell(self.kwargs['row']+1,5).value = self.kwargs['value']
+    
+    # 最后通过wb对象调用save()方法回写到excel中
+    self.wb.save(self.file_name)
+```
+
+
+
+
+
 excel中写上title，循环得到每一行的值，根据每一行的值去创建字典，e
 
 

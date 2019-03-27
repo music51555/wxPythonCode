@@ -1,11 +1,13 @@
 from openpyxl import load_workbook
 
 class DoExcel:
-    def __init__(self,file_name,sheet_name,mode = 'all'):
+    def __init__(self,file_name,sheet_name,mode = 'all',**kwargs):
         self.file_name = file_name
         self.sheet_name = sheet_name
         self.mode = mode
-        self.sheet = load_workbook(self.file_name)[self.sheet_name]
+        self.kwargs = kwargs
+        self.wb = load_workbook(self.file_name)
+        self.sheet = self.wb[self.sheet_name]
 
     def get_value(self):
         case_list = []
@@ -21,9 +23,13 @@ class DoExcel:
         if self.mode == 'all':
             final_case_list = case_list
         else:
-            for id in self.mode:
+            for id in eval(self.mode):
                 for case in case_list:
                     if id == case['case_id']:
                         final_case_list.append(case)
 
         return final_case_list
+
+    def set_value(self):
+        self.sheet.cell(self.kwargs['row']+1,5).value = self.kwargs['value']
+        self.wb.save(self.file_name)

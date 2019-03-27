@@ -1,28 +1,27 @@
 import unittest
 from http_request.http_request import HttpRequest
+from utils.do_cookies.set_cookies import SetCookies
+from utils.do_excel.do_excel import DoExcel
+from utils.case_conf.case_conf import GetConf
+from ddt import ddt,data,unpack
 
+mode = GetConf('../conf/conf.ini','LOGIN','case_id_list').get_conf()
+login_case_list = DoExcel('../utils/do_excel/test_case.xlsx','login',mode=mode).get_value()
 
-class RegTestCase(unittest.TestCase):
-    register_url = 'http://120.78.128.25:8765/futureloan/mvc/api/member/register'
+@ddt
+class LoginTestCase(unittest.TestCase):
+    register_url = 'http://47.107.168.87:8080/futureloan/mvc/api/member/login'
 
-    def __init__(self,methodName,data,expected):
-        super().__init__(methodName)
-        self.data = data
-        self.expected = expected
-
-    def test_reg_api(self):
-        response = HttpRequest(url = self.register_url,data=self.data).request_get()
-        print(response.text)
+    @data(*login_case_list)
+    def test_login_api(self,case):
+        print(case['case_title'])
+        response = HttpRequest(url = self.register_url,data=eval(case['case_data']), cookies=None).request_post()
         print(response.json())
-        self.assertEqual(self.expected,response.json())
+        DoExcel('../utils/do_excel/test_case.xlsx','login',row = case['case_id'],value = response.json()['code']).set_value()
+        if response.json()['code'] == '10001':
+            setattr(SetCookies,'cookies',response.cookies)
+        self.assertEqual(str(case['case_expected']),response.json()['code'])
 
-# if __name__ == '__main__':
-#     r = RegTestCase('test_reg_api','{"mobilephone":"18611848257","pwd":"nishi458","regname":"乐乐"}','10001')
-#     r.test_reg_api()
 
-{'phone':'13911228153',}
-:
-: aewy
-code: 8989
-password: nishi458
-agree: on
+
+

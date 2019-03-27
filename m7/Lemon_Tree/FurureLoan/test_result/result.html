@@ -2,7 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>注册模块测试用例</title>
+    <title>登录模块测试用例</title>
     <meta name="generator" content="HTMLTestRunner 0.8.2"/>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     
@@ -188,10 +188,10 @@ function showOutput(id, name) {
 --></script>
 
 <div class='heading'>
-<h1>注册模块测试用例</h1>
-<p class='attribute'><strong>Start Time:</strong> 2019-03-26 23:49:40</p>
-<p class='attribute'><strong>Duration:</strong> 0:00:00.198926</p>
-<p class='attribute'><strong>Status:</strong> Error 1</p>
+<h1>登录模块测试用例</h1>
+<p class='attribute'><strong>Start Time:</strong> 2019-03-27 17:29:28</p>
+<p class='attribute'><strong>Duration:</strong> 0:00:00.462027</p>
+<p class='attribute'><strong>Status:</strong> Pass 2 Failure 1</p>
 
 <p class='description'></p>
 </div>
@@ -221,22 +221,22 @@ function showOutput(id, name) {
     <td>View</td>
 </tr>
 
-<tr class='errorClass'>
-    <td>test_cases.login_testcase.RegTestCase</td>
+<tr class='failClass'>
+    <td>test_cases.register_testcase.RegisterTestCase</td>
     <td>1</td>
     <td>0</td>
-    <td>0</td>
     <td>1</td>
+    <td>0</td>
     <td><a href="javascript:showClassDetail('c1',1)">Detail</a></td>
 </tr>
 
 <tr id='ft1.1' class='none'>
-    <td class='errorCase'><div class='testcase'>test_reg_api</div></td>
+    <td class='failCase'><div class='testcase'>test_register_api_1</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
     <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.1')" >
-        error</a>
+        fail</a>
 
     <div id='div_ft1.1' class="popup_window">
         <div style='text-align: right; color:red;cursor:pointer'>
@@ -245,189 +245,87 @@ function showOutput(id, name) {
         </div>
         <pre>
         
-ft1.1: &lt;!DOCTYPE html&gt;
-&lt;html lang="zh-CN"&gt;
-&lt;head&gt;
-  &lt;title&gt;前程贷官网 - 欢迎登录&lt;/title&gt;
-  &lt;meta charset="utf-8"&gt;
-      &lt;meta name="keywords" content="前程贷 前程贷官方网站 社群金融 社群P2P 社群理财 蜂群投资 蜂群理财 网贷理财 网络理财" /&gt;
-    &lt;meta name="description" content="社群P2P信息中介平台，P2P领域的创新平台；采用社群金融理财模式，将投资理财用户交付给具备风险识别能力和理财能力的蜂群群主打理，融汇成千上万个蜂群共同监管P2P投资风险。"&gt;  &lt;meta name="renderer" content="webkit"&gt;
-  &lt;meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"&gt;
-  &lt;meta name="baidu-site-verification" content="ZZA75oMos5" /&gt;
-  &lt;link rel="stylesheet" href="/Public/frontend/styles/vendor.css"&gt;
-  &lt;script type='text/javascript' src='/Public/frontend/scripts/lib/jquery.min.js'&gt;&lt;/script&gt;
-  
-  
-  &lt;script&gt;
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "//hm.baidu.com/hm.js?19dd11b0519f0ce499da125c4156e320";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
-  &lt;/script&gt;
-&lt;/head&gt;
-  &lt;body&gt;
-    &lt;div class="login-head"&gt;
-      &lt;div class="login-center"&gt;
-        &lt;div class="login-head-logo clearfix"&gt;
-          &lt;!--&lt;a href="/index/index.html" title="前程贷" class="logo left"&gt;&lt;/a&gt;--&gt;
-          &lt;span class="left"&gt;&lt;a href="/Index/index.html" title="前程贷"&gt;&lt;img src="/Public/frontend/images/logo.png" alt="前程贷" height="52px" width="244px"&gt;&lt;/a&gt;&lt;/span&gt;
-          &lt;div&gt;登录&lt;/div&gt;
-        &lt;/div&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class="login-center login-body"&gt;&lt;a href="javascript:;" style="background: url('/Public/frontend/images/login-banner.png') no-repeat;" class="login-banner"&gt;&lt;/a&gt;
-      &lt;div class="login-form"&gt;
-        &lt;h1&gt;登录前程贷&lt;/h1&gt;
-        &lt;form name="login-form" action="/Frontend/Index/login" method="post"&gt;
-          
-          &lt;div class="form-group"&gt;
-            &lt;input type="text" name="phone" placeholder="手机号" datatype="m" nullmsg="请输入手机号" errormsg="请输入正确的手机号" class="form-control username" value=""&gt;
-          &lt;/div&gt;
-          &lt;div class="form-group"&gt;
-            &lt;input type="password" name="password" placeholder="密码" datatype="*" nullmsg="请输入密码" class="form-control"&gt;
-          &lt;/div&gt;
-          &lt;div style="display:none" class="form-group clearfix verify-form-group"&gt;
-            &lt;input name="vcode" datatype="*4-4" placeholder="图片验证码" nullmsg="请输入验证码" errormsg="请填写4位验证码" class="left verify-input form-control"&gt;&lt;img width="130px" height="43px" src="/Frontend/Index/member_vcode?r=123" class="verify-img"&gt;
-          &lt;/div&gt;
-          &lt;div class="checkbox"&gt;
-            &lt;label&gt;
-              &lt;input name="remember_me" type="checkbox" class="mr-10 rememberme" value="1" checked&gt;记住手机号
-            &lt;/label&gt;
-            &lt;label class="right"&gt;&lt;a href="/Index/find_pwd.html"&gt;忘记密码?&lt;/a&gt;&lt;/label&gt;
-          &lt;/div&gt;
-          &lt;div class="form-group mt-20"&gt;
-            &lt;input type="hidden" name="notify_url" value="L2Z1dHVyZWxvYW4vbXZjL2FwaS9tZW1iZXIvcmVnaXN0ZXI"&gt;
-            &lt;button type="button" class="btn btn-special"&gt;登录&lt;/button&gt;
-                      &lt;/div&gt;
-          &lt;div class="text-center"&gt;还不是前程贷会员?&lt;a href="/Index/reg.html"&gt;&amp;nbsp;免费注册&lt;/a&gt;&lt;/div&gt;
-        &lt;/form&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class="login-center login-footer text-center"&gt;&lt;span&gt;
-    &lt;a href="#"&gt;安全保障&lt;/a&gt;&lt;/span&gt;&lt;span&gt;
-    &lt;a href="#"&gt;关于我们&lt;/a&gt;&lt;/span&gt;&lt;span&gt;
-    &lt;a href="#"&gt;联系我们&lt;/a&gt;&lt;/span&gt;&lt;span class="no-border"&gt;
-    &lt;a href="/Announce/announce_list.html"&gt;平台公告&lt;/a&gt;&lt;/span&gt;
-
-      &lt;div&gt;版权所有©深圳市前程互联网金融有限公司 粤ICP备88888888号&lt;/div&gt;
-    &lt;/div&gt;
-    &lt;script src="/Public/frontend/scripts/lib/vendor.js"&gt;&lt;/script&gt;
-&lt;script&gt;
-  seajs.config({
-    base: '/Public/frontend/scripts',
-    alias: {
-      'backbone': 'lib/backbone',
-      'underscore': 'lib/underscore',
-      'handlebars': 'lib/handlebars'
-    },
-    paths: {
-      'controllers': 'app/controllers',
-      'plugins': 'app/plugins',
-      'services': 'app/services',
-      'models': 'app/models',
-      'views': 'app/views',
-      'config': 'app/config',
-      'tpl':'app/tpl'
-    }
-  });
-  _.templateSettings = {
-    evaluate: /\{{(.+?)}\}/g,
-    interpolate: /\{{=(.+?)}\}/g,
-    escape: /\{{-(.+?)}\}/g,
-  };
-  seajs.use('controllers/common', function(){
-      });
-  (function (doc, win) {
-    var u = navigator.userAgent;
-    var mobile = !!u.match(/AppleWebKit.*Mobile.*/) || !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/) || (u.indexOf('Android') &gt; -1);
-    var docEl = doc.documentElement,
-        resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
-        recalc = function () {
-          var clientWidth = docEl.clientWidth;
-          if (!clientWidth) return;
-          docEl.style.fontSize = 20 * (clientWidth / 320) + 'px';
-        };
-    if(!mobile) return;
-
-    $('html').css('width','80rem');
-    if (!doc.addEventListener) return;
-    win.addEventListener(resizeEvt, recalc, false);
-    doc.addEventListener('DOMContentLoaded', recalc, false);
-  })(document, window);
-  seajs.use('plugins/calculator');
-
-  $(function(){
-    $(".ios_code_icon").hover(function(){
-      $(".ios_code_box").show();
-    },function(){
-      $(".ios_code_box").hide();
-    })
-    $(".and_code_icon").hover(function(){
-      $(".and_code_box").show();
-    },function(){
-      $(".and_code_box").hide();
-    })
-  });
-
-  $('.develop').click(function(){
-    alert('功能开发中,敬请期待!');
-  });
-&lt;/script&gt;
-
-    &lt;script&gt;
-      $(function() {
-        seajs.use(['lib/layer/layer']);
-        seajs.use(['config/config','lib/validform'], function (config) {
-          $('form').Validform({
-            btnSubmit: '.btn-special',
-            dragonfly: true,
-            ignoreHidden: true,
-            ajaxPost: true,
-            tiptype: config.VALIDFORM_TIPTYPE,
-            callback: function (res) {
-              switch (res.state) {
-                //登录失败
-                case 0:
-                  layer.msg(res.msg, {
-                    offset: '100px'
-                  });
-                  ($('.verify-img').is(':visible') &amp;&amp; $('body').trigger('verifyImg.click'));
-                  break;
-                //登录成功
-                case 1:
-                    console.log(res);
-                  $('.btn-special').append(res.synlogin);
-                  location.href = res.redirect_url;
-                  break;
-                //失败次数超过三次
-                case 3:
-                  layer.msg(res.msg, {
-                    offset: '100px'
-                  });
-                  $('body').trigger('verifyImg.show').trigger('verifyImg.click');
-              }
-            }
-          });
-        });
-      });
-    &lt;/script&gt;
-  &lt;/body&gt;
-&lt;/html&gt;
+ft1.1: 正确手机号和正确密码注册
+{'status': 0, 'code': '20110', 'data': None, 'msg': '手机号码已被注册'}
 Traceback (most recent call last):
-  File "/Users/mac/Documents/wxPythonCode/m7/Lemon_Tree/FurureLoan/test_cases/login_testcase.py", line 16, in test_reg_api
-    print(response.json())
-  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/requests/models.py", line 897, in json
-    return complexjson.loads(self.text, **kwargs)
-  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/json/__init__.py", line 354, in loads
-    return _default_decoder.decode(s)
-  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/json/decoder.py", line 339, in decode
-    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
-  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/json/decoder.py", line 357, in raw_decode
-    raise JSONDecodeError("Expecting value", s, err.value) from None
-json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python36\lib\site-packages\ddt.py", line 145, in wrapper
+    return func(self, *args, **kwargs)
+  File "E:\workspace\wxPythonCode\wxPythonCode\m7\Lemon_Tree\FurureLoan\test_cases\register_testcase.py", line 20, in test_register_api
+    self.assertEqual(str(case['case_expected']),response.json()['code'])
+AssertionError: '10001' != '20110'
+- 10001
++ 20110
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>test_cases.login_testcase.LoginTestCase</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c2',1)">Detail</a></td>
+</tr>
+
+<tr id='pt2.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_login_api_1</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.1')" >
+        pass</a>
+
+    <div id='div_pt2.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt2.1: 输入正确的用户名和密码登录
+{'status': 1, 'code': '10001', 'data': None, 'msg': '登录成功'}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>test_cases.recharge_testcase.RechargeTestCase</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c3',1)">Detail</a></td>
+</tr>
+
+<tr id='pt3.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_recharge_api_1</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt3.1')" >
+        pass</a>
+
+    <div id='div_pt3.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt3.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt3.1: 正确手机号和正确金额充值
+{'status': 1, 'code': '10001', 'data': {'id': 1127524, 'regname': '乐乐', 'pwd': '425D8C1C393092A412E500B7D6D056EF', 'mobilephone': '18611848257', 'leaveamount': '2300000.00', 'type': '1', 'regtime': '2019-03-27 12:10:33.0'}, 'msg': '充值成功'}
 
 
         </pre>
@@ -439,10 +337,10 @@ json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
 
 <tr id='total_row'>
     <td>Total</td>
+    <td>3</td>
+    <td>2</td>
     <td>1</td>
     <td>0</td>
-    <td>0</td>
-    <td>1</td>
     <td>&nbsp;</td>
 </tr>
 </table>

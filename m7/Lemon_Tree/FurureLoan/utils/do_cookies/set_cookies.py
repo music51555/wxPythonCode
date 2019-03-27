@@ -1,0 +1,2 @@
+class SetCookies:
+    cookies = None
