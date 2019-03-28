@@ -1,35 +1,47 @@
 from openpyxl import load_workbook
+from utils.case_conf.case_conf import GetConf
+from settings import CONF_INI
 
 class DoExcel:
-    def __init__(self,file_name,sheet_name,mode = 'all',**kwargs):
+    api_url = 'http://47.107.168.87:8080/futureloan/mvc/api/member/'
+
+    def __init__(self,file_name):
         self.file_name = file_name
-        self.sheet_name = sheet_name
-        self.mode = mode
-        self.kwargs = kwargs
         self.wb = load_workbook(self.file_name)
-        self.sheet = self.wb[self.sheet_name]
 
-    def get_value(self):
+    def get_mode(self):
+        case_mode = GetConf(CONF_INI, 'CASE_MODE', 'case_mode').get_conf()
+        return eval(case_mode)
+
+    def set_case_info(self,sheet,row,mode,case_list):
+        case_info = {}
+        case_info['case_id'] = sheet.cell(row, 1).value
+        case_info['case_title'] = sheet.cell(row, 2).value
+        case_info['case_data'] = sheet.cell(row, 3).value
+        case_info['case_expected'] = sheet.cell(row, 4).value
+        case_info['url'] = self.api_url + mode
+        case_info['sheet_name'] = mode
+        case_list.append(case_info)
+
+    def get_case_list(self):
+        case_mode = self.get_mode()
         case_list = []
-        final_case_list = []
-        for row in range(2,self.sheet.max_row+1):
-            case_data = {}
-            case_data['case_id'] = self.sheet.cell(row,1).value
-            case_data['case_title'] = self.sheet.cell(row,2).value
-            case_data['case_data'] = self.sheet.cell(row,3).value
-            case_data['case_expected'] = self.sheet.cell(row,4).value
-            case_list.append(case_data)
+        for mode in case_mode:
+            sheet = self.wb[mode]
+            if case_mode[mode] == 'all':
+                for row in range(2,sheet.max_row+1):
+                    self.set_case_info(sheet,row,mode,case_list)
+            else:
+                for row in case_mode[mode]:
+                    row=int(row)+1
+                    self.set_case_info(sheet,row,mode,case_list)
+        return case_list
 
-        if self.mode == 'all':
-            final_case_list = case_list
-        else:
-            for id in eval(self.mode):
-                for case in case_list:
-                    if id == case['case_id']:
-                        final_case_list.append(case)
-
-        return final_case_list
-
-    def set_value(self):
-        self.sheet.cell(self.kwargs['row']+1,5).value = self.kwargs['value']
+    def set_value(self,sheet_name,row,result,is_sucess):
+        sheet = self.wb[sheet_name]
+        sheet.cell(row+1,5).value = result
+        sheet.cell(row+1,6).value = is_sucess
         self.wb.save(self.file_name)
+
+if __name__ == '__main__':
+    DoExcel('test_case.xlsx').get_case_list()

@@ -1,3 +1,5 @@
+import os
+import sys
 
 USER_AGENT = [
 		'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36 OPR/26.0.1656.60',
@@ -18,3 +20,10 @@ USER_AGENT = [
 		'Mozilla/5.0 (Windows NT 5.1) AppleWebKit/535.11 (KHTML, like Gecko) Chrome/17.0.963.84 Safari/535.11 SE 2.X MetaSr 1.0',
 		'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; Trident/4.0; SV1; QQDownload 732; .NET4.0C; .NET4.0E; SE 2.X MetaSr 1.0) ',
 	]
+
+BASE_DIR = os.path.dirname(__file__)
+sys.path.append(BASE_DIR)
+
+CONF_INI = os.path.join(BASE_DIR,'conf','conf.ini')
+
+EXCEL_FILE = os.path.join(BASE_DIR,'utils','do_excel','test_case.xlsx')

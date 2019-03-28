@@ -1,26 +1,33 @@
 import unittest
 from http_request.http_request import HttpRequest
 from utils.do_cookies.set_cookies import SetCookies
-from utils.do_excel.do_excel import DoExcel
-from utils.case_conf.case_conf import GetConf
+# from utils.do_excel.do_excel import DoExcel
+from utils.do_excel.pandans_test import DoExcel
 from ddt import ddt,data,unpack
+from settings import EXCEL_FILE
 
-mode = GetConf('../conf/conf.ini','LOGIN','case_id_list').get_conf()
-login_case_list = DoExcel('../utils/do_excel/test_case.xlsx','login',mode=mode).get_value()
+case_list = DoExcel(EXCEL_FILE).get_case_list()
 
 @ddt
-class LoginTestCase(unittest.TestCase):
-    register_url = 'http://47.107.168.87:8080/futureloan/mvc/api/member/login'
+class ModuleTestCase(unittest.TestCase):
+    is_sucess = None
 
-    @data(*login_case_list)
-    def test_login_api(self,case):
+    @data(*case_list)
+    def test_api(self,case):
         print(case['case_title'])
-        response = HttpRequest(url = self.register_url,data=eval(case['case_data']), cookies=None).request_post()
+        response = HttpRequest(case['url'],data=eval(case['case_data']), cookies=getattr(SetCookies,'cookies')).request_post()
         print(response.json())
-        DoExcel('../utils/do_excel/test_case.xlsx','login',row = case['case_id'],value = response.json()['code']).set_value()
-        if response.json()['code'] == '10001':
+        if response.cookies:
             setattr(SetCookies,'cookies',response.cookies)
-        self.assertEqual(str(case['case_expected']),response.json()['code'])
+        try:
+            self.assertEqual(str(case['case_expected']),response.json()['code'])
+            self.is_sucess = 'PASS'
+        except AssertionError as e:
+            self.is_sucess = 'FAIL'
+            raise e
+        # finally:
+        #     DoExcel(EXCEL_FILE).set_value(case['sheet_name'], row=case['case_id'], result=response.json()['code'],is_sucess = self.is_sucess)
+
 
 
 

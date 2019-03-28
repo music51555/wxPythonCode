@@ -5,9 +5,6 @@ from utils.do_excel.do_excel import DoExcel
 from ddt import ddt,data,unpack
 from utils.case_conf.case_conf import GetConf
 
-mode = GetConf('../conf/conf.ini','RECHARGE','case_id_list').get_conf()
-recharge_case_list = DoExcel('../utils/do_excel/test_case.xlsx','recharge',mode=mode).get_value()
-
 @ddt
 class RechargeTestCase(unittest.TestCase):
     recharge_url = 'http://47.107.168.87:8080/futureloan/mvc/api/member/recharge'

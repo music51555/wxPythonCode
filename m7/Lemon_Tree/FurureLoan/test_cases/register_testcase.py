@@ -4,9 +4,6 @@ from utils.do_excel.do_excel import DoExcel
 from utils.case_conf.case_conf import GetConf
 from ddt import ddt,data,unpack
 
-mode = GetConf('../conf/conf.ini','REGISTER','case_id_list').get_conf()
-register_case_list = DoExcel('../utils/do_excel/test_case.xlsx','register',mode=mode).get_value()
-
 @ddt
 class RegisterTestCase(unittest.TestCase):
     register_url = 'http://47.107.168.87:8080/futureloan/mvc/api/member/register'
