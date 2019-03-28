@@ -189,9 +189,9 @@ function showOutput(id, name) {
 
 <div class='heading'>
 <h1>登录模块测试用例</h1>
-<p class='attribute'><strong>Start Time:</strong> 2019-03-28 17:23:26</p>
-<p class='attribute'><strong>Duration:</strong> 0:00:00.546032</p>
-<p class='attribute'><strong>Status:</strong> Pass 2 Failure 3</p>
+<p class='attribute'><strong>Start Time:</strong> 2019-03-28 20:21:00</p>
+<p class='attribute'><strong>Duration:</strong> 0:00:00.953135</p>
+<p class='attribute'><strong>Status:</strong> Pass 2 Failure 6</p>
 
 <p class='description'></p>
 </div>
@@ -223,30 +223,43 @@ function showOutput(id, name) {
 
 <tr class='failClass'>
     <td>test_cases.login_testcase.ModuleTestCase</td>
-    <td>5</td>
+    <td>8</td>
     <td>2</td>
-    <td>3</td>
+    <td>6</td>
     <td>0</td>
-    <td><a href="javascript:showClassDetail('c1',5)">Detail</a></td>
+    <td><a href="javascript:showClassDetail('c1',8)">Detail</a></td>
 </tr>
 
-<tr id='pt1.1' class='hiddenRow'>
-    <td class='none'><div class='testcase'>test_api_1</div></td>
+<tr id='ft1.1' class='none'>
+    <td class='failCase'><div class='testcase'>test_api_1</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.1')" >
-        pass</a>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.1')" >
+        fail</a>
 
-    <div id='div_pt1.1' class="popup_window">
+    <div id='div_ft1.1' class="popup_window">
         <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.1').style.display = 'none' " >
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.1').style.display = 'none' " >
            [x]</a>
         </div>
         <pre>
         
-pt1.1: 不输入用户名，不输入密码注册
-{'status': 0, 'code': '20103', 'data': None, 'msg': '手机号不能为空'}
+ft1.1: 输入不足6位的密码
+{'status': 0, 'code': '20110', 'data': None, 'msg': '手机号码已被注册'}
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/ddt.py", line 145, in wrapper
+    return func(self, *args, **kwargs)
+  File "/Users/mac/Documents/wxPythonCode/m7/Lemon_Tree/FurureLoan/test_cases/login_testcase.py", line 27, in test_api
+    raise e
+  File "/Users/mac/Documents/wxPythonCode/m7/Lemon_Tree/FurureLoan/test_cases/login_testcase.py", line 23, in test_api
+    self.assertEqual(str(case['case_expected']),response.json()['code'])
+AssertionError: '20108' != '20110'
+- 20108
+?     -
++ 20110
+?    +
+
 
 
         </pre>
@@ -256,36 +269,23 @@ pt1.1: 不输入用户名，不输入密码注册
     </td>
 </tr>
 
-<tr id='ft1.2' class='none'>
-    <td class='failCase'><div class='testcase'>test_api_2</div></td>
+<tr id='pt1.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_api_2</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.2')" >
-        fail</a>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.2')" >
+        pass</a>
 
-    <div id='div_ft1.2' class="popup_window">
+    <div id='div_pt1.2' class="popup_window">
         <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.2').style.display = 'none' " >
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.2').style.display = 'none' " >
            [x]</a>
         </div>
         <pre>
         
-ft1.2: 输入不足6位的密码
-{'status': 0, 'code': '20110', 'data': None, 'msg': '手机号码已被注册'}
-Traceback (most recent call last):
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python36\lib\site-packages\ddt.py", line 145, in wrapper
-    return func(self, *args, **kwargs)
-  File "E:\workspace\wxPythonCode\wxPythonCode\m7\Lemon_Tree\FurureLoan\test_cases\login_testcase.py", line 27, in test_api
-    raise e
-  File "E:\workspace\wxPythonCode\wxPythonCode\m7\Lemon_Tree\FurureLoan\test_cases\login_testcase.py", line 23, in test_api
-    self.assertEqual(str(case['case_expected']),response.json()['code'])
-AssertionError: '20108' != '20110'
-- 20108
-?     -
-+ 20110
-?    +
-
+pt1.2: 只输入密码登录
+{'status': 0, 'code': '20103', 'data': None, 'msg': '手机号不能为空'}
 
 
         </pre>
@@ -310,7 +310,7 @@ AssertionError: '20108' != '20110'
         </div>
         <pre>
         
-pt1.3: 输入错误的用户名和正确的密码登录
+pt1.3: 111
 {'status': 0, 'code': '20111', 'data': None, 'msg': '用户名或密码错误'}
 
 
@@ -336,14 +336,14 @@ pt1.3: 输入错误的用户名和正确的密码登录
         </div>
         <pre>
         
-ft1.4: 输入不存在的手机号充值
+ft1.4: 111
 {'status': 0, 'code': None, 'data': None, 'msg': '抱歉，请先登录。'}
 Traceback (most recent call last):
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python36\lib\site-packages\ddt.py", line 145, in wrapper
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/ddt.py", line 145, in wrapper
     return func(self, *args, **kwargs)
-  File "E:\workspace\wxPythonCode\wxPythonCode\m7\Lemon_Tree\FurureLoan\test_cases\login_testcase.py", line 27, in test_api
+  File "/Users/mac/Documents/wxPythonCode/m7/Lemon_Tree/FurureLoan/test_cases/login_testcase.py", line 27, in test_api
     raise e
-  File "E:\workspace\wxPythonCode\wxPythonCode\m7\Lemon_Tree\FurureLoan\test_cases\login_testcase.py", line 23, in test_api
+  File "/Users/mac/Documents/wxPythonCode/m7/Lemon_Tree/FurureLoan/test_cases/login_testcase.py", line 23, in test_api
     self.assertEqual(str(case['case_expected']),response.json()['code'])
 AssertionError: '20104' != None
 
@@ -370,14 +370,48 @@ AssertionError: '20104' != None
         </div>
         <pre>
         
-ft1.5: 金额为0充值
+ft1.5: 不输入手机号充值
 {'status': 0, 'code': None, 'data': None, 'msg': '抱歉，请先登录。'}
 Traceback (most recent call last):
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python36\lib\site-packages\ddt.py", line 145, in wrapper
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/ddt.py", line 145, in wrapper
     return func(self, *args, **kwargs)
-  File "E:\workspace\wxPythonCode\wxPythonCode\m7\Lemon_Tree\FurureLoan\test_cases\login_testcase.py", line 27, in test_api
+  File "/Users/mac/Documents/wxPythonCode/m7/Lemon_Tree/FurureLoan/test_cases/login_testcase.py", line 27, in test_api
     raise e
-  File "E:\workspace\wxPythonCode\wxPythonCode\m7\Lemon_Tree\FurureLoan\test_cases\login_testcase.py", line 23, in test_api
+  File "/Users/mac/Documents/wxPythonCode/m7/Lemon_Tree/FurureLoan/test_cases/login_testcase.py", line 23, in test_api
+    self.assertEqual(str(case['case_expected']),response.json()['code'])
+AssertionError: '20103' != None
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.6' class='none'>
+    <td class='failCase'><div class='testcase'>test_api_6</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.6')" >
+        fail</a>
+
+    <div id='div_ft1.6' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.6').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.6: 金额为0充值
+{'status': 0, 'code': None, 'data': None, 'msg': '抱歉，请先登录。'}
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/ddt.py", line 145, in wrapper
+    return func(self, *args, **kwargs)
+  File "/Users/mac/Documents/wxPythonCode/m7/Lemon_Tree/FurureLoan/test_cases/login_testcase.py", line 27, in test_api
+    raise e
+  File "/Users/mac/Documents/wxPythonCode/m7/Lemon_Tree/FurureLoan/test_cases/login_testcase.py", line 23, in test_api
     self.assertEqual(str(case['case_expected']),response.json()['code'])
 AssertionError: '10001' != None
 
@@ -389,11 +423,79 @@ AssertionError: '10001' != None
     </td>
 </tr>
 
+<tr id='ft1.7' class='none'>
+    <td class='failCase'><div class='testcase'>test_api_7</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.7')" >
+        fail</a>
+
+    <div id='div_ft1.7' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.7').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.7: 正确手机号和正确金额充值
+{'status': 0, 'code': None, 'data': None, 'msg': '抱歉，请先登录。'}
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/ddt.py", line 145, in wrapper
+    return func(self, *args, **kwargs)
+  File "/Users/mac/Documents/wxPythonCode/m7/Lemon_Tree/FurureLoan/test_cases/login_testcase.py", line 27, in test_api
+    raise e
+  File "/Users/mac/Documents/wxPythonCode/m7/Lemon_Tree/FurureLoan/test_cases/login_testcase.py", line 23, in test_api
+    self.assertEqual(str(case['case_expected']),response.json()['code'])
+AssertionError: '10001' != None
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.8' class='none'>
+    <td class='failCase'><div class='testcase'>test_api_8</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.8')" >
+        fail</a>
+
+    <div id='div_ft1.8' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.8').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.8: 金额为51万充值
+{'status': 0, 'code': None, 'data': None, 'msg': '抱歉，请先登录。'}
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/ddt.py", line 145, in wrapper
+    return func(self, *args, **kwargs)
+  File "/Users/mac/Documents/wxPythonCode/m7/Lemon_Tree/FurureLoan/test_cases/login_testcase.py", line 27, in test_api
+    raise e
+  File "/Users/mac/Documents/wxPythonCode/m7/Lemon_Tree/FurureLoan/test_cases/login_testcase.py", line 23, in test_api
+    self.assertEqual(str(case['case_expected']),response.json()['code'])
+AssertionError: '20117' != None
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
 <tr id='total_row'>
     <td>Total</td>
-    <td>5</td>
+    <td>8</td>
     <td>2</td>
-    <td>3</td>
+    <td>6</td>
     <td>0</td>
     <td>&nbsp;</td>
 </tr>

@@ -15,7 +15,7 @@ class ModuleTestCase(unittest.TestCase):
     @data(*case_list)
     def test_api(self,case):
         print(case['case_title'])
-        response = HttpRequest(case['url'],data=eval(case['case_data']), cookies=getattr(SetCookies,'cookies')).request_post()
+        response = HttpRequest(case['url'], data=eval(case['case_data']), cookies=getattr(SetCookies,'cookies')).request_post()
         print(response.json())
         if response.cookies:
             setattr(SetCookies,'cookies',response.cookies)
@@ -25,8 +25,6 @@ class ModuleTestCase(unittest.TestCase):
         except AssertionError as e:
             self.is_sucess = 'FAIL'
             raise e
-        # finally:
-        #     DoExcel(EXCEL_FILE).set_value(case['sheet_name'], row=case['case_id'], result=response.json()['code'],is_sucess = self.is_sucess)
 
 
 
