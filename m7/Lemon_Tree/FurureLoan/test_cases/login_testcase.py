@@ -25,6 +25,9 @@ class ModuleTestCase(unittest.TestCase):
         except AssertionError as e:
             self.is_sucess = 'FAIL'
             raise e
+        finally:
+            DoExcel(EXCEL_FILE).update_result(case['sheet_name'],response.json(),case)
+            DoExcel(EXCEL_FILE).update_success(case['sheet_name'],self.is_sucess,case)
 
 
 

@@ -189,9 +189,9 @@ function showOutput(id, name) {
 
 <div class='heading'>
 <h1>登录模块测试用例</h1>
-<p class='attribute'><strong>Start Time:</strong> 2019-03-28 20:21:00</p>
-<p class='attribute'><strong>Duration:</strong> 0:00:00.953135</p>
-<p class='attribute'><strong>Status:</strong> Pass 2 Failure 6</p>
+<p class='attribute'><strong>Start Time:</strong> 2019-03-29 15:47:39</p>
+<p class='attribute'><strong>Duration:</strong> 0:00:02.955169</p>
+<p class='attribute'><strong>Status:</strong> Pass 15</p>
 
 <p class='description'></p>
 </div>
@@ -221,45 +221,32 @@ function showOutput(id, name) {
     <td>View</td>
 </tr>
 
-<tr class='failClass'>
+<tr class='passClass'>
     <td>test_cases.login_testcase.ModuleTestCase</td>
-    <td>8</td>
-    <td>2</td>
-    <td>6</td>
+    <td>15</td>
+    <td>15</td>
     <td>0</td>
-    <td><a href="javascript:showClassDetail('c1',8)">Detail</a></td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c1',15)">Detail</a></td>
 </tr>
 
-<tr id='ft1.1' class='none'>
-    <td class='failCase'><div class='testcase'>test_api_1</div></td>
+<tr id='pt1.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_api_01</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.1')" >
-        fail</a>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.1')" >
+        pass</a>
 
-    <div id='div_ft1.1' class="popup_window">
+    <div id='div_pt1.1' class="popup_window">
         <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.1').style.display = 'none' " >
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.1').style.display = 'none' " >
            [x]</a>
         </div>
         <pre>
         
-ft1.1: 输入不足6位的密码
-{'status': 0, 'code': '20110', 'data': None, 'msg': '手机号码已被注册'}
-Traceback (most recent call last):
-  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/ddt.py", line 145, in wrapper
-    return func(self, *args, **kwargs)
-  File "/Users/mac/Documents/wxPythonCode/m7/Lemon_Tree/FurureLoan/test_cases/login_testcase.py", line 27, in test_api
-    raise e
-  File "/Users/mac/Documents/wxPythonCode/m7/Lemon_Tree/FurureLoan/test_cases/login_testcase.py", line 23, in test_api
-    self.assertEqual(str(case['case_expected']),response.json()['code'])
-AssertionError: '20108' != '20110'
-- 20108
-?     -
-+ 20110
-?    +
-
+pt1.1: 正确手机号和正确密码注册
+{'status': 1, 'code': '10001', 'data': None, 'msg': '注册成功'}
 
 
         </pre>
@@ -270,7 +257,7 @@ AssertionError: '20108' != '20110'
 </tr>
 
 <tr id='pt1.2' class='hiddenRow'>
-    <td class='none'><div class='testcase'>test_api_2</div></td>
+    <td class='none'><div class='testcase'>test_api_02</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
@@ -284,8 +271,8 @@ AssertionError: '20108' != '20110'
         </div>
         <pre>
         
-pt1.2: 只输入密码登录
-{'status': 0, 'code': '20103', 'data': None, 'msg': '手机号不能为空'}
+pt1.2: 输入已注册的手机号注册
+{'status': 0, 'code': '20110', 'data': None, 'msg': '手机号码已被注册'}
 
 
         </pre>
@@ -296,7 +283,7 @@ pt1.2: 只输入密码登录
 </tr>
 
 <tr id='pt1.3' class='hiddenRow'>
-    <td class='none'><div class='testcase'>test_api_3</div></td>
+    <td class='none'><div class='testcase'>test_api_03</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
@@ -310,7 +297,111 @@ pt1.2: 只输入密码登录
         </div>
         <pre>
         
-pt1.3: 111
+pt1.3: 输入错误格式的手机号注册
+{'status': 0, 'code': '20109', 'data': None, 'msg': '手机号码格式不正确'}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_api_04</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.4')" >
+        pass</a>
+
+    <div id='div_pt1.4' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.4').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.4: 输入不足6位的密码
+{'status': 0, 'code': '20108', 'data': None, 'msg': '密码长度必须为6~18'}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.5' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_api_05</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.5')" >
+        pass</a>
+
+    <div id='div_pt1.5' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.5').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.5: 不输入用户名，不输入密码注册
+{'status': 0, 'code': '20103', 'data': None, 'msg': '手机号不能为空'}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.6' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_api_06</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.6')" >
+        pass</a>
+
+    <div id='div_pt1.6' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.6').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.6: 输入正确的用户名和密码登录
+{'status': 1, 'code': '10001', 'data': None, 'msg': '登录成功'}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.7' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_api_07</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.7')" >
+        pass</a>
+
+    <div id='div_pt1.7' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.7').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.7: 输入正确的用户名和错误的密码登录
 {'status': 0, 'code': '20111', 'data': None, 'msg': '用户名或密码错误'}
 
 
@@ -321,31 +412,23 @@ pt1.3: 111
     </td>
 </tr>
 
-<tr id='ft1.4' class='none'>
-    <td class='failCase'><div class='testcase'>test_api_4</div></td>
+<tr id='pt1.8' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_api_08</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.4')" >
-        fail</a>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.8')" >
+        pass</a>
 
-    <div id='div_ft1.4' class="popup_window">
+    <div id='div_pt1.8' class="popup_window">
         <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.4').style.display = 'none' " >
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.8').style.display = 'none' " >
            [x]</a>
         </div>
         <pre>
         
-ft1.4: 111
-{'status': 0, 'code': None, 'data': None, 'msg': '抱歉，请先登录。'}
-Traceback (most recent call last):
-  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/ddt.py", line 145, in wrapper
-    return func(self, *args, **kwargs)
-  File "/Users/mac/Documents/wxPythonCode/m7/Lemon_Tree/FurureLoan/test_cases/login_testcase.py", line 27, in test_api
-    raise e
-  File "/Users/mac/Documents/wxPythonCode/m7/Lemon_Tree/FurureLoan/test_cases/login_testcase.py", line 23, in test_api
-    self.assertEqual(str(case['case_expected']),response.json()['code'])
-AssertionError: '20104' != None
+pt1.8: 输入错误的用户名和正确的密码登录
+{'status': 0, 'code': '20111', 'data': None, 'msg': '用户名或密码错误'}
 
 
         </pre>
@@ -355,31 +438,23 @@ AssertionError: '20104' != None
     </td>
 </tr>
 
-<tr id='ft1.5' class='none'>
-    <td class='failCase'><div class='testcase'>test_api_5</div></td>
+<tr id='pt1.9' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_api_09</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.5')" >
-        fail</a>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.9')" >
+        pass</a>
 
-    <div id='div_ft1.5' class="popup_window">
+    <div id='div_pt1.9' class="popup_window">
         <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.5').style.display = 'none' " >
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.9').style.display = 'none' " >
            [x]</a>
         </div>
         <pre>
         
-ft1.5: 不输入手机号充值
-{'status': 0, 'code': None, 'data': None, 'msg': '抱歉，请先登录。'}
-Traceback (most recent call last):
-  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/ddt.py", line 145, in wrapper
-    return func(self, *args, **kwargs)
-  File "/Users/mac/Documents/wxPythonCode/m7/Lemon_Tree/FurureLoan/test_cases/login_testcase.py", line 27, in test_api
-    raise e
-  File "/Users/mac/Documents/wxPythonCode/m7/Lemon_Tree/FurureLoan/test_cases/login_testcase.py", line 23, in test_api
-    self.assertEqual(str(case['case_expected']),response.json()['code'])
-AssertionError: '20103' != None
+pt1.9: 只输入用户名登录
+{'status': 0, 'code': '20103', 'data': None, 'msg': '密码不能为空'}
 
 
         </pre>
@@ -389,31 +464,23 @@ AssertionError: '20103' != None
     </td>
 </tr>
 
-<tr id='ft1.6' class='none'>
-    <td class='failCase'><div class='testcase'>test_api_6</div></td>
+<tr id='pt1.10' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_api_10</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.6')" >
-        fail</a>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.10')" >
+        pass</a>
 
-    <div id='div_ft1.6' class="popup_window">
+    <div id='div_pt1.10' class="popup_window">
         <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.6').style.display = 'none' " >
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.10').style.display = 'none' " >
            [x]</a>
         </div>
         <pre>
         
-ft1.6: 金额为0充值
-{'status': 0, 'code': None, 'data': None, 'msg': '抱歉，请先登录。'}
-Traceback (most recent call last):
-  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/ddt.py", line 145, in wrapper
-    return func(self, *args, **kwargs)
-  File "/Users/mac/Documents/wxPythonCode/m7/Lemon_Tree/FurureLoan/test_cases/login_testcase.py", line 27, in test_api
-    raise e
-  File "/Users/mac/Documents/wxPythonCode/m7/Lemon_Tree/FurureLoan/test_cases/login_testcase.py", line 23, in test_api
-    self.assertEqual(str(case['case_expected']),response.json()['code'])
-AssertionError: '10001' != None
+pt1.10: 只输入密码登录
+{'status': 0, 'code': '20103', 'data': None, 'msg': '手机号不能为空'}
 
 
         </pre>
@@ -423,31 +490,23 @@ AssertionError: '10001' != None
     </td>
 </tr>
 
-<tr id='ft1.7' class='none'>
-    <td class='failCase'><div class='testcase'>test_api_7</div></td>
+<tr id='pt1.11' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_api_11</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.7')" >
-        fail</a>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.11')" >
+        pass</a>
 
-    <div id='div_ft1.7' class="popup_window">
+    <div id='div_pt1.11' class="popup_window">
         <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.7').style.display = 'none' " >
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.11').style.display = 'none' " >
            [x]</a>
         </div>
         <pre>
         
-ft1.7: 正确手机号和正确金额充值
-{'status': 0, 'code': None, 'data': None, 'msg': '抱歉，请先登录。'}
-Traceback (most recent call last):
-  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/ddt.py", line 145, in wrapper
-    return func(self, *args, **kwargs)
-  File "/Users/mac/Documents/wxPythonCode/m7/Lemon_Tree/FurureLoan/test_cases/login_testcase.py", line 27, in test_api
-    raise e
-  File "/Users/mac/Documents/wxPythonCode/m7/Lemon_Tree/FurureLoan/test_cases/login_testcase.py", line 23, in test_api
-    self.assertEqual(str(case['case_expected']),response.json()['code'])
-AssertionError: '10001' != None
+pt1.11: 正确手机号和正确金额充值
+{'status': 1, 'code': '10001', 'data': {'id': 1135260, 'regname': '乐乐', 'pwd': '425D8C1C393092A412E500B7D6D056EF', 'mobilephone': '18611848307', 'leaveamount': '200000.00', 'type': '1', 'regtime': '2019-03-29 15:44:42.0'}, 'msg': '充值成功'}
 
 
         </pre>
@@ -457,31 +516,101 @@ AssertionError: '10001' != None
     </td>
 </tr>
 
-<tr id='ft1.8' class='none'>
-    <td class='failCase'><div class='testcase'>test_api_8</div></td>
+<tr id='pt1.12' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_api_12</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.8')" >
-        fail</a>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.12')" >
+        pass</a>
 
-    <div id='div_ft1.8' class="popup_window">
+    <div id='div_pt1.12' class="popup_window">
         <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.8').style.display = 'none' " >
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.12').style.display = 'none' " >
            [x]</a>
         </div>
         <pre>
         
-ft1.8: 金额为51万充值
-{'status': 0, 'code': None, 'data': None, 'msg': '抱歉，请先登录。'}
-Traceback (most recent call last):
-  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/ddt.py", line 145, in wrapper
-    return func(self, *args, **kwargs)
-  File "/Users/mac/Documents/wxPythonCode/m7/Lemon_Tree/FurureLoan/test_cases/login_testcase.py", line 27, in test_api
-    raise e
-  File "/Users/mac/Documents/wxPythonCode/m7/Lemon_Tree/FurureLoan/test_cases/login_testcase.py", line 23, in test_api
-    self.assertEqual(str(case['case_expected']),response.json()['code'])
-AssertionError: '20117' != None
+pt1.12: 输入不存在的手机号充值
+{'status': 0, 'code': '20104', 'data': None, 'msg': '此手机号对应的会员不存在'}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.13' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_api_13</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.13')" >
+        pass</a>
+
+    <div id='div_pt1.13' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.13').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.13: 不输入手机号充值
+{'status': 0, 'code': '20103', 'data': None, 'msg': '手机号不能为空'}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.14' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_api_14</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.14')" >
+        pass</a>
+
+    <div id='div_pt1.14' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.14').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.14: 金额为0充值
+{'status': 1, 'code': '10001', 'data': {'id': 1135260, 'regname': '乐乐', 'pwd': '425D8C1C393092A412E500B7D6D056EF', 'mobilephone': '18611848307', 'leaveamount': '200000.00', 'type': '1', 'regtime': '2019-03-29 15:44:42.0'}, 'msg': '充值成功'}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.15' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_api_15</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.15')" >
+        pass</a>
+
+    <div id='div_pt1.15' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.15').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.15: 金额为51万充值
+{'status': 0, 'code': '20117', 'data': None, 'msg': '请输入范围在0到50万之间的正数金额'}
 
 
         </pre>
@@ -493,9 +622,9 @@ AssertionError: '20117' != None
 
 <tr id='total_row'>
     <td>Total</td>
-    <td>8</td>
-    <td>2</td>
-    <td>6</td>
+    <td>15</td>
+    <td>15</td>
+    <td>0</td>
     <td>0</td>
     <td>&nbsp;</td>
 </tr>

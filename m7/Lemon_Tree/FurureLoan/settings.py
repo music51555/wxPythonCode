@@ -27,3 +27,5 @@ sys.path.append(BASE_DIR)
 CONF_INI = os.path.join(BASE_DIR,'conf','conf.ini')
 
 EXCEL_FILE = os.path.join(BASE_DIR,'utils','do_excel','test_case.xlsx')
+
+RESULT_FILE = os.path.join(BASE_DIR,'test_result','result.html')
