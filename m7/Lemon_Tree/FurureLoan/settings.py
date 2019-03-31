@@ -29,3 +29,14 @@ CONF_INI = os.path.join(BASE_DIR,'conf','conf.ini')
 EXCEL_FILE = os.path.join(BASE_DIR,'utils','do_excel','test_case.xlsx')
 
 RESULT_FILE = os.path.join(BASE_DIR,'test_result','result.html')
+
+LOG_FILE = os.path.join(BASE_DIR,'log','web.log')
+
+DATABASE_INFO = {
+            'host':'120.78.128.25',
+            'port':3306,
+            'user':'futurevistor',
+            'password':'123456',
+            'database':'future',
+            'charset':'utf8'
+        }

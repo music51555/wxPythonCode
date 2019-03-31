@@ -1,0 +1,1149 @@
+INFO :2019-03-30 20:26:47,154 log_recorder.py 26 当前执行的用例是正确手机号和正确密码注册
+INFO :2019-03-30 20:26:47,278 log_recorder.py 26 当前用例执行的结果是{'status': 1, 'code': '10001', 'data': None, 'msg': '注册成功'}
+INFO :2019-03-30 20:26:47,347 log_recorder.py 26 当前执行的用例是输入已注册的手机号注册
+INFO :2019-03-30 20:26:47,441 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20110', 'data': None, 'msg': '手机号码已被注册'}
+INFO :2019-03-30 20:26:47,514 log_recorder.py 26 当前执行的用例是输入错误格式的手机号注册
+INFO :2019-03-30 20:26:47,606 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20109', 'data': None, 'msg': '手机号码格式不正确'}
+INFO :2019-03-30 20:26:47,682 log_recorder.py 26 当前执行的用例是输入不足6位的密码
+INFO :2019-03-30 20:26:47,770 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20108', 'data': None, 'msg': '密码长度必须为6~18'}
+INFO :2019-03-30 20:26:47,838 log_recorder.py 26 当前执行的用例是不输入用户名，不输入密码注册
+INFO :2019-03-30 20:26:47,929 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20103', 'data': None, 'msg': '手机号不能为空'}
+INFO :2019-03-30 20:26:47,996 log_recorder.py 26 当前执行的用例是输入正确的用户名和密码登录
+INFO :2019-03-30 20:26:48,087 log_recorder.py 26 当前用例执行的结果是{'status': 1, 'code': '10001', 'data': None, 'msg': '登录成功'}
+INFO :2019-03-30 20:26:48,157 log_recorder.py 26 当前执行的用例是输入正确的用户名和错误的密码登录
+INFO :2019-03-30 20:26:48,252 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20111', 'data': None, 'msg': '用户名或密码错误'}
+INFO :2019-03-30 20:26:48,319 log_recorder.py 26 当前执行的用例是输入错误的用户名和正确的密码登录
+INFO :2019-03-30 20:26:48,414 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20111', 'data': None, 'msg': '用户名或密码错误'}
+INFO :2019-03-30 20:26:48,483 log_recorder.py 26 当前执行的用例是只输入用户名登录
+INFO :2019-03-30 20:26:48,570 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20103', 'data': None, 'msg': '密码不能为空'}
+INFO :2019-03-30 20:26:48,643 log_recorder.py 26 当前执行的用例是只输入密码登录
+INFO :2019-03-30 20:26:48,728 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20103', 'data': None, 'msg': '手机号不能为空'}
+INFO :2019-03-30 20:26:48,819 log_recorder.py 26 当前执行的用例是正确手机号和正确金额充值
+INFO :2019-03-30 20:26:48,926 log_recorder.py 26 当前用例执行的结果是{'status': 1, 'code': '10001', 'data': {'id': 1135438, 'regname': '乐乐', 'pwd': '425D8C1C393092A412E500B7D6D056EF', 'mobilephone': '18611848451', 'leaveamount': '200000.00', 'type': '1', 'regtime': '2019-03-30 20:26:47.0'}, 'msg': '充值成功'}
+INFO :2019-03-30 20:26:48,995 log_recorder.py 26 当前执行的用例是输入不存在的手机号充值
+INFO :2019-03-30 20:26:49,084 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20104', 'data': None, 'msg': '此手机号对应的会员不存在'}
+INFO :2019-03-30 20:26:49,151 log_recorder.py 26 当前执行的用例是不输入手机号充值
+INFO :2019-03-30 20:26:49,240 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20103', 'data': None, 'msg': '手机号不能为空'}
+INFO :2019-03-30 20:26:49,310 log_recorder.py 26 当前执行的用例是金额为0充值
+INFO :2019-03-30 20:26:49,404 log_recorder.py 26 当前用例执行的结果是{'status': 1, 'code': '10001', 'data': {'id': 1135438, 'regname': '乐乐', 'pwd': '425D8C1C393092A412E500B7D6D056EF', 'mobilephone': '18611848451', 'leaveamount': '200000.00', 'type': '1', 'regtime': '2019-03-30 20:26:47.0'}, 'msg': '充值成功'}
+INFO :2019-03-30 20:26:49,473 log_recorder.py 26 当前执行的用例是金额为51万充值
+INFO :2019-03-30 20:26:49,562 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20117', 'data': None, 'msg': '请输入范围在0到50万之间的正数金额'}
+INFO :2019-03-31 15:54:27,627 log_recorder.py 26 当前执行的用例是登录管理员账户
+INFO :2019-03-31 15:54:27,691 log_recorder.py 26 当前执行的用例是新增项目
+INFO :2019-03-31 15:54:27,737 log_recorder.py 26 当前执行的用例是审核项目
+INFO :2019-03-31 15:54:27,787 log_recorder.py 26 当前执行的用例是正常投资项目
+INFO :2019-03-31 15:54:27,835 log_recorder.py 26 当前执行的用例是输入不存在的投资人id
+INFO :2019-03-31 15:54:27,884 log_recorder.py 26 当前执行的用例是输入不足6位的密码
+INFO :2019-03-31 15:54:27,930 log_recorder.py 26 当前执行的用例是投资金额输入负数
+INFO :2019-03-31 15:54:27,976 log_recorder.py 26 当前执行的用例是输入不存在的项目id
+INFO :2019-03-31 16:00:41,749 log_recorder.py 26 当前执行的用例是登录管理员账户
+INFO :2019-03-31 16:00:41,802 log_recorder.py 26 当前执行的用例是新增项目
+INFO :2019-03-31 16:00:41,847 log_recorder.py 26 当前执行的用例是审核项目
+INFO :2019-03-31 16:00:41,892 log_recorder.py 26 当前执行的用例是正常投资项目
+INFO :2019-03-31 16:00:41,942 log_recorder.py 26 当前执行的用例是输入不存在的投资人id
+INFO :2019-03-31 16:00:41,992 log_recorder.py 26 当前执行的用例是输入不足6位的密码
+INFO :2019-03-31 16:00:42,040 log_recorder.py 26 当前执行的用例是投资金额输入负数
+INFO :2019-03-31 16:00:42,087 log_recorder.py 26 当前执行的用例是输入不存在的项目id
+INFO :2019-03-31 16:02:42,460 log_recorder.py 26 当前执行的用例是登录管理员账户
+INFO :2019-03-31 16:02:42,514 log_recorder.py 26 当前执行的用例是新增项目
+INFO :2019-03-31 16:02:42,562 log_recorder.py 26 当前执行的用例是审核项目
+INFO :2019-03-31 16:02:42,608 log_recorder.py 26 当前执行的用例是正常投资项目
+INFO :2019-03-31 16:02:42,659 log_recorder.py 26 当前执行的用例是输入不存在的投资人id
+INFO :2019-03-31 16:02:42,706 log_recorder.py 26 当前执行的用例是输入不足6位的密码
+INFO :2019-03-31 16:02:42,750 log_recorder.py 26 当前执行的用例是投资金额输入负数
+INFO :2019-03-31 16:02:42,798 log_recorder.py 26 当前执行的用例是输入不存在的项目id
+INFO :2019-03-31 16:05:57,633 log_recorder.py 26 当前执行的用例是登录管理员账户
+INFO :2019-03-31 16:05:57,687 log_recorder.py 26 当前执行的用例是新增项目
+INFO :2019-03-31 16:05:57,732 log_recorder.py 26 当前执行的用例是审核项目
+INFO :2019-03-31 16:05:57,781 log_recorder.py 26 当前执行的用例是正常投资项目
+INFO :2019-03-31 16:05:57,827 log_recorder.py 26 当前执行的用例是输入不存在的投资人id
+INFO :2019-03-31 16:05:57,874 log_recorder.py 26 当前执行的用例是输入不足6位的密码
+INFO :2019-03-31 16:05:57,919 log_recorder.py 26 当前执行的用例是投资金额输入负数
+INFO :2019-03-31 16:05:57,967 log_recorder.py 26 当前执行的用例是输入不存在的项目id
+INFO :2019-03-31 16:10:03,077 log_recorder.py 26 当前执行的用例是登录管理员账户
+INFO :2019-03-31 16:10:03,134 log_recorder.py 26 当前执行的用例是新增项目
+INFO :2019-03-31 16:10:03,180 log_recorder.py 26 当前执行的用例是审核项目
+INFO :2019-03-31 16:10:03,226 log_recorder.py 26 当前执行的用例是正常投资项目
+INFO :2019-03-31 16:10:03,271 log_recorder.py 26 当前执行的用例是输入不存在的投资人id
+INFO :2019-03-31 16:10:03,317 log_recorder.py 26 当前执行的用例是输入不足6位的密码
+INFO :2019-03-31 16:10:03,363 log_recorder.py 26 当前执行的用例是投资金额输入负数
+INFO :2019-03-31 16:10:03,409 log_recorder.py 26 当前执行的用例是输入不存在的项目id
+INFO :2019-03-31 16:13:04,557 log_recorder.py 26 当前执行的用例是正确手机号和正确密码注册
+INFO :2019-03-31 16:13:04,615 log_recorder.py 26 当前执行的用例是输入已注册的手机号注册
+INFO :2019-03-31 16:13:04,662 log_recorder.py 26 当前执行的用例是输入错误格式的手机号注册
+INFO :2019-03-31 16:13:04,708 log_recorder.py 26 当前执行的用例是输入不足6位的密码
+INFO :2019-03-31 16:13:04,754 log_recorder.py 26 当前执行的用例是不输入用户名，不输入密码注册
+INFO :2019-03-31 16:13:04,798 log_recorder.py 26 当前执行的用例是输入正确的用户名和密码登录
+INFO :2019-03-31 16:13:04,842 log_recorder.py 26 当前执行的用例是输入正确的用户名和错误的密码登录
+INFO :2019-03-31 16:13:04,890 log_recorder.py 26 当前执行的用例是输入错误的用户名和正确的密码登录
+INFO :2019-03-31 16:13:04,938 log_recorder.py 26 当前执行的用例是只输入用户名登录
+INFO :2019-03-31 16:13:04,986 log_recorder.py 26 当前执行的用例是只输入密码登录
+INFO :2019-03-31 16:45:56,081 log_recorder.py 26 当前执行的用例是正确手机号和正确密码注册
+INFO :2019-03-31 16:45:56,136 log_recorder.py 26 当前执行的用例是输入已注册的手机号注册
+INFO :2019-03-31 16:45:56,184 log_recorder.py 26 当前执行的用例是输入错误格式的手机号注册
+INFO :2019-03-31 16:45:56,231 log_recorder.py 26 当前执行的用例是输入不足6位的密码
+INFO :2019-03-31 16:45:56,280 log_recorder.py 26 当前执行的用例是不输入用户名，不输入密码注册
+INFO :2019-03-31 16:45:56,330 log_recorder.py 26 当前执行的用例是输入正确的用户名和密码登录
+INFO :2019-03-31 16:45:56,375 log_recorder.py 26 当前执行的用例是输入正确的用户名和错误的密码登录
+INFO :2019-03-31 16:45:56,420 log_recorder.py 26 当前执行的用例是输入错误的用户名和正确的密码登录
+INFO :2019-03-31 16:45:56,470 log_recorder.py 26 当前执行的用例是只输入用户名登录
+INFO :2019-03-31 16:45:56,517 log_recorder.py 26 当前执行的用例是只输入密码登录
+INFO :2019-03-31 16:51:40,267 log_recorder.py 26 当前执行的用例是正确手机号和正确密码注册
+INFO :2019-03-31 16:51:40,364 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20109', 'data': None, 'msg': '手机号码格式不正确'}
+INFO :2019-03-31 16:51:40,466 log_recorder.py 26 当前执行的用例是输入已注册的手机号注册
+INFO :2019-03-31 16:51:40,555 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20109', 'data': None, 'msg': '手机号码格式不正确'}
+INFO :2019-03-31 16:51:40,654 log_recorder.py 26 当前执行的用例是输入错误格式的手机号注册
+INFO :2019-03-31 16:51:40,749 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20109', 'data': None, 'msg': '手机号码格式不正确'}
+INFO :2019-03-31 16:51:40,857 log_recorder.py 26 当前执行的用例是输入不足6位的密码
+INFO :2019-03-31 16:51:40,951 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20108', 'data': None, 'msg': '密码长度必须为6~18'}
+INFO :2019-03-31 16:51:41,047 log_recorder.py 26 当前执行的用例是不输入用户名，不输入密码注册
+INFO :2019-03-31 16:51:41,136 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20103', 'data': None, 'msg': '手机号不能为空'}
+INFO :2019-03-31 16:51:41,252 log_recorder.py 26 当前执行的用例是输入正确的用户名和密码登录
+INFO :2019-03-31 16:51:41,344 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20111', 'data': None, 'msg': '用户名或密码错误'}
+INFO :2019-03-31 16:51:41,439 log_recorder.py 26 当前执行的用例是输入正确的用户名和错误的密码登录
+INFO :2019-03-31 16:51:41,533 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20111', 'data': None, 'msg': '用户名或密码错误'}
+INFO :2019-03-31 16:51:41,627 log_recorder.py 26 当前执行的用例是输入错误的用户名和正确的密码登录
+INFO :2019-03-31 16:51:41,717 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20111', 'data': None, 'msg': '用户名或密码错误'}
+INFO :2019-03-31 16:51:41,817 log_recorder.py 26 当前执行的用例是只输入用户名登录
+INFO :2019-03-31 16:51:41,906 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20103', 'data': None, 'msg': '密码不能为空'}
+INFO :2019-03-31 16:51:42,004 log_recorder.py 26 当前执行的用例是只输入密码登录
+INFO :2019-03-31 16:51:42,093 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20103', 'data': None, 'msg': '手机号不能为空'}
+INFO :2019-03-31 16:53:18,047 log_recorder.py 26 当前执行的用例是登录管理员账户
+INFO :2019-03-31 16:53:18,144 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20103', 'data': None, 'msg': '所有参数不能为空'}
+INFO :2019-03-31 16:53:18,236 log_recorder.py 26 当前执行的用例是新增项目
+INFO :2019-03-31 16:53:18,330 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20109', 'data': None, 'msg': '请根据数值参数的类型对应输入合法的数字'}
+INFO :2019-03-31 16:53:18,424 log_recorder.py 26 当前执行的用例是审核项目
+INFO :2019-03-31 16:53:18,515 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20103', 'data': None, 'msg': '所有参数不能为空'}
+INFO :2019-03-31 16:53:18,625 log_recorder.py 26 当前执行的用例是正常投资项目
+INFO :2019-03-31 16:53:18,726 log_recorder.py 26 当前执行的用例是输入不存在的投资人id
+INFO :2019-03-31 16:53:18,816 log_recorder.py 26 当前执行的用例是输入不足6位的密码
+INFO :2019-03-31 16:53:18,908 log_recorder.py 26 当前执行的用例是投资金额输入负数
+INFO :2019-03-31 16:53:18,999 log_recorder.py 26 当前执行的用例是输入不存在的项目id
+INFO :2019-03-31 16:59:43,650 log_recorder.py 26 当前执行的用例是登录管理员账户
+INFO :2019-03-31 16:59:43,650 log_recorder.py 26 请求的参数是{"mobilephone":"18688773467", "pwd":"123456"}
+INFO :2019-03-31 16:59:43,751 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20103', 'data': None, 'msg': '所有参数不能为空'}
+INFO :2019-03-31 16:59:43,851 log_recorder.py 26 当前执行的用例是新增项目
+INFO :2019-03-31 16:59:43,851 log_recorder.py 26 请求的参数是{"memberId":"18611848457","title":"想借点钱花花","amount":15000.0,"loanRate":12.0,"loanTerm":5,"loanDateType":0,"repaymemtWay":11,"biddingDays":5}
+INFO :2019-03-31 16:59:43,942 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20109', 'data': None, 'msg': '请根据数值参数的类型对应输入合法的数字'}
+INFO :2019-03-31 16:59:44,043 log_recorder.py 26 当前执行的用例是审核项目
+INFO :2019-03-31 16:59:44,044 log_recorder.py 26 请求的参数是{"id":"18611848457","status":4}
+INFO :2019-03-31 16:59:44,133 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20103', 'data': None, 'msg': '所有参数不能为空'}
+INFO :2019-03-31 16:59:44,228 log_recorder.py 26 当前执行的用例是正常投资项目
+INFO :2019-03-31 16:59:44,228 log_recorder.py 26 请求的参数是{"memberId":"18611848258","password":"123456","loanId":"${loan_id}","amount":5000}
+INFO :2019-03-31 16:59:44,320 log_recorder.py 26 当前执行的用例是输入不存在的投资人id
+INFO :2019-03-31 16:59:44,321 log_recorder.py 26 请求的参数是{"memberId":"1111111","password":"","loanId":"18611848457","amount":5000}
+INFO :2019-03-31 16:59:44,412 log_recorder.py 26 当前执行的用例是输入不足6位的密码
+INFO :2019-03-31 16:59:44,412 log_recorder.py 26 请求的参数是{"memberId":"18611848258","password":"123","loanId":"${loan_id}","amount":5000}
+INFO :2019-03-31 16:59:44,506 log_recorder.py 26 当前执行的用例是投资金额输入负数
+INFO :2019-03-31 16:59:44,506 log_recorder.py 26 请求的参数是{"memberId":"18611848258","password":"123456","loanId":"${loan_id}","amount":-1}
+INFO :2019-03-31 16:59:44,600 log_recorder.py 26 当前执行的用例是输入不存在的项目id
+INFO :2019-03-31 16:59:44,600 log_recorder.py 26 请求的参数是{"memberId":"18611848258","password":"123456","loanId":"111111","amount":-1}
+INFO :2019-03-31 17:00:49,152 log_recorder.py 26 当前执行的用例是登录管理员账户
+INFO :2019-03-31 17:00:49,152 log_recorder.py 26 请求的参数是{"mobilephone":"18688773467", "pwd":"123456"}
+INFO :2019-03-31 17:00:49,153 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/loan/add
+INFO :2019-03-31 17:00:49,249 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20103', 'data': None, 'msg': '所有参数不能为空'}
+INFO :2019-03-31 17:00:49,361 log_recorder.py 26 当前执行的用例是新增项目
+INFO :2019-03-31 17:00:49,361 log_recorder.py 26 请求的参数是{"memberId":"18611848457","title":"想借点钱花花","amount":15000.0,"loanRate":12.0,"loanTerm":5,"loanDateType":0,"repaymemtWay":11,"biddingDays":5}
+INFO :2019-03-31 17:00:49,362 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/loan/add
+INFO :2019-03-31 17:00:49,457 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20109', 'data': None, 'msg': '请根据数值参数的类型对应输入合法的数字'}
+INFO :2019-03-31 17:00:49,555 log_recorder.py 26 当前执行的用例是审核项目
+INFO :2019-03-31 17:00:49,556 log_recorder.py 26 请求的参数是{"id":"18611848457","status":4}
+INFO :2019-03-31 17:00:49,556 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/loan/add
+INFO :2019-03-31 17:00:49,645 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20103', 'data': None, 'msg': '所有参数不能为空'}
+INFO :2019-03-31 17:00:49,740 log_recorder.py 26 当前执行的用例是正常投资项目
+INFO :2019-03-31 17:00:49,740 log_recorder.py 26 请求的参数是{"memberId":"18611848258","password":"123456","loanId":"${loan_id}","amount":5000}
+INFO :2019-03-31 17:00:49,740 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/loan/bidLoan
+INFO :2019-03-31 17:00:49,830 log_recorder.py 26 当前执行的用例是输入不存在的投资人id
+INFO :2019-03-31 17:00:49,831 log_recorder.py 26 请求的参数是{"memberId":"1111111","password":"","loanId":"18611848457","amount":5000}
+INFO :2019-03-31 17:00:49,831 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/loan/bidLoan
+INFO :2019-03-31 17:00:49,926 log_recorder.py 26 当前执行的用例是输入不足6位的密码
+INFO :2019-03-31 17:00:49,927 log_recorder.py 26 请求的参数是{"memberId":"18611848258","password":"123","loanId":"${loan_id}","amount":5000}
+INFO :2019-03-31 17:00:49,927 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/loan/bidLoan
+INFO :2019-03-31 17:00:50,017 log_recorder.py 26 当前执行的用例是投资金额输入负数
+INFO :2019-03-31 17:00:50,017 log_recorder.py 26 请求的参数是{"memberId":"18611848258","password":"123456","loanId":"${loan_id}","amount":-1}
+INFO :2019-03-31 17:00:50,017 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/loan/bidLoan
+INFO :2019-03-31 17:00:50,107 log_recorder.py 26 当前执行的用例是输入不存在的项目id
+INFO :2019-03-31 17:00:50,107 log_recorder.py 26 请求的参数是{"memberId":"18611848258","password":"123456","loanId":"111111","amount":-1}
+INFO :2019-03-31 17:00:50,108 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/loan/bidLoan
+INFO :2019-03-31 17:12:09,578 log_recorder.py 26 当前执行的用例是登录管理员账户
+INFO :2019-03-31 17:12:09,578 log_recorder.py 26 请求的参数是{"mobilephone":"18688773467", "pwd":"123456"}
+INFO :2019-03-31 17:12:09,579 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/login
+INFO :2019-03-31 17:12:09,676 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20111', 'data': None, 'msg': '用户名或密码错误'}
+INFO :2019-03-31 17:12:09,722 log_recorder.py 26 当前执行的用例是新增项目
+INFO :2019-03-31 17:12:09,723 log_recorder.py 26 请求的参数是{"memberId":"18611848457","title":"想借点钱花花","amount":15000.0,"loanRate":12.0,"loanTerm":5,"loanDateType":0,"repaymemtWay":11,"biddingDays":5}
+INFO :2019-03-31 17:12:09,723 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/loan/add
+INFO :2019-03-31 17:12:09,813 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20109', 'data': None, 'msg': '请根据数值参数的类型对应输入合法的数字'}
+INFO :2019-03-31 17:12:09,855 log_recorder.py 26 当前执行的用例是审核项目
+INFO :2019-03-31 17:12:09,855 log_recorder.py 26 请求的参数是{"id":"18611848457","status":4}
+INFO :2019-03-31 17:12:09,855 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/loan/audit
+INFO :2019-03-31 17:12:09,944 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20212', 'data': None, 'msg': '请根据数值参数的类型对应输入合法的数字'}
+INFO :2019-03-31 17:12:09,980 log_recorder.py 26 当前执行的用例是正常投资项目
+INFO :2019-03-31 17:12:09,980 log_recorder.py 26 请求的参数是{"memberId":"18611848258","password":"123456","loanId":"${loan_id}","amount":5000}
+INFO :2019-03-31 17:12:09,981 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/login/bidLoan
+INFO :2019-03-31 17:12:10,071 log_recorder.py 26 当前执行的用例是输入不存在的投资人id
+INFO :2019-03-31 17:12:10,072 log_recorder.py 26 请求的参数是{"memberId":"1111111","password":"","loanId":"18611848457","amount":5000}
+INFO :2019-03-31 17:12:10,072 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 17:12:10,074 log_recorder.py 26 当前执行的用例是输入不足6位的密码
+INFO :2019-03-31 17:12:10,075 log_recorder.py 26 请求的参数是{"memberId":"18611848258","password":"123","loanId":"${loan_id}","amount":5000}
+INFO :2019-03-31 17:12:10,075 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 17:12:10,076 log_recorder.py 26 当前执行的用例是投资金额输入负数
+INFO :2019-03-31 17:12:10,076 log_recorder.py 26 请求的参数是{"memberId":"18611848258","password":"123456","loanId":"${loan_id}","amount":-1}
+INFO :2019-03-31 17:12:10,077 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 17:12:10,078 log_recorder.py 26 当前执行的用例是输入不存在的项目id
+INFO :2019-03-31 17:12:10,078 log_recorder.py 26 请求的参数是{"memberId":"18611848258","password":"123456","loanId":"111111","amount":-1}
+INFO :2019-03-31 17:12:10,078 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 17:30:30,557 log_recorder.py 26 当前执行的用例是登录管理员账户
+INFO :2019-03-31 17:30:30,558 log_recorder.py 26 请求的参数是{"mobilephone":"15600000001", "pwd":"123456"}
+INFO :2019-03-31 17:30:30,558 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/login
+INFO :2019-03-31 17:30:30,655 log_recorder.py 26 当前用例执行的结果是{'status': 1, 'code': '10001', 'data': None, 'msg': '登录成功'}
+INFO :2019-03-31 17:30:30,692 log_recorder.py 26 当前执行的用例是新增项目
+INFO :2019-03-31 17:30:30,692 log_recorder.py 26 请求的参数是{"memberId":"18611848457","title":"想借点钱花花","amount":15000.0,"loanRate":12.0,"loanTerm":5,"loanDateType":0,"repaymemtWay":11,"biddingDays":5}
+INFO :2019-03-31 17:30:30,692 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/loan/add
+INFO :2019-03-31 17:30:30,786 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20109', 'data': None, 'msg': '请根据数值参数的类型对应输入合法的数字'}
+INFO :2019-03-31 17:30:30,828 log_recorder.py 26 当前执行的用例是审核项目
+INFO :2019-03-31 17:30:30,829 log_recorder.py 26 请求的参数是{"id":"18611848457","status":4}
+INFO :2019-03-31 17:30:30,829 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/loan/audit
+INFO :2019-03-31 17:30:30,923 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20212', 'data': None, 'msg': '请根据数值参数的类型对应输入合法的数字'}
+INFO :2019-03-31 17:30:30,964 log_recorder.py 26 当前执行的用例是正常投资项目
+INFO :2019-03-31 17:30:30,964 log_recorder.py 26 请求的参数是{"memberId":"18611848258","password":"123456","loanId":"${loan_id}","amount":5000}
+INFO :2019-03-31 17:30:30,965 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/login/bidLoan
+INFO :2019-03-31 17:30:31,056 log_recorder.py 26 当前执行的用例是输入不存在的投资人id
+INFO :2019-03-31 17:30:31,059 log_recorder.py 26 请求的参数是{"memberId":"1111111","password":"","loanId":"18611848457","amount":5000}
+INFO :2019-03-31 17:30:31,059 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 17:30:31,061 log_recorder.py 26 当前执行的用例是输入不足6位的密码
+INFO :2019-03-31 17:30:31,061 log_recorder.py 26 请求的参数是{"memberId":"18611848258","password":"123","loanId":"${loan_id}","amount":5000}
+INFO :2019-03-31 17:30:31,061 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 17:30:31,062 log_recorder.py 26 当前执行的用例是投资金额输入负数
+INFO :2019-03-31 17:30:31,063 log_recorder.py 26 请求的参数是{"memberId":"18611848258","password":"123456","loanId":"${loan_id}","amount":-1}
+INFO :2019-03-31 17:30:31,063 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 17:30:31,064 log_recorder.py 26 当前执行的用例是输入不存在的项目id
+INFO :2019-03-31 17:30:31,064 log_recorder.py 26 请求的参数是{"memberId":"18611848258","password":"123456","loanId":"111111","amount":-1}
+INFO :2019-03-31 17:30:31,064 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 17:31:36,889 log_recorder.py 26 当前执行的用例是登录管理员账户
+INFO :2019-03-31 17:31:36,889 log_recorder.py 26 请求的参数是{"mobilephone":"15600000001", "pwd":"123456"}
+INFO :2019-03-31 17:31:36,889 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/login
+INFO :2019-03-31 17:31:36,992 log_recorder.py 26 当前用例执行的结果是{'status': 1, 'code': '10001', 'data': None, 'msg': '登录成功'}
+INFO :2019-03-31 17:31:37,151 log_recorder.py 26 当前执行的用例是新增项目
+INFO :2019-03-31 17:31:37,151 log_recorder.py 26 请求的参数是{"memberId":"18611848457","title":"想借点钱花花","amount":15000.0,"loanRate":12.0,"loanTerm":5,"loanDateType":0,"repaymemtWay":11,"biddingDays":5}
+INFO :2019-03-31 17:31:37,151 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/loan/add
+INFO :2019-03-31 17:31:37,242 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20109', 'data': None, 'msg': '请根据数值参数的类型对应输入合法的数字'}
+INFO :2019-03-31 17:31:37,374 log_recorder.py 26 当前执行的用例是审核项目
+INFO :2019-03-31 17:31:37,374 log_recorder.py 26 请求的参数是{"id":"18611848457","status":4}
+INFO :2019-03-31 17:31:37,374 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/loan/audit
+INFO :2019-03-31 17:31:37,468 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20212', 'data': None, 'msg': '请根据数值参数的类型对应输入合法的数字'}
+INFO :2019-03-31 17:31:37,613 log_recorder.py 26 当前执行的用例是正常投资项目
+INFO :2019-03-31 17:31:37,613 log_recorder.py 26 请求的参数是{"memberId":"18611848258","password":"123456","loanId":"${loan_id}","amount":5000}
+INFO :2019-03-31 17:31:37,614 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/login/bidLoan
+INFO :2019-03-31 17:31:37,705 log_recorder.py 26 当前执行的用例是输入不存在的投资人id
+INFO :2019-03-31 17:31:37,705 log_recorder.py 26 请求的参数是{"memberId":"1111111","password":"","loanId":"18611848457","amount":5000}
+INFO :2019-03-31 17:31:37,706 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 17:31:37,708 log_recorder.py 26 当前执行的用例是输入不足6位的密码
+INFO :2019-03-31 17:31:37,708 log_recorder.py 26 请求的参数是{"memberId":"18611848258","password":"123","loanId":"${loan_id}","amount":5000}
+INFO :2019-03-31 17:31:37,708 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 17:31:37,709 log_recorder.py 26 当前执行的用例是投资金额输入负数
+INFO :2019-03-31 17:31:37,710 log_recorder.py 26 请求的参数是{"memberId":"18611848258","password":"123456","loanId":"${loan_id}","amount":-1}
+INFO :2019-03-31 17:31:37,710 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 17:31:37,711 log_recorder.py 26 当前执行的用例是输入不存在的项目id
+INFO :2019-03-31 17:31:37,712 log_recorder.py 26 请求的参数是{"memberId":"18611848258","password":"123456","loanId":"111111","amount":-1}
+INFO :2019-03-31 17:31:37,712 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 17:33:24,375 log_recorder.py 26 当前执行的用例是登录管理员账户
+INFO :2019-03-31 17:33:24,376 log_recorder.py 26 请求的参数是{"mobilephone":"15600000001", "pwd":"123456"}
+INFO :2019-03-31 17:33:24,376 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/login
+INFO :2019-03-31 17:33:24,478 log_recorder.py 26 当前用例执行的结果是{'status': 1, 'code': '10001', 'data': None, 'msg': '登录成功'}
+INFO :2019-03-31 17:33:24,604 log_recorder.py 26 当前执行的用例是新增项目
+INFO :2019-03-31 17:33:24,605 log_recorder.py 26 请求的参数是{"memberId":"18611848457","title":"想借点钱花花","amount":15000.0,"loanRate":"12.0","loanTerm":5,"loanDateType":0,"repaymemtWay":11,"biddingDays":5}
+INFO :2019-03-31 17:33:24,605 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/loan/add
+INFO :2019-03-31 17:33:24,696 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20109', 'data': None, 'msg': '请根据数值参数的类型对应输入合法的数字'}
+INFO :2019-03-31 17:33:24,829 log_recorder.py 26 当前执行的用例是审核项目
+INFO :2019-03-31 17:33:24,829 log_recorder.py 26 请求的参数是{"id":"18611848457","status":4}
+INFO :2019-03-31 17:33:24,829 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/loan/audit
+INFO :2019-03-31 17:33:24,919 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20212', 'data': None, 'msg': '请根据数值参数的类型对应输入合法的数字'}
+INFO :2019-03-31 17:33:25,045 log_recorder.py 26 当前执行的用例是正常投资项目
+INFO :2019-03-31 17:33:25,045 log_recorder.py 26 请求的参数是{"memberId":"18611848258","password":"123456","loanId":"${loan_id}","amount":5000}
+INFO :2019-03-31 17:33:25,045 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/login/bidLoan
+INFO :2019-03-31 17:33:25,141 log_recorder.py 26 当前执行的用例是输入不存在的投资人id
+INFO :2019-03-31 17:33:25,141 log_recorder.py 26 请求的参数是{"memberId":"1111111","password":"","loanId":"18611848457","amount":5000}
+INFO :2019-03-31 17:33:25,141 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 17:33:25,143 log_recorder.py 26 当前执行的用例是输入不足6位的密码
+INFO :2019-03-31 17:33:25,143 log_recorder.py 26 请求的参数是{"memberId":"18611848258","password":"123","loanId":"${loan_id}","amount":5000}
+INFO :2019-03-31 17:33:25,143 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 17:33:25,144 log_recorder.py 26 当前执行的用例是投资金额输入负数
+INFO :2019-03-31 17:33:25,145 log_recorder.py 26 请求的参数是{"memberId":"18611848258","password":"123456","loanId":"${loan_id}","amount":-1}
+INFO :2019-03-31 17:33:25,145 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 17:33:25,146 log_recorder.py 26 当前执行的用例是输入不存在的项目id
+INFO :2019-03-31 17:33:25,146 log_recorder.py 26 请求的参数是{"memberId":"18611848258","password":"123456","loanId":"111111","amount":-1}
+INFO :2019-03-31 17:33:25,146 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 17:35:39,904 log_recorder.py 26 当前执行的用例是登录管理员账户
+INFO :2019-03-31 17:35:39,904 log_recorder.py 26 请求的参数是{"mobilephone":"15600000001", "pwd":"123456"}
+INFO :2019-03-31 17:35:39,904 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/login
+INFO :2019-03-31 17:35:40,006 log_recorder.py 26 当前用例执行的结果是{'status': 1, 'code': '10001', 'data': None, 'msg': '登录成功'}
+INFO :2019-03-31 17:35:40,137 log_recorder.py 26 当前执行的用例是新增项目
+INFO :2019-03-31 17:35:40,138 log_recorder.py 26 请求的参数是{"memberId":18611848457,"title":"想借点钱花花","amount":15000.0,"loanRate":"12.0","loanTerm":5,"loanDateType":0,"repaymemtWay":11,"biddingDays":5}
+INFO :2019-03-31 17:35:40,138 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/loan/add
+INFO :2019-03-31 17:35:40,228 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20109', 'data': None, 'msg': '请根据数值参数的类型对应输入合法的数字'}
+INFO :2019-03-31 17:35:40,360 log_recorder.py 26 当前执行的用例是审核项目
+INFO :2019-03-31 17:35:40,360 log_recorder.py 26 请求的参数是{"id":"18611848457","status":4}
+INFO :2019-03-31 17:35:40,360 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/loan/audit
+INFO :2019-03-31 17:35:40,449 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20212', 'data': None, 'msg': '请根据数值参数的类型对应输入合法的数字'}
+INFO :2019-03-31 17:35:40,576 log_recorder.py 26 当前执行的用例是正常投资项目
+INFO :2019-03-31 17:35:40,576 log_recorder.py 26 请求的参数是{"memberId":"18611848258","password":"123456","loanId":"${loan_id}","amount":5000}
+INFO :2019-03-31 17:35:40,576 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/login/bidLoan
+INFO :2019-03-31 17:35:40,673 log_recorder.py 26 当前执行的用例是输入不存在的投资人id
+INFO :2019-03-31 17:35:40,673 log_recorder.py 26 请求的参数是{"memberId":"1111111","password":"","loanId":"18611848457","amount":5000}
+INFO :2019-03-31 17:35:40,673 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 17:35:40,675 log_recorder.py 26 当前执行的用例是输入不足6位的密码
+INFO :2019-03-31 17:35:40,676 log_recorder.py 26 请求的参数是{"memberId":"18611848258","password":"123","loanId":"${loan_id}","amount":5000}
+INFO :2019-03-31 17:35:40,676 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 17:35:40,677 log_recorder.py 26 当前执行的用例是投资金额输入负数
+INFO :2019-03-31 17:35:40,678 log_recorder.py 26 请求的参数是{"memberId":"18611848258","password":"123456","loanId":"${loan_id}","amount":-1}
+INFO :2019-03-31 17:35:40,678 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 17:35:40,679 log_recorder.py 26 当前执行的用例是输入不存在的项目id
+INFO :2019-03-31 17:35:40,679 log_recorder.py 26 请求的参数是{"memberId":"18611848258","password":"123456","loanId":"111111","amount":-1}
+INFO :2019-03-31 17:35:40,680 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 17:38:54,081 log_recorder.py 26 当前执行的用例是登录管理员账户
+INFO :2019-03-31 17:38:54,082 log_recorder.py 26 请求的参数是{"mobilephone":"15600000001", "pwd":"123456"}
+INFO :2019-03-31 17:38:54,082 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/login
+INFO :2019-03-31 17:38:54,186 log_recorder.py 26 当前用例执行的结果是{'status': 1, 'code': '10001', 'data': None, 'msg': '登录成功'}
+INFO :2019-03-31 17:38:54,311 log_recorder.py 26 当前执行的用例是新增项目
+INFO :2019-03-31 17:38:54,312 log_recorder.py 26 请求的参数是{"memberId":18611848457,"title":"想借点钱花花","amount":15000.0,"loanRate":12.0,"loanTerm":5,"loanDateType":0,"repaymemtWay":11,"biddingDays":5}
+INFO :2019-03-31 17:38:54,312 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/loan/add
+INFO :2019-03-31 17:38:54,402 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20109', 'data': None, 'msg': '请根据数值参数的类型对应输入合法的数字'}
+INFO :2019-03-31 17:38:54,529 log_recorder.py 26 当前执行的用例是审核项目
+INFO :2019-03-31 17:38:54,529 log_recorder.py 26 请求的参数是{"id":"18611848457","status":4}
+INFO :2019-03-31 17:38:54,529 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/loan/audit
+INFO :2019-03-31 17:38:54,618 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20212', 'data': None, 'msg': '请根据数值参数的类型对应输入合法的数字'}
+INFO :2019-03-31 17:38:54,749 log_recorder.py 26 当前执行的用例是正常投资项目
+INFO :2019-03-31 17:38:54,749 log_recorder.py 26 请求的参数是{"memberId":"18611848258","password":"123456","loanId":"${loan_id}","amount":5000}
+INFO :2019-03-31 17:38:54,749 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/login/bidLoan
+INFO :2019-03-31 17:38:54,841 log_recorder.py 26 当前执行的用例是输入不存在的投资人id
+INFO :2019-03-31 17:38:54,842 log_recorder.py 26 请求的参数是{"memberId":"1111111","password":"","loanId":"18611848457","amount":5000}
+INFO :2019-03-31 17:38:54,842 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 17:38:54,844 log_recorder.py 26 当前执行的用例是输入不足6位的密码
+INFO :2019-03-31 17:38:54,845 log_recorder.py 26 请求的参数是{"memberId":"18611848258","password":"123","loanId":"${loan_id}","amount":5000}
+INFO :2019-03-31 17:38:54,845 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 17:38:54,846 log_recorder.py 26 当前执行的用例是投资金额输入负数
+INFO :2019-03-31 17:38:54,846 log_recorder.py 26 请求的参数是{"memberId":"18611848258","password":"123456","loanId":"${loan_id}","amount":-1}
+INFO :2019-03-31 17:38:54,847 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 17:38:54,848 log_recorder.py 26 当前执行的用例是输入不存在的项目id
+INFO :2019-03-31 17:38:54,848 log_recorder.py 26 请求的参数是{"memberId":"18611848258","password":"123456","loanId":"111111","amount":-1}
+INFO :2019-03-31 17:38:54,848 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 17:44:01,049 log_recorder.py 26 当前执行的用例是登录管理员账户
+INFO :2019-03-31 17:44:01,050 log_recorder.py 26 请求的参数是{"mobilephone":"15600000001", "pwd":"123456"}
+INFO :2019-03-31 17:44:01,050 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/login
+INFO :2019-03-31 17:44:01,147 log_recorder.py 26 当前用例执行的结果是{'status': 1, 'code': '10001', 'data': None, 'msg': '登录成功'}
+INFO :2019-03-31 17:44:01,276 log_recorder.py 26 当前执行的用例是新增项目
+INFO :2019-03-31 17:44:01,276 log_recorder.py 26 请求的参数是{"memberId":"18611848457","title":"想借点钱花花","amount":15000,"loanRate":12.0,"loanTerm":5,"loanDateType":0,"repaymemtWay":11,"biddingDays":5}
+INFO :2019-03-31 17:44:01,276 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/loan/add
+INFO :2019-03-31 17:44:01,373 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20109', 'data': None, 'msg': '请根据数值参数的类型对应输入合法的数字'}
+INFO :2019-03-31 17:44:01,506 log_recorder.py 26 当前执行的用例是审核项目
+INFO :2019-03-31 17:44:01,507 log_recorder.py 26 请求的参数是{"id":"18611848457","status":4}
+INFO :2019-03-31 17:44:01,507 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/loan/audit
+INFO :2019-03-31 17:44:01,598 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20212', 'data': None, 'msg': '请根据数值参数的类型对应输入合法的数字'}
+INFO :2019-03-31 17:44:01,729 log_recorder.py 26 当前执行的用例是正常投资项目
+INFO :2019-03-31 17:44:01,729 log_recorder.py 26 请求的参数是{"memberId":"18611848258","password":"123456","loanId":"${loan_id}","amount":5000}
+INFO :2019-03-31 17:44:01,729 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/login/bidLoan
+INFO :2019-03-31 17:44:01,823 log_recorder.py 26 当前执行的用例是输入不存在的投资人id
+INFO :2019-03-31 17:44:01,824 log_recorder.py 26 请求的参数是{"memberId":"1111111","password":"","loanId":"18611848457","amount":5000}
+INFO :2019-03-31 17:44:01,824 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 17:44:01,826 log_recorder.py 26 当前执行的用例是输入不足6位的密码
+INFO :2019-03-31 17:44:01,826 log_recorder.py 26 请求的参数是{"memberId":"18611848258","password":"123","loanId":"${loan_id}","amount":5000}
+INFO :2019-03-31 17:44:01,827 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 17:44:01,828 log_recorder.py 26 当前执行的用例是投资金额输入负数
+INFO :2019-03-31 17:44:01,828 log_recorder.py 26 请求的参数是{"memberId":"18611848258","password":"123456","loanId":"${loan_id}","amount":-1}
+INFO :2019-03-31 17:44:01,829 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 17:44:01,830 log_recorder.py 26 当前执行的用例是输入不存在的项目id
+INFO :2019-03-31 17:44:01,830 log_recorder.py 26 请求的参数是{"memberId":"18611848258","password":"123456","loanId":"111111","amount":-1}
+INFO :2019-03-31 17:44:01,830 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 17:44:48,752 log_recorder.py 26 当前执行的用例是登录管理员账户
+INFO :2019-03-31 17:44:48,753 log_recorder.py 26 请求的参数是{"mobilephone":"15600000001", "pwd":"123456"}
+INFO :2019-03-31 17:44:48,753 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/login
+INFO :2019-03-31 17:44:48,857 log_recorder.py 26 当前用例执行的结果是{'status': 1, 'code': '10001', 'data': None, 'msg': '登录成功'}
+INFO :2019-03-31 17:44:48,986 log_recorder.py 26 当前执行的用例是新增项目
+INFO :2019-03-31 17:44:48,986 log_recorder.py 26 请求的参数是{"memberId":"18611848457","title":"想借点钱花花","amount":15000,"loanRate":"12.0","loanTerm":5,"loanDateType":0,"repaymemtWay":11,"biddingDays":5}
+INFO :2019-03-31 17:44:48,986 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/loan/add
+INFO :2019-03-31 17:44:49,082 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20109', 'data': None, 'msg': '请根据数值参数的类型对应输入合法的数字'}
+INFO :2019-03-31 17:44:49,216 log_recorder.py 26 当前执行的用例是审核项目
+INFO :2019-03-31 17:44:49,216 log_recorder.py 26 请求的参数是{"id":"18611848457","status":4}
+INFO :2019-03-31 17:44:49,216 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/loan/audit
+INFO :2019-03-31 17:44:49,306 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20212', 'data': None, 'msg': '请根据数值参数的类型对应输入合法的数字'}
+INFO :2019-03-31 17:44:49,431 log_recorder.py 26 当前执行的用例是正常投资项目
+INFO :2019-03-31 17:44:49,431 log_recorder.py 26 请求的参数是{"memberId":"18611848258","password":"123456","loanId":"${loan_id}","amount":5000}
+INFO :2019-03-31 17:44:49,432 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/login/bidLoan
+INFO :2019-03-31 17:44:49,530 log_recorder.py 26 当前执行的用例是输入不存在的投资人id
+INFO :2019-03-31 17:44:49,530 log_recorder.py 26 请求的参数是{"memberId":"1111111","password":"","loanId":"18611848457","amount":5000}
+INFO :2019-03-31 17:44:49,530 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 17:44:49,532 log_recorder.py 26 当前执行的用例是输入不足6位的密码
+INFO :2019-03-31 17:44:49,532 log_recorder.py 26 请求的参数是{"memberId":"18611848258","password":"123","loanId":"${loan_id}","amount":5000}
+INFO :2019-03-31 17:44:49,533 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 17:44:49,534 log_recorder.py 26 当前执行的用例是投资金额输入负数
+INFO :2019-03-31 17:44:49,534 log_recorder.py 26 请求的参数是{"memberId":"18611848258","password":"123456","loanId":"${loan_id}","amount":-1}
+INFO :2019-03-31 17:44:49,534 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 17:44:49,535 log_recorder.py 26 当前执行的用例是输入不存在的项目id
+INFO :2019-03-31 17:44:49,535 log_recorder.py 26 请求的参数是{"memberId":"18611848258","password":"123456","loanId":"111111","amount":-1}
+INFO :2019-03-31 17:44:49,535 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 17:48:00,051 log_recorder.py 26 当前执行的用例是登录管理员账户
+INFO :2019-03-31 17:48:00,051 log_recorder.py 26 请求的参数是{"mobilephone":"15600000001", "pwd":"123456"}
+INFO :2019-03-31 17:48:00,051 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/login
+INFO :2019-03-31 17:48:00,161 log_recorder.py 26 当前用例执行的结果是{'status': 1, 'code': '10001', 'data': None, 'msg': '登录成功'}
+INFO :2019-03-31 17:48:00,286 log_recorder.py 26 当前执行的用例是新增项目
+INFO :2019-03-31 17:48:00,286 log_recorder.py 26 请求的参数是{"memberId":"18611848457","title":"想借点钱花花","amount":15000,"loanRate":"12.0","loanTerm":3,"loanDateType":0,"repaymemtWay":11,"biddingDays":5}
+INFO :2019-03-31 17:48:00,286 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/loan/add
+INFO :2019-03-31 17:48:00,376 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20109', 'data': None, 'msg': '请根据数值参数的类型对应输入合法的数字'}
+INFO :2019-03-31 17:48:00,501 log_recorder.py 26 当前执行的用例是审核项目
+INFO :2019-03-31 17:48:00,501 log_recorder.py 26 请求的参数是{"id":"18611848457","status":4}
+INFO :2019-03-31 17:48:00,502 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/loan/audit
+INFO :2019-03-31 17:48:00,588 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20212', 'data': None, 'msg': '请根据数值参数的类型对应输入合法的数字'}
+INFO :2019-03-31 17:48:00,716 log_recorder.py 26 当前执行的用例是正常投资项目
+INFO :2019-03-31 17:48:00,717 log_recorder.py 26 请求的参数是{"memberId":"18611848258","password":"123456","loanId":"${loan_id}","amount":5000}
+INFO :2019-03-31 17:48:00,717 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/login/bidLoan
+INFO :2019-03-31 17:48:00,815 log_recorder.py 26 当前执行的用例是输入不存在的投资人id
+INFO :2019-03-31 17:48:00,816 log_recorder.py 26 请求的参数是{"memberId":"1111111","password":"","loanId":"18611848457","amount":5000}
+INFO :2019-03-31 17:48:00,816 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 17:48:00,818 log_recorder.py 26 当前执行的用例是输入不足6位的密码
+INFO :2019-03-31 17:48:00,819 log_recorder.py 26 请求的参数是{"memberId":"18611848258","password":"123","loanId":"${loan_id}","amount":5000}
+INFO :2019-03-31 17:48:00,819 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 17:48:00,820 log_recorder.py 26 当前执行的用例是投资金额输入负数
+INFO :2019-03-31 17:48:00,820 log_recorder.py 26 请求的参数是{"memberId":"18611848258","password":"123456","loanId":"${loan_id}","amount":-1}
+INFO :2019-03-31 17:48:00,821 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 17:48:00,822 log_recorder.py 26 当前执行的用例是输入不存在的项目id
+INFO :2019-03-31 17:48:00,822 log_recorder.py 26 请求的参数是{"memberId":"18611848258","password":"123456","loanId":"111111","amount":-1}
+INFO :2019-03-31 17:48:00,823 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 17:49:05,618 log_recorder.py 26 当前执行的用例是登录管理员账户
+INFO :2019-03-31 17:49:05,619 log_recorder.py 26 请求的参数是{"mobilephone":"15600000001", "pwd":"123456"}
+INFO :2019-03-31 17:49:05,619 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/login
+INFO :2019-03-31 17:49:05,721 log_recorder.py 26 当前用例执行的结果是{'status': 1, 'code': '10001', 'data': None, 'msg': '登录成功'}
+INFO :2019-03-31 17:49:05,848 log_recorder.py 26 当前执行的用例是新增项目
+INFO :2019-03-31 17:49:05,849 log_recorder.py 26 请求的参数是{"memberId":"18611848457","title":"想借点钱花花","amount":"15000.0","loanRate":"12.0","loanTerm":3,"loanDateType":0,"repaymemtWay":11,"biddingDays":5}
+INFO :2019-03-31 17:49:05,849 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/loan/add
+INFO :2019-03-31 17:49:05,939 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20109', 'data': None, 'msg': '请根据数值参数的类型对应输入合法的数字'}
+INFO :2019-03-31 17:49:06,062 log_recorder.py 26 当前执行的用例是审核项目
+INFO :2019-03-31 17:49:06,062 log_recorder.py 26 请求的参数是{"id":"18611848457","status":4}
+INFO :2019-03-31 17:49:06,062 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/loan/audit
+INFO :2019-03-31 17:49:06,157 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20212', 'data': None, 'msg': '请根据数值参数的类型对应输入合法的数字'}
+INFO :2019-03-31 17:49:06,283 log_recorder.py 26 当前执行的用例是正常投资项目
+INFO :2019-03-31 17:49:06,283 log_recorder.py 26 请求的参数是{"memberId":"18611848258","password":"123456","loanId":"${loan_id}","amount":5000}
+INFO :2019-03-31 17:49:06,283 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/login/bidLoan
+INFO :2019-03-31 17:49:06,380 log_recorder.py 26 当前执行的用例是输入不存在的投资人id
+INFO :2019-03-31 17:49:06,380 log_recorder.py 26 请求的参数是{"memberId":"1111111","password":"","loanId":"18611848457","amount":5000}
+INFO :2019-03-31 17:49:06,381 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 17:49:06,383 log_recorder.py 26 当前执行的用例是输入不足6位的密码
+INFO :2019-03-31 17:49:06,383 log_recorder.py 26 请求的参数是{"memberId":"18611848258","password":"123","loanId":"${loan_id}","amount":5000}
+INFO :2019-03-31 17:49:06,383 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 17:49:06,384 log_recorder.py 26 当前执行的用例是投资金额输入负数
+INFO :2019-03-31 17:49:06,385 log_recorder.py 26 请求的参数是{"memberId":"18611848258","password":"123456","loanId":"${loan_id}","amount":-1}
+INFO :2019-03-31 17:49:06,385 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 17:49:06,386 log_recorder.py 26 当前执行的用例是输入不存在的项目id
+INFO :2019-03-31 17:49:06,387 log_recorder.py 26 请求的参数是{"memberId":"18611848258","password":"123456","loanId":"111111","amount":-1}
+INFO :2019-03-31 17:49:06,387 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 17:49:40,252 log_recorder.py 26 当前执行的用例是登录管理员账户
+INFO :2019-03-31 17:49:40,252 log_recorder.py 26 请求的参数是{"mobilephone":"15600000001", "pwd":"123456"}
+INFO :2019-03-31 17:49:40,253 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/login
+INFO :2019-03-31 17:49:40,349 log_recorder.py 26 当前用例执行的结果是{'status': 1, 'code': '10001', 'data': None, 'msg': '登录成功'}
+INFO :2019-03-31 17:49:40,474 log_recorder.py 26 当前执行的用例是新增项目
+INFO :2019-03-31 17:49:40,474 log_recorder.py 26 请求的参数是{"memberId":"18611848457","title":"想借点钱花花","amount":"15000.00","loanRate":"12.00","loanTerm":3,"loanDateType":0,"repaymemtWay":11,"biddingDays":5}
+INFO :2019-03-31 17:49:40,475 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/loan/add
+INFO :2019-03-31 17:49:40,570 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20109', 'data': None, 'msg': '请根据数值参数的类型对应输入合法的数字'}
+INFO :2019-03-31 17:49:40,700 log_recorder.py 26 当前执行的用例是审核项目
+INFO :2019-03-31 17:49:40,700 log_recorder.py 26 请求的参数是{"id":"18611848457","status":4}
+INFO :2019-03-31 17:49:40,700 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/loan/audit
+INFO :2019-03-31 17:49:40,788 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20212', 'data': None, 'msg': '请根据数值参数的类型对应输入合法的数字'}
+INFO :2019-03-31 17:49:40,919 log_recorder.py 26 当前执行的用例是正常投资项目
+INFO :2019-03-31 17:49:40,919 log_recorder.py 26 请求的参数是{"memberId":"18611848258","password":"123456","loanId":"${loan_id}","amount":5000}
+INFO :2019-03-31 17:49:40,920 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/login/bidLoan
+INFO :2019-03-31 17:49:41,009 log_recorder.py 26 当前执行的用例是输入不存在的投资人id
+INFO :2019-03-31 17:49:41,009 log_recorder.py 26 请求的参数是{"memberId":"1111111","password":"","loanId":"18611848457","amount":5000}
+INFO :2019-03-31 17:49:41,010 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 17:49:41,011 log_recorder.py 26 当前执行的用例是输入不足6位的密码
+INFO :2019-03-31 17:49:41,012 log_recorder.py 26 请求的参数是{"memberId":"18611848258","password":"123","loanId":"${loan_id}","amount":5000}
+INFO :2019-03-31 17:49:41,012 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 17:49:41,013 log_recorder.py 26 当前执行的用例是投资金额输入负数
+INFO :2019-03-31 17:49:41,013 log_recorder.py 26 请求的参数是{"memberId":"18611848258","password":"123456","loanId":"${loan_id}","amount":-1}
+INFO :2019-03-31 17:49:41,014 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 17:49:41,015 log_recorder.py 26 当前执行的用例是输入不存在的项目id
+INFO :2019-03-31 17:49:41,015 log_recorder.py 26 请求的参数是{"memberId":"18611848258","password":"123456","loanId":"111111","amount":-1}
+INFO :2019-03-31 17:49:41,015 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 17:50:53,130 log_recorder.py 26 当前执行的用例是登录管理员账户
+INFO :2019-03-31 17:50:53,131 log_recorder.py 26 请求的参数是{"mobilephone":"15600000001", "pwd":"123456"}
+INFO :2019-03-31 17:50:53,131 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/login
+INFO :2019-03-31 17:50:53,234 log_recorder.py 26 当前用例执行的结果是{'status': 1, 'code': '10001', 'data': None, 'msg': '登录成功'}
+INFO :2019-03-31 17:50:53,355 log_recorder.py 26 当前执行的用例是新增项目
+INFO :2019-03-31 17:50:53,356 log_recorder.py 26 请求的参数是{"memberId":18611848457,"title":"想借点钱花花","amount":"15000.00","loanRate":"12.00","loanTerm":3,"loanDateType":0,"repaymemtWay":11,"biddingDays":5}
+INFO :2019-03-31 17:50:53,356 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/loan/add
+INFO :2019-03-31 17:50:53,452 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20109', 'data': None, 'msg': '请根据数值参数的类型对应输入合法的数字'}
+INFO :2019-03-31 17:50:53,585 log_recorder.py 26 当前执行的用例是审核项目
+INFO :2019-03-31 17:50:53,586 log_recorder.py 26 请求的参数是{"id":"18611848457","status":4}
+INFO :2019-03-31 17:50:53,586 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/loan/audit
+INFO :2019-03-31 17:50:53,674 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20212', 'data': None, 'msg': '请根据数值参数的类型对应输入合法的数字'}
+INFO :2019-03-31 17:50:53,799 log_recorder.py 26 当前执行的用例是正常投资项目
+INFO :2019-03-31 17:50:53,799 log_recorder.py 26 请求的参数是{"memberId":"18611848258","password":"123456","loanId":"${loan_id}","amount":5000}
+INFO :2019-03-31 17:50:53,799 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/login/bidLoan
+INFO :2019-03-31 17:50:53,890 log_recorder.py 26 当前执行的用例是输入不存在的投资人id
+INFO :2019-03-31 17:50:53,890 log_recorder.py 26 请求的参数是{"memberId":"1111111","password":"","loanId":"18611848457","amount":5000}
+INFO :2019-03-31 17:50:53,891 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 17:50:53,893 log_recorder.py 26 当前执行的用例是输入不足6位的密码
+INFO :2019-03-31 17:50:53,893 log_recorder.py 26 请求的参数是{"memberId":"18611848258","password":"123","loanId":"${loan_id}","amount":5000}
+INFO :2019-03-31 17:50:53,893 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 17:50:53,895 log_recorder.py 26 当前执行的用例是投资金额输入负数
+INFO :2019-03-31 17:50:53,895 log_recorder.py 26 请求的参数是{"memberId":"18611848258","password":"123456","loanId":"${loan_id}","amount":-1}
+INFO :2019-03-31 17:50:53,895 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 17:50:53,897 log_recorder.py 26 当前执行的用例是输入不存在的项目id
+INFO :2019-03-31 17:50:53,897 log_recorder.py 26 请求的参数是{"memberId":"18611848258","password":"123456","loanId":"111111","amount":-1}
+INFO :2019-03-31 17:50:53,897 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 17:51:33,041 log_recorder.py 26 当前执行的用例是登录管理员账户
+INFO :2019-03-31 17:51:33,041 log_recorder.py 26 请求的参数是{"mobilephone":"15600000001", "pwd":"123456"}
+INFO :2019-03-31 17:51:33,041 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/login
+INFO :2019-03-31 17:51:33,139 log_recorder.py 26 当前用例执行的结果是{'status': 1, 'code': '10001', 'data': None, 'msg': '登录成功'}
+INFO :2019-03-31 17:51:33,263 log_recorder.py 26 当前执行的用例是新增项目
+INFO :2019-03-31 17:51:33,263 log_recorder.py 26 请求的参数是{"memberId":"18611848457","title":"想借点钱花花","amount":15000.00,"loanRate":12.00,"loanTerm":3,"loanDateType":0,"repaymemtWay":11,"biddingDays":5}
+INFO :2019-03-31 17:51:33,263 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/loan/add
+INFO :2019-03-31 17:51:33,353 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20109', 'data': None, 'msg': '请根据数值参数的类型对应输入合法的数字'}
+INFO :2019-03-31 17:51:33,483 log_recorder.py 26 当前执行的用例是审核项目
+INFO :2019-03-31 17:51:33,483 log_recorder.py 26 请求的参数是{"id":"18611848457","status":4}
+INFO :2019-03-31 17:51:33,483 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/loan/audit
+INFO :2019-03-31 17:51:33,573 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20212', 'data': None, 'msg': '请根据数值参数的类型对应输入合法的数字'}
+INFO :2019-03-31 17:51:33,703 log_recorder.py 26 当前执行的用例是正常投资项目
+INFO :2019-03-31 17:51:33,704 log_recorder.py 26 请求的参数是{"memberId":"18611848258","password":"123456","loanId":"${loan_id}","amount":5000}
+INFO :2019-03-31 17:51:33,704 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/login/bidLoan
+INFO :2019-03-31 17:51:33,795 log_recorder.py 26 当前执行的用例是输入不存在的投资人id
+INFO :2019-03-31 17:51:33,795 log_recorder.py 26 请求的参数是{"memberId":"1111111","password":"","loanId":"18611848457","amount":5000}
+INFO :2019-03-31 17:51:33,796 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 17:51:33,797 log_recorder.py 26 当前执行的用例是输入不足6位的密码
+INFO :2019-03-31 17:51:33,798 log_recorder.py 26 请求的参数是{"memberId":"18611848258","password":"123","loanId":"${loan_id}","amount":5000}
+INFO :2019-03-31 17:51:33,798 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 17:51:33,799 log_recorder.py 26 当前执行的用例是投资金额输入负数
+INFO :2019-03-31 17:51:33,799 log_recorder.py 26 请求的参数是{"memberId":"18611848258","password":"123456","loanId":"${loan_id}","amount":-1}
+INFO :2019-03-31 17:51:33,799 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 17:51:33,800 log_recorder.py 26 当前执行的用例是输入不存在的项目id
+INFO :2019-03-31 17:51:33,801 log_recorder.py 26 请求的参数是{"memberId":"18611848258","password":"123456","loanId":"111111","amount":-1}
+INFO :2019-03-31 17:51:33,801 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 17:52:24,608 log_recorder.py 26 当前执行的用例是登录管理员账户
+INFO :2019-03-31 17:52:24,608 log_recorder.py 26 请求的参数是{"mobilephone":"15600000001", "pwd":"123456"}
+INFO :2019-03-31 17:52:24,608 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/login
+INFO :2019-03-31 17:52:24,707 log_recorder.py 26 当前用例执行的结果是{'status': 1, 'code': '10001', 'data': None, 'msg': '登录成功'}
+INFO :2019-03-31 17:52:24,825 log_recorder.py 26 当前执行的用例是新增项目
+INFO :2019-03-31 17:52:24,826 log_recorder.py 26 请求的参数是{"memberId":18611848457,"title":"想借点钱花花","amount":15000.00,"loanRate":12.00,"loanTerm":3,"loanDateType":0,"repaymemtWay":11,"biddingDays":5}
+INFO :2019-03-31 17:52:24,826 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/loan/add
+INFO :2019-03-31 17:52:24,916 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20109', 'data': None, 'msg': '请根据数值参数的类型对应输入合法的数字'}
+INFO :2019-03-31 17:52:25,040 log_recorder.py 26 当前执行的用例是审核项目
+INFO :2019-03-31 17:52:25,041 log_recorder.py 26 请求的参数是{"id":"18611848457","status":4}
+INFO :2019-03-31 17:52:25,041 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/loan/audit
+INFO :2019-03-31 17:52:25,131 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20212', 'data': None, 'msg': '请根据数值参数的类型对应输入合法的数字'}
+INFO :2019-03-31 17:52:25,261 log_recorder.py 26 当前执行的用例是正常投资项目
+INFO :2019-03-31 17:52:25,262 log_recorder.py 26 请求的参数是{"memberId":"18611848258","password":"123456","loanId":"${loan_id}","amount":5000}
+INFO :2019-03-31 17:52:25,262 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/login/bidLoan
+INFO :2019-03-31 17:52:25,355 log_recorder.py 26 当前执行的用例是输入不存在的投资人id
+INFO :2019-03-31 17:52:25,356 log_recorder.py 26 请求的参数是{"memberId":"1111111","password":"","loanId":"18611848457","amount":5000}
+INFO :2019-03-31 17:52:25,356 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 17:52:25,358 log_recorder.py 26 当前执行的用例是输入不足6位的密码
+INFO :2019-03-31 17:52:25,358 log_recorder.py 26 请求的参数是{"memberId":"18611848258","password":"123","loanId":"${loan_id}","amount":5000}
+INFO :2019-03-31 17:52:25,359 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 17:52:25,360 log_recorder.py 26 当前执行的用例是投资金额输入负数
+INFO :2019-03-31 17:52:25,360 log_recorder.py 26 请求的参数是{"memberId":"18611848258","password":"123456","loanId":"${loan_id}","amount":-1}
+INFO :2019-03-31 17:52:25,360 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 17:52:25,361 log_recorder.py 26 当前执行的用例是输入不存在的项目id
+INFO :2019-03-31 17:52:25,361 log_recorder.py 26 请求的参数是{"memberId":"18611848258","password":"123456","loanId":"111111","amount":-1}
+INFO :2019-03-31 17:52:25,362 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 19:34:53,659 log_recorder.py 26 当前执行的用例是登录管理员账户
+INFO :2019-03-31 19:34:53,660 log_recorder.py 26 请求的参数是{"mobilephone":"15600000001", "pwd":"123456"}
+INFO :2019-03-31 19:34:53,660 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/login
+INFO :2019-03-31 19:34:53,757 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20111', 'data': None, 'msg': '用户名或密码错误'}
+INFO :2019-03-31 19:34:53,888 log_recorder.py 26 当前执行的用例是新增项目
+INFO :2019-03-31 19:34:53,888 log_recorder.py 26 请求的参数是{"memberId":"81","title":"想借点钱花花","amount":15000.00,"loanRate":12.0,"loanTerm":2,"loanDateType":0,"repaymemtWay":5,"biddingDays":5}
+INFO :2019-03-31 19:34:53,888 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/loan/add
+INFO :2019-03-31 19:34:53,980 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20105', 'data': None, 'msg': '不存在该会员'}
+INFO :2019-03-31 19:34:54,102 log_recorder.py 26 当前执行的用例是审核项目
+INFO :2019-03-31 19:34:54,102 log_recorder.py 26 请求的参数是{"id":"81","status":4}
+INFO :2019-03-31 19:34:54,103 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/loan/audit
+INFO :2019-03-31 19:34:54,193 log_recorder.py 26 当前用例执行的结果是{'status': 1, 'code': '20206', 'data': None, 'msg': '不存在该项目'}
+INFO :2019-03-31 19:34:54,319 log_recorder.py 26 当前执行的用例是正常投资项目
+INFO :2019-03-31 19:34:54,320 log_recorder.py 26 请求的参数是{"memberId":"18611848258","password":"123456","loanId":"${loan_id}","amount":5000}
+INFO :2019-03-31 19:34:54,320 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/login/bidLoan
+INFO :2019-03-31 19:34:54,411 log_recorder.py 26 当前执行的用例是输入不存在的投资人id
+INFO :2019-03-31 19:34:54,411 log_recorder.py 26 请求的参数是{"memberId":"1111111","password":"","loanId":"81","amount":5000}
+INFO :2019-03-31 19:34:54,412 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 19:34:54,414 log_recorder.py 26 当前执行的用例是输入不足6位的密码
+INFO :2019-03-31 19:34:54,414 log_recorder.py 26 请求的参数是{"memberId":"18611848258","password":"123","loanId":"${loan_id}","amount":5000}
+INFO :2019-03-31 19:34:54,414 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 19:34:54,415 log_recorder.py 26 当前执行的用例是投资金额输入负数
+INFO :2019-03-31 19:34:54,416 log_recorder.py 26 请求的参数是{"memberId":"18611848258","password":"123456","loanId":"${loan_id}","amount":-1}
+INFO :2019-03-31 19:34:54,416 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 19:34:54,417 log_recorder.py 26 当前执行的用例是输入不存在的项目id
+INFO :2019-03-31 19:34:54,418 log_recorder.py 26 请求的参数是{"memberId":"18611848258","password":"123456","loanId":"111111","amount":-1}
+INFO :2019-03-31 19:34:54,418 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 19:42:57,201 log_recorder.py 26 当前执行的用例是登录管理员账户
+INFO :2019-03-31 19:42:57,202 log_recorder.py 26 请求的参数是{"mobilephone":"18611848257", "pwd":"123456"}
+INFO :2019-03-31 19:42:57,202 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/login
+INFO :2019-03-31 19:42:57,310 log_recorder.py 26 当前用例执行的结果是{'status': 1, 'code': '10001', 'data': None, 'msg': '登录成功'}
+INFO :2019-03-31 19:44:10,423 log_recorder.py 26 当前执行的用例是登录管理员账户
+INFO :2019-03-31 19:44:10,423 log_recorder.py 26 请求的参数是{"mobilephone":"18611848257", "pwd":"123456"}
+INFO :2019-03-31 19:44:10,424 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/login
+INFO :2019-03-31 19:44:10,522 log_recorder.py 26 当前用例执行的结果是{'status': 1, 'code': '10001', 'data': None, 'msg': '登录成功'}
+INFO :2019-03-31 19:44:10,655 log_recorder.py 26 当前执行的用例是新增项目
+INFO :2019-03-31 19:44:10,656 log_recorder.py 26 请求的参数是{"memberId":"11","title":"想借点钱花花","amount":15000.00,"loanRate":12.0,"loanTerm":2,"loanDateType":0,"repaymemtWay":5,"biddingDays":5}
+INFO :2019-03-31 19:44:10,656 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/loan/add
+INFO :2019-03-31 19:44:10,746 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20107', 'data': None, 'msg': '参数错误：借款利率loanRate值必须大于0小于或等于24'}
+INFO :2019-03-31 19:49:09,024 log_recorder.py 26 当前执行的用例是登录管理员账户
+INFO :2019-03-31 19:49:09,024 log_recorder.py 26 请求的参数是{"mobilephone":"18611848257", "pwd":"123456"}
+INFO :2019-03-31 19:49:09,025 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/login
+INFO :2019-03-31 19:49:09,124 log_recorder.py 26 当前用例执行的结果是{'status': 1, 'code': '10001', 'data': None, 'msg': '登录成功'}
+INFO :2019-03-31 19:49:09,253 log_recorder.py 26 当前执行的用例是新增项目
+INFO :2019-03-31 19:49:09,253 log_recorder.py 26 请求的参数是{"memberId":"11","title":"想借点钱花花","amount":15000.00,"loanRate":"12.0","loanTerm":2,"loanDateType":0,"repaymemtWay":5,"biddingDays":5}
+INFO :2019-03-31 19:49:09,254 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/loan/add
+INFO :2019-03-31 19:49:09,345 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20107', 'data': None, 'msg': '参数错误：借款利率loanRate值必须大于0小于或等于24'}
+INFO :2019-03-31 20:19:35,950 log_recorder.py 26 当前执行的用例是登录管理员账户
+INFO :2019-03-31 20:19:35,951 log_recorder.py 26 请求的参数是{"mobilephone":"18611848257", "pwd":"123456"}
+INFO :2019-03-31 20:19:35,951 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/login
+INFO :2019-03-31 20:19:36,053 log_recorder.py 26 当前用例执行的结果是{'status': 1, 'code': '10001', 'data': None, 'msg': '登录成功'}
+INFO :2019-03-31 20:19:36,181 log_recorder.py 26 当前执行的用例是审核项目
+INFO :2019-03-31 20:19:36,181 log_recorder.py 26 请求的参数是{"id":"1","status":4}
+INFO :2019-03-31 20:19:36,181 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/loan/audit
+INFO :2019-03-31 20:19:36,271 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20207', 'data': None, 'msg': '修改失败，当前标已经是该状态'}
+INFO :2019-03-31 20:19:36,393 log_recorder.py 26 当前执行的用例是正常投资项目
+INFO :2019-03-31 20:19:36,393 log_recorder.py 26 请求的参数是{"memberId":"9","password":"123456","loanId":"${loan_id}","amount":5000}
+INFO :2019-03-31 20:19:36,394 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/login/bidLoan
+INFO :2019-03-31 20:19:36,489 log_recorder.py 26 当前执行的用例是输入不存在的投资人id
+INFO :2019-03-31 20:19:36,489 log_recorder.py 26 请求的参数是{"memberId":"1111111","password":"","loanId":"1","amount":5000}
+INFO :2019-03-31 20:19:36,489 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 20:19:36,491 log_recorder.py 26 当前执行的用例是输入不足6位的密码
+INFO :2019-03-31 20:19:36,491 log_recorder.py 26 请求的参数是{"memberId":"9","password":"123","loanId":"${loan_id}","amount":5000}
+INFO :2019-03-31 20:19:36,492 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 20:19:36,493 log_recorder.py 26 当前执行的用例是投资金额输入负数
+INFO :2019-03-31 20:19:36,493 log_recorder.py 26 请求的参数是{"memberId":"9","password":"123456","loanId":"${loan_id}","amount":-1}
+INFO :2019-03-31 20:19:36,493 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 20:19:36,494 log_recorder.py 26 当前执行的用例是输入不存在的项目id
+INFO :2019-03-31 20:19:36,494 log_recorder.py 26 请求的参数是{"memberId":"9","password":"123456","loanId":"111111","amount":-1}
+INFO :2019-03-31 20:19:36,494 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 20:31:37,735 log_recorder.py 26 当前执行的用例是登录管理员账户
+INFO :2019-03-31 20:31:37,736 log_recorder.py 26 请求的参数是{"mobilephone":"18611848257", "pwd":"123456"}
+INFO :2019-03-31 20:31:37,736 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/login
+INFO :2019-03-31 20:31:37,833 log_recorder.py 26 当前用例执行的结果是{'status': 1, 'code': '10001', 'data': None, 'msg': '登录成功'}
+INFO :2019-03-31 20:31:37,963 log_recorder.py 26 当前执行的用例是审核项目
+INFO :2019-03-31 20:31:37,963 log_recorder.py 26 请求的参数是{"id":"3","status":4}
+INFO :2019-03-31 20:31:37,963 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/loan/audit
+INFO :2019-03-31 20:31:38,062 log_recorder.py 26 当前用例执行的结果是{'status': 1, 'code': '10001', 'data': None, 'msg': '更新状态成功：竞标开始，当前标为竞标中状态'}
+INFO :2019-03-31 20:31:38,185 log_recorder.py 26 当前执行的用例是正常投资项目
+INFO :2019-03-31 20:31:38,185 log_recorder.py 26 请求的参数是{"memberId":"9","password":"123456","loanId":"${loan_id}","amount":5000}
+INFO :2019-03-31 20:31:38,185 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/login/bidLoan
+INFO :2019-03-31 20:31:38,275 log_recorder.py 26 当前执行的用例是输入不存在的投资人id
+INFO :2019-03-31 20:31:38,275 log_recorder.py 26 请求的参数是{"memberId":"1111111","password":"","loanId":"3","amount":5000}
+INFO :2019-03-31 20:31:38,276 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 20:31:38,277 log_recorder.py 26 当前执行的用例是输入不足6位的密码
+INFO :2019-03-31 20:31:38,277 log_recorder.py 26 请求的参数是{"memberId":"9","password":"123","loanId":"${loan_id}","amount":5000}
+INFO :2019-03-31 20:31:38,278 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 20:31:38,279 log_recorder.py 26 当前执行的用例是投资金额输入负数
+INFO :2019-03-31 20:31:38,279 log_recorder.py 26 请求的参数是{"memberId":"9","password":"123456","loanId":"${loan_id}","amount":-1}
+INFO :2019-03-31 20:31:38,279 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 20:31:38,280 log_recorder.py 26 当前执行的用例是输入不存在的项目id
+INFO :2019-03-31 20:31:38,280 log_recorder.py 26 请求的参数是{"memberId":"9","password":"123456","loanId":"111111","amount":-1}
+INFO :2019-03-31 20:31:38,280 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 20:33:50,569 log_recorder.py 26 当前执行的用例是登录管理员账户
+INFO :2019-03-31 20:33:50,570 log_recorder.py 26 请求的参数是{"mobilephone":"18611848257", "pwd":"123456"}
+INFO :2019-03-31 20:33:50,570 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/login
+INFO :2019-03-31 20:33:50,667 log_recorder.py 26 当前用例执行的结果是{'status': 1, 'code': '10001', 'data': None, 'msg': '登录成功'}
+INFO :2019-03-31 20:33:50,794 log_recorder.py 26 当前执行的用例是审核项目
+INFO :2019-03-31 20:33:50,794 log_recorder.py 26 请求的参数是{"id":"3","status":4}
+INFO :2019-03-31 20:33:50,795 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/loan/audit
+INFO :2019-03-31 20:33:50,897 log_recorder.py 26 当前用例执行的结果是{'status': 1, 'code': '10001', 'data': None, 'msg': '更新状态成功：竞标开始，当前标为竞标中状态'}
+INFO :2019-03-31 20:33:51,016 log_recorder.py 26 当前执行的用例是正常投资项目
+INFO :2019-03-31 20:33:51,016 log_recorder.py 26 请求的参数是{"memberId":"9","password":"123456","loanId":"${loan_id}","amount":5000}
+INFO :2019-03-31 20:33:51,017 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/loan/bidLoan
+INFO :2019-03-31 20:33:51,107 log_recorder.py 26 当前执行的用例是输入不存在的投资人id
+INFO :2019-03-31 20:33:51,108 log_recorder.py 26 请求的参数是{"memberId":"1111111","password":"","loanId":"3","amount":5000}
+INFO :2019-03-31 20:33:51,108 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 20:33:51,109 log_recorder.py 26 当前执行的用例是输入不足6位的密码
+INFO :2019-03-31 20:33:51,110 log_recorder.py 26 请求的参数是{"memberId":"9","password":"123","loanId":"${loan_id}","amount":5000}
+INFO :2019-03-31 20:33:51,110 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 20:33:51,111 log_recorder.py 26 当前执行的用例是投资金额输入负数
+INFO :2019-03-31 20:33:51,111 log_recorder.py 26 请求的参数是{"memberId":"9","password":"123456","loanId":"${loan_id}","amount":-1}
+INFO :2019-03-31 20:33:51,111 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 20:33:51,112 log_recorder.py 26 当前执行的用例是输入不存在的项目id
+INFO :2019-03-31 20:33:51,112 log_recorder.py 26 请求的参数是{"memberId":"9","password":"123456","loanId":"111111","amount":-1}
+INFO :2019-03-31 20:33:51,113 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 20:37:20,101 log_recorder.py 26 当前执行的用例是登录管理员账户
+INFO :2019-03-31 20:37:20,102 log_recorder.py 26 请求的参数是{"mobilephone":"18611848257", "pwd":"123456"}
+INFO :2019-03-31 20:37:20,102 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/login
+INFO :2019-03-31 20:37:20,205 log_recorder.py 26 当前用例执行的结果是{'status': 1, 'code': '10001', 'data': None, 'msg': '登录成功'}
+INFO :2019-03-31 20:37:20,327 log_recorder.py 26 当前执行的用例是审核项目
+INFO :2019-03-31 20:37:20,328 log_recorder.py 26 请求的参数是{"id":"3","status":4}
+INFO :2019-03-31 20:37:20,328 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/loan/audit
+INFO :2019-03-31 20:37:20,421 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20207', 'data': None, 'msg': '修改失败，当前标已经是该状态'}
+INFO :2019-03-31 20:37:20,541 log_recorder.py 26 当前执行的用例是正常投资项目
+INFO :2019-03-31 20:37:20,541 log_recorder.py 26 请求的参数是{"memberId":"9","password":"123456","loanId":"${loan_id}","amount":5000}
+INFO :2019-03-31 20:37:20,541 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/bidLoan
+INFO :2019-03-31 20:37:20,635 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '11009', 'data': None, 'msg': '不存在该标的'}
+INFO :2019-03-31 20:37:20,755 log_recorder.py 26 当前执行的用例是输入不存在的投资人id
+INFO :2019-03-31 20:37:20,756 log_recorder.py 26 请求的参数是{"memberId":"1111111","password":"","loanId":"3","amount":5000}
+INFO :2019-03-31 20:37:20,756 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 20:37:20,758 log_recorder.py 26 当前执行的用例是输入不足6位的密码
+INFO :2019-03-31 20:37:20,758 log_recorder.py 26 请求的参数是{"memberId":"9","password":"123","loanId":"${loan_id}","amount":5000}
+INFO :2019-03-31 20:37:20,758 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 20:37:20,759 log_recorder.py 26 当前执行的用例是投资金额输入负数
+INFO :2019-03-31 20:37:20,760 log_recorder.py 26 请求的参数是{"memberId":"9","password":"123456","loanId":"${loan_id}","amount":-1}
+INFO :2019-03-31 20:37:20,760 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 20:37:20,761 log_recorder.py 26 当前执行的用例是输入不存在的项目id
+INFO :2019-03-31 20:37:20,761 log_recorder.py 26 请求的参数是{"memberId":"9","password":"123456","loanId":"111111","amount":-1}
+INFO :2019-03-31 20:37:20,761 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 21:09:35,855 log_recorder.py 26 当前执行的用例是登录管理员账户
+INFO :2019-03-31 21:09:35,859 log_recorder.py 26 请求的参数是{"mobilephone":"18611848257", "pwd":"123456"}
+INFO :2019-03-31 21:09:35,860 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/login
+INFO :2019-03-31 21:09:35,959 log_recorder.py 26 当前用例执行的结果是{'status': 1, 'code': '10001', 'data': None, 'msg': '登录成功'}
+INFO :2019-03-31 21:09:36,083 log_recorder.py 26 当前执行的用例是审核项目
+INFO :2019-03-31 21:09:36,083 log_recorder.py 26 请求的参数是{"id":"3","status":4}
+INFO :2019-03-31 21:09:36,083 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/loan/audit
+INFO :2019-03-31 21:09:36,180 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20207', 'data': None, 'msg': '修改失败，当前标已经是该状态'}
+INFO :2019-03-31 21:09:36,309 log_recorder.py 26 当前执行的用例是正常投资项目
+INFO :2019-03-31 21:09:36,309 log_recorder.py 26 请求的参数是{"memberId":"9","password":"123456","loanId":"3","amount":5000}
+INFO :2019-03-31 21:09:36,309 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/bidLoan
+INFO :2019-03-31 21:09:36,425 log_recorder.py 26 当前用例执行的结果是{'status': 1, 'code': '10001', 'data': None, 'msg': '竞标成功'}
+INFO :2019-03-31 21:09:36,547 log_recorder.py 26 当前执行的用例是输入不存在的投资人id
+INFO :2019-03-31 21:09:36,547 log_recorder.py 26 请求的参数是{"memberId":"1111111","password":"","loanId":"3","amount":5000}
+INFO :2019-03-31 21:09:36,547 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 21:09:36,549 log_recorder.py 26 当前执行的用例是输入不足6位的密码
+INFO :2019-03-31 21:09:36,550 log_recorder.py 26 请求的参数是{"memberId":"9","password":"123","loanId":"3","amount":5000}
+INFO :2019-03-31 21:09:36,550 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 21:09:36,551 log_recorder.py 26 当前执行的用例是投资金额输入负数
+INFO :2019-03-31 21:09:36,551 log_recorder.py 26 请求的参数是{"memberId":"9","password":"123456","loanId":"3","amount":-1}
+INFO :2019-03-31 21:09:36,552 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 21:09:36,553 log_recorder.py 26 当前执行的用例是输入不存在的项目id
+INFO :2019-03-31 21:09:36,553 log_recorder.py 26 请求的参数是{"memberId":"9","password":"123456","loanId":"111111","amount":-1}
+INFO :2019-03-31 21:09:36,554 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 21:16:47,498 log_recorder.py 26 当前执行的用例是登录管理员账户
+INFO :2019-03-31 21:16:47,498 log_recorder.py 26 请求的参数是{"mobilephone":"18611848257", "pwd":"123456"}
+INFO :2019-03-31 21:16:47,499 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/login
+INFO :2019-03-31 21:16:47,597 log_recorder.py 26 当前用例执行的结果是{'status': 1, 'code': '10001', 'data': None, 'msg': '登录成功'}
+INFO :2019-03-31 21:16:47,713 log_recorder.py 26 当前执行的用例是审核项目
+INFO :2019-03-31 21:16:47,713 log_recorder.py 26 请求的参数是{"id":"3","status":4}
+INFO :2019-03-31 21:16:47,713 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/loan/audit
+INFO :2019-03-31 21:16:47,808 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20207', 'data': None, 'msg': '修改失败，当前标已经是该状态'}
+INFO :2019-03-31 21:16:47,927 log_recorder.py 26 当前执行的用例是正常投资项目
+INFO :2019-03-31 21:16:47,927 log_recorder.py 26 请求的参数是{"memberId":"9","password":"123456","loanId":"3","amount":5000}
+INFO :2019-03-31 21:16:47,927 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/bidLoan
+INFO :2019-03-31 21:16:48,038 log_recorder.py 26 当前用例执行的结果是{'status': 1, 'code': '10001', 'data': None, 'msg': '竞标成功'}
+INFO :2019-03-31 21:16:48,161 log_recorder.py 26 当前执行的用例是输入不存在的投资人id
+INFO :2019-03-31 21:16:48,161 log_recorder.py 26 请求的参数是{"memberId":"1111111","password":"","loanId":"3","amount":5000}
+INFO :2019-03-31 21:16:48,162 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/bidLoan
+INFO :2019-03-31 21:16:48,251 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '11003', 'data': None, 'msg': '参数错误:所有参数都不能为空'}
+INFO :2019-03-31 21:16:48,370 log_recorder.py 26 当前执行的用例是输入不足6位的密码
+INFO :2019-03-31 21:16:48,370 log_recorder.py 26 请求的参数是{"memberId":"9","password":"123","loanId":"3","amount":5000}
+INFO :2019-03-31 21:16:48,370 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/bidLoan
+INFO :2019-03-31 21:16:48,460 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '11006', 'data': None, 'msg': '参数错误，password长度必须大于6位且小于18位'}
+INFO :2019-03-31 21:16:48,605 log_recorder.py 26 当前执行的用例是投资金额输入负数
+INFO :2019-03-31 21:16:48,605 log_recorder.py 26 请求的参数是{"memberId":"9","password":"123456","loanId":"3","amount":-1}
+INFO :2019-03-31 21:16:48,605 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/bidLoan
+INFO :2019-03-31 21:16:48,695 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '11007', 'data': None, 'msg': '参数错误，投资金额必须是能被100整除的正整数'}
+INFO :2019-03-31 21:16:48,807 log_recorder.py 26 当前执行的用例是输入不存在的项目id
+INFO :2019-03-31 21:16:48,808 log_recorder.py 26 请求的参数是{"memberId":"9","password":"123456","loanId":"111111","amount":-1}
+INFO :2019-03-31 21:16:48,808 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/bidLoan
+INFO :2019-03-31 21:16:48,903 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '11007', 'data': None, 'msg': '参数错误，投资金额必须是能被100整除的正整数'}
+INFO :2019-03-31 21:17:42,937 log_recorder.py 26 当前执行的用例是登录管理员账户
+INFO :2019-03-31 21:17:42,937 log_recorder.py 26 请求的参数是{"mobilephone":"18611848257", "pwd":"123456"}
+INFO :2019-03-31 21:17:42,937 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/login
+INFO :2019-03-31 21:17:43,036 log_recorder.py 26 当前用例执行的结果是{'status': 1, 'code': '10001', 'data': None, 'msg': '登录成功'}
+INFO :2019-03-31 21:17:43,158 log_recorder.py 26 当前执行的用例是审核项目
+INFO :2019-03-31 21:17:43,158 log_recorder.py 26 请求的参数是{"id":"3","status":4}
+INFO :2019-03-31 21:17:43,159 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/loan/audit
+INFO :2019-03-31 21:17:43,250 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20207', 'data': None, 'msg': '修改失败，当前标已经是该状态'}
+INFO :2019-03-31 21:17:43,370 log_recorder.py 26 当前执行的用例是正常投资项目
+INFO :2019-03-31 21:17:43,370 log_recorder.py 26 请求的参数是{"memberId":"9","password":"123456","loanId":"3","amount":5000}
+INFO :2019-03-31 21:17:43,370 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/bidLoan
+INFO :2019-03-31 21:17:43,482 log_recorder.py 26 当前用例执行的结果是{'status': 1, 'code': '10001', 'data': None, 'msg': '竞标成功'}
+INFO :2019-03-31 21:17:43,599 log_recorder.py 26 当前执行的用例是输入不存在的投资人id
+INFO :2019-03-31 21:17:43,600 log_recorder.py 26 请求的参数是{"memberId":"1111111","password":"123456","loanId":"3","amount":5000}
+INFO :2019-03-31 21:17:43,600 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/bidLoan
+INFO :2019-03-31 21:17:43,697 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '11008', 'data': None, 'msg': '不存在该用户'}
+INFO :2019-03-31 21:17:43,815 log_recorder.py 26 当前执行的用例是输入不足6位的密码
+INFO :2019-03-31 21:17:43,816 log_recorder.py 26 请求的参数是{"memberId":"9","password":"123","loanId":"3","amount":5000}
+INFO :2019-03-31 21:17:43,816 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/bidLoan
+INFO :2019-03-31 21:17:43,907 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '11006', 'data': None, 'msg': '参数错误，password长度必须大于6位且小于18位'}
+INFO :2019-03-31 21:17:44,051 log_recorder.py 26 当前执行的用例是投资金额输入负数
+INFO :2019-03-31 21:17:44,051 log_recorder.py 26 请求的参数是{"memberId":"9","password":"123456","loanId":"3","amount":-1}
+INFO :2019-03-31 21:17:44,052 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/bidLoan
+INFO :2019-03-31 21:17:44,141 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '11007', 'data': None, 'msg': '参数错误，投资金额必须是能被100整除的正整数'}
+INFO :2019-03-31 21:17:44,263 log_recorder.py 26 当前执行的用例是输入不存在的项目id
+INFO :2019-03-31 21:17:44,264 log_recorder.py 26 请求的参数是{"memberId":"9","password":"123456","loanId":"111111","amount":-1}
+INFO :2019-03-31 21:17:44,264 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/bidLoan
+INFO :2019-03-31 21:17:44,356 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '11007', 'data': None, 'msg': '参数错误，投资金额必须是能被100整除的正整数'}
+INFO :2019-03-31 21:21:08,901 log_recorder.py 26 当前执行的用例是登录管理员账户
+INFO :2019-03-31 21:21:08,902 log_recorder.py 26 请求的参数是{"mobilephone":"18611848257", "pwd":"123456"}
+INFO :2019-03-31 21:21:08,902 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/login
+INFO :2019-03-31 21:21:08,999 log_recorder.py 26 当前用例执行的结果是{'status': 1, 'code': '10001', 'data': None, 'msg': '登录成功'}
+INFO :2019-03-31 21:21:09,121 log_recorder.py 26 当前执行的用例是审核项目
+INFO :2019-03-31 21:21:09,121 log_recorder.py 26 请求的参数是{"id":"3","status":4}
+INFO :2019-03-31 21:21:09,121 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/loan/audit
+INFO :2019-03-31 21:21:09,211 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20207', 'data': None, 'msg': '修改失败，当前标已经是该状态'}
+INFO :2019-03-31 21:21:09,331 log_recorder.py 26 当前执行的用例是正常投资项目
+INFO :2019-03-31 21:21:09,331 log_recorder.py 26 请求的参数是{"memberId":"9","password":"123456","loanId":"3","amount":5000}
+INFO :2019-03-31 21:21:09,332 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/bidLoan
+INFO :2019-03-31 21:21:09,441 log_recorder.py 26 当前用例执行的结果是{'status': 1, 'code': '10001', 'data': None, 'msg': '竞标成功'}
+INFO :2019-03-31 21:21:09,559 log_recorder.py 26 当前执行的用例是输入不存在的投资人id
+INFO :2019-03-31 21:21:09,559 log_recorder.py 26 请求的参数是{"memberId":"1111111","password":"123456","loanId":"3","amount":5000}
+INFO :2019-03-31 21:21:09,559 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/bidLoan
+INFO :2019-03-31 21:21:09,652 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '11008', 'data': None, 'msg': '不存在该用户'}
+INFO :2019-03-31 21:21:09,789 log_recorder.py 26 当前执行的用例是输入不足6位的密码
+INFO :2019-03-31 21:21:09,789 log_recorder.py 26 请求的参数是{"memberId":"9","password":"123","loanId":"3","amount":5000}
+INFO :2019-03-31 21:21:09,790 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/bidLoan
+INFO :2019-03-31 21:21:09,878 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '11006', 'data': None, 'msg': '参数错误，password长度必须大于6位且小于18位'}
+INFO :2019-03-31 21:21:10,023 log_recorder.py 26 当前执行的用例是投资金额输入负数
+INFO :2019-03-31 21:21:10,024 log_recorder.py 26 请求的参数是{"memberId":"9","password":"123456","loanId":"3","amount":-1}
+INFO :2019-03-31 21:21:10,024 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/bidLoan
+INFO :2019-03-31 21:21:10,112 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '11007', 'data': None, 'msg': '参数错误，投资金额必须是能被100整除的正整数'}
+INFO :2019-03-31 21:21:10,231 log_recorder.py 26 当前执行的用例是输入不存在的项目id
+INFO :2019-03-31 21:21:10,232 log_recorder.py 26 请求的参数是{"memberId":"9","password":"123456","loanId":"111111","amount":500}
+INFO :2019-03-31 21:21:10,232 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/bidLoan
+INFO :2019-03-31 21:21:10,329 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '11009', 'data': None, 'msg': '不存在该标的'}
+INFO :2019-03-31 23:04:18,498 log_recorder.py 26 当前执行的用例是正确手机号和正确密码注册
+INFO :2019-03-31 23:04:18,498 log_recorder.py 26 请求的参数是{"mobilephone": "${tel}", "pwd": "nishi458", "regname": "乐乐"}
+INFO :2019-03-31 23:04:18,499 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/register
+INFO :2019-03-31 23:04:18,605 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20109', 'data': None, 'msg': '手机号码格式不正确'}
+INFO :2019-03-31 23:04:18,720 log_recorder.py 26 当前执行的用例是输入已注册的手机号注册
+INFO :2019-03-31 23:04:18,721 log_recorder.py 26 请求的参数是{"mobilephone": "${tel}", "pwd": "nishi458", "regname": "乐乐"}
+INFO :2019-03-31 23:04:18,721 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 23:04:18,724 log_recorder.py 26 当前执行的用例是输入错误格式的手机号注册
+INFO :2019-03-31 23:04:18,724 log_recorder.py 26 请求的参数是{"mobilephone": "1861184828", "pwd": "nishi458", "regname": "乐乐"}
+INFO :2019-03-31 23:04:18,724 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 23:04:18,725 log_recorder.py 26 当前执行的用例是输入不足6位的密码
+INFO :2019-03-31 23:04:18,726 log_recorder.py 26 请求的参数是{"mobilephone": "${tel}", "pwd": "12345", "regname": "乐乐"}
+INFO :2019-03-31 23:04:18,726 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 23:04:18,727 log_recorder.py 26 当前执行的用例是不输入用户名，不输入密码注册
+INFO :2019-03-31 23:04:18,728 log_recorder.py 26 请求的参数是{"mobilephone":"","pwd":"","regname":"乐乐"}
+INFO :2019-03-31 23:04:18,728 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 23:04:18,729 log_recorder.py 26 当前执行的用例是正确手机号和正确金额充值
+INFO :2019-03-31 23:04:18,729 log_recorder.py 26 请求的参数是{"mobilephone": "${tel}", "amount": "200000"}
+INFO :2019-03-31 23:04:18,729 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/recharge
+INFO :2019-03-31 23:04:18,730 log_recorder.py 26 当前执行的用例是输入不存在的手机号充值
+INFO :2019-03-31 23:04:18,730 log_recorder.py 26 请求的参数是{"mobilephone": "13000500000", "amount": "200000"}
+INFO :2019-03-31 23:04:18,730 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 23:04:18,731 log_recorder.py 26 当前执行的用例是不输入手机号充值
+INFO :2019-03-31 23:04:18,731 log_recorder.py 26 请求的参数是{"mobilephone":"","amount":"200000"}
+INFO :2019-03-31 23:04:18,732 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 23:04:18,732 log_recorder.py 26 当前执行的用例是金额为0充值
+INFO :2019-03-31 23:04:18,732 log_recorder.py 26 请求的参数是{"mobilephone": "${tel}", "amount": "0"}
+INFO :2019-03-31 23:04:18,733 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 23:04:18,733 log_recorder.py 26 当前执行的用例是金额为51万充值
+INFO :2019-03-31 23:04:18,733 log_recorder.py 26 请求的参数是{"mobilephone": "${tel}", "amount": "510000"}
+INFO :2019-03-31 23:04:18,733 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 23:06:55,253 log_recorder.py 26 当前执行的用例是正确手机号和正确密码注册
+INFO :2019-03-31 23:06:55,253 log_recorder.py 26 请求的参数是{"mobilephone": "${tel}", "pwd": "nishi458", "regname": "乐乐"}
+INFO :2019-03-31 23:06:55,254 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/register
+INFO :2019-03-31 23:06:55,351 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20109', 'data': None, 'msg': '手机号码格式不正确'}
+INFO :2019-03-31 23:06:55,478 log_recorder.py 26 当前执行的用例是输入已注册的手机号注册
+INFO :2019-03-31 23:06:55,478 log_recorder.py 26 请求的参数是{"mobilephone": "${tel}", "pwd": "nishi458", "regname": "乐乐"}
+INFO :2019-03-31 23:06:55,479 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 23:06:55,481 log_recorder.py 26 当前执行的用例是输入错误格式的手机号注册
+INFO :2019-03-31 23:06:55,481 log_recorder.py 26 请求的参数是{"mobilephone": "1861184828", "pwd": "nishi458", "regname": "乐乐"}
+INFO :2019-03-31 23:06:55,481 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 23:06:55,482 log_recorder.py 26 当前执行的用例是输入不足6位的密码
+INFO :2019-03-31 23:06:55,482 log_recorder.py 26 请求的参数是{"mobilephone": "${tel}", "pwd": "12345", "regname": "乐乐"}
+INFO :2019-03-31 23:06:55,483 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 23:06:55,484 log_recorder.py 26 当前执行的用例是不输入用户名，不输入密码注册
+INFO :2019-03-31 23:06:55,484 log_recorder.py 26 请求的参数是{"mobilephone":"","pwd":"","regname":"乐乐"}
+INFO :2019-03-31 23:06:55,484 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 23:06:55,485 log_recorder.py 26 当前执行的用例是正确手机号和正确金额充值
+INFO :2019-03-31 23:06:55,485 log_recorder.py 26 请求的参数是{"mobilephone": "${tel}", "amount": "200000"}
+INFO :2019-03-31 23:06:55,485 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/recharge
+INFO :2019-03-31 23:06:55,486 log_recorder.py 26 当前执行的用例是输入不存在的手机号充值
+INFO :2019-03-31 23:06:55,486 log_recorder.py 26 请求的参数是{"mobilephone": "13000500000", "amount": "200000"}
+INFO :2019-03-31 23:06:55,486 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 23:06:55,487 log_recorder.py 26 当前执行的用例是不输入手机号充值
+INFO :2019-03-31 23:06:55,487 log_recorder.py 26 请求的参数是{"mobilephone":"","amount":"200000"}
+INFO :2019-03-31 23:06:55,487 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 23:06:55,488 log_recorder.py 26 当前执行的用例是金额为0充值
+INFO :2019-03-31 23:06:55,488 log_recorder.py 26 请求的参数是{"mobilephone": "${tel}", "amount": "0"}
+INFO :2019-03-31 23:06:55,488 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 23:06:55,489 log_recorder.py 26 当前执行的用例是金额为51万充值
+INFO :2019-03-31 23:06:55,489 log_recorder.py 26 请求的参数是{"mobilephone": "${tel}", "amount": "510000"}
+INFO :2019-03-31 23:06:55,489 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 23:08:20,155 log_recorder.py 26 当前执行的用例是正确手机号和正确密码注册
+INFO :2019-03-31 23:08:20,156 log_recorder.py 26 请求的参数是{"mobilephone": "18611848465", "pwd": "nishi458", "regname": "乐乐"}
+INFO :2019-03-31 23:08:20,156 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/register
+INFO :2019-03-31 23:08:20,267 log_recorder.py 26 当前用例执行的结果是{'status': 1, 'code': '10001', 'data': None, 'msg': '注册成功'}
+INFO :2019-03-31 23:08:20,382 log_recorder.py 26 当前执行的用例是输入已注册的手机号注册
+INFO :2019-03-31 23:08:20,382 log_recorder.py 26 请求的参数是{"mobilephone": "18611848465", "pwd": "nishi458", "regname": "乐乐"}
+INFO :2019-03-31 23:08:20,382 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 23:08:20,385 log_recorder.py 26 当前执行的用例是输入错误格式的手机号注册
+INFO :2019-03-31 23:08:20,385 log_recorder.py 26 请求的参数是{"mobilephone": "1861184828", "pwd": "nishi458", "regname": "乐乐"}
+INFO :2019-03-31 23:08:20,386 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 23:08:20,387 log_recorder.py 26 当前执行的用例是输入不足6位的密码
+INFO :2019-03-31 23:08:20,388 log_recorder.py 26 请求的参数是{"mobilephone": "18611848465", "pwd": "12345", "regname": "乐乐"}
+INFO :2019-03-31 23:08:20,388 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 23:08:20,389 log_recorder.py 26 当前执行的用例是不输入用户名，不输入密码注册
+INFO :2019-03-31 23:08:20,390 log_recorder.py 26 请求的参数是{"mobilephone":"","pwd":"","regname":"乐乐"}
+INFO :2019-03-31 23:08:20,390 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 23:08:20,391 log_recorder.py 26 当前执行的用例是正确手机号和正确金额充值
+INFO :2019-03-31 23:08:20,392 log_recorder.py 26 请求的参数是{"mobilephone": "18611848465", "amount": "200000"}
+INFO :2019-03-31 23:08:20,392 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/recharge
+INFO :2019-03-31 23:08:20,393 log_recorder.py 26 当前执行的用例是输入不存在的手机号充值
+INFO :2019-03-31 23:08:20,393 log_recorder.py 26 请求的参数是{"mobilephone": "13000500000", "amount": "200000"}
+INFO :2019-03-31 23:08:20,394 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 23:08:20,394 log_recorder.py 26 当前执行的用例是不输入手机号充值
+INFO :2019-03-31 23:08:20,394 log_recorder.py 26 请求的参数是{"mobilephone":"","amount":"200000"}
+INFO :2019-03-31 23:08:20,395 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 23:08:20,396 log_recorder.py 26 当前执行的用例是金额为0充值
+INFO :2019-03-31 23:08:20,396 log_recorder.py 26 请求的参数是{"mobilephone": "18611848465", "amount": "0"}
+INFO :2019-03-31 23:08:20,396 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 23:08:20,397 log_recorder.py 26 当前执行的用例是金额为51万充值
+INFO :2019-03-31 23:08:20,397 log_recorder.py 26 请求的参数是{"mobilephone": "18611848465", "amount": "510000"}
+INFO :2019-03-31 23:08:20,397 log_recorder.py 26 当前请求的url是nan
+INFO :2019-03-31 23:09:41,033 log_recorder.py 26 当前执行的用例是正确手机号和正确密码注册
+INFO :2019-03-31 23:09:41,034 log_recorder.py 26 请求的参数是{"mobilephone": "18611848461", "pwd": "nishi458", "regname": "乐乐"}
+INFO :2019-03-31 23:09:41,034 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/register
+INFO :2019-03-31 23:09:41,139 log_recorder.py 26 当前用例执行的结果是{'status': 1, 'code': '10001', 'data': None, 'msg': '注册成功'}
+INFO :2019-03-31 23:09:41,243 log_recorder.py 26 当前执行的用例是输入已注册的手机号注册
+INFO :2019-03-31 23:09:41,243 log_recorder.py 26 请求的参数是{"mobilephone": "18611848461", "pwd": "nishi458", "regname": "乐乐"}
+INFO :2019-03-31 23:09:41,243 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/register
+INFO :2019-03-31 23:09:41,339 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20110', 'data': None, 'msg': '手机号码已被注册'}
+INFO :2019-03-31 23:09:41,441 log_recorder.py 26 当前执行的用例是输入错误格式的手机号注册
+INFO :2019-03-31 23:09:41,442 log_recorder.py 26 请求的参数是{"mobilephone": "1861184828", "pwd": "nishi458", "regname": "乐乐"}
+INFO :2019-03-31 23:09:41,442 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/register
+INFO :2019-03-31 23:09:41,531 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20109', 'data': None, 'msg': '手机号码格式不正确'}
+INFO :2019-03-31 23:09:41,634 log_recorder.py 26 当前执行的用例是输入不足6位的密码
+INFO :2019-03-31 23:09:41,635 log_recorder.py 26 请求的参数是{"mobilephone": "18611848461", "pwd": "12345", "regname": "乐乐"}
+INFO :2019-03-31 23:09:41,635 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/register
+INFO :2019-03-31 23:09:41,725 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20108', 'data': None, 'msg': '密码长度必须为6~18'}
+INFO :2019-03-31 23:09:41,857 log_recorder.py 26 当前执行的用例是不输入用户名，不输入密码注册
+INFO :2019-03-31 23:09:41,857 log_recorder.py 26 请求的参数是{"mobilephone":"","pwd":"","regname":"乐乐"}
+INFO :2019-03-31 23:09:41,858 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/register
+INFO :2019-03-31 23:09:41,952 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20103', 'data': None, 'msg': '手机号不能为空'}
+INFO :2019-03-31 23:09:42,054 log_recorder.py 26 当前执行的用例是正确手机号和正确金额充值
+INFO :2019-03-31 23:09:42,055 log_recorder.py 26 请求的参数是{"mobilephone": "18611848461", "amount": "200000"}
+INFO :2019-03-31 23:09:42,055 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/recharge
+INFO :2019-03-31 23:09:42,056 log_recorder.py 26 当前执行的用例是输入不存在的手机号充值
+INFO :2019-03-31 23:09:42,056 log_recorder.py 26 请求的参数是{"mobilephone": "13000500000", "amount": "200000"}
+INFO :2019-03-31 23:09:42,056 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/recharge
+INFO :2019-03-31 23:09:42,057 log_recorder.py 26 当前执行的用例是不输入手机号充值
+INFO :2019-03-31 23:09:42,057 log_recorder.py 26 请求的参数是{"mobilephone":"","amount":"200000"}
+INFO :2019-03-31 23:09:42,057 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/recharge
+INFO :2019-03-31 23:09:42,058 log_recorder.py 26 当前执行的用例是金额为0充值
+INFO :2019-03-31 23:09:42,058 log_recorder.py 26 请求的参数是{"mobilephone": "18611848461", "amount": "0"}
+INFO :2019-03-31 23:09:42,058 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/recharge
+INFO :2019-03-31 23:09:42,059 log_recorder.py 26 当前执行的用例是金额为51万充值
+INFO :2019-03-31 23:09:42,059 log_recorder.py 26 请求的参数是{"mobilephone": "18611848461", "amount": "510000"}
+INFO :2019-03-31 23:09:42,059 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/recharge
+INFO :2019-03-31 23:11:20,394 log_recorder.py 26 当前执行的用例是正确手机号和正确密码注册
+INFO :2019-03-31 23:11:20,394 log_recorder.py 26 请求的参数是{"mobilephone": "18611848463", "pwd": "nishi458", "regname": "乐乐"}
+INFO :2019-03-31 23:11:20,395 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/register
+INFO :2019-03-31 23:11:20,500 log_recorder.py 26 当前用例执行的结果是{'status': 1, 'code': '10001', 'data': None, 'msg': '注册成功'}
+INFO :2019-03-31 23:11:20,616 log_recorder.py 26 当前执行的用例是输入已注册的手机号注册
+INFO :2019-03-31 23:11:20,616 log_recorder.py 26 请求的参数是{"mobilephone": "18611848463", "pwd": "nishi458", "regname": "乐乐"}
+INFO :2019-03-31 23:11:20,616 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/register
+INFO :2019-03-31 23:11:20,706 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20110', 'data': None, 'msg': '手机号码已被注册'}
+INFO :2019-03-31 23:11:20,813 log_recorder.py 26 当前执行的用例是输入错误格式的手机号注册
+INFO :2019-03-31 23:11:20,813 log_recorder.py 26 请求的参数是{"mobilephone": "1861184828", "pwd": "nishi458", "regname": "乐乐"}
+INFO :2019-03-31 23:11:20,814 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/register
+INFO :2019-03-31 23:11:20,901 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20109', 'data': None, 'msg': '手机号码格式不正确'}
+INFO :2019-03-31 23:11:21,005 log_recorder.py 26 当前执行的用例是输入不足6位的密码
+INFO :2019-03-31 23:11:21,005 log_recorder.py 26 请求的参数是{"mobilephone": "18611848463", "pwd": "12345", "regname": "乐乐"}
+INFO :2019-03-31 23:11:21,006 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/register
+INFO :2019-03-31 23:11:21,093 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20108', 'data': None, 'msg': '密码长度必须为6~18'}
+INFO :2019-03-31 23:11:21,224 log_recorder.py 26 当前执行的用例是不输入用户名，不输入密码注册
+INFO :2019-03-31 23:11:21,224 log_recorder.py 26 请求的参数是{"mobilephone":"","pwd":"","regname":"乐乐"}
+INFO :2019-03-31 23:11:21,225 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/register
+INFO :2019-03-31 23:11:21,319 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20103', 'data': None, 'msg': '手机号不能为空'}
+INFO :2019-03-31 23:11:21,424 log_recorder.py 26 当前执行的用例是正确手机号和正确金额充值
+INFO :2019-03-31 23:11:21,424 log_recorder.py 26 请求的参数是{"mobilephone": "18611848463", "amount": "200000"}
+INFO :2019-03-31 23:11:21,424 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/recharge
+INFO :2019-03-31 23:11:21,425 log_recorder.py 26 当前执行的用例是输入不存在的手机号充值
+INFO :2019-03-31 23:11:21,425 log_recorder.py 26 请求的参数是{"mobilephone": "13000500000", "amount": "200000"}
+INFO :2019-03-31 23:11:21,426 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/recharge
+INFO :2019-03-31 23:11:21,426 log_recorder.py 26 当前执行的用例是不输入手机号充值
+INFO :2019-03-31 23:11:21,426 log_recorder.py 26 请求的参数是{"mobilephone":"","amount":"200000"}
+INFO :2019-03-31 23:11:21,427 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/recharge
+INFO :2019-03-31 23:11:21,427 log_recorder.py 26 当前执行的用例是金额为0充值
+INFO :2019-03-31 23:11:21,427 log_recorder.py 26 请求的参数是{"mobilephone": "18611848463", "amount": "0"}
+INFO :2019-03-31 23:11:21,428 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/recharge
+INFO :2019-03-31 23:11:21,428 log_recorder.py 26 当前执行的用例是金额为51万充值
+INFO :2019-03-31 23:11:21,428 log_recorder.py 26 请求的参数是{"mobilephone": "18611848463", "amount": "510000"}
+INFO :2019-03-31 23:11:21,428 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/recharge
+INFO :2019-03-31 23:12:24,839 log_recorder.py 26 当前执行的用例是正确手机号和正确密码注册
+INFO :2019-03-31 23:12:24,839 log_recorder.py 26 请求的参数是{"mobilephone": "18611848465", "pwd": "nishi458", "regname": "乐乐"}
+INFO :2019-03-31 23:12:24,839 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/register
+INFO :2019-03-31 23:12:24,944 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20110', 'data': None, 'msg': '手机号码已被注册'}
+INFO :2019-03-31 23:12:25,051 log_recorder.py 26 当前执行的用例是输入已注册的手机号注册
+INFO :2019-03-31 23:12:25,052 log_recorder.py 26 请求的参数是{"mobilephone": "18611848465", "pwd": "nishi458", "regname": "乐乐"}
+INFO :2019-03-31 23:12:25,052 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/register
+INFO :2019-03-31 23:12:25,143 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20110', 'data': None, 'msg': '手机号码已被注册'}
+INFO :2019-03-31 23:12:25,250 log_recorder.py 26 当前执行的用例是输入错误格式的手机号注册
+INFO :2019-03-31 23:12:25,250 log_recorder.py 26 请求的参数是{"mobilephone": "1861184828", "pwd": "nishi458", "regname": "乐乐"}
+INFO :2019-03-31 23:12:25,250 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/register
+INFO :2019-03-31 23:12:25,339 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20109', 'data': None, 'msg': '手机号码格式不正确'}
+INFO :2019-03-31 23:12:25,448 log_recorder.py 26 当前执行的用例是输入不足6位的密码
+INFO :2019-03-31 23:12:25,449 log_recorder.py 26 请求的参数是{"mobilephone": "18611848465", "pwd": "12345", "regname": "乐乐"}
+INFO :2019-03-31 23:12:25,449 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/register
+INFO :2019-03-31 23:12:25,538 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20108', 'data': None, 'msg': '密码长度必须为6~18'}
+INFO :2019-03-31 23:12:25,679 log_recorder.py 26 当前执行的用例是不输入用户名，不输入密码注册
+INFO :2019-03-31 23:12:25,679 log_recorder.py 26 请求的参数是{"mobilephone":"","pwd":"","regname":"乐乐"}
+INFO :2019-03-31 23:12:25,679 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/register
+INFO :2019-03-31 23:12:25,768 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20103', 'data': None, 'msg': '手机号不能为空'}
+INFO :2019-03-31 23:12:25,875 log_recorder.py 26 当前执行的用例是正确手机号和正确金额充值
+INFO :2019-03-31 23:12:25,875 log_recorder.py 26 请求的参数是{"mobilephone": "18611848465", "amount": "200000"}
+INFO :2019-03-31 23:12:25,876 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/recharge
+INFO :2019-03-31 23:12:25,876 log_recorder.py 26 当前执行的用例是输入不存在的手机号充值
+INFO :2019-03-31 23:12:25,876 log_recorder.py 26 请求的参数是{"mobilephone": "13000500000", "amount": "200000"}
+INFO :2019-03-31 23:12:25,877 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/recharge
+INFO :2019-03-31 23:12:25,877 log_recorder.py 26 当前执行的用例是不输入手机号充值
+INFO :2019-03-31 23:12:25,877 log_recorder.py 26 请求的参数是{"mobilephone":"","amount":"200000"}
+INFO :2019-03-31 23:12:25,878 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/recharge
+INFO :2019-03-31 23:12:25,878 log_recorder.py 26 当前执行的用例是金额为0充值
+INFO :2019-03-31 23:12:25,878 log_recorder.py 26 请求的参数是{"mobilephone": "18611848465", "amount": "0"}
+INFO :2019-03-31 23:12:25,879 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/recharge
+INFO :2019-03-31 23:12:25,879 log_recorder.py 26 当前执行的用例是金额为51万充值
+INFO :2019-03-31 23:12:25,879 log_recorder.py 26 请求的参数是{"mobilephone": "18611848465", "amount": "510000"}
+INFO :2019-03-31 23:12:25,880 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/recharge
+INFO :2019-03-31 23:13:11,273 log_recorder.py 26 当前执行的用例是正确手机号和正确密码注册
+INFO :2019-03-31 23:13:11,273 log_recorder.py 26 请求的参数是{"mobilephone": "18611848467", "pwd": "nishi458", "regname": "乐乐"}
+INFO :2019-03-31 23:13:11,274 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/register
+INFO :2019-03-31 23:13:11,378 log_recorder.py 26 当前用例执行的结果是{'status': 1, 'code': '10001', 'data': None, 'msg': '注册成功'}
+INFO :2019-03-31 23:13:11,480 log_recorder.py 26 当前执行的用例是输入已注册的手机号注册
+INFO :2019-03-31 23:13:11,481 log_recorder.py 26 请求的参数是{"mobilephone": "18611848467", "pwd": "nishi458", "regname": "乐乐"}
+INFO :2019-03-31 23:13:11,481 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/register
+INFO :2019-03-31 23:13:11,578 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20110', 'data': None, 'msg': '手机号码已被注册'}
+INFO :2019-03-31 23:13:11,675 log_recorder.py 26 当前执行的用例是输入错误格式的手机号注册
+INFO :2019-03-31 23:13:11,675 log_recorder.py 26 请求的参数是{"mobilephone": "1861184828", "pwd": "nishi458", "regname": "乐乐"}
+INFO :2019-03-31 23:13:11,675 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/register
+INFO :2019-03-31 23:13:11,764 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20109', 'data': None, 'msg': '手机号码格式不正确'}
+INFO :2019-03-31 23:13:11,861 log_recorder.py 26 当前执行的用例是输入不足6位的密码
+INFO :2019-03-31 23:13:11,861 log_recorder.py 26 请求的参数是{"mobilephone": "18611848467", "pwd": "12345", "regname": "乐乐"}
+INFO :2019-03-31 23:13:11,861 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/register
+INFO :2019-03-31 23:13:11,956 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20108', 'data': None, 'msg': '密码长度必须为6~18'}
+INFO :2019-03-31 23:13:12,089 log_recorder.py 26 当前执行的用例是不输入用户名，不输入密码注册
+INFO :2019-03-31 23:13:12,089 log_recorder.py 26 请求的参数是{"mobilephone":"","pwd":"","regname":"乐乐"}
+INFO :2019-03-31 23:13:12,090 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/register
+INFO :2019-03-31 23:13:12,178 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20103', 'data': None, 'msg': '手机号不能为空'}
+INFO :2019-03-31 23:13:12,278 log_recorder.py 26 当前执行的用例是正确手机号和正确金额充值
+INFO :2019-03-31 23:13:12,279 log_recorder.py 26 请求的参数是{"mobilephone": "18611848467", "amount": "200000"}
+INFO :2019-03-31 23:13:12,279 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/recharge
+INFO :2019-03-31 23:13:12,280 log_recorder.py 26 当前执行的用例是输入不存在的手机号充值
+INFO :2019-03-31 23:13:12,280 log_recorder.py 26 请求的参数是{"mobilephone": "13000500000", "amount": "200000"}
+INFO :2019-03-31 23:13:12,281 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/recharge
+INFO :2019-03-31 23:13:12,281 log_recorder.py 26 当前执行的用例是不输入手机号充值
+INFO :2019-03-31 23:13:12,282 log_recorder.py 26 请求的参数是{"mobilephone":"","amount":"200000"}
+INFO :2019-03-31 23:13:12,282 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/recharge
+INFO :2019-03-31 23:13:12,283 log_recorder.py 26 当前执行的用例是金额为0充值
+INFO :2019-03-31 23:13:12,283 log_recorder.py 26 请求的参数是{"mobilephone": "18611848467", "amount": "0"}
+INFO :2019-03-31 23:13:12,283 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/recharge
+INFO :2019-03-31 23:13:12,284 log_recorder.py 26 当前执行的用例是金额为51万充值
+INFO :2019-03-31 23:13:12,284 log_recorder.py 26 请求的参数是{"mobilephone": "18611848467", "amount": "510000"}
+INFO :2019-03-31 23:13:12,284 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/recharge
+INFO :2019-03-31 23:14:16,147 log_recorder.py 26 当前执行的用例是正确手机号和正确密码注册
+INFO :2019-03-31 23:14:16,148 log_recorder.py 26 请求的参数是{"mobilephone": "18611848469", "pwd": "nishi458", "regname": "乐乐"}
+INFO :2019-03-31 23:14:16,148 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/register
+INFO :2019-03-31 23:14:16,255 log_recorder.py 26 当前用例执行的结果是{'status': 1, 'code': '10001', 'data': None, 'msg': '注册成功'}
+INFO :2019-03-31 23:14:16,368 log_recorder.py 26 当前执行的用例是输入已注册的手机号注册
+INFO :2019-03-31 23:14:16,369 log_recorder.py 26 请求的参数是{"mobilephone": "18611848469", "pwd": "nishi458", "regname": "乐乐"}
+INFO :2019-03-31 23:14:16,369 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/register
+INFO :2019-03-31 23:14:16,459 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20110', 'data': None, 'msg': '手机号码已被注册'}
+INFO :2019-03-31 23:14:16,564 log_recorder.py 26 当前执行的用例是输入错误格式的手机号注册
+INFO :2019-03-31 23:14:16,564 log_recorder.py 26 请求的参数是{"mobilephone": "1861184828", "pwd": "nishi458", "regname": "乐乐"}
+INFO :2019-03-31 23:14:16,565 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/register
+INFO :2019-03-31 23:14:16,653 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20109', 'data': None, 'msg': '手机号码格式不正确'}
+INFO :2019-03-31 23:14:16,764 log_recorder.py 26 当前执行的用例是输入不足6位的密码
+INFO :2019-03-31 23:14:16,764 log_recorder.py 26 请求的参数是{"mobilephone": "18611848469", "pwd": "12345", "regname": "乐乐"}
+INFO :2019-03-31 23:14:16,765 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/register
+INFO :2019-03-31 23:14:16,859 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20108', 'data': None, 'msg': '密码长度必须为6~18'}
+INFO :2019-03-31 23:14:16,993 log_recorder.py 26 当前执行的用例是不输入用户名，不输入密码注册
+INFO :2019-03-31 23:14:16,994 log_recorder.py 26 请求的参数是{"mobilephone":"","pwd":"","regname":"乐乐"}
+INFO :2019-03-31 23:14:16,994 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/register
+INFO :2019-03-31 23:14:17,084 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20103', 'data': None, 'msg': '手机号不能为空'}
+INFO :2019-03-31 23:14:17,180 log_recorder.py 26 当前执行的用例是正确手机号和正确金额充值
+INFO :2019-03-31 23:14:17,181 log_recorder.py 26 请求的参数是{"mobilephone": "18611848469", "amount": "200000"}
+INFO :2019-03-31 23:14:17,181 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/recharge
+INFO :2019-03-31 23:14:17,182 log_recorder.py 26 当前执行的用例是输入不存在的手机号充值
+INFO :2019-03-31 23:14:17,182 log_recorder.py 26 请求的参数是{"mobilephone": "13000500000", "amount": "200000"}
+INFO :2019-03-31 23:14:17,182 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/recharge
+INFO :2019-03-31 23:14:17,183 log_recorder.py 26 当前执行的用例是不输入手机号充值
+INFO :2019-03-31 23:14:17,183 log_recorder.py 26 请求的参数是{"mobilephone":"","amount":"200000"}
+INFO :2019-03-31 23:14:17,183 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/recharge
+INFO :2019-03-31 23:14:17,184 log_recorder.py 26 当前执行的用例是金额为0充值
+INFO :2019-03-31 23:14:17,184 log_recorder.py 26 请求的参数是{"mobilephone": "18611848469", "amount": "0"}
+INFO :2019-03-31 23:14:17,184 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/recharge
+INFO :2019-03-31 23:14:17,185 log_recorder.py 26 当前执行的用例是金额为51万充值
+INFO :2019-03-31 23:14:17,185 log_recorder.py 26 请求的参数是{"mobilephone": "18611848469", "amount": "510000"}
+INFO :2019-03-31 23:14:17,185 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/recharge
+INFO :2019-03-31 23:15:50,895 log_recorder.py 26 当前执行的用例是正确手机号和正确密码注册
+INFO :2019-03-31 23:15:50,896 log_recorder.py 26 请求的参数是{"mobilephone": "18611848471", "pwd": "nishi458", "regname": "乐乐"}
+INFO :2019-03-31 23:15:50,896 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/register
+INFO :2019-03-31 23:15:51,001 log_recorder.py 26 当前用例执行的结果是{'status': 1, 'code': '10001', 'data': None, 'msg': '注册成功'}
+INFO :2019-03-31 23:15:51,106 log_recorder.py 26 当前执行的用例是输入已注册的手机号注册
+INFO :2019-03-31 23:15:51,106 log_recorder.py 26 请求的参数是{"mobilephone": "18611848471", "pwd": "nishi458", "regname": "乐乐"}
+INFO :2019-03-31 23:15:51,106 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/register
+INFO :2019-03-31 23:15:51,198 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20110', 'data': None, 'msg': '手机号码已被注册'}
+INFO :2019-03-31 23:15:51,309 log_recorder.py 26 当前执行的用例是输入错误格式的手机号注册
+INFO :2019-03-31 23:15:51,309 log_recorder.py 26 请求的参数是{"mobilephone": "1861184828", "pwd": "nishi458", "regname": "乐乐"}
+INFO :2019-03-31 23:15:51,309 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/register
+INFO :2019-03-31 23:15:51,404 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20109', 'data': None, 'msg': '手机号码格式不正确'}
+INFO :2019-03-31 23:15:51,510 log_recorder.py 26 当前执行的用例是输入不足6位的密码
+INFO :2019-03-31 23:15:51,510 log_recorder.py 26 请求的参数是{"mobilephone": "18611848471", "pwd": "12345", "regname": "乐乐"}
+INFO :2019-03-31 23:15:51,511 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/register
+INFO :2019-03-31 23:15:51,600 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20108', 'data': None, 'msg': '密码长度必须为6~18'}
+INFO :2019-03-31 23:15:51,722 log_recorder.py 26 当前执行的用例是不输入用户名，不输入密码注册
+INFO :2019-03-31 23:15:51,723 log_recorder.py 26 请求的参数是{"mobilephone":"","pwd":"","regname":"乐乐"}
+INFO :2019-03-31 23:15:51,723 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/register
+INFO :2019-03-31 23:15:51,811 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20103', 'data': None, 'msg': '手机号不能为空'}
+INFO :2019-03-31 23:15:51,919 log_recorder.py 26 当前执行的用例是正确手机号和正确金额充值
+INFO :2019-03-31 23:15:51,920 log_recorder.py 26 请求的参数是{"mobilephone": "18611848471", "amount": "200000"}
+INFO :2019-03-31 23:15:51,920 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/recharge
+INFO :2019-03-31 23:15:52,181 log_recorder.py 26 请求前的余额是0.00
+INFO :2019-03-31 23:15:52,284 log_recorder.py 26 当前用例执行的结果是{'status': 1, 'code': '10001', 'data': {'id': 50, 'regname': '乐乐', 'pwd': '425D8C1C393092A412E500B7D6D056EF', 'mobilephone': '18611848471', 'leaveamount': '200000.00', 'type': '1', 'regtime': '2019-03-31 23:15:50.0'}, 'msg': '充值成功'}
+INFO :2019-03-31 23:15:52,540 log_recorder.py 26 请求后的余额是200000.00
+INFO :2019-03-31 23:15:52,642 log_recorder.py 26 当前执行的用例是输入不存在的手机号充值
+INFO :2019-03-31 23:15:52,642 log_recorder.py 26 请求的参数是{"mobilephone": "13000500000", "amount": "200000"}
+INFO :2019-03-31 23:15:52,643 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/recharge
+INFO :2019-03-31 23:15:52,898 log_recorder.py 26 当前执行的用例是不输入手机号充值
+INFO :2019-03-31 23:15:52,898 log_recorder.py 26 请求的参数是{"mobilephone":"","amount":"200000"}
+INFO :2019-03-31 23:15:52,899 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/recharge
+INFO :2019-03-31 23:15:53,155 log_recorder.py 26 当前执行的用例是金额为0充值
+INFO :2019-03-31 23:15:53,156 log_recorder.py 26 请求的参数是{"mobilephone": "18611848471", "amount": "0"}
+INFO :2019-03-31 23:15:53,156 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/recharge
+INFO :2019-03-31 23:15:53,430 log_recorder.py 26 请求前的余额是200000.00
+INFO :2019-03-31 23:15:53,527 log_recorder.py 26 当前用例执行的结果是{'status': 1, 'code': '10001', 'data': {'id': 50, 'regname': '乐乐', 'pwd': '425D8C1C393092A412E500B7D6D056EF', 'mobilephone': '18611848471', 'leaveamount': '200000.00', 'type': '1', 'regtime': '2019-03-31 23:15:50.0'}, 'msg': '充值成功'}
+INFO :2019-03-31 23:15:53,784 log_recorder.py 26 请求后的余额是200000.00
+INFO :2019-03-31 23:15:53,887 log_recorder.py 26 当前执行的用例是金额为51万充值
+INFO :2019-03-31 23:15:53,888 log_recorder.py 26 请求的参数是{"mobilephone": "18611848471", "amount": "510000"}
+INFO :2019-03-31 23:15:53,888 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/recharge
+INFO :2019-03-31 23:15:54,156 log_recorder.py 26 请求前的余额是200000.00
+INFO :2019-03-31 23:15:54,245 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20117', 'data': None, 'msg': '请输入范围在0到50万之间的正数金额'}
+INFO :2019-03-31 23:15:54,499 log_recorder.py 26 请求后的余额是200000.00
+INFO :2019-03-31 23:20:30,382 log_recorder.py 26 当前执行的用例是正确手机号和正确密码注册
+INFO :2019-03-31 23:20:30,383 log_recorder.py 26 请求的参数是{"mobilephone": "18611848473", "pwd": "nishi458", "regname": "乐乐"}
+INFO :2019-03-31 23:20:30,383 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/register
+INFO :2019-03-31 23:20:30,491 log_recorder.py 26 当前用例执行的结果是{'status': 1, 'code': '10001', 'data': None, 'msg': '注册成功'}
+INFO :2019-03-31 23:20:30,594 log_recorder.py 26 当前执行的用例是输入已注册的手机号注册
+INFO :2019-03-31 23:20:30,594 log_recorder.py 26 请求的参数是{"mobilephone": "18611848473", "pwd": "nishi458", "regname": "乐乐"}
+INFO :2019-03-31 23:20:30,595 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/register
+INFO :2019-03-31 23:20:30,687 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20110', 'data': None, 'msg': '手机号码已被注册'}
+INFO :2019-03-31 23:20:30,794 log_recorder.py 26 当前执行的用例是输入错误格式的手机号注册
+INFO :2019-03-31 23:20:30,794 log_recorder.py 26 请求的参数是{"mobilephone": "1861184828", "pwd": "nishi458", "regname": "乐乐"}
+INFO :2019-03-31 23:20:30,794 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/register
+INFO :2019-03-31 23:20:30,884 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20109', 'data': None, 'msg': '手机号码格式不正确'}
+INFO :2019-03-31 23:20:30,989 log_recorder.py 26 当前执行的用例是输入不足6位的密码
+INFO :2019-03-31 23:20:30,989 log_recorder.py 26 请求的参数是{"mobilephone": "18611848473", "pwd": "12345", "regname": "乐乐"}
+INFO :2019-03-31 23:20:30,989 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/register
+INFO :2019-03-31 23:20:31,083 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20108', 'data': None, 'msg': '密码长度必须为6~18'}
+INFO :2019-03-31 23:20:31,220 log_recorder.py 26 当前执行的用例是不输入用户名，不输入密码注册
+INFO :2019-03-31 23:20:31,221 log_recorder.py 26 请求的参数是{"mobilephone":"","pwd":"","regname":"乐乐"}
+INFO :2019-03-31 23:20:31,221 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/register
+INFO :2019-03-31 23:20:31,314 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20103', 'data': None, 'msg': '手机号不能为空'}
+INFO :2019-03-31 23:20:31,416 log_recorder.py 26 当前执行的用例是正确手机号和正确金额充值
+INFO :2019-03-31 23:20:31,417 log_recorder.py 26 请求的参数是{"mobilephone": "18611848473", "amount": "200000"}
+INFO :2019-03-31 23:20:31,417 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/recharge
+INFO :2019-03-31 23:20:31,672 log_recorder.py 26 请求前的余额是0.00
+INFO :2019-03-31 23:20:31,777 log_recorder.py 26 当前用例执行的结果是{'status': 1, 'code': '10001', 'data': {'id': 51, 'regname': '乐乐', 'pwd': '425D8C1C393092A412E500B7D6D056EF', 'mobilephone': '18611848473', 'leaveamount': '200000.00', 'type': '1', 'regtime': '2019-03-31 23:20:30.0'}, 'msg': '充值成功'}
+INFO :2019-03-31 23:20:32,046 log_recorder.py 26 请求后的余额是200000.00
+INFO :2019-03-31 23:20:32,151 log_recorder.py 26 当前执行的用例是输入不存在的手机号充值
+INFO :2019-03-31 23:20:32,152 log_recorder.py 26 请求的参数是{"mobilephone": "13000500000", "amount": "200000"}
+INFO :2019-03-31 23:20:32,152 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/recharge
+INFO :2019-03-31 23:20:32,408 log_recorder.py 26 当前执行的用例是不输入手机号充值
+INFO :2019-03-31 23:20:32,408 log_recorder.py 26 请求的参数是{"mobilephone":"","amount":"200000"}
+INFO :2019-03-31 23:20:32,409 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/recharge
+INFO :2019-03-31 23:20:32,668 log_recorder.py 26 当前执行的用例是金额为0充值
+INFO :2019-03-31 23:20:32,669 log_recorder.py 26 请求的参数是{"mobilephone": "18611848473", "amount": "0"}
+INFO :2019-03-31 23:20:32,669 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/recharge
+INFO :2019-03-31 23:20:32,918 log_recorder.py 26 请求前的余额是200000.00
+INFO :2019-03-31 23:20:33,016 log_recorder.py 26 当前用例执行的结果是{'status': 1, 'code': '10001', 'data': {'id': 51, 'regname': '乐乐', 'pwd': '425D8C1C393092A412E500B7D6D056EF', 'mobilephone': '18611848473', 'leaveamount': '200000.00', 'type': '1', 'regtime': '2019-03-31 23:20:30.0'}, 'msg': '充值成功'}
+INFO :2019-03-31 23:20:33,266 log_recorder.py 26 请求后的余额是200000.00
+INFO :2019-03-31 23:20:33,372 log_recorder.py 26 当前执行的用例是金额为51万充值
+INFO :2019-03-31 23:20:33,373 log_recorder.py 26 请求的参数是{"mobilephone": "18611848473", "amount": "510000"}
+INFO :2019-03-31 23:20:33,373 log_recorder.py 26 当前请求的url是http://120.78.128.25:8080/futureloan/mvc/api/member/recharge
+INFO :2019-03-31 23:20:33,624 log_recorder.py 26 请求前的余额是200000.00
+INFO :2019-03-31 23:20:33,715 log_recorder.py 26 当前用例执行的结果是{'status': 0, 'code': '20117', 'data': None, 'msg': '请输入范围在0到50万之间的正数金额'}
+INFO :2019-03-31 23:20:33,968 log_recorder.py 26 请求后的余额是200000.00

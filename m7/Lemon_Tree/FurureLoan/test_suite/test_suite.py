@@ -1,6 +1,7 @@
 import unittest
 from test_cases.login_testcase import ModuleTestCase
 import HTMLTestRunner
+import HTMLTestRunnerNew
 import sys,os
 from settings import RESULT_FILE
 
@@ -12,6 +13,6 @@ loader = unittest.TestLoader()
 suite.addTest(loader.loadTestsFromTestCase(ModuleTestCase))
 
 with open(RESULT_FILE,'wb') as file:
-    runner = HTMLTestRunner.HTMLTestRunner(stream=file,verbosity=2,
+    runner = HTMLTestRunnerNew.HTMLTestRunner(stream=file,verbosity=2,
                                            title='登录模块测试用例')
     runner.run(suite)
