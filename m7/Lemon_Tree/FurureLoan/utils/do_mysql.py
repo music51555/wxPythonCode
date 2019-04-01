@@ -15,8 +15,10 @@ class DoMysql:
         res = self.cursor.fetchone()
         self.cursor.close()
         self.conn.close()
-        return res[0]
+        if res:
+            return res[0]
+        else:
+            return None
 
 if __name__ == '__main__':
-    res = DoMysql().execute_sql('select id from loan where MemberID = 11')
-    print(res)
+    DoMysql().execute_sql('select LeaveAmount from member where MobilePhone = 18611848465')

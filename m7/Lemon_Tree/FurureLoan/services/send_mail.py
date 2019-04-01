@@ -1,6 +1,3 @@
-通过python发送邮件
-
-```python
 """
 Time    : 2019/4/1 10:58
 Author  : wang xin
@@ -45,4 +42,3 @@ class SendEmail:
 
 if __name__ == '__main__':
     SendEmail().send_email('452427904@qq.com',r'E:\workspace\wxPythonCode\wxPythonCode\m7\Lemon_Tree\FurureLoan\test_result\result.html')
-```
